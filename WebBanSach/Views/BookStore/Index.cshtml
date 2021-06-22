@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebBanSach.Models.SACH>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<<div class="products">
+    <div class="cl">&nbsp;</div>
+    <ul>
+        @foreach (var item in Model)
+        {
+        <li>
+            <a href="#"><img src="~/images/@item.Anhbia" height="283px" width="231px" alt="" /></a>
+            <div class="product-info">
+                <h3>LOREM IPSUM</h3>
+                <div class="product-desc">
+                    <h4>WOMEN’S</h4>
+                    <p>
+                        Lorem ipsum dolor sit<br />
+                        amet
+                    </p>
+                    <strong class="price">$58.99</strong>
+                </div>
+            </div>
+        </li>
+        }
+
+
+    </ul>
+    <div class="cl">&nbsp;</div>
+</div>
+
