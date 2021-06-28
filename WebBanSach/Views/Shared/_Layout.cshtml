@@ -1,42 +1,2620 @@
 ﻿<!DOCTYPE html>
-<html>
+<!-- jsn_bookstore 1.0.3 -->
+<html lang="en-gb" dir="ltr">
+
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    
+    <meta name="author" content="Super User" />
+    <meta name="generator" content="Joomla! - Open Source Content Management" />
+    <title>Home English</title>
+
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/en/component/search/?_ga=2.179083169.465511021.1624291040-439238716.1624291040&amp;id=138&amp;Itemid=937&amp;format=opensearch"
+          rel="search" title="Search Sun Bookstore" type="application/opensearchdescription+xml" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/j2store/css/j2store.css" rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/modules/mod_j2products/tmpl/Bootstrap3/assets/mod_j2products.css"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/css/bootstrap.css"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/plugins/system/sunfw/assets/3rd-party/bootstrap/flexbt4_custom.css"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/plugins/system/sunfw/assets/3rd-party/font-awesome/css/font-awesome.min.css"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/css/template.css"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/css/color_a5bfc9e07964f8dddeb95fc584cd965d.css"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/css/core/layout_a5bfc9e07964f8dddeb95fc584cd965d.css"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/css/core/general_a5bfc9e07964f8dddeb95fc584cd965d.css"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/css/core/offcanvas_a5bfc9e07964f8dddeb95fc584cd965d.css"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/css/core/sections_a5bfc9e07964f8dddeb95fc584cd965d.css"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/css/core/modules_a5bfc9e07964f8dddeb95fc584cd965d.css"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/css/core/menu_a5bfc9e07964f8dddeb95fc584cd965d.css"
+          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:600,700,regular" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/modules/mod_j2store_cart/css/j2store_cart.css"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/mod_languages/css/template.css?93ec787f24f439da8d2ad88e9d6a770d"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/css/3rd_extension/j2store/style.css"
+          rel="stylesheet" />
+    <style>
+        .sunfw-scrollup {
+            background: #ffc12c;
+            color: #263f44;
+        }
+    </style>
+    <script type="application/json"
+            class="joomla-script-options new">{"csrf.token":"43c8da9a892039287ecdab6901475eee","system.paths":{"root":"\/joomla-templates\/jsn_bookstore\/pro\/bookstore","base":"\/joomla-templates\/jsn_bookstore\/pro\/bookstore"},"system.keepalive":{"interval":3600000,"uri":"\/joomla-templates\/jsn_bookstore\/pro\/bookstore\/en\/component\/ajax\/?format=json"}}</script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/jui/js/jquery.min.js?93ec787f24f439da8d2ad88e9d6a770d"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/jui/js/jquery-noconflict.js?93ec787f24f439da8d2ad88e9d6a770d"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/jui/js/jquery-migrate.min.js?93ec787f24f439da8d2ad88e9d6a770d"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/j2store/js/j2store.namespace.js"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/j2store/js/jquery-ui.min.js"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/j2store/js/jquery-ui-timepicker-addon.js"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/j2store/js/jquery.zoom.js"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/j2store/js/j2store.js"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/j2store/js/bootstrap-modal-conflit.js"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/j2store/js/jquery.fancybox.min.js"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/modules/mod_j2products/tmpl/Bootstrap3/assets/mod_j2products.js"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/system/js/caption.js?93ec787f24f439da8d2ad88e9d6a770d"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/assets/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/plugins/system/sunfw/assets/joomlashine/site/js/utils.js"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/js/template.js"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/system/js/html5fallback.js"></script>
+    <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/media/system/js/core.js?93ec787f24f439da8d2ad88e9d6a770d"></script>
+    <!--[if lt IE 9]><script src="/joomla-templates/jsn_bookstore/pro/bookstore/media/system/js/polyfill.event.js?93ec787f24f439da8d2ad88e9d6a770d"></script><![endif]-->
+    <script src="/joomla-templates/jsn_bookstore/pro/bookstore/media/system/js/keepalive.js?93ec787f24f439da8d2ad88e9d6a770d"></script>
+    <script>
+
+		var j2storeURL = 'https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/';
+
+		if (typeof (j2store) == 'undefined') {
+			var j2store = {};
+		}
+
+		if (typeof (jQuery) != 'undefined') {
+			jQuery.noConflict();
+		}
+
+		if (typeof (j2store.jQuery) == 'undefined') {
+			j2store.jQuery = jQuery.noConflict();
+		}
+
+		if (typeof (j2store.jQuery) != 'undefined') {
+
+			(function ($) {
+				$(document).ready(function () {
+					/*date, time, datetime*/
+
+					if ($('.j2store_date').length) {
+						$('.j2store_date').datepicker({ dateFormat: 'yy-mm-dd' });
+					}
+
+					if ($('.j2store_datetime').length) {
+						$('.j2store_datetime').datetimepicker({
+							dateFormat: 'yy-mm-dd',
+							timeFormat: 'HH:mm',
+
+							currentText: 'Now',
+							closeText: 'Done',
+							timeOnlyTitle: 'Choose Time',
+							timeText: 'Time',
+							hourText: 'Hour',
+							minuteText: 'Minute',
+							secondText: 'Seconds',
+							millisecText: 'Milliseconds',
+							timezoneText: 'Time Zone'
+
+						});
+					}
+
+					if ($('.j2store_time').length) {
+						$('.j2store_time').timepicker({
+							timeFormat: 'HH:mm',
+							currentText: 'Now',
+							closeText: 'Done',
+							timeOnlyTitle: 'Choose Time',
+							timeText: 'Time',
+							hourText: 'Hour',
+							minuteText: 'Minute',
+							secondText: 'Seconds',
+							millisecText: 'Milliseconds',
+							timezoneText: 'Time Zone'
+						});
+					}
+
+				});
+			})(j2store.jQuery);
+		}
+
+		jQuery(document).off("click.fb-start", "[data-trigger]");
+		jQuery(window).on('load', function () {
+			new JCaption('img.caption');
+		});
+		SunBlank.initTemplate();
+		if (window.MooTools !== undefined) {
+			Element.implement({
+				hide: function () {
+					return this;
+				},
+				show: function (v) {
+					return this;
+				},
+				slide: function (v) {
+					return this;
+				}
+			});
+		}
+
+		jQuery(function ($) {
+			$(document).ready(function () {
+				$("ul.sunfw-tpl-menu li.item-478").addClass("megamenu").removeClass("dropdown-submenu");
+				$("ul.sunfw-tpl-menu li.item-478").addClass("center")
+			});
+		});
+
+		jQuery(document).off("click.fb-start", "[data-trigger]");
+		jQuery(document).off("click.fb-start", "[data-trigger]");
+		jQuery(function ($) { initTooltips(); $("body").on("subform-row-add", initTooltips); function initTooltips(event, container) { container = container || document; $(container).find(".hasTooltip").tooltip({ "html": true, "container": "body" }); } });
+
+		if (typeof (j2store) == 'undefined') {
+			var j2store = {};
+		}
+		if (typeof (j2store.jQuery) == 'undefined') {
+			j2store.jQuery = jQuery.noConflict();
+		}
+		(function ($) {
+			$(document).bind('after_adding_to_cart', function (element, data, type) {
+
+				var murl = '/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart/ajaxmini';
+
+				$.ajax({
+					url: murl,
+					type: 'get',
+					cache: false,
+					contentType: 'application/json; charset=utf-8',
+					dataType: 'json',
+					success: function (json) {
+						if (json != null && json['response']) {
+							$.each(json['response'], function (key, value) {
+								if ($('.j2store_cart_module_' + key).length) {
+									$('.j2store_cart_module_' + key).each(function () {
+										$(this).html(value);
+									});
+								}
+							});
+						}
+					}
+
+				});
+
+			});
+		})(j2store.jQuery);
+
+		jQuery(document).off("click.fb-start", "[data-trigger]");
+    </script>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    <link rel="stylesheet"
+          href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/plugins/editors/pagebuilder4/assets/app/pagefly/css/main-style.css?t=20201118161126">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
+          rel="stylesheet" />
+    <link href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/plugins/system/pagebuilder4/assets/css/front-end.css"
+          rel="stylesheet" />
+    @*<script>; window.__jsn_pagebuilder4_data__ = { "token": "43c8da9a892039287ecdab6901475eee", "isSite": true, "baseURL": "https:\/\/demo.joomlashine.com\/joomla-templates\/jsn_bookstore\/pro\/bookstore\/", "version": "1.2.2", "language": "en", "component": "com_content", "numPageCreated": 25 };</script>*@
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
+
+
+<body id="sunfw-master"
+      class="joomla-3 tmpl-jsn_bookstore  sunfw-direction-ltr  sunfw-com-content sunfw-view-article sunfw-itemid-937 sunfw-homepage">
+    <style>
+        .jsn_admindemobutton-container {
+            position: fixed;
+            top: 257px;
+            right: 0;
+            width: 75px;
+            height: 60px;
+            background: #fff;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid #fff;
+            border-right: none;
+            border-radius: 2px 0 0 2px;
+            box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+            padding: 1px;
+            z-index: 9991;
+        }
+
+            .jsn_admindemobutton-container .jsn_admindemobutton-wrapper {
+                display: block;
+                background: #e91e63;
+                color: #fff;
+                height: 100%;
+                z-index: 1;
+                position: relative;
+            }
+
+                .jsn_admindemobutton-container .jsn_admindemobutton-wrapper span {
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    font-weight: bold;
+                    display: block;
+                    line-height: 16px;
+                    padding-top: 12px;
+                }
+
+                    .jsn_admindemobutton-container .jsn_admindemobutton-wrapper span a {
+                        color: #fff;
+                    }
+    </style>
+    <div class="sunfw-switcher setting visible-xs visible-sm hidden-md hidden-lg>">
+        <div class="btn-group" role="group" aria-label="...">
+            <a href="#" class="btn"
+               onclick="javascript: SunFwUtils.setTemplateAttribute('jsn_bookstore_switcher_','mobile','no'); return false;">
+                <i class="fa fa-desktop" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="btn active"
+               onclick="javascript: SunFwUtils.setTemplateAttribute('jsn_bookstore_switcher_','mobile','yes'); return false;">
+                <i class="fa fa-mobile" aria-hidden="true"></i>
+            </a>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <div id="sunfw-wrapper" class="sunfw-content ">
+        <div id="sunfw_section_section_top"
+             class="sunfw-section sunfw_section_section_top visible-lg visible-md visible-sm visible-xs">
+            <div class="container">
+                <div id="row_row_18" class="row herder-top visible-lg visible-md visible-sm visible-xs">
+                    <div id="column_column_31" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                        <div class="layout-item sunfw-item-module-position">
+                            <div class="sunfw-pos-position-7   visible-lg visible-md visible-sm visible-xs">
+                                <div class="module-style ">
+                                    <div class="module-body">
+
+                                        <div class="custom">
+                                            <style>
+                                                /* PageFly Element Styles */
+                                                .gsdIuB {
+                                                    padding: var(--pf-s-lg);
+                                                }
+
+                                                @@media (max-width: 1199px) and (min-width: 992px) {
+                                                    .gsdIuB {
+                                                        padding: var(--pf-s-md);
+                                                    }
+                                                }
+
+                                                @@media (max-width: 991px) and (min-width: 768px) {
+                                                    .gsdIuB {
+                                                        padding: var(--pf-s-sm);
+                                                    }
+                                                }
+
+                                                @@media (max-width: 767px) {
+                                                    .gsdIuB {
+                                                        padding: var(--pf-s-xs);
+                                                    }
+                                                }
+
+                                                .iDckyw {
+                                                    position: relative;
+                                                }
+
+                                                .jdLQbH {
+                                                    margin: 0 calc(-1 * var(--pf-s-lg));
+                                                }
+
+                                                @@media (max-width: 1199px) and (min-width: 992px) {
+                                                    .jdLQbH {
+                                                        margin: 0 calc(-1 * var(--pf-s-md));
+                                                    }
+                                                }
+
+                                                @@media (max-width: 991px) and (min-width: 768px) {
+                                                    .jdLQbH {
+                                                        margin: 0 calc(-1 * var(--pf-s-sm));
+                                                    }
+                                                }
+
+                                                @@media (max-width: 767px) {
+                                                    .jdLQbH {
+                                                        margin: 0 calc(-1 * var(--pf-s-xs));
+                                                    }
+                                                }
+
+                                                .cBuwhn__parallax {
+                                                    position: absolute;
+                                                    top: 0px;
+                                                    left: 0px;
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    overflow: hidden;
+                                                    pointer-events: none;
+                                                }
+
+                                                .cBuwhn {
+                                                    padding: 15px 0px;
+                                                    position: relative;
+                                                }
+
+                                                .kzftmY > span:last-child {
+                                                    line-height: inherit;
+                                                    display: block;
+                                                    margin-right: 0px !important;
+                                                }
+
+                                                #editor-dnd-wrapper .kzftmY span + span[contenteditable] {
+                                                    display: block;
+                                                }
+
+                                                    #editor-dnd-wrapper .kzftmY span + span[contenteditable]:empty::after {
+                                                        display: inline;
+                                                    }
+
+                                                .kzftmY ol,
+                                                .kzftmY ul {
+                                                    list-style-position: inside;
+                                                }
+
+                                                .kzftmY blockquote {
+                                                    font-size: inherit;
+                                                }
+
+                                                .aevsi {
+                                                    display: inline-block;
+                                                }
+
+                                                    .aevsi[contenteditable="true"] {
+                                                        user-select: text;
+                                                    }
+
+                                                .aevsi {
+                                                    vertical-align: baseline;
+                                                    word-break: break-word;
+                                                }
+
+                                                    .aevsi:focus {
+                                                        outline: none;
+                                                    }
+
+                                                    .aevsi::after {
+                                                        display: inline;
+                                                    }
+
+                                                /* PageFly Styles */
+
+                                                @@media all {
+                                                    .__pf .pf-9c042a4e-1d3287b2 {
+                                                        margin-bottom: 0px;
+                                                        font-weight: 700;
+                                                        margin-top: 0px;
+                                                        font-size: 14px;
+                                                        line-height: 21px;
+                                                        font-family: Roboto;
+                                                    }
+
+                                                    .__pf .pf-9c042a4e-4b606440 {
+                                                        padding: 0px;
+                                                    }
+
+                                                    .__pf .pf-9c042a4e-87b2222e {
+                                                        padding: 0px;
+                                                        margin: 0px;
+                                                    }
+                                                }
+                                            </style>
+                                            <div class="__pf" id="__pf">
+                                                <div data-pf-type="Body" class="sc-oVpqz gmldoY pf-9c042a4e-d0de95de">
+                                                    <div data-pf-type="Layout" class="pf-9c042a4e-de95de84">
+                                                        <div data-container="false"
+                                                             class="sc-pZdvY cBuwhn pf-9c042a4e-4b606440"
+                                                             data-pf-type="Section">
+                                                            <div class="sc-pRgDJ fzXWJx">
+                                                                <div class="sc-qQxFs jdLQbH pf-9c042a4e-222e44ce pf-r pf-r-eh"
+                                                                     data-pf-type="Row"
+                                                                     style="--pf-s-lg:15px; --pf-s-md:15px; --pf-s-sm:15px; --pf-s-xs:15px;">
+                                                                    <div class="sc-pbJYR gsdIuB pf-c pf-c-xs--12 pf-c-sm--12 pf-c-md--12 pf-c-lg--12">
+                                                                        <div class="sc-pkfPC iDckyw pf-9c042a4e-87b2222e"
+                                                                             data-pf-type="Column">
+                                                                            <p data-pf-type="Paragraph2"
+                                                                               class="sc-psedN kzftmY pf-9c042a4e-1d3287b2">
+                                                                                <span data-pf-type="Text"
+                                                                                      class="sc-qPwwY aevsi pf-9c042a4e-cedd1d32">
+                                                                                    Hotlines:
+                                                                                    0123 456 789 / 0789 456 123
+                                                                                </span>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <script type="application/json"
+                                                    class="pf_page_settings">{"isBackend":false,"pageflyVersion":"2.12.0","elementData":{},"pageId":"9c042a4e"}</script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="column_column_32" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                        <div class="layout-item sunfw-item-module-position">
+                            <div class="sunfw-pos-position-6  top-right visible-lg visible-md visible-sm visible-xs">
+                                <div class="module-style ">
+                                    <div class="module-body">
+                                        <script type="text/javascript">
+
+                                            if (typeof (j2store) == 'undefined') {
+                                                var j2store = {};
+                                            }
+                                            if (typeof (j2store.jQuery) == 'undefined') {
+                                                j2store.jQuery = jQuery.noConflict();
+                                            }
+
+                                            //-->
+                                        </script>
+
+                                        <style type="text/css">
+                                            #j2store_currency {
+                                                background: #ffffff;
+                                                color: #000000;
+                                            }
+
+                                                #j2store_currency a {
+                                                    color: #cccccc;
+                                                }
+
+                                                    #j2store_currency a.active {
+                                                        color: #000000;
+                                                    }
+
+
+                                                    #j2store_currency a:hover {
+                                                        color: #000000;
+                                                    }
+                                        </style>
+
+                                        <div class="j2store ">
+                                            <form action="/joomla-templates/jsn_bookstore/pro/bookstore/en/"
+                                                  method="post" enctype="multipart/form-data">
+                                                <div id="j2store_currency">
+
+                                                    <a class="active" title="USD"><b>$</b></a>
+
+
+                                                    <a title="EUR"
+                                                       onclick="j2store.jQuery('input[name=\'currency_code\']').attr('value', 'EUR'); j2store.jQuery(this).parent().parent().submit();">€</a>
+
+
+                                                    <a title="JPY"
+                                                       onclick="j2store.jQuery('input[name=\'currency_code\']').attr('value', 'JPY'); j2store.jQuery(this).parent().parent().submit();">¥</a>
+
+                                                    <input type="hidden" name="currency_code" value="" />
+                                                    <input type="hidden" name="option" value="com_j2store" />
+                                                    <input type="hidden" name="view" value="carts" />
+                                                    <input type="hidden" name="task" value="setcurrency" />
+                                                    <input type="hidden" name="redirect"
+                                                           value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi8/X2dhPTIuMTc5MDgzMTY5LjQ2NTUxMTAyMS4xNjI0MjkxMDQwLTQzOTIzODcxNi4xNjI0MjkxMDQw" />
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="module-style ">
+                                    <div class="module-body">
+                                        <div class="mod-languages">
+
+                                            <div class="btn-group">
+                                                <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">
+                                                    <span class="caret"></span>
+                                                    &nbsp;<img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/mod_languages/images/en_gb.gif"
+                                                               alt="" /> English(GB)
+                                                </a>
+                                                <ul class="lang-block dropdown-menu" dir="ltr">
+                                                    <li>
+                                                        <a href="/joomla-templates/jsn_bookstore/pro/bookstore/de/">
+                                                            <img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/mod_languages/images/de_de.gif"
+                                                                 alt="" /> Deutsch(DE)
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/joomla-templates/jsn_bookstore/pro/bookstore/fr/">
+                                                            <img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/mod_languages/images/fr_fr.gif"
+                                                                 alt="" /> Français(FR)
+                                                        </a>
+                                                    </li>
+                                                    <li class="lang-active">
+                                                        <a href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/en/?_ga=2.179083169.465511021.1624291040-439238716.1624291040">
+                                                            <img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/mod_languages/images/en_gb.gif"
+                                                                 alt="" /> English(GB)
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sunfw_section_section_header"
+             class="sunfw-section sunfw_section_section_header visible-lg visible-md visible-sm visible-xs">
+            <div class="container">
+                <div id="row_row-0" class="row sunfw-flex flex-items-middle">
+                    <div id="column_column-5" class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+                        <div class="layout-item sunfw-item-logo">
+                            <div class="sunfw-logo visible-lg visible-md visible-sm visible-xs">
+                                <a href="/joomla-templates/jsn_bookstore/pro/bookstore/index.php" title="Sun Bookstore">
+                                    <img class="logo visible-md visible-lg img-responsive" alt="Sun Bookstore"
+                                         src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/images/logo.png" />
+                                    <img class="logo hidden-md hidden-lg img-responsive" alt="Sun Bookstore"
+                                         src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/images/logo.png" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="column_column_4"
+                         class="col-xs-12 col-sm-9 col-md-9 col-lg-9 login-register visible-lg visible-md visible-sm visible-xs">
+                        <div class="layout-item sunfw-item-module-position">
+                            <div class="sunfw-pos-toolbar  toolbar visible-lg visible-md visible-sm visible-xs">
+                                <div class="module-style  span3">
+                                    <div class="module-body">
+                                        <div class="search">
+                                            <form action="/joomla-templates/jsn_bookstore/pro/bookstore/en/"
+                                                  method="post" class="form-inline">
+                                                <label for="mod-search-searchword" class="element-invisible"> </label>
+                                                <input name="searchword" id="mod-search-searchword" maxlength="200"
+                                                       class="inputbox search-query form-control" type="search"
+                                                       placeholder="Search ..." /> <button class="button btn btn-primary"
+                                                                                           onclick="this.form.searchword.focus();">
+                                                    Search
+                                                </button> <input type="hidden" name="task" value="search" />
+                                                <input type="hidden" name="option" value="com_search" />
+                                                <input type="hidden" name="Itemid" value="937" />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="module-style  login-topbar display-dropdown">
+                                    <div class="module-title">
+                                        <h3 class="box-title "><span>Login / Register</span></h3>
+                                    </div>
+                                    <div class="module-body">
+                                        <form action="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/en/?_ga=2.179083169.465511021.1624291040-439238716.1624291040"
+                                              method="post" id="login-form">
+                                            <div class="userdata">
+                                                <div id="form-login-username" class="form-group">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user tip" title="Username"></i>
+                                                        </span>
+                                                        <input id="modlgn-username" type="text" name="username"
+                                                               class="input form-control" tabindex="0" size="18"
+                                                               placeholder="Username" />
+                                                    </div>
+                                                </div>
+                                                <div id="form-login-password" class="form-group">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-lock tip" title="Password"></i>
+                                                        </span>
+                                                        <input id="modlgn-passwd" type="password" name="password"
+                                                               class="input form-control" tabindex="0" size="18"
+                                                               placeholder="Password" />
+                                                    </div>
+                                                </div>
+                                                <div id="form-login-remember" class="form-group">
+                                                    <div class="checkbox">
+                                                        <label for="modlgn-remember" class="control-label">
+                                                            <input id="modlgn-remember" type="checkbox" name="remember"
+                                                                   class="inputbox" value="yes" />
+                                                            Remember Me
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div id="form-login-submit" class="control-group">
+                                                    <div class="controls">
+                                                        <button type="submit" tabindex="0" name="Submit"
+                                                                class="btn btn-primary">
+                                                            Log in
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <ul class="unstyled">
+                                                    <li>
+                                                        <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/registration-form">
+                                                            Create an account <span class="icon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/account-reminder">
+                                                            Forgot your username?
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/user-profile?view=reset">
+                                                            Forgot your password?
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <input type="hidden" name="option" value="com_users" />
+                                                <input type="hidden" name="task" value="user.login" />
+                                                <input type="hidden" name="return"
+                                                       value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi8/X2dhPTIuMTc5MDgzMTY5LjQ2NTUxMTAyMS4xNjI0MjkxMDQwLTQzOTIzODcxNi4xNjI0MjkxMDQw" />
+                                                <input type="hidden" name="43c8da9a892039287ecdab6901475eee"
+                                                       value="1" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="module-style  top-cart">
+                                    <div class="module-body">
+                                        <div class="j2store_cart_module_254">
+                                            <div class="j2store-minicart-button">
+                                                <div class="j2store-cart-info">
+                                                    <h3 class="j2store-cart-info-link" data-hover="dropdown"
+                                                        data-toggle="dropdown">
+                                                        <a class="link"
+                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart">
+                                                            My
+                                                            Cart
+                                                        </a>
+                                                        <span>(0)</span>
+                                                    </h3>
+                                                </div>
+                                                <div class="j2store-cart-item-box" id="j2store_cart_item_254"
+                                                     style="display:none;">
+                                                    <div class="j2store-cart-header-block">
+                                                        <div class="top-subtotal">
+                                                            No items in cart
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                        <script type="text/javascript">
+
+                                            jQuery(document).ready(function () {
+
+                                                jQuery('.j2store-minicart-button').hover(
+
+                                                    function () {
+                                                        jQuery('#j2store_cart_item_254').stop(true, true).slideDown('fast');
+
+                                                    },
+
+                                                    function () {
+                                                        jQuery('#j2store_cart_item_254').hide('fast');
+                                                    }
+                                                );
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sunfw_section_section_main_menu"
+             class="sunfw-section sunfw_section_section_main_menu sunfw-sticky visible-lg visible-md visible-sm visible-xs">
+            <div class="container-fluid">
+                <div id="row_row_17" class="row ">
+                    <div id="column_column_30" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                        <div class="layout-item sunfw-item-menu">
+                            <div class=" visible-lg visible-md visible-sm visible-xs">
+                                <nav class="navbar navbar-default sunfw-menu-head sunfwMenuFading" role="navigation">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed btn btn-danger"
+                                                data-toggle="collapse" id="menu_item_menu_main_menu_mobile"
+                                                data-target="#menu_item_menu_main_menu" aria-expanded="false">
+                                            <i aria-hidden="true" class="fa fa-bars"></i>
+                                        </button>
+                                    </div>
+                                    <div class="collapse navbar-collapse sunfw-menu" id="menu_item_menu_main_menu">
+                                        <ul class="nav navbar-nav sunfw-tpl-menu">
+                                            <li class="item-435">
+                                                <a class="clearfix"
+                                                   href="https://localhost:44389/Home/Index">
+                                                    <span data-title="Home"><span class="menutitle">Home</span></span>
+                                                </a>
+                                            </li>
+                                            @Html.Action("MenuChuDe", "Module")
+                                            <li class="item-478 parent dropdown-submenu">
+                                                <span class="nav-header ">
+                                                    <span class="heading-data-title">Joomla!</span><span class="caret"></span>
+                                                </span>
+                                                <ul class="sunfw-megamenu-sub-menu" style="width:900px">
+                                                    <div class="grid" style="background-color:custom">
+                                                        <div class="sunfw-mega-menu">
+                                                            <div id="sunfw_menu_row_row_0" class="row">
+                                                                <div id="sunfw_menu_column_column_0" class="col-xs-3">
+                                                                    <div class="sunfw-block">
+                                                                        <div class="sunfw-item">
+                                                                            <div class="  module-style  ">
+                                                                                <div class="modulecontainer ">
+                                                                                    <h3 class="module-title ">
+                                                                                        Content
+                                                                                    </h3>
+                                                                                    <ul class="nav menu ">
+                                                                                        <li class="item-257">
+                                                                                            <a class="Link CSS Style"
+                                                                                               href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/content-component/single-article"
+                                                                                               title="Link Title Attribute">
+                                                                                                Single
+                                                                                                Article
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="item-272">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/content-component/article-categories">
+                                                                                                Article
+                                                                                                Categories
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="item-259">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/content-component/article-category-blog">
+                                                                                                Category
+                                                                                                Blog
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="item-260">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/content-component/article-category-list">
+                                                                                                Category
+                                                                                                List
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="item-262">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/content-component/featured-articles">
+                                                                                                Featured
+                                                                                                Articles
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="item-256">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/content-component/archived-articles">
+                                                                                                Archived
+                                                                                                Articles
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="sunfw_menu_column_column_1" class="col-xs-3">
+                                                                    <div class="sunfw-block">
+                                                                        <div class="sunfw-item">
+                                                                            <div class="  module-style  ">
+                                                                                <div class="modulecontainer ">
+                                                                                    <h3 class="module-title ">User</h3>
+                                                                                    <ul class="nav menu ">
+                                                                                        <li class="item-402">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/login-form">
+                                                                                                Login
+                                                                                                Form
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="item-403">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/user-profile">
+                                                                                                User
+                                                                                                Profile
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="item-405">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/registration-form">
+                                                                                                Registration
+                                                                                                Form
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="item-406">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/account-reminder">
+                                                                                                Account
+                                                                                                Reminder
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="sunfw_menu_column_column_2" class="col-xs-3">
+                                                                    <div class="sunfw-block">
+                                                                        <div class="sunfw-item">
+                                                                            <div class="  module-style  ">
+                                                                                <div class="modulecontainer ">
+                                                                                    <h3 class="module-title ">
+                                                                                        Contact
+                                                                                    </h3>
+                                                                                    <ul class="nav menu ">
+                                                                                        <li class="item-251">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/contact-component/contact-categories">
+                                                                                                Contact
+                                                                                                Categories
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="item-275">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/contact-component/contact-single-category">
+                                                                                                Single
+                                                                                                Category
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="item-452">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/contact-component/featured-contacts">
+                                                                                                Featured
+                                                                                                Contacts
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="item-229">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/contact-component/single-contact">
+                                                                                                Single
+                                                                                                Contact
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="sunfw_menu_column_column_3" class="col-xs-3">
+                                                                    <div class="sunfw-block">
+                                                                        <div class="sunfw-item">
+                                                                            <div class="  module-style  ">
+                                                                                <div class="modulecontainer ">
+                                                                                    <h3 class="module-title ">
+                                                                                        Search
+                                                                                    </h3>
+                                                                                    <ul class="nav menu ">
+                                                                                        <li class="item-255">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/search-component/search">
+                                                                                                Standard
+                                                                                                Search
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="item-466">
+                                                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/search-component/smart-search">
+                                                                                                Smart
+                                                                                                Search
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </ul>
+                                            </li>
+                                            @Html.Action("MenuNXB", "Module")
+                                            <li class="item-455 parent dropdown-submenu">
+                                                <span class="nav-header ">
+                                                    <span class="heading-data-title">Pages</span><span class="caret"></span>
+                                                </span>
+                                                <ul class="dropdown-menu">
+                                                    <li class="item-570">
+                                                        <a class="clearfix"
+                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/about">
+                                                            <span data-title="About">
+                                                                <span class="menutitle">About</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="item-566">
+                                                        <a class="clearfix"
+                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/contact">
+                                                            <span data-title="Contact">
+                                                                <span class="menutitle">Contact</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="item-492">
+                                                        <a class="jsn-404-page clearfix"
+                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/404">
+                                                            <span data-title="404">
+                                                                <span class="menutitle">404</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="item-572">
+                                                        <a class="clearfix"
+                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/coming-soon">
+                                                            <span data-title="Coming Soon">
+                                                                <span class="menutitle">
+                                                                    Coming
+                                                                    Soon
+                                                                </span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="item-928 parent dropdown-submenu">
+                                                <span class="nav-header ">
+                                                    <span class="heading-data-title">Store</span><span class="caret"></span>
+                                                </span>
+                                                <ul class="dropdown-menu">
+                                                    <li class="item-922">
+                                                        <a class="clearfix"
+                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product">
+                                                            <span data-title="Product">
+                                                                <span class="menutitle">Product</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="item-929">
+                                                        <a class="clearfix"
+                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/my-account">
+                                                            <span data-title="My Account">
+                                                                <span class="menutitle">
+                                                                    My
+                                                                    Account
+                                                                </span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="item-930">
+                                                        <a class="clearfix"
+                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/check-out">
+                                                            <span data-title="Check Out">
+                                                                <span class="menutitle">
+                                                                    Check
+                                                                    Out
+                                                                </span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="item-931">
+                                                        <a class="clearfix"
+                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart">
+                                                            <span data-title="Cart">
+                                                                <span class="menutitle">Cart</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="item-932 parent dropdown-submenu">
+                                                <a class="clearfix dropdown-toggle"
+                                                   href="/joomla-templates/jsn_bookstore/pro/bookstore/en/j2store">
+                                                    <span data-title="J2Store">
+                                                        <span class="menutitle">J2Store</span>
+                                                    </span><span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="item-933">
+                                                        <a class="clearfix"
+                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/store/product/simple">
+                                                            <span data-title="Simple">
+                                                                <span class="menutitle">Simple</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="item-934">
+                                                        <a class="clearfix"
+                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/store/product/variable-product">
+                                                            <span data-title="Variable product">
+                                                                <span class="menutitle">Variable product</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="item-935">
+                                                        <a class="clearfix"
+                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/store/product/configurable-product">
+                                                            <span data-title="Configurable product">
+                                                                <span class="menutitle">
+                                                                    Configurable
+                                                                    product
+                                                                </span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="item-936">
+                                                        <a class="clearfix"
+                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/store/product/downloadable-product">
+                                                            <span data-title="Downloadable product">
+                                                                <span class="menutitle">
+                                                                    Downloadable
+                                                                    product
+                                                                </span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                            </li>
+                                        </ul>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <div id="sunfw_section_section_content_bottom"
+                 class="sunfw-section sunfw_section_section_content_bottom visible-lg visible-md visible-sm visible-xs">
+                <div class="container-fluid">
+                    <div id="row_row-8" class="row ">
+                        <div id="column_column-12" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                            <div class="layout-item sunfw-item-module-position">
+                                <div class="sunfw-pos-content-bottom   visible-lg visible-md visible-sm visible-xs">
+                                    <div class="module-style ">
+                                        <div class="module-body">
+
+                                            <div class="custom">
+                                                <style>
+                                                    /* PageFly Element Styles */
+                                                    .jZxJgp {
+                                                        word-break: break-word;
+                                                    }
+
+                                                        .jZxJgp span {
+                                                            font-weight: inherit;
+                                                            text-decoration: inherit;
+                                                        }
+
+                                                        .jZxJgp i {
+                                                            margin-right: 0.3em;
+                                                        }
+
+                                                    .fzXWJx {
+                                                        padding: var(--pf-s-lg);
+                                                    }
+
+                                                    @@media (max-width: 1199px) and (min-width: 992px) {
+                                                        .fzXWJx {
+                                                            padding: var(--pf-s-md);
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 991px) and (min-width: 768px) {
+                                                        .fzXWJx {
+                                                            padding: var(--pf-s-sm);
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 767px) {
+                                                        .fzXWJx {
+                                                            padding: var(--pf-s-xs);
+                                                        }
+                                                    }
+
+                                                    .cBuwhn {
+                                                        position: relative;
+                                                    }
+
+                                                    .hMYTdE {
+                                                        margin: 0 calc(-1 * var(--pf-s-lg));
+                                                    }
+
+                                                    @@media (max-width: 1199px) and (min-width: 992px) {
+                                                        .hMYTdE {
+                                                            margin: 0 calc(-1 * var(--pf-s-md));
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 991px) and (min-width: 768px) {
+                                                        .hMYTdE {
+                                                            margin: 0 calc(-1 * var(--pf-s-sm));
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 767px) {
+                                                        .hMYTdE {
+                                                            margin: 0 calc(-1 * var(--pf-s-xs));
+                                                        }
+                                                    }
+
+                                                    .bSwWwA {
+                                                        position: absolute;
+                                                        top: 0px;
+                                                        left: 0px;
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        pointer-events: none;
+                                                        overflow: hidden;
+                                                    }
+
+                                                    .gglDmq__parallax {
+                                                        position: absolute;
+                                                        top: 0px;
+                                                        left: 0px;
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        overflow: hidden;
+                                                        pointer-events: none;
+                                                    }
+
+                                                    .gglDmq {
+                                                        padding: 15px 0px;
+                                                        position: relative;
+                                                    }
+
+                                                    .FLGYx {
+                                                        margin: 0px;
+                                                    }
+
+                                                        .FLGYx > div {
+                                                            display: flex;
+                                                            position: relative;
+                                                        }
+
+                                                        .FLGYx.mailchimp--vertical div {
+                                                            -webkit-box-orient: vertical;
+                                                            -webkit-box-direction: normal;
+                                                            flex-direction: column;
+                                                        }
+
+                                                        .FLGYx input[name="name"] ~ input[name="email"] {
+                                                            margin-left: 10px;
+                                                        }
+
+                                                        .FLGYx.mailchimp--vertical input:first-of-type + input {
+                                                            margin: 10px 0px 0px;
+                                                        }
+
+                                                        .FLGYx.mailchimp--vertical button {
+                                                            width: 100%;
+                                                            margin-top: 10px;
+                                                        }
+
+                                                        .FLGYx input,
+                                                        .FLGYx button {
+                                                            height: 40px;
+                                                            padding: 0px 20px;
+                                                            line-height: 40px;
+                                                            border-radius: 0px;
+                                                            box-sizing: border-box;
+                                                            box-shadow: none !important;
+                                                            outline: none !important;
+                                                        }
+
+                                                        .FLGYx.FLGYx button {
+                                                            border: none;
+                                                            background-color: rgb(45, 45, 45);
+                                                            color: rgb(255, 255, 255);
+                                                            font-size: 13px;
+                                                            flex: 0 0 auto;
+                                                            margin-left: -1px;
+                                                            width: auto;
+                                                        }
+
+                                                        .FLGYx button > i + span {
+                                                            margin-left: 10px;
+                                                        }
+
+                                                        .FLGYx input {
+                                                            width: 100%;
+                                                        }
+
+                                                    .ebisfl > span:last-child {
+                                                        line-height: inherit;
+                                                        display: block;
+                                                        margin-right: 0px !important;
+                                                    }
+
+                                                    #editor-dnd-wrapper .ebisfl span + span[contenteditable] {
+                                                        display: block;
+                                                    }
+
+                                                        #editor-dnd-wrapper .ebisfl span + span[contenteditable]:empty::after {
+                                                            display: inline;
+                                                        }
+
+                                                    .ebisfl ol,
+                                                    .ebisfl ul {
+                                                        list-style-position: inside;
+                                                    }
+
+                                                    .ebisfl blockquote {
+                                                        font-size: inherit;
+                                                    }
+
+                                                    .kVASKi {
+                                                        display: inline-block;
+                                                    }
+
+                                                        .kVASKi[contenteditable="true"] {
+                                                            user-select: text;
+                                                        }
+
+                                                    .kVASKi {
+                                                        vertical-align: baseline;
+                                                        word-break: break-word;
+                                                    }
+
+                                                        .kVASKi:focus {
+                                                            outline: none;
+                                                        }
+
+                                                        .kVASKi::after {
+                                                            display: inline;
+                                                        }
+
+                                                    /* PageFly Styles */
+
+                                                    @@media all {
+                                                        .__pf .pf-bc3a0887-d602526c {
+                                                            font-size: 28px;
+                                                            font-family: Montserrat;
+                                                            font-weight: 600;
+                                                            color: rgb(255, 255, 255);
+                                                            margin-top: 40px;
+                                                        }
+
+                                                        .__pf .pf-bc3a0887-6c0b0d8a {
+                                                            font-size: 16px;
+                                                            color: rgb(255, 255, 255);
+                                                            margin-bottom: 35px;
+                                                            font-family: Roboto;
+                                                        }
+
+                                                        .__pf .pf-bc3a0887-0b0d8aa2 {
+                                                            max-width: 570px;
+                                                            margin: auto;
+                                                        }
+
+                                                            .__pf .pf-bc3a0887-0b0d8aa2 > div > input {
+                                                                border-style: none;
+                                                                height: 45px;
+                                                            }
+
+                                                            .__pf .pf-bc3a0887-0b0d8aa2 > div > button {
+                                                                font-size: 14px;
+                                                                font-family: Roboto;
+                                                                font-weight: 400;
+                                                                height: 45px;
+                                                                background-color: rgb(255, 193, 44);
+                                                                color: rgb(38, 63, 68);
+                                                            }
+
+                                                                .__pf .pf-bc3a0887-0b0d8aa2 > div > button:hover {
+                                                                    background-color: rgb(38, 63, 68);
+                                                                    color: rgb(255, 193, 44);
+                                                                }
+
+                                                        .__pf .pf-bc3a0887-8aa2466a {
+                                                            text-align: center;
+                                                        }
+
+                                                        .__pf .pf-bc3a0887-a2466a04 {
+                                                            background-image: url("https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/images/joomlashine/sample/homepage/alfons-morales-YLSwjSy7stw-unsplash%201.png");
+                                                            padding-bottom: 65px;
+                                                            margin: 0px -15px;
+                                                        }
+                                                    }
+                                                </style>
+                                                <div class="__pf" id="__pf">
+                                                    <div data-pf-type="Body" class="sc-pIJmg ehCwJf pf-bc3a0887-6a0421ca">
+                                                        <div data-pf-type="Layout" class="pf-bc3a0887-466a0421">
+                                                            <div data-container="true"
+                                                                 class="sc-pBxWu gglDmq pf-bc3a0887-a2466a04"
+                                                                 data-pf-type="Section">
+                                                                <div class="sc-qQKeD bSwWwA"
+                                                                     style="background-color: rgba(51, 51, 51, 0.6);"></div>
+                                                                <div class="sc-qYGWS jnzTeZ" style="max-width: 1170px;">
+                                                                    <div class="sc-pbvYO hMYTdE pf-bc3a0887-8aa2466a pf-r pf-r-eh"
+                                                                         data-pf-type="Row"
+                                                                         style="--pf-s-lg:15px; --pf-s-md:15px; --pf-s-sm:15px; --pf-s-xs:15px;">
+                                                                        <div class="sc-pRgDJ fzXWJx pf-c pf-c-xs--12 pf-c-sm--12 pf-c-md--12 pf-c-lg--12">
+                                                                            <div class="sc-pZdvY cBuwhn pf-bc3a0887-0d8aa246"
+                                                                                 data-pf-type="Column">
+                                                                                <h3 data-pf-type="Heading"
+                                                                                    class="sc-qapxP jZxJgp pf-bc3a0887-d602526c">
+                                                                                    <span data-pf-type="Text"
+                                                                                          class="sc-oUAoT kVASKi pf-bc3a0887-1cd60252">
+                                                                                        JOIN
+                                                                                        US
+                                                                                    </span>
+                                                                                </h3>
+                                                                                <p data-pf-type="Paragraph2"
+                                                                                   class="sc-oUbqx ebisfl pf-bc3a0887-6c0b0d8a">
+                                                                                    <span data-pf-type="Text"
+                                                                                          class="sc-oUAoT kVASKi pf-bc3a0887-526c0b0d">
+                                                                                        Join
+                                                                                        our Book Club and get newsletter to
+                                                                                        discover new books every
+                                                                                        month.
+                                                                                    </span>
+                                                                                </p>
+                                                                                <form class="sc-pZQux FLGYx pf-bc3a0887-0b0d8aa2"
+                                                                                      target="_blank" action="" mode="view"
+                                                                                      method="POST" data-pf-type="MailChimp">
+                                                                                    <div>
+                                                                                        <input type="text"
+                                                                                               placeholder="Enter Your Mail"
+                                                                                               name="EMAIL"
+                                                                                               required=""><button><span>Subscribe</span></button>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <script type="application/json"
+                                                        class="pf_page_settings">{"isBackend":false,"pageflyVersion":"2.9.0","elementData":{},"pageId":"bc3a0887"}</script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sunfw_section_section_bottom"
+                 class="sunfw-section sunfw_section_section_bottom footer-block visible-lg visible-md visible-sm visible-xs">
+                <div class="container">
+                    <div id="row_row_12" class="row footter-block visible-lg visible-md visible-sm visible-xs">
+                        <div id="column_column-19" class="col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
+                            <div class="layout-item sunfw-item-logo">
+                                <div class="sunfw-logo visible-lg visible-md visible-sm visible-xs">
+                                    <a href="/joomla-templates/jsn_bookstore/pro/bookstore/index.php" title="Sun Bookstore">
+                                        <img class="logo visible-md visible-lg img-responsive" alt="Sun Bookstore"
+                                             src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/images/logo-1.png" />
+                                        <img class="logo hidden-md hidden-lg img-responsive" alt="Sun Bookstore"
+                                             src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/images/logo-1.png" />
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="layout-item sunfw-item-module-position">
+                                <div class="sunfw-pos-bottom-1   visible-lg visible-md visible-sm visible-xs">
+                                    <div class="module-style ">
+                                        <div class="module-body">
+
+                                            <div class="custom">
+                                                <style>
+                                                    /* PageFly Element Styles */
+                                                    .gsdIuB {
+                                                        padding: var(--pf-s-lg);
+                                                    }
+
+                                                    @@media (max-width: 1199px) and (min-width: 992px) {
+                                                        .gsdIuB {
+                                                            padding: var(--pf-s-md);
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 991px) and (min-width: 768px) {
+                                                        .gsdIuB {
+                                                            padding: var(--pf-s-sm);
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 767px) {
+                                                        .gsdIuB {
+                                                            padding: var(--pf-s-xs);
+                                                        }
+                                                    }
+
+                                                    .iDckyw {
+                                                        position: relative;
+                                                    }
+
+                                                    .jdLQbH {
+                                                        margin: 0 calc(-1 * var(--pf-s-lg));
+                                                    }
+
+                                                    @@media (max-width: 1199px) and (min-width: 992px) {
+                                                        .jdLQbH {
+                                                            margin: 0 calc(-1 * var(--pf-s-md));
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 991px) and (min-width: 768px) {
+                                                        .jdLQbH {
+                                                            margin: 0 calc(-1 * var(--pf-s-sm));
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 767px) {
+                                                        .jdLQbH {
+                                                            margin: 0 calc(-1 * var(--pf-s-xs));
+                                                        }
+                                                    }
+
+                                                    .cBuwhn__parallax {
+                                                        position: absolute;
+                                                        top: 0px;
+                                                        left: 0px;
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        overflow: hidden;
+                                                        pointer-events: none;
+                                                    }
+
+                                                    .cBuwhn {
+                                                        padding: 15px 0px;
+                                                        position: relative;
+                                                    }
+
+                                                    .kzftmY > span:last-child {
+                                                        line-height: inherit;
+                                                        display: block;
+                                                        margin-right: 0px !important;
+                                                    }
+
+                                                    #editor-dnd-wrapper .kzftmY span + span[contenteditable] {
+                                                        display: block;
+                                                    }
+
+                                                        #editor-dnd-wrapper .kzftmY span + span[contenteditable]:empty::after {
+                                                            display: inline;
+                                                        }
+
+                                                    .kzftmY ol,
+                                                    .kzftmY ul {
+                                                        list-style-position: inside;
+                                                    }
+
+                                                    .kzftmY blockquote {
+                                                        font-size: inherit;
+                                                    }
+
+                                                    .aevsi {
+                                                        display: inline-block;
+                                                    }
+
+                                                        .aevsi[contenteditable="true"] {
+                                                            user-select: text;
+                                                        }
+
+                                                    .aevsi {
+                                                        vertical-align: baseline;
+                                                        word-break: break-word;
+                                                    }
+
+                                                        .aevsi:focus {
+                                                            outline: none;
+                                                        }
+
+                                                        .aevsi::after {
+                                                            display: inline;
+                                                        }
+
+                                                    /* PageFly Styles */
+
+                                                    @@media all {
+                                                        .__pf .pf-506fe5d9-58fc970f {
+                                                            margin-bottom: 0px;
+                                                            color: rgb(255, 255, 255);
+                                                            line-height: 24px;
+                                                            margin-top: 5px;
+                                                            font-family: Roboto;
+                                                        }
+
+                                                        .__pf .pf-506fe5d9-970fdd24 {
+                                                            margin: 0px;
+                                                            padding: 0px;
+                                                        }
+
+                                                        .__pf .pf-506fe5d9-e78bda87 {
+                                                            padding-top: 0px;
+                                                            padding-bottom: 0px;
+                                                        }
+                                                    }
+                                                </style>
+                                                <div class="__pf" id="__pf">
+                                                    <div data-pf-type="Body" class="sc-oVpqz gmldoY pf-506fe5d9-9df30e5e">
+                                                        <div data-pf-type="Layout" class="pf-506fe5d9-f30e5e36">
+                                                            <div data-container="false"
+                                                                 class="sc-pZdvY cBuwhn pf-506fe5d9-e78bda87"
+                                                                 data-pf-type="Section">
+                                                                <div class="sc-pRgDJ fzXWJx">
+                                                                    <div class="sc-qQxFs jdLQbH pf-506fe5d9-dd24e78b pf-r pf-r-eh"
+                                                                         data-pf-type="Row"
+                                                                         style="--pf-s-lg:15px; --pf-s-md:15px; --pf-s-sm:15px; --pf-s-xs:15px;">
+                                                                        <div class="sc-pbJYR gsdIuB pf-c pf-c-xs--12 pf-c-sm--12 pf-c-md--12 pf-c-lg--12">
+                                                                            <div class="sc-pkfPC iDckyw pf-506fe5d9-970fdd24"
+                                                                                 data-pf-type="Column">
+                                                                                <p data-pf-type="Paragraph2"
+                                                                                   class="sc-psedN kzftmY pf-506fe5d9-58fc970f">
+                                                                                    <span data-pf-type="Text"
+                                                                                          class="sc-qPwwY aevsi pf-506fe5d9-8ccf58fc">
+                                                                                        It
+                                                                                        happens millions of times each week
+                                                                                        - a customer receives a book from a
+                                                                                        JSN Bookstore assistant - but each
+                                                                                        interaction is unique.
+                                                                                    </span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <script type="application/json"
+                                                        class="pf_page_settings">{"isBackend":false,"pageflyVersion":"2.12.0","elementData":{},"pageId":"506fe5d9"}</script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="column_column_21"
+                             class="col-xs-12 col-sm-6 col-md-3 col-lg-2 visible-lg visible-md visible-sm visible-xs">
+                            <div class="layout-item sunfw-item-module-position">
+                                <div class="sunfw-pos-bottom-2  block-2 visible-lg visible-md visible-sm visible-xs">
+                                    <div class="module-style ">
+                                        <div class="module-title">
+                                            <h3 class="box-title "><span>Service</span></h3>
+                                        </div>
+                                        <div class="module-body">
+                                            <ul class="nav menu items-border">
+                                                <li class="item-570">
+                                                    <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/about">About</a>
+                                                </li>
+                                                <li class="item-566">
+                                                    <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/contact">Contact</a>
+                                                </li>
+                                                <li class="item-492">
+                                                    <a class="jsn-404-page"
+                                                       href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/404">404</a>
+                                                </li>
+                                                <li class="item-572">
+                                                    <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/coming-soon">
+                                                        Coming
+                                                        Soon
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="column_column_22"
+                             class="col-xs-12 col-sm-6 col-md-3 col-lg-4 block-3 visible-lg visible-md visible-sm visible-xs">
+                            <div class="layout-item sunfw-item-module-position">
+                                <div class="sunfw-pos-bottom-3   visible-lg visible-md visible-sm visible-xs">
+                                    <div class="module-style ">
+                                        <div class="module-title">
+                                            <h3 class="box-title "><span>Contact</span></h3>
+                                        </div>
+                                        <div class="module-body">
+
+                                            <div class="custom">
+                                                <style>
+                                                    /* PageFly Element Styles */
+                                                    .dnZKXh {
+                                                        font-family: FontAwesome !important;
+                                                    }
+
+                                                    .gsdIuB {
+                                                        padding: var(--pf-s-lg);
+                                                    }
+
+                                                    @@media (max-width: 1199px) and (min-width: 992px) {
+                                                        .gsdIuB {
+                                                            padding: var(--pf-s-md);
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 991px) and (min-width: 768px) {
+                                                        .gsdIuB {
+                                                            padding: var(--pf-s-sm);
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 767px) {
+                                                        .gsdIuB {
+                                                            padding: var(--pf-s-xs);
+                                                        }
+                                                    }
+
+                                                    .iDckyw {
+                                                        position: relative;
+                                                    }
+
+                                                    .jdLQbH {
+                                                        margin: 0 calc(-1 * var(--pf-s-lg));
+                                                    }
+
+                                                    @@media (max-width: 1199px) and (min-width: 992px) {
+                                                        .jdLQbH {
+                                                            margin: 0 calc(-1 * var(--pf-s-md));
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 991px) and (min-width: 768px) {
+                                                        .jdLQbH {
+                                                            margin: 0 calc(-1 * var(--pf-s-sm));
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 767px) {
+                                                        .jdLQbH {
+                                                            margin: 0 calc(-1 * var(--pf-s-xs));
+                                                        }
+                                                    }
+
+                                                    .cBuwhn__parallax {
+                                                        position: absolute;
+                                                        top: 0px;
+                                                        left: 0px;
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        overflow: hidden;
+                                                        pointer-events: none;
+                                                    }
+
+                                                    .cBuwhn {
+                                                        padding: 15px 0px;
+                                                        position: relative;
+                                                    }
+
+                                                    .nnuJi {
+                                                        position: relative;
+                                                        list-style: inherit;
+                                                        margin: 0 0 var(--line-spacing);
+                                                    }
+
+                                                        .nnuJi:last-child {
+                                                            margin: 0px;
+                                                        }
+
+                                                        .nnuJi::before {
+                                                            content: "";
+                                                            display: inline-block;
+                                                            width: var(--text-indent);
+                                                        }
+
+                                                        .nnuJi > i {
+                                                            padding: 5px;
+                                                            margin-right: 5px;
+                                                        }
+
+                                                        .nnuJi > span {
+                                                            display: inline;
+                                                        }
+
+                                                    .hMYTdE {
+                                                        margin: 0px;
+                                                        padding: 10px;
+                                                    }
+
+                                                    .aevsi {
+                                                        display: inline-block;
+                                                    }
+
+                                                        .aevsi[contenteditable="true"] {
+                                                            user-select: text;
+                                                        }
+
+                                                    .aevsi {
+                                                        vertical-align: baseline;
+                                                        word-break: break-word;
+                                                    }
+
+                                                        .aevsi:focus {
+                                                            outline: none;
+                                                        }
+
+                                                        .aevsi::after {
+                                                            display: inline;
+                                                        }
+
+                                                    /* PageFly Styles */
+
+                                                    @@media all {
+                                                        .__pf .pf-9afcdfd9-99b0eeb1 {
+                                                            font-size: 16px;
+                                                        }
+
+                                                        .__pf .pf-9afcdfd9-d55d07ce {
+                                                            padding-top: 0px;
+                                                            color: rgb(255, 255, 255);
+                                                        }
+
+                                                        .__pf .pf-9afcdfd9-5c769611 {
+                                                            font-size: 16px;
+                                                        }
+
+                                                        .__pf .pf-9afcdfd9-07ce665b {
+                                                            padding-top: 0px;
+                                                            color: rgb(255, 255, 255);
+                                                        }
+
+                                                        .__pf .pf-9afcdfd9-1eaf9a7f {
+                                                            font-size: 16px;
+                                                        }
+
+                                                        .__pf .pf-9afcdfd9-665b548f {
+                                                            padding-top: 0px;
+                                                            color: rgb(255, 255, 255);
+                                                        }
+
+                                                        .__pf .pf-9afcdfd9-548f82d7 {
+                                                            list-style-position: inside;
+                                                            list-style-type: none;
+                                                            padding-left: 0px;
+                                                            padding-top: 10px;
+                                                            margin-left: -5px;
+                                                        }
+
+                                                        .__pf .pf-9afcdfd9-0a342ac9 {
+                                                            padding: 0px;
+                                                        }
+                                                    }
+
+                                                    @@media only screen and (min-width: 768px) and (max-width: 991px) {
+                                                        .__pf .pf-9afcdfd9-548f82d7 {
+                                                            padding-top: 0px;
+                                                        }
+
+                                                        .__pf .pf-9afcdfd9-32960a34 {
+                                                            margin-top: -10px;
+                                                        }
+                                                    }
+                                                </style>
+                                                <div class="__pf" id="__pf">
+                                                    <div data-pf-type="Body" class="sc-oVpqz gmldoY pf-9afcdfd9-f107c3ec">
+                                                        <div data-pf-type="Layout" class="pf-9afcdfd9-07c3ec24">
+                                                            <div data-container="false"
+                                                                 class="sc-pZdvY cBuwhn pf-9afcdfd9-0a342ac9"
+                                                                 data-pf-type="Section">
+                                                                <div class="sc-pRgDJ fzXWJx">
+                                                                    <div class="sc-qQxFs jdLQbH pf-9afcdfd9-32960a34 pf-r pf-r-eh"
+                                                                         data-pf-type="Row"
+                                                                         style="--pf-s-lg:0px; --pf-s-md:15px; --pf-s-sm:15px; --pf-s-xs:15px;">
+                                                                        <div class="sc-pbJYR gsdIuB pf-c pf-c-xs--12 pf-c-sm--12 pf-c-md--12 pf-c-lg--12">
+                                                                            <div class="sc-pkfPC iDckyw pf-9afcdfd9-82d73296"
+                                                                                 data-pf-type="Column">
+                                                                                <ul data-pf-type="List"
+                                                                                    class="sc-pbvYO hMYTdE pf-9afcdfd9-548f82d7"
+                                                                                    style="--text-indent:0; --line-spacing:10px;">
+                                                                                    <li data-pf-type="List.Item"
+                                                                                        class="sc-oTzgz nnuJi pf-9afcdfd9-d55d07ce">
+                                                                                        <i class="sc-qQlgh dnZKXh pf-9afcdfd9-99b0eeb1 fa fa-map-marker sunfw-tx-mc"
+                                                                                           data-pf-type="Icon"></i><span data-pf-type="Text"
+                                                                                                                         class="sc-qPwwY aevsi pf-9afcdfd9-eeb15c76">
+                                                                                            &nbsp;
+                                                                                            221B Baker Street, London NW1
+                                                                                            6XE, England
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li data-pf-type="List.Item"
+                                                                                        class="sc-oTzgz nnuJi pf-9afcdfd9-07ce665b">
+                                                                                        <i class="sc-qQlgh dnZKXh pf-9afcdfd9-5c769611 fa fa-volume-control-phone sunfw-tx-mc"
+                                                                                           data-pf-type="Icon"></i><span data-pf-type="Text"
+                                                                                                                         class="sc-qPwwY aevsi pf-9afcdfd9-96111eaf">
+                                                                                            0123 456 789 / 078 9456
+                                                                                            123
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li data-pf-type="List.Item"
+                                                                                        class="sc-oTzgz nnuJi pf-9afcdfd9-665b548f">
+                                                                                        <i class="sc-qQlgh dnZKXh pf-9afcdfd9-1eaf9a7f fa fa-envelope sunfw-tx-mc"
+                                                                                           data-pf-type="Icon"></i><span data-pf-type="Text"
+                                                                                                                         class="sc-qPwwY aevsi pf-9afcdfd9-9a7fd55d">
+                                                                                            support@jsnbookstore.com<br>&nbsp;
+                                                                                            &nbsp; &nbsp;
+                                                                                            &nbsp;&nbsp;support@yourcompany.com
+                                                                                        </span>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <script type="application/json"
+                                                        class="pf_page_settings">{"isBackend":false,"pageflyVersion":"2.12.0","elementData":{},"pageId":"9afcdfd9"}</script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="column_column-20" class="col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
+                            <div class="layout-item sunfw-item-module-position">
+                                <div class="sunfw-pos-bottom-4   visible-lg visible-md visible-sm visible-xs">
+                                    <div class="module-style ">
+                                        <div class="module-title">
+                                            <h3 class="box-title "><span>Working time</span></h3>
+                                        </div>
+                                        <div class="module-body">
+
+                                            <div class="custom">
+                                                <style>
+                                                    /* PageFly Element Styles */
+                                                    .kqDkLo {
+                                                        word-break: break-word;
+                                                    }
+
+                                                        .kqDkLo span {
+                                                            font-weight: inherit;
+                                                            text-decoration: inherit;
+                                                        }
+
+                                                        .kqDkLo i {
+                                                            margin-right: 0.3em;
+                                                        }
+
+                                                    .dnZKXh {
+                                                        font-family: FontAwesome !important;
+                                                    }
+
+                                                    .gsdIuB {
+                                                        padding: var(--pf-s-lg);
+                                                    }
+
+                                                    @@media (max-width: 1199px) and (min-width: 992px) {
+                                                        .gsdIuB {
+                                                            padding: var(--pf-s-md);
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 991px) and (min-width: 768px) {
+                                                        .gsdIuB {
+                                                            padding: var(--pf-s-sm);
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 767px) {
+                                                        .gsdIuB {
+                                                            padding: var(--pf-s-xs);
+                                                        }
+                                                    }
+
+                                                    .iDckyw {
+                                                        position: relative;
+                                                    }
+
+                                                    .jdLQbH {
+                                                        margin: 0 calc(-1 * var(--pf-s-lg));
+                                                    }
+
+                                                    @@media (max-width: 1199px) and (min-width: 992px) {
+                                                        .jdLQbH {
+                                                            margin: 0 calc(-1 * var(--pf-s-md));
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 991px) and (min-width: 768px) {
+                                                        .jdLQbH {
+                                                            margin: 0 calc(-1 * var(--pf-s-sm));
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 767px) {
+                                                        .jdLQbH {
+                                                            margin: 0 calc(-1 * var(--pf-s-xs));
+                                                        }
+                                                    }
+
+                                                    .cBuwhn__parallax {
+                                                        position: absolute;
+                                                        top: 0px;
+                                                        left: 0px;
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        overflow: hidden;
+                                                        pointer-events: none;
+                                                    }
+
+                                                    .cBuwhn {
+                                                        padding: 15px 0px;
+                                                        position: relative;
+                                                    }
+
+                                                    .nnuJi {
+                                                        position: relative;
+                                                        list-style: inherit;
+                                                        margin: 0 0 var(--line-spacing);
+                                                    }
+
+                                                        .nnuJi:last-child {
+                                                            margin: 0px;
+                                                        }
+
+                                                        .nnuJi::before {
+                                                            content: "";
+                                                            display: inline-block;
+                                                            width: var(--text-indent);
+                                                        }
+
+                                                        .nnuJi > i {
+                                                            padding: 5px;
+                                                            margin-right: 5px;
+                                                        }
+
+                                                        .nnuJi > span {
+                                                            display: inline;
+                                                        }
+
+                                                    .hMYTdE {
+                                                        margin: 0px;
+                                                        padding: 10px;
+                                                    }
+
+                                                    .aevsi {
+                                                        display: inline-block;
+                                                    }
+
+                                                        .aevsi[contenteditable="true"] {
+                                                            user-select: text;
+                                                        }
+
+                                                    .aevsi {
+                                                        vertical-align: baseline;
+                                                        word-break: break-word;
+                                                    }
+
+                                                        .aevsi:focus {
+                                                            outline: none;
+                                                        }
+
+                                                        .aevsi::after {
+                                                            display: inline;
+                                                        }
+
+                                                    /* PageFly Styles */
+
+                                                    @@media all {
+                                                        .__pf .pf-8da1a29d-4ac39e1a {
+                                                            color: rgb(255, 255, 255);
+                                                            font-family: Roboto;
+                                                            font-size: 14px;
+                                                            margin-bottom: 0px;
+                                                        }
+
+                                                        .__pf .pf-8da1a29d-9e1a6326 {
+                                                            color: rgb(255, 255, 255);
+                                                            font-family: Roboto;
+                                                            font-size: 14px;
+                                                        }
+
+                                                        .__pf .pf-8da1a29d-fef3f84f {
+                                                            list-style-position: inside;
+                                                            list-style-type: none;
+                                                            padding: 5px 0px;
+                                                        }
+
+                                                        .__pf .pf-8da1a29d-6326fef3 {
+                                                            font-family: Montserrat;
+                                                            font-weight: 600;
+                                                            font-size: 16px;
+                                                            margin-bottom: 15px;
+                                                        }
+
+                                                        .__pf .pf-8da1a29d-c83f5af2 {
+                                                            width: 40px;
+                                                            height: 40px;
+                                                            line-height: 40px;
+                                                            font-size: 1.3em;
+                                                            margin-right: 10px;
+                                                            padding-left: 12px;
+                                                        }
+
+                                                        .__pf .pf-8da1a29d-5af2ccb4 {
+                                                            width: 40px;
+                                                            height: 40px;
+                                                            line-height: 40px;
+                                                            font-size: 1.3em;
+                                                            margin-right: 10px;
+                                                            padding-left: 12px;
+                                                        }
+
+                                                        .__pf .pf-8da1a29d-ccb4235c {
+                                                            width: 40px;
+                                                            height: 40px;
+                                                            line-height: 40px;
+                                                            font-size: 1.3em;
+                                                            margin-right: 10px;
+                                                            padding-left: 12px;
+                                                        }
+
+                                                        .__pf .pf-8da1a29d-235c4ac3 {
+                                                            width: 40px;
+                                                            height: 40px;
+                                                            line-height: 40px;
+                                                            font-size: 1.3em;
+                                                            margin-right: 10px;
+                                                            padding-left: 12px;
+                                                        }
+
+                                                        .__pf .pf-8da1a29d-ba67bf56 {
+                                                            padding-top: 0px;
+                                                            padding-bottom: 0px;
+                                                            height: 190px;
+                                                        }
+                                                    }
+
+                                                    @@media only screen and (min-width: 768px) and (max-width: 991px) {
+                                                        .__pf .pf-8da1a29d-fef3f84f {
+                                                            padding-top: 0px;
+                                                        }
+
+                                                        .__pf .pf-8da1a29d-f019ba67 {
+                                                            margin-top: -10px;
+                                                        }
+                                                    }
+                                                </style>
+                                                <div class="__pf" id="__pf">
+                                                    <div data-pf-type="Body" class="sc-oVpqz gmldoY pf-8da1a29d-67846db3">
+                                                        <div data-pf-type="Layout" class="pf-8da1a29d-846db388">
+                                                            <div data-container="false"
+                                                                 class="sc-pZdvY cBuwhn pf-8da1a29d-ba67bf56"
+                                                                 data-pf-type="Section">
+                                                                <div class="sc-pRgDJ fzXWJx">
+                                                                    <div class="sc-qQxFs jdLQbH pf-8da1a29d-f019ba67 pf-r pf-r-eh"
+                                                                         data-pf-type="Row"
+                                                                         style="--pf-s-lg:0px; --pf-s-md:15px; --pf-s-sm:15px; --pf-s-xs:15px;">
+                                                                        <div class="sc-pbJYR gsdIuB pf-c pf-c-xs--12 pf-c-sm--12 pf-c-md--12 pf-c-lg--12">
+                                                                            <div class="sc-pkfPC iDckyw pf-8da1a29d-f84ff019"
+                                                                                 data-pf-type="Column">
+                                                                                <ul data-pf-type="List"
+                                                                                    class="sc-pbvYO hMYTdE pf-8da1a29d-fef3f84f"
+                                                                                    style="--text-indent:0; --line-spacing:10px;">
+                                                                                    <li data-pf-type="List.Item"
+                                                                                        class="sc-oTzgz nnuJi pf-8da1a29d-4ac39e1a">
+                                                                                        <span data-pf-type="Text"
+                                                                                              class="sc-qPwwY aevsi pf-8da1a29d-2da17f09">
+                                                                                            Mon
+                                                                                            - Fri: 9:00 am - 9:00 pm
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li data-pf-type="List.Item"
+                                                                                        class="sc-oTzgz nnuJi pf-8da1a29d-9e1a6326">
+                                                                                        <span data-pf-type="Text"
+                                                                                              class="sc-qPwwY aevsi pf-8da1a29d-84fd760c">
+                                                                                            Sat
+                                                                                            - Sun: 9:00 am - 6:00 pm
+                                                                                        </span>
+                                                                                    </li>
+                                                                                </ul>
+                                                                                <h3 data-pf-type="Heading"
+                                                                                    class="sc-pjTqr kqDkLo pf-8da1a29d-6326fef3 sunfw-tx-mc">
+                                                                                    <span data-pf-type="Text"
+                                                                                          class="sc-qPwwY aevsi pf-8da1a29d-84b9c83f">
+                                                                                        FOLLOW
+                                                                                        US:
+                                                                                    </span>
+                                                                                </h3><i class="sc-qQlgh dnZKXh pf-8da1a29d-c83f5af2 fa fa-facebook sunfw-bg-mc sunfw-tx-sc"
+                                                                                        data-pf-type="Icon"></i><i class="sc-qQlgh dnZKXh pf-8da1a29d-5af2ccb4 fa fa-twitter sunfw-bg-mc sunfw-tx-sc"
+                                                                                                                   data-pf-type="Icon"></i><i class="sc-qQlgh dnZKXh pf-8da1a29d-ccb4235c fa fa-instagram sunfw-bg-mc sunfw-tx-sc"
+                                                                                                                                              data-pf-type="Icon"></i><i class="sc-qQlgh dnZKXh pf-8da1a29d-235c4ac3 fa fa-google sunfw-bg-mc sunfw-tx-sc"
+                                                                                                                                                                         data-pf-type="Icon"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <script type="application/json"
+                                                        class="pf_page_settings">{"isBackend":false,"pageflyVersion":"2.12.0","elementData":{},"pageId":"8da1a29d"}</script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sunfw_section_section_footer"
+                 class="sunfw-section sunfw_section_section_footer visible-lg visible-md visible-sm visible-xs">
+                <div class="container">
+                    <div id="row_row-11" class="row ">
+                        <div id="column_column_15"
+                             class="col-xs-12 col-sm-12 col-md-12 col-lg-12 visible-lg visible-md visible-sm visible-xs">
+                            <div class="layout-item sunfw-item-module-position">
+                                <div class="sunfw-pos-footer   visible-lg visible-md visible-sm visible-xs">
+                                    <div class="module-style ">
+                                        <div class="module-body">
+
+                                            <div class="custom">
+                                                <style>
+                                                    /* PageFly Element Styles */
+                                                    .gsdIuB {
+                                                        padding: var(--pf-s-lg);
+                                                    }
+
+                                                    @@media (max-width: 1199px) and (min-width: 992px) {
+                                                        .gsdIuB {
+                                                            padding: var(--pf-s-md);
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 991px) and (min-width: 768px) {
+                                                        .gsdIuB {
+                                                            padding: var(--pf-s-sm);
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 767px) {
+                                                        .gsdIuB {
+                                                            padding: var(--pf-s-xs);
+                                                        }
+                                                    }
+
+                                                    .iDckyw {
+                                                        position: relative;
+                                                    }
+
+                                                    .jdLQbH {
+                                                        margin: 0 calc(-1 * var(--pf-s-lg));
+                                                    }
+
+                                                    @@media (max-width: 1199px) and (min-width: 992px) {
+                                                        .jdLQbH {
+                                                            margin: 0 calc(-1 * var(--pf-s-md));
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 991px) and (min-width: 768px) {
+                                                        .jdLQbH {
+                                                            margin: 0 calc(-1 * var(--pf-s-sm));
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 767px) {
+                                                        .jdLQbH {
+                                                            margin: 0 calc(-1 * var(--pf-s-xs));
+                                                        }
+                                                    }
+
+                                                    .cBuwhn__parallax {
+                                                        position: absolute;
+                                                        top: 0px;
+                                                        left: 0px;
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        overflow: hidden;
+                                                        pointer-events: none;
+                                                    }
+
+                                                    .cBuwhn {
+                                                        padding: 15px 0px;
+                                                        position: relative;
+                                                    }
+
+                                                    .kzftmY > span:last-child {
+                                                        line-height: inherit;
+                                                        display: block;
+                                                        margin-right: 0px !important;
+                                                    }
+
+                                                    #editor-dnd-wrapper .kzftmY span + span[contenteditable] {
+                                                        display: block;
+                                                    }
+
+                                                        #editor-dnd-wrapper .kzftmY span + span[contenteditable]:empty::after {
+                                                            display: inline;
+                                                        }
+
+                                                    .kzftmY ol,
+                                                    .kzftmY ul {
+                                                        list-style-position: inside;
+                                                    }
+
+                                                    .kzftmY blockquote {
+                                                        font-size: inherit;
+                                                    }
+
+                                                    .aevsi {
+                                                        display: inline-block;
+                                                    }
+
+                                                        .aevsi[contenteditable="true"] {
+                                                            user-select: text;
+                                                        }
+
+                                                    .aevsi {
+                                                        vertical-align: baseline;
+                                                        word-break: break-word;
+                                                    }
+
+                                                        .aevsi:focus {
+                                                            outline: none;
+                                                        }
+
+                                                        .aevsi::after {
+                                                            display: inline;
+                                                        }
+
+                                                    /* PageFly Styles */
+
+                                                    @@media all {
+                                                        .__pf .pf-d15f133a-6854b4fc {
+                                                            text-align: center;
+                                                            color: rgb(255, 255, 255);
+                                                            margin-top: 25px;
+                                                            font-family: Roboto;
+                                                        }
+
+                                                        .__pf .pf-d15f133a-b4fc2e61 {
+                                                            margin: 0px;
+                                                            padding: 0px;
+                                                        }
+
+                                                        .__pf .pf-d15f133a-6d98ec2c {
+                                                            padding-bottom: 27px;
+                                                        }
+                                                    }
+                                                </style>
+                                                <div class="__pf" id="__pf">
+                                                    <div data-pf-type="Body" class="sc-oVpqz gmldoY pf-d15f133a-b3a8bf73">
+                                                        <div data-pf-type="Layout" class="pf-d15f133a-a8bf7342">
+                                                            <div data-container="true"
+                                                                 class="sc-pZdvY cBuwhn pf-d15f133a-6d98ec2c"
+                                                                 data-pf-type="Section">
+                                                                <div class="sc-pRgDJ fzXWJx" style="max-width: 1170px;">
+                                                                    <div class="sc-qQxFs jdLQbH pf-d15f133a-2e618cbb pf-r pf-r-eh"
+                                                                         data-pf-type="Row"
+                                                                         style="--pf-s-lg:15px; --pf-s-md:15px; --pf-s-sm:15px; --pf-s-xs:15px;">
+                                                                        <div class="sc-pbJYR gsdIuB pf-c pf-c-xs--12 pf-c-sm--12 pf-c-md--12 pf-c-lg--12">
+                                                                            <div class="sc-pkfPC iDckyw pf-d15f133a-b4fc2e61"
+                                                                                 data-pf-type="Column">
+                                                                                <p data-pf-type="Paragraph2"
+                                                                                   class="sc-psedN kzftmY pf-d15f133a-6854b4fc">
+                                                                                    <span data-pf-type="Text"
+                                                                                          class="sc-qPwwY aevsi pf-d15f133a-867e6854">
+                                                                                        JSN
+                                                                                        BookStore is designed by <span class="sunfw-tx-mc">JoomlaShine.com</span><br>Powered
+                                                                                        by <span class="sunfw-tx-mc">
+                                                                                            JSN Sun
+                                                                                            Framework
+                                                                                        </span>
+                                                                                    </span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <script type="application/json"
+                                                        class="pf_page_settings">{"isBackend":false,"pageflyVersion":"2.12.0","elementData":{},"pageId":"d15f133a"}</script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="module-style ">
+                                        <div class="module-body">
+
+                                            <div class="custom">
+                                                <style>
+                                                    #jsn-toolbar iframe {
+                                                        border: none;
+                                                    }
+
+                                                    .overlay {
+                                                        background: rgba(0, 0, 0, 0.2);
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        top: 0;
+                                                        left: 0;
+                                                        position: fixed;
+                                                        z-index: 9990;
+                                                        visibility: hidden;
+                                                        opacity: 0;
+                                                        transition: opacity 0.3s
+                                                    }
+
+                                                    .demo-open .overlay {
+                                                        visibility: visible;
+                                                        opacity: 1;
+                                                        z-index: 9999998;
+                                                    }
+
+                                                    .toolbar-content {
+                                                        height: inherit;
+                                                    }
+
+                                                    .toolbar-inner {
+                                                        position: fixed;
+                                                        z-index: 9991;
+                                                        background: #fff;
+                                                        top: 0;
+                                                        width: 440px;
+                                                        height: 100%;
+                                                        transition: -webkit-transform 0.3s;
+                                                        transition: transform 0.3s;
+                                                        transition: transform 0.3s, -webkit-transform 0.3s;
+                                                        -webkit-transform: translateX(100%);
+                                                        -ms-transform: translateX(100%);
+                                                        transform: translateX(100%);
+                                                        right: 0;
+                                                    }
+
+                                                    .jsn-toolbar.active {
+                                                        -webkit-transform: translateX(0);
+                                                        -ms-transform: translateX(0);
+                                                        transform: translateX(0);
+                                                        z-index: 9999999
+                                                    }
+
+                                                    .toolbar-open {
+                                                        position: fixed;
+                                                        top: 125px;
+                                                        width: 75px;
+                                                        height: 60px;
+                                                        background: #fff;
+                                                        text-align: center;
+                                                        cursor: pointer;
+                                                        border: 1px solid #fff;
+                                                        border-right: none;
+                                                        border-radius: 2px 0 0 2px;
+                                                        box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+                                                        padding: 1px;
+                                                        right: 100%;
+                                                    }
+
+                                                        .toolbar-open * {
+                                                            -webkit-transition: all 0.3s;
+                                                            -moz-transition: all 0.3s;
+                                                            -ms-transition: all 0.3s;
+                                                            -o-transition: all 0.3s;
+                                                            transition: all 0.3s;
+                                                        }
+
+                                                        .toolbar-open .normal {
+                                                            display: block;
+                                                            background: #0071b2;
+                                                            color: #fff;
+                                                            height: 100%;
+                                                            z-index: 1;
+                                                            position: relative
+                                                        }
+
+                                                            .toolbar-open .normal span {
+                                                                text-transform: uppercase;
+                                                                font-size: 12px;
+                                                                font-weight: bold;
+                                                                display: block;
+                                                                line-height: 16px;
+                                                                padding-top: 12px;
+                                                                padding-left: 3px;
+                                                                padding-right: 3px;
+                                                            }
+
+                                                    .demo-open .toolbar-inner {
+                                                        -webkit-transform: translateX(0);
+                                                        -ms-transform: translateX(0);
+                                                        transform: translateX(0);
+                                                        z-index: 9999999
+                                                    }
+
+                                                    .toolbar-scroll {
+                                                        height: 100%;
+                                                    }
+
+                                                    @@media (max-width: 767px) {
+                                                        .toolbar-inner {
+                                                            width: 280px;
+                                                        }
+                                                    }
+
+                                                    @@media (max-width: 480px) {
+                                                        .toolbar-inner {
+                                                            display: none;
+                                                        }
+                                                    }
+                                                </style>
+                                                <div class="overlay"></div>
+
+                                                <script type="text/javascript">
+                                                    jQuery(document).ready(function ($) {
+
+                                                        $('.toolbar-open').click(function () {
+                                                            $('body').toggleClass('demo-open').trigger("jsndemo");
+                                                        });
+
+                                                        $("body").unbind('jsndemo').on("jsndemo", function () {
+                                                            $('.demo-open .overlay').unbind('click').click(function () {
+                                                                $('body').toggleClass('demo-open');
+                                                            });
+                                                        });
+
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="module-style ">
+                                        <div class="module-body">
+
+                                            <div class="custom">
+                                                <style>
+                                                    *::before,
+                                                    *::after {
+                                                        box-sizing: border-box;
+                                                    }
+
+                                                    *::before,
+                                                    *::after {
+                                                        box-sizing: border-box;
+                                                    }
+
+                                                    * {
+                                                        box-sizing: border-box;
+                                                    }
+
+                                                    div#jsn-demo-builder-toggle {
+                                                        position: fixed;
+                                                        right: -482px;
+                                                        top: 193px;
+                                                        transition: all 0.6s ease;
+                                                        -moz-transition: all 0.6s ease;
+                                                        -webkit-transition: all 0.6s ease;
+                                                        z-index: 1;
+                                                    }
+
+                                                        div#jsn-demo-builder-toggle.active {
+                                                            right: 0;
+                                                        }
+
+                                                        div#jsn-demo-builder-toggle > div,
+                                                        div#jsn-demo-builder-toggle > a {
+                                                            float: right;
+                                                            cursor: default;
+                                                        }
+
+                                                        div#jsn-demo-builder-toggle > a {
+                                                            box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+                                                            background: url("http://demo.joomlashine.com/images/get-it-now/get-it-now.jpg");
+                                                            background-repeat: no-repeat;
+                                                            background-size: cover;
+                                                            background-position: center center;
+                                                            overflow: hidden;
+                                                            width: 75px;
+                                                            height: 60px;
+                                                            transition: all 0.6s ease;
+                                                            -moz-transition: all 0.6s ease;
+                                                            -webkit-transition: all 0.6s ease;
+                                                            position: fixed;
+                                                            right: 0;
+                                                            cursor: pointer;
+                                                            margin-top: -2px;
+                                                        }
+
+                                                            div#jsn-demo-builder-toggle > a:hover {
+                                                                color: #FFF;
+                                                            }
+
+                                                            div#jsn-demo-builder-toggle > a.active {
+                                                                right: 482px;
+                                                            }
+
+                                                            div#jsn-demo-builder-toggle > a:focus {
+                                                                outline: none;
+                                                            }
+
+                                                            div#jsn-demo-builder-toggle > a img {
+                                                                position: relative;
+                                                                right: -5px;
+                                                                transition: all 0.3s ease;
+                                                                -moz-transition: all 0.3s ease;
+                                                                -webkit-transition: all 0.3s ease;
+                                                                cursor: pointer;
+                                                            }
+
+                                                                div#jsn-demo-builder-toggle > a img:hover,
+                                                                div#jsn-demo-builder-toggle > a.active img {
+                                                                    right: 0;
+                                                                }
+
+                                                        div#jsn-demo-builder-toggle > div > iframe {
+                                                            background: #fff;
+                                                            border: 5px solid #0071b2;
+                                                            border-bottom-right-radius: 5px;
+                                                            -webkit-box-shadow: 0 0 0 1px #ffffff, 0 0 0 2px #e6e6e6;
+                                                            -moz-box-shadow: 0 0 0 1px #ffffff, 0 0 0 2px #e6e6e6;
+                                                            box-shadow: 0 0 0 1px #ffffff, 0 0 0 2px #e6e6e6;
+                                                        }
+
+                                                    div#jsn-demo-builder-toggle {
+                                                        margin: 0;
+                                                        padding: 0;
+                                                    }
+
+                                                    .demo-builder-open.active:before {
+                                                        background: rgba(0, 0, 0, 0.2) none repeat scroll 0 0;
+                                                        content: " ";
+                                                        height: 100%;
+                                                        left: 0;
+                                                        opacity: 1;
+                                                        position: fixed;
+                                                        top: 0;
+                                                        width: 100%;
+                                                        z-index: 10001;
+                                                    }
+
+                                                    @@media (max-width: 480px) {
+                                                        div#jsn-demo-builder-toggle {
+                                                            display: none;
+                                                        }
+
+                                                            div#jsn-demo-builder-toggle > div > iframe {
+                                                                width: 380px;
+                                                                padding: 0 20px;
+                                                            }
+
+                                                        div#jsn-demo-builder-toggle {
+                                                            width: 380px;
+                                                            right: -380px;
+                                                        }
+
+                                                        #jsn-demo-builder .jsn-page {
+                                                            width: 380px;
+                                                        }
+
+                                                        div#jsn-demo-builder-toggle > a.active {
+                                                            right: 382px;
+                                                        }
+                                                    }
+                                                </style>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ #jsn-wrapper -->
+
+        <a href="#" class="sunfw-scrollup position-right ">
+            <i class="fa fa-long-arrow-up"></i>
+        </a>
+        <script src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/plugins/editors/pagebuilder4/assets/app/pagefly/core/helper.js?t=20201118161126"
+                defer></script>
+    </div>
 </body>
 </html>

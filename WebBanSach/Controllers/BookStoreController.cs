@@ -13,6 +13,7 @@ namespace WebBanSach.Controllers
         // GET: BookStore
         public ActionResult Index()
         {
+            
             var all = from tt in data.SACHes select tt;
             return View(all);
         }

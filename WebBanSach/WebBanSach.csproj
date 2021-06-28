@@ -123,6 +123,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookStoreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ModuleController.cs" />
+    <Compile Include="DAO\SachDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -167,6 +169,7 @@
     <Content Include="images\LTWeb2005.jpg" />
     <Content Include="images\next.gif" />
     <Content Include="images\prev.gif" />
+    <Content Include="images\product1_1.jpg" />
     <Content Include="images\TH001.jpg" />
     <Content Include="images\TH002.jpg" />
     <Content Include="images\TH003.jpg" />
@@ -212,10 +215,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
-    <Content Include="Views\Home\Index2.cshtml" />
     <Content Include="Views\BookStore\Index.cshtml" />
     <Content Include="Views\BookStore\ChuDe.cshtml" />
     <Content Include="Views\BookStore\Nhaxuatban.cshtml" />
+    <Content Include="Views\Module\MenuChuDe.cshtml" />
+    <Content Include="Views\Module\MenuNXB.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
