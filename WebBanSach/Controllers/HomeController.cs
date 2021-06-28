@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebBanSach.Models;
+using WebBanSach.DAO;
 
 namespace WebBanSach.Controllers
 {
     public class HomeController : Controller
     {
+        DataBookDataContext data = new DataBookDataContext();
         public ActionResult Index()
         {
-            return View();
+            SachDAO sachDAO = new SachDAO();
+            var all = sachDAO.listSachmoi(8);
+            return View(all);
         }
 
         public ActionResult About()

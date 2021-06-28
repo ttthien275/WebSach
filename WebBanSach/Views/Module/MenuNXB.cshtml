@@ -1,0 +1,18 @@
+﻿@model IEnumerable<WebBanSach.Models.NHAXUATBAN>
+<li class="item-568 parent dropdown-submenu">
+    <span class="nav-header ">
+        <span class="heading-data-title">Nhà xuất bản</span><span class="caret"></span>
+    </span>
+    <ul class="dropdown-menu">
+        @foreach (var item in Model)
+        {
+            <li class="item-577 parent dropdown-submenu">
+                <span class="nav-header ">
+                    <span class="heading-data-title">
+                        @item.TenNXB
+                    </span><span class="caret"></span>
+                </span>
+            </li>
+        }
+    </ul>
+</li>
