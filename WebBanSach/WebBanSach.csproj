@@ -123,6 +123,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookStoreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ModuleController.cs" />
     <Compile Include="DAO\SachDAO.cs" />
     <Compile Include="Global.asax.cs">
@@ -221,6 +222,7 @@
     <Content Include="Views\Module\MenuChuDe.cshtml" />
     <Content Include="Views\Module\MenuNXB.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Login\DangKi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

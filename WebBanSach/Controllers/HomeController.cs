@@ -11,12 +11,12 @@ namespace WebBanSach.Controllers
     public class HomeController : Controller
     {
         DataBookDataContext data = new DataBookDataContext();
-        public ActionResult Index()
-        {
-            SachDAO sachDAO = new SachDAO();
-            var all = sachDAO.listSachmoi(8);
-            return View(all);
-        }
+        //public ActionResult Index()
+        //{
+        //    SachDAO sachDAO = new SachDAO();
+        //    var all = sachDAO.listSachmoi(8);
+        //    return View(all);
+        //}
 
         public ActionResult About()
         {
@@ -35,7 +35,7 @@ namespace WebBanSach.Controllers
         public ActionResult Details(int id)
         {
             var sach = from s in data.SACHes
-                       where s.Masach == id
+                      // where s.Masach == id
                        select s;
             return View(sach.Single()); 
         }
