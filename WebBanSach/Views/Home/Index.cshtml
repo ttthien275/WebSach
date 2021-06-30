@@ -3022,9 +3022,12 @@
                                                                      itemtype="https://schema.org/ItemList"
                                                                      class="j2store-product-module j2store-product-module-list row">
                                                                     <!-- single product -->
-
+                                                                    @{ 
+                                                                        var first = Model.Take(4).ToList();
+                                                                        var second = Model.Take(4).ToList();
+                                                                    }
                                                                     <div class="j2store-module-product-row row-0 row">
-                                                                        @foreach (var item in Model)
+                                                                        @foreach (var item in first)
                                                                         {
                                                                             <div itemprop="itemListElement"
                                                                                  itemscope=""
@@ -3183,7 +3186,7 @@
                                                                     <!-- single product -->
 
                                                                     <div class="j2store-module-product-row row-1 row">
-                                                                        @foreach (var item in Model)
+                                                                        @foreach (var item in second)
                                                                         {
                                                                             <div itemprop="itemListElement"
                                                                                  itemscope=""
@@ -3335,13 +3338,13 @@
 
                                                                     <!-- end single product -->
                                                                 </div>
-                                                            </div><a href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product"
+                                                            </div><a href="@Url.Action("All_Sach","Module")"
                                                                      target="_self" data-pf-type="Button"
                                                                      class="sc-pRFHb fZOIhA pf-09c29e70-bc110b0b">
                                                                 <span data-pf-type="Text"
                                                                       class="sc-oUAoT kVASKi pf-09c29e70-0336bc11">
-                                                                    View
-                                                                    More
+                                                                    Xem
+                                                                    thêm
                                                                 </span>
                                                             </a>
                                                         </div>
