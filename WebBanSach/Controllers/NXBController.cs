@@ -7,19 +7,19 @@ using WebBanSach.Models;
 
 namespace WebBanSach.Controllers
 {
-    public class ChudeController : Controller
+    public class NXBController : Controller
     {
-        // GET: Chude
+        // GET: NXB
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult SChuDe(int id)
+        public ActionResult SachNXB(int id)
         {
             DataBookDataContext data = new DataBookDataContext();
-            var sach = data.SACHes.Where(m => m.MaCD == id).ToList();
+            var sach = data.SACHes.Where(m => m.MaNXB == id).ToList();
             return View(sach);
         }
     }
+
 }

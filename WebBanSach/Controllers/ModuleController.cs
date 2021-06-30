@@ -52,5 +52,11 @@ namespace WebBanSach.Controllers
         {
             return PartialView();
         }
+        public ActionResult TopChuDe()
+        {
+            DataBookDataContext data = new DataBookDataContext();
+            var chude = data.CHUDEs.Take(6).ToList();
+            return PartialView(chude);
+        }
     }
 }

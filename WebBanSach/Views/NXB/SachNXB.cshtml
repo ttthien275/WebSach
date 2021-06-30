@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<WebBanSach.Models.SACH>
+
 @{
-    ViewBag.Title = "All_Sach";
+    ViewBag.Title = "SachNXB";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -109,114 +110,114 @@
                                     <div class="j2store-products-row row-0 row-fluid">
                                         @{
                                             int n = Model.Count();
-                                            
+
                                         }
-                                        @for(int i = 0; i < n; i += 3)
+                                        @for (int i = 0; i < n; i += 3)
                                         {
-                                            
-                                                var first = Model.Skip(i).Take(3).ToList();
-                                        <div class="j2store-products-row row-1 row-fluid">
-                                            @foreach (var item in first)
-                                            {
 
-                                                <div itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="span4">
-                                                    <meta itemprop="position" content="1">
-                                                    <div itemprop="item" itemscope="" itemtype="https://schema.org/Product" class="j2store-single-product multiple j2store-single-product-19 product-19 pcolumn-1 ">
+                                            var first = Model.Skip(i).Take(3).ToList();
+                                            <div class="j2store-products-row row-1 row-fluid">
+                                                @foreach (var item in first)
+                                                {
 
-                                                        <div class="j2store-product-images">
+                                                    <div itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="span4">
+                                                        <meta itemprop="position" content="1">
+                                                        <div itemprop="item" itemscope="" itemtype="https://schema.org/Product" class="j2store-single-product multiple j2store-single-product-19 product-19 pcolumn-1 ">
 
-                                                            <div class="j2store-thumbnail-image">
-                                                                <a href="@Url.Action("Details","Home",new { id=item.MaSach})">
-                                                                    <img itemprop="image" alt="@item.TenSach" title="@item.TenSach" class="j2store-img-responsive j2store-product-thumb-image-19" src="~/images/@item.AnhBia" width="0">
-                                                                </a>
-                                                            </div>
+                                                            <div class="j2store-product-images">
 
-                                                        </div>
-
-
-
-                                                        <h2 itemprop="name" class="product-title">
-
-                                                            <a itemprop="url" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product/configurable-product" title="@item.TenSach">
-
-                                                                @item.TenSach
-                                                            </a>
-                                                        </h2>
-
-
-
-
-
-
-
-                                                        <div itemprop="offers" itemscope="" itemtype="https://schema.org/Offer" class="product-price-container">
-
-                                                            <div class="sale-price">
-                                                                @item.GiaBan VNĐ
-                                                            </div>
-
-
-                                                            <meta itemprop="price" content="@item.GiaBan">
-                                                            <meta itemprop="priceCurrency" content="VNĐ">
-                                                            <link itemprop="availability" href="https://schema.org/InStock">
-                                                        </div>
-
-
-                                                        <div class="discount-percentage">
-                                                        </div>
-
-
-
-
-                                                        <form action="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart/addItem" method="post" class="j2store-addtocart-form" id="j2store-addtocart-form-19" name="j2store-addtocart-form-19" data-product_id="19" data-product_type="configurable" enctype="multipart/form-data">
-
-
-
-
-
-                                                            <div class="cart-action-complete" style="display:none;">
-                                                                <p class="text-success">
-                                                                    Item added to cart.					<a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart" class="j2store-checkout-link">
-                                                                        Checkout
+                                                                <div class="j2store-thumbnail-image">
+                                                                    <a href="@Url.Action("Details","Home",new { id=item.MaSach})">
+                                                                        <img itemprop="image" alt="@item.TenSach" title="@item.TenSach" class="j2store-img-responsive j2store-product-thumb-image-19" src="~/images/@item.AnhBia" width="0">
                                                                     </a>
-                                                                </p>
-                                                            </div>
-
-                                                            <div id="add-to-cart-19" class="j2store-add-to-cart">
-
-                                                                <div class="product-qty"><input type="number" name="product_qty" value="1" class="input-mini form-control " min="0" step="1"></div>
-                                                                <input type="hidden" name="product_id" value="19">
-
-                                                                <input data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">
+                                                                </div>
 
                                                             </div>
 
 
-                                                            <input type="hidden" name="option" value="com_j2store">
-                                                            <input type="hidden" name="view" value="carts">
-                                                            <input type="hidden" name="task" value="addItem">
-                                                            <input type="hidden" name="ajax" value="0">
-                                                            <input type="hidden" name="650520bba53a98058bb2cf8beba59fdd" value="1">	<input type="hidden" name="return" value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi9zdG9yZS9wcm9kdWN0">
-                                                            <div class="j2store-notifications"></div>
+
+                                                            <h2 itemprop="name" class="product-title">
+
+                                                                <a itemprop="url" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product/configurable-product" title="@item.TenSach">
+
+                                                                    @item.TenSach
+                                                                </a>
+                                                            </h2>
 
 
-                                                        </form>
 
 
 
 
-                                                        <!-- QUICK VIEW OPTION -->
+
+                                                            <div itemprop="offers" itemscope="" itemtype="https://schema.org/Offer" class="product-price-container">
+
+                                                                <div class="sale-price">
+                                                                    @item.GiaBan VNĐ
+                                                                </div>
+
+
+                                                                <meta itemprop="price" content="@item.GiaBan">
+                                                                <meta itemprop="priceCurrency" content="VNĐ">
+                                                                <link itemprop="availability" href="https://schema.org/InStock">
+                                                            </div>
+
+
+                                                            <div class="discount-percentage">
+                                                            </div>
+
+
+
+
+                                                            <form action="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart/addItem" method="post" class="j2store-addtocart-form" id="j2store-addtocart-form-19" name="j2store-addtocart-form-19" data-product_id="19" data-product_type="configurable" enctype="multipart/form-data">
+
+
+
+
+
+                                                                <div class="cart-action-complete" style="display:none;">
+                                                                    <p class="text-success">
+                                                                        Item added to cart.					<a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart" class="j2store-checkout-link">
+                                                                            Checkout
+                                                                        </a>
+                                                                    </p>
+                                                                </div>
+
+                                                                <div id="add-to-cart-19" class="j2store-add-to-cart">
+
+                                                                    <div class="product-qty"><input type="number" name="product_qty" value="1" class="input-mini form-control " min="0" step="1"></div>
+                                                                    <input type="hidden" name="product_id" value="19">
+
+                                                                    <input data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">
+
+                                                                </div>
+
+
+                                                                <input type="hidden" name="option" value="com_j2store">
+                                                                <input type="hidden" name="view" value="carts">
+                                                                <input type="hidden" name="task" value="addItem">
+                                                                <input type="hidden" name="ajax" value="0">
+                                                                <input type="hidden" name="650520bba53a98058bb2cf8beba59fdd" value="1">	<input type="hidden" name="return" value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi9zdG9yZS9wcm9kdWN0">
+                                                                <div class="j2store-notifications"></div>
+
+
+                                                            </form>
+
+
+
+
+                                                            <!-- QUICK VIEW OPTION -->
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            }
-                                        </div>
+                                                }
+                                            </div>
                                         }
 
                                         <!-- Make sure product is enabled and visible front end -->
                                     </div>
                                     <!-- Make sure product is enabled and visible front end -->
 
-                                  
+
 
 
                                     <form id="j2store-pagination" name="j2storepagination" action="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product?filter_catid=" method="post">
@@ -233,20 +234,18 @@
                                     <form action="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product" method="post" class="form-horizontal" id="productsideFilters" name="productsideFilters" enctype="multipart/form-data" data-link="index.php?option=com_j2store&amp;view=products&amp;catid[0]=98&amp;Itemid=922">
                                         <input type="hidden" name="filter_catid" id="filter_catid" value="">
                                         <!-- Price Filters Starts Here -->
-                                        @Html.Action("FilterGia","Module")
+                                        @Html.Action("FilterGia", "Module")
 
 
 
                                         <!-- Module Categories Filters -->
 
 
-                                        @Html.Action("FilterChuDe","Module")
-                                        @Html.Action("FilterNXB","Module")
+                                        @Html.Action("FilterChuDe", "Module")
+                                        @Html.Action("FilterNXB", "Module")
 
                                         <!-- Manufacturer -->
                                         <!-- Brand / Manufacturer Filters -->
-                                        
-
                                         <!-- Vendors -->
                                         <!-- Product Filters  -->
                                         <div class="j2store-product-filters productfilters-list">
@@ -306,10 +305,10 @@
                                             $("#j2store-slider-range").slider({
                                                 range: true,
                                                 min: 0,
-                                                max: 500000,
+                                                max: 1000,
                                                 values: [min_value, max_value],
                                                 slide: function (event, ui) {
-                                                    $("#amount1").val('' + ui.values[0] + '   - VNĐ' + ui.values[1] + ' ');
+                                                    $("#amount1").val('$' + ui.values[0] + '   - $' + ui.values[1] + ' ');
                                                     $("#min_price").html(ui.values[0]);
                                                     $("#max_price").html(ui.values[1]);
 
@@ -342,6 +341,5 @@
 <a href="#" class="sunfw-scrollup position-right " style="display: block;">
     <i class="fa fa-long-arrow-up"></i>
 </a>
-
 
 

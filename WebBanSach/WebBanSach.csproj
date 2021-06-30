@@ -126,6 +126,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ModuleController.cs" />
+    <Compile Include="Controllers\NXBController.cs" />
     <Compile Include="DAO\SachDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -161,7 +162,7 @@
     <Content Include="images\giaotrinhsql.png" />
     <Content Include="images\hoctienganh.png" />
     <Content Include="images\khamphacothe.png" />
-    <Content Include="images\khong-bao-gio-la-that-bai-tat-ca-chi-la-thu-thach.png" />
+    <Content Include="images\khong-bao-gio-la-that-bai-tat-ca chi-la-thu-thach.png" />
     <Content Include="images\lanhdaobangtrituecamxuc.png" />
     <Content Include="images\muonkiepnhansinh.png" />
     <Content Include="images\muonkiepnhansinh2.png" />
@@ -223,10 +224,12 @@
     <Content Include="Views\Module\FilterChuDe.cshtml" />
     <Content Include="Views\Module\FilterNXB.cshtml" />
     <Content Include="Views\Module\FilterGia.cshtml" />
+    <Content Include="Views\Chude\SChuDe.cshtml" />
+    <Content Include="Views\NXB\SachNXB.cshtml" />
+    <Content Include="Views\Module\TopChuDe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Chude\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
