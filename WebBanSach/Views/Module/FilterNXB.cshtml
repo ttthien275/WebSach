@@ -1,0 +1,18 @@
+﻿@model IEnumerable<WebBanSach.Models.NHAXUATBAN>
+<div class="j2store-product-filters manufacturer-filters">
+
+    <div class="j2store-product-filter-title j2store-product-brand-title">
+        <h4 class="product-filter-heading">Lọc theo Nhà Xuất Bản</h4>
+        <span>
+        </span>
+    </div>
+    <div id="j2store-brand-filter-container" class="control-group">
+        @foreach (var item in Model)
+        {
+            <label class="j2store-product-brand-label">
+                <input type="checkbox" class="j2store-brand-checkboxes" name="manufacturer_ids[]" id="brand-input-2" value="2">
+                @item.TenNXB
+            </label>
+        }
+    </div>
+</div>

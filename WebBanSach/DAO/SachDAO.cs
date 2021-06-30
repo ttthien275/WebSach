@@ -15,9 +15,13 @@ namespace WebBanSach.DAO
             DataBookDataContext data = new DataBookDataContext();
         }
 
-//        public List<SACH> listSachmoi(int n)
-//        {
-////            return data.SACHes.OrderByDescending(a => a.Ngaycapnhat).Take(n).ToList();
-//        }
+        public List<SACH> listSachmoi(int n)
+        {
+            return data.SACHes.OrderByDescending(a => a.NgayCapNhat).Take(n).ToList();
+        }
+        //public List<SACH> listAllSach(int x, int y)
+        //{
+        //  //  return data.SACHes.Take(x);
+        //}
     }
 }
