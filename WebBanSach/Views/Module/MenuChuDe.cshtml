@@ -7,11 +7,13 @@
         @foreach (var item in Model)
         {
             <li class="item-577 parent dropdown-submenu">
-                <span class="nav-header ">
-                    <span class="heading-data-title">
-                        @item.TenChuDe
-                    </span><span class="caret"></span>
-                </span>
+            
+                    <span class="nav-header ">
+                        <span class="heading-data-title">
+                            <a href="@Url.Action("SChuDe","ChuDe",new { id=item.MaCD})">@item.TenChuDe</a>
+                        </span>
+                    </span>
+                    
             </li>
         }
     </ul>
