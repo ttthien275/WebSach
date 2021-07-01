@@ -227,6 +227,7 @@
     <Content Include="Views\Chude\SChuDe.cshtml" />
     <Content Include="Views\NXB\SachNXB.cshtml" />
     <Content Include="Views\Module\TopChuDe.cshtml" />
+    <Content Include="Views\Login\DangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,10 +9,11 @@ namespace WebBanSach.Controllers
 {
     public class LoginController : Controller
     {
+        DataBookDataContext data = new DataBookDataContext();
         [HttpGet]
         public ActionResult DangKi()
         {
-            DataBookDataContext data = new DataBookDataContext();
+
             return View();
         }
         //post: nhận data từ form đăng kí và lưu data xuống DB
@@ -75,6 +76,44 @@ namespace WebBanSach.Controllers
             return this.DangKi();
         }
         // GET: Login
+
+        [HttpGet]
+        public ActionResult DangNhap()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DangNhap(FormCollection collection)
+        {
+            var Username = collection["username"];
+            var Password = collection["password"];
+            if (String.IsNullOrEmpty(Username))
+            {
+                ViewData["error-1"] = "Vui lòng điền đầy đủ  tên!";
+            }
+            else if (String.IsNullOrEmpty(Password))
+                {
+                    ViewData["error-2"] = "Vui lòng không bỏ trống mật khẩu !";
+                }
+                else
+                {
+                TAIKHOAN tk = data.TAIKHOANs.SingleOrDefault(n => n.USERNAME == Username && n.MATKHAU == Password);
+                if (tk != null)
+                {
+
+                    ViewBag.Thongbao = "chúc mừng đăng nhập thành công";
+                    Session["USERNAME"] = tk;
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                    ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
+
+
+                }
+            return View();
+        }
+
+
         public ActionResult Index()
         {
             return View();
