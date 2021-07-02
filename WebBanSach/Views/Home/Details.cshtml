@@ -20,8 +20,8 @@
                                         <div class="j2store-mainimage">
 
                                             <span class="zoom" id="j2store-item-main-image-1" style="position: relative; overflow: hidden;">
-                                                <img itemprop="image" alt="The Kite Runner" title="The Kite Runner" class="j2store-product-main-image j2store-img-responsive" src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/images/joomlashine/sample/bookimage/kite-runner-square-8b38574.jpg" width="200">
-                                                <img src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/images/joomlashine/sample/bookimage/kite-runner-square-8b38574.jpg" class="zoomImg" style="position: absolute; top: -13.4496px; left: -163.935px; opacity: 0; width: 540px; height: 656px; border: none; max-width: none;">
+                                                <img itemprop="image" alt="The Kite Runner" title="The Kite Runner" class="j2store-product-main-image j2store-img-responsive" src="~/images/@Model.AnhBia" width="200">
+                                                <img src="~/images/@Model.AnhBia" class="zoomImg" style="position: absolute; top: -13.4496px; left: -163.935px; opacity: 0; width: 540px; height: 656px; border: none; max-width: none;">
                                             </span>
                                             <script type="text/javascript">
                                                 var main_image = "https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/images/joomlashine/sample/bookimage/kite-runner-square-8b38574.jpg";
@@ -39,10 +39,10 @@
 
                                             <ul class="additional-image-list">
                                                 <li>
-                                                    <img onmouseover="setMainPreview('addimage-1-0', 1, 1, 'inner')" onclick="setMainPreview('addimage-1-0', 1, 1, 'inner')" id="addimage-1-0" class="j2store-item-additionalimage-preview j2store-img-responsive" src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/images/joomlashine/sample/bookimage/Kansas-Elizabeth-Ladean-Photography-photo-_6324.jpg" alt="The Kite Runner" title="The Kite Runner" width="100">
+                                                    <img onmouseover="setMainPreview('addimage-1-0', 1, 1, 'inner')" onclick="setMainPreview('addimage-1-0', 1, 1, 'inner')" id="addimage-1-0" class="j2store-item-additionalimage-preview j2store-img-responsive" src="~/images/@Model.AnhBia" alt="@Model.TenSach" title="@Model.TenSach" width="100">
                                                 </li>
                                                 <li>
-                                                    <img onmouseover="setMainPreview('additial-main-image-1', 1, 1, 'inner')" onclick="setMainPreview('additial-main-image-1', 1, 1, 'inner')" id="additial-main-image-1" alt="The Kite Runner" title="The Kite Runner" class="j2store-item-additionalimage-preview j2store-img-responsive additional-mainimage" src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/images/joomlashine/sample/bookimage/kite-runner-square-8b38574.jpg" width="100">
+                                                    <img onmouseover="setMainPreview('additial-main-image-1', 1, 1, 'inner')" onclick="setMainPreview('additial-main-image-1', 1, 1, 'inner')" id="additial-main-image-1" alt="The Kite Runner" title="The Kite Runner" class="j2store-item-additionalimage-preview j2store-img-responsive additional-mainimage" src="~/images/@Model.AnhBia" width="100">
                                                 </li>
                                             </ul>
                                         </div>
@@ -60,13 +60,12 @@
                                     <div class="col-sm-7">
 
                                         <h1 itemprop="name" class="product-title">
-                                            @Model.Tensach
+                                            @Model.TenSach
                                         </h1>
 
 
                                         <span class="manufacturer-brand">
-                                            Brand:
-                                            Khaled Hosseini
+                                            @Model.MaNXB
                                         </span>
 
 
@@ -76,11 +75,11 @@
                                                 <div itemprop="offers" itemscope="" itemtype="https://schema.org/Offer" class="product-price-container">
 
                                                     <div class="base-price strike">
-                                                        @Model.Giaban + 55000
+                                                        @Model.GiaBia 
                                                     </div>
 
                                                     <div class="sale-price">
-                                                        @Model.Giaban
+                                                        @Model.GiaBan VNĐ
                                                     </div>
 
 
@@ -104,7 +103,7 @@
                                             <div class="short-description">
 
                                                 <div class="product-sdesc">
-                                                    <p>The Kite Runner is the first novel by Afghan-American author Khaled Hosseini, which tells the story of Amir,&nbsp;a young boy from the Wazir Akbar Khan district of Kabul. The Kite Runner was published in 2003 by Riverhead Books.&nbsp;The Kite Runner became a bestseller after being printed in paperback and was popularized in book clubs. It was a number-one New York Times bestseller for over two years, with over seven million copies sold in the United States. The story is set against a backdrop of tumultuous events, from the fall of Afghanistan's monarchy through the Soviet military intervention, the exodus of refugees to Pakistan and the United States, and the rise of the Taliban regime.&nbsp;</p>
+                                                    <p>@Model.MoTa</p>
                                                 </div>
 
                                             </div>
@@ -126,8 +125,8 @@
 
                                                 <div class="product-qty"><input type="number" name="product_qty" value="1" class="input-mini form-control " min="0" step="1"></div>
                                                 <input type="hidden" id="j2store_product_id" name="product_id" value="1">
-
-                                                <input data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">
+                                                <a href=" @Url.Action("Themgiohang", "Giohang", new { id = Model.MaSach ,strUrl=Request.Url.ToString()})" data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">Add to cart</a>
+                                                @*<input data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">*@
                                             </div>
 
 
@@ -159,7 +158,7 @@
                                             <div itemprop="description" class="tab-pane fade in active" id="description">
 
                                                 <div class="product-sdesc">
-                                                    <p>The Kite Runner is the first novel by Afghan-American author Khaled Hosseini, which tells the story of Amir,&nbsp;a young boy from the Wazir Akbar Khan district of Kabul. The Kite Runner was published in 2003 by Riverhead Books.&nbsp;The Kite Runner became a bestseller after being printed in paperback and was popularized in book clubs. It was a number-one New York Times bestseller for over two years, with over seven million copies sold in the United States. The story is set against a backdrop of tumultuous events, from the fall of Afghanistan's monarchy through the Soviet military intervention, the exodus of refugees to Pakistan and the United States, and the rise of the Taliban regime.&nbsp;</p>
+                                                    <p>@Model.MoTa</p>
                                                 </div>
 
 

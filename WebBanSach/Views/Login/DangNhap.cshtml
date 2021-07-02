@@ -1,0 +1,78 @@
+﻿@model WebBanSach.Models.TAIKHOAN
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DangNhap</h2>
+
+<div class="login">
+    <form action="/Login/Dangnhap" method="post" class="form-validate form-horizontal well">
+        <fieldset>
+            <div class="control-group">
+                <div class="control-label">
+                    <label id="username-lbl" for="username" class="required invalid">
+                        Username<span class="star">&nbsp;*</span>
+                    </label>
+                </div>
+                <div class="controls">
+                    <input type="text" name="username" id="username" value="" class="validate-username required invalid" size="25" required="required" aria-required="true" autofocus="" aria-invalid="true">
+                    @ViewData["error-1"]
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="control-label">
+                    <label id="password-lbl" for="password" class="required">
+                        Password<span class="star">&nbsp;*</span>
+                    </label>
+                </div>
+                <div class="controls">
+                    <input type="password" name="password" id="password" value="" class="validate-password required" size="25" maxlength="99" required="required" aria-required="true">
+                    @ViewData["error-2"]
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="control-label">
+                    <label>
+                        Remember me
+                    </label>
+                </div>
+                <div class="controls">
+                    <input id="remember" type="checkbox" name="remember" class="inputbox" value="yes">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn btn-primary">
+                
+                        Log in
+                    </button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls sunfw-login-nav">
+                    <ul class="nav nav-tabs nav-stacked">
+                        <li>
+                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/user-profile?view=reset">
+                                Forgot your password?
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/account-reminder">
+                                Forgot your username?
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/registration-form">
+                                Don't have an account?
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <input type="hidden" name="return" value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi91c2luZy1qb29tbGEvZXh0ZW5zaW9ucy9jb21wb25lbnRzL3VzZXJzLWNvbXBvbmVudC9sb2dpbi1mb3Jt">
+            <input type="hidden" name="3eb05997e66ec731527f3079fbeb9cd6" value="1">
+        </fieldset>
+    </form>
+</div>

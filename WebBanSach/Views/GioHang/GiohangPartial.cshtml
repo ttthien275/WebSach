@@ -1,0 +1,63 @@
+﻿@using WebBanSach.Models
+
+<div class="j2store_cart_module_254">
+    <div class="j2store-minicart-button">
+        <div class="j2store-cart-info">
+            <h3 class="j2store-cart-info-link" data-hover="dropdown"
+                data-toggle="dropdown">
+                <a class="link"
+                   href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart">
+                    My
+                    Cart
+                </a>
+                <span>(@ViewBag.TongSoLuong)</span>
+            </h3>
+        </div>
+        <div class="j2store-cart-item-box" id="j2store_cart_item_254" style="display:none;">
+            <div class="j2store-cart-header-block">
+
+                <div class="top-subtotal">
+                    <span>
+                        @ViewBag.Thongbao
+                    </span>
+                </div>
+                @if (ViewBag.TongSoLuong != 0)
+                {
+            <ul class="j2store-cart-list">
+                @foreach (var item in Model)
+                {
+                    <li class="cartitems">
+                        <div class="item-info">
+                            <span class="cart-thumb-image">
+                                <img alt="The Kite Runner" src="~/images/@item.ghAnhBia">
+                            </span>
+
+                            <div class="item-product-details">
+                                <div class="access">
+                                    <a class="cart-remove text-error" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart/remove?cartitem_id=176"> <i class="fa fa-remove"></i></a>
+                                </div>
+                            </div>
+                            <span class="cart-item-qty">
+                                @item.ghSoLuong x @item.ghGiaBan
+                            </span>
+                            <p class="j2store-product-name"><span>@item.ghTenSach</span></p>
+                            <br>
+                        </div>
+                    </li>
+                }
+            </ul>
+                    <div class="j2store-cart-nav">
+                        <a class="btn btn-primary btn-large" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/check-out">
+                            Checkout
+                        </a>
+
+                        <a class="btn btn-default btn-large" href="@Url.Action("Giohang","GioHang")">
+                            View Cart
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

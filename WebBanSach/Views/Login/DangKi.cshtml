@@ -1,0 +1,126 @@
+﻿
+@model WebBanSach.Models.TAIKHOAN
+
+@{
+    ViewBag.Title = "DangKi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="layout-item sunfw-item-page-content">
+    <div id="system-message-container">
+    </div>
+
+    <div class="registration">
+        <form id="member-registration" action="/Login/DangKi" method="post" class="form-validate form-horizontal well" enctype="multipart/form-data">
+            <legend>Đăng kí tài khoản</legend>
+            <div class="control-group">
+                <div class="control-label">
+                    <span class="spacer"><span class="before"></span><span class="text"><label id="jform_spacer-lbl" class=""><strong class="red">*</strong> Thông tin bắt buộc</label></span><span class="after"></span></span>
+                </div>
+                <div class="controls">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="control-label">
+                    <label id="jform_name-lbl" for="jform_name" class="hasPopover " title="" data-content="Enter your full name." data-original-title="Name">
+                        Họ tên<span class="star">&nbsp;*</span>
+                    </label>
+                </div>
+                <div class="controls">
+                    <input type="text" name="HOTEN" id="HOTEN" value="" class="" size="30" aria-required="true" aria-invalid="false">
+                    @ViewData["error-1"]
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="control-label">
+                    <label id="jform_username-lbl" for="jform_username" class="hasPopover required" title="" data-content="Enter your desired username." data-original-title="Username">
+                        Tên tài khoản<span class="star">&nbsp;*</span>
+                    </label>
+                </div>
+                <div class="controls">
+                    <input type="text" name="USERNAME" id="USERNAME" value="" class="validate-username required" size="30" required="required" aria-required="true" aria-invalid="false">
+                    @ViewData["error-2"]
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="control-label">
+                    <label id="jform_password1-lbl" for="jform_password1" class="hasPopover required invalid" title="" data-content="Enter your desired password." data-original-title="Password">
+                        Mật khẩu<span class="star">&nbsp;*</span>
+                    </label>
+                </div>
+                <div class="controls">
+                    <input type="password" name="MATKHAU" id="MATKHAU" value="" autocomplete="off" class="validate-password required invalid" size="30" maxlength="99" required="required" aria-required="true" aria-invalid="false">
+                    @ViewData["error-3"]
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="control-label">
+                    <label id="jform_password2-lbl" for="jform_password2" class="hasPopover required" title="" data-content="Confirm your password." data-original-title="Confirm Password">
+                        Xác nhận lại mật khẩu<span class="star">&nbsp;*</span>
+                    </label>
+                </div>
+                <div class="controls">
+                    <input type="password" name="MATKHAUNHAPLAI" id="MATKHAUNHAPLAI" value="" autocomplete="off" class="validate-password required" size="30" maxlength="99" required="required" aria-required="true">
+                    @ViewData["error-4"]
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="control-label">
+                    <label id="jform_email1-lbl" for="jform_email1" class="hasPopover required" title="" data-content="Enter your email address." data-original-title="Email Address">
+                        Email<span class="star">&nbsp;*</span>
+                    </label>
+                </div>
+                <div class="controls">
+                    <input type="email" name="EMAIL_TK" class="validate-email required" id="EMAIL_TK" value="" size="30" autocomplete="email" required="required" aria-required="true">
+                    @ViewData["error-5"]
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="control-label">
+                    <label id="jform_adress-lbl" for="jform_adress" class="hasPopover required" title="" data-content="Enter your address." data-original-title="Address">
+                        Địa chỉ<span class="star">&nbsp;*</span>
+                    </label>
+                </div>
+                <div class="controls">
+                    <input type="text" name="DIACHI_TK" id="DIACHI_TK" value="" autocomplete="off" class="validate-adress required" size="30" maxlength="99" required="required" aria-required="true">
+
+                </div>
+                @ViewData["error-6"]
+            </div>
+            <div class="control-group">
+                <div class="control-label">
+                    <label id="jform_phone-lbl" for="jform_phone" class="hasPopover required" title="" data-content="Enter your phone number." data-original-title="Phone">
+                        Số điện thoại<span class="star">&nbsp;*</span>
+                    </label>
+                </div>
+                <div class="controls">
+                    <input type="text" name="SDT" id="SDT" value="" autocomplete="off" class="validate-phone required" size="30" maxlength="99" required="required" aria-required="true">
+
+                </div>
+                @ViewData["error-7"]
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn btn-primary validate">
+                        Register
+                    </button>
+                    <a class="btn btn-default" href="/BookStore/Index" title="Cancel">
+                        Cancel
+                    </a>
+                    <input type="hidden" name="option" value="com_users">
+                    <input type="hidden" name="task" value="registration.register">
+                </div>
+            </div>
+            <input type="hidden" name="" value="1">
+        </form>
+    </div>
+
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
+
+

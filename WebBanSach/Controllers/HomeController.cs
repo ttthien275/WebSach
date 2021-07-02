@@ -18,6 +18,7 @@ namespace WebBanSach.Controllers
             return View(all);
         }
 
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -35,11 +36,11 @@ namespace WebBanSach.Controllers
         public ActionResult Details(int id)
         {
             var sach = from s in data.SACHes
-                       where s.Masach == id
+                       where s.MaSach == id
                        select s;
             return View(sach.Single()); 
         }
 
-
+    
     }
 }
