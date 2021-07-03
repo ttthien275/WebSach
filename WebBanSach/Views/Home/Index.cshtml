@@ -1800,166 +1800,175 @@
                                                                     </p>
                                                                     <div data-pf-type="JoomlaModule"
                                                                          class="sc-qOiPt jpYiwZ pf-9a9c4f5f-1ea2a68f">
-                                                                        <div itemscope
-                                                                             itemtype="https://schema.org/ItemList"
+                                                                        <div 
                                                                              class="j2store-product-module j2store-product-module-list row">
                                                                             <!-- single product----->
-
-                                                                            <div class="j2store-module-product-row row-0 row">
-                                                                                @foreach (var item in Model)
-                                                                                {
-                                                                                    <div itemprop="itemListElement"
-                                                                                         itemscope=""
-                                                                                         itemtype="https://schema.org/ListItem"
-                                                                                         class="col-sm-3" >
-                                                                                        <meta itemprop="position"
-                                                                                              content="1" />
-                                                                                        <div itemprop="item"
+                                                                            @{
+                                                                                int n = Model.Count();
+                                                                            }
+                                                                            @for (int i = 0; i < n; i += 4)
+                                                                            {
+                                                                                var list = Model.Skip(i).Take(4).ToList();
+                                                                                <div class="j2store-module-product-row row-0 row">
+                                                                                    @foreach (var item in list)
+                                                                                    {
+                                                                                        <div itemprop="itemListElement"
                                                                                              itemscope=""
-                                                                                             itemtype="http://schema.org/Product"
-                                                                                             class="j2store product-1 j2store-module-product">
+                                                                                             itemtype="https://schema.org/ListItem"
+                                                                                             class="col-sm-3">
+                                                                                            <meta itemprop="position"
+                                                                                                  content="1" />
+                                                                                            <div itemprop="item"
+                                                                                                 itemscope=""
+                                                                                                 itemtype="http://schema.org/Product"
+                                                                                                 class="j2store product-1 j2store-module-product">
 
-                                                                                            <!-- product image if postion is top -->
-                                                                                            <div class="j2store-product-image  col-md-12  ">
-                                                                                                <a href="@Url.Action("Details","Home",new { id=item.MaSach})"
-                                                                                                   title="@item.TenSach">
-                                                                                                    <img itemprop="image"
-                                                                                                         alt="@item.TenSach"
-                                                                                                         class="j2store-img-responsive j2store-product-image-1"
-                                                                                                         src="~/images/@item.AnhBia" 
-                                                                                                         width="auto"
-                                                                                                         height="auto"/>
-                                                                                                </a>
-                                                                                            </div>
+                                                                                                <!-- product image if postion is top -->
+                                                                                                <div class="j2store-product-image  col-md-12  ">
+                                                                                                    <a href="@Url.Action("Details", "Home", new { id = item.MaSach })"
+                                                                                                       title="@item.TenSach">
+                                                                                                        <img itemprop="image"
+                                                                                                             alt="@item.TenSach"
+                                                                                                             class="j2store-img-responsive j2store-product-image-1"
+                                                                                                             src="~/images/@item.AnhBia"
+                                                                                                             width="auto"
+                                                                                                             height="auto" />
+                                                                                                    </a>
+                                                                                                </div>
 
-                                                                                            <!-- product title -->
-                                                                                            <h4 itemprop="name"
-                                                                                                class="product-title">
-                                                                                                <a itemprop="url"
-                                                                                                   href="@Url.Action("Details","Home",new { id=item.MaSach})"
-                                                                                                   title="@item.TenSach">
-                                                                                                    @item.TenSach
-                                                                                                </a>
-                                                                                            </h4>
-                                                                                            <!-- end product title -->
+                                                                                                <!-- product title -->
+                                                                                                <h4 itemprop="name"
+                                                                                                    class="product-title">
+                                                                                                    <a itemprop="url"
+                                                                                                       href="@Url.Action("Details", "Home", new { id = item.MaSach })"
+                                                                                                       title="@item.TenSach">
+                                                                                                        @item.TenSach
+                                                                                                    </a>
+                                                                                                </h4>
+                                                                                                <!-- end product title -->
 
-                                                                                            <div class="product-cart-section col-sm-12 ">
-                                                                                                <!-- product image if postion is left -->
-                                                                                                <div class="product-cart-left-block  col-sm-12 ">
-                                                                                                    <!-- Product price block-->
-                                                                                                    <div itemprop="offers"
-                                                                                                         itemscope
-                                                                                                         itemtype="http://schema.org/Offer"
-                                                                                                         class="product-price-container">
-                                                                                                        <div class="base-price strike">
-                                                                                                            @item.GiaBia
-                                                                                                        </div>
-                                                                                                        <div class="sale-price">
-                                                                                                            @item.GiaBan
-                                                                                                        </div>
-                                                                                                        <div class="tax-text">
-                                                                                                        </div>
-                                                                                                    </div>
-
-                                                                                                    <div class="discount-percentage">
-                                                                                                        11% off
-                                                                                                    </div>
-                                                                                                    <!-- end Product price block-->
-                                                                                                    <!-- SKU -->
-                                                                                                    <!-- STOCK -->
-
-                                                                                                    <div class="product_cart_block">
-
-                                                                                                        <form action="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart/addItem"
-                                                                                                              method="post"
-                                                                                                              class="j2store-addtocart-form"
-                                                                                                              id="j2store-addtocart-form-1"
-                                                                                                              name="j2store-addtocart-form-1"
-                                                                                                              data-product_id="1"
-                                                                                                              data-product_type="simple"
-                                                                                                              enctype="multipart/form-data">
-
-
-
-
-                                                                                                            <!-- cart block -->
-                                                                                                            <div class="cart-action-complete"
-                                                                                                                 style="display:none;">
-                                                                                                                <p class="text-success">
-                                                                                                                    Item
-                                                                                                                    added
-                                                                                                                    to
-                                                                                                                    cart.
-                                                                                                                    <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart"
-                                                                                                                       class="j2store-checkout-link">
-                                                                                                                        Checkout
-                                                                                                                    </a>
-                                                                                                                </p>
+                                                                                                <div class="product-cart-section col-sm-12 ">
+                                                                                                    <!-- product image if postion is left -->
+                                                                                                    <div class="product-cart-left-block  col-sm-12 ">
+                                                                                                        <!-- Product price block-->
+                                                                                                        <div itemprop="offers"
+                                                                                                             itemscope
+                                                                                                             itemtype="http://schema.org/Offer"
+                                                                                                             class="product-price-container">
+                                                                                                            <div class="base-price strike">
+                                                                                                                @item.GiaBia
                                                                                                             </div>
+                                                                                                            <div class="sale-price">
+                                                                                                                @item.GiaBan
+                                                                                                            </div>
+                                                                                                            <div class="tax-text">
+                                                                                                            </div>
+                                                                                                        </div>
 
-                                                                                                            <div id="add-to-cart-1"
-                                                                                                                 class="j2store-add-to-cart">
+                                                                                                        <div class="discount-percentage">
+                                                                                                            11% off
+                                                                                                        </div>
+                                                                                                        <!-- end Product price block-->
+                                                                                                        <!-- SKU -->
+                                                                                                        <!-- STOCK -->
 
-                                                                                                                <div class="product-qty">
-                                                                                                                    <input type="number"
-                                                                                                                           name="product_qty"
-                                                                                                                           value="1"
-                                                                                                                           class="input-mini form-control"
-                                                                                                                           min="1"
-                                                                                                                           step='1' />
+                                                                                                        <div class="product_cart_block">
+
+                                                                                                            <form action="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart/addItem"
+                                                                                                                  method="post"
+                                                                                                                  class="j2store-addtocart-form"
+                                                                                                                  id="j2store-addtocart-form-1"
+                                                                                                                  name="j2store-addtocart-form-1"
+                                                                                                                  data-product_id="1"
+                                                                                                                  data-product_type="simple"
+                                                                                                                  enctype="multipart/form-data">
+
+
+
+
+                                                                                                                <!-- cart block -->
+                                                                                                                <div class="cart-action-complete"
+                                                                                                                     style="display:none;">
+                                                                                                                    <p class="text-success">
+                                                                                                                        Item
+                                                                                                                        added
+                                                                                                                        to
+                                                                                                                        cart.
+                                                                                                                        <a href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart"
+                                                                                                                           class="j2store-checkout-link">
+                                                                                                                            Checkout
+                                                                                                                        </a>
+                                                                                                                    </p>
                                                                                                                 </div>
 
-                                                                                                                <input type="hidden"
-                                                                                                                       name="product_id"
-                                                                                                                       value="1" />
-                                                                                                                <a href=" @Url.Action("Themgiohang", "Giohang", new { id = item.MaSach ,strUrl=Request.Url.ToString()})" data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">Add to cart</a>
-                                                                                                                @*<input data-cart-action-always="Adding..."
-        data-cart-action-done="Add to cart"
+                                                                                                                <div id="add-to-cart-1"
+                                                                                                                     class="j2store-add-to-cart">
+                                                                                                                    @{ 
+                                                                                                                        int sl_Sach = 1;
+                                                                                                                        int d = 1;
+
+                                                                                                                    <div class="product-qty">
+                                                                                                                        <input type="number"
+                                                                                                                               name="product_qty"
+                                                                                                                               value="@sl_Sach"
+                                                                                                                               class="input-mini form-control"
+                                                                                                                               min="1"
+                                                                                                                               step="@{sl_Sach = sl_Sach + 1;}" />
+                                                                                                                    </div>
+
+                                                                                                                    <input type="hidden"
+                                                                                                                           name="product_id"
+                                                                                                                           value="1" />
+                                                                                                                    <input style="font-size: 13px" data-cart-action-always="Đang thêm..." data-cart-action-done="Add to cart" data-cart-action-timeout="5000" value="Thêm vào giỏ hàng" type="submit" class="j2store-cart-button btn btn-primary" onclick="window.location.href='@Url.Action("Themgiohang", "Giohang", new { id = item.MaSach, sl = sl_Sach, strUrl = Request.Url.ToString() })'">
+                                                                                                                                   }
+                                                                                                                    @*<a href=" @Url.Action("Themgiohang", "Giohang", new { id = item.MaSach ,strUrl=Request.Url.ToString()})" data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">Add to cart</a>*@
+                                                                                                                    @*<inputds data-cart-action-always="Adding..."
+                                                                                                                        }
+        data-cart-action-done="Add to cart
         data-cart-action-timeout="1000"
         value="Add to cart"
         type="submit"
         class="j2store-cart-button btn btn-primary" />*@
-                                                                                                            </div>
-                                                                                                            <input type="hidden"
-                                                                                                                   name="option"
-                                                                                                                   value="com_j2store" />
-                                                                                                            <input type="hidden"
-                                                                                                                   name="view"
-                                                                                                                   value="carts" />
-                                                                                                            <input type="hidden"
-                                                                                                                   name="task"
-                                                                                                                   value="addItem" />
-                                                                                                            <input type="hidden"
-                                                                                                                   name="ajax"
-                                                                                                                   value="0" />
-                                                                                                            <input type="hidden"
-                                                                                                                   name="43c8da9a892039287ecdab6901475eee"
-                                                                                                                   value="1" />
-                                                                                                            <input type="hidden"
-                                                                                                                   name="return"
-                                                                                                                   value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi8/X2dhPTIuMTc5MDgzMTY5LjQ2NTUxMTAyMS4xNjI0MjkxMDQwLTQzOTIzODcxNi4xNjI0MjkxMDQw" />
-                                                                                                            <div class="j2store-notifications">
-                                                                                                            </div>
-                                                                                                        </form>
+                                                                                                                </div>
+                                                                                                                <input type="hidden"
+                                                                                                                       name="option"
+                                                                                                                       value="com_j2store" />
+                                                                                                                <input type="hidden"
+                                                                                                                       name="view"
+                                                                                                                       value="carts" />
+                                                                                                                <input type="hidden"
+                                                                                                                       name="task"
+                                                                                                                       value="addItem" />
+                                                                                                                <input type="hidden"
+                                                                                                                       name="ajax"
+                                                                                                                       value="0" />
+                                                                                                                <input type="hidden"
+                                                                                                                       name="43c8da9a892039287ecdab6901475eee"
+                                                                                                                       value="1" />
+                                                                                                                <input type="hidden"
+                                                                                                                       name="return"
+                                                                                                                       value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi8/X2dhPTIuMTc5MDgzMTY5LjQ2NTUxMTAyMS4xNjI0MjkxMDQwLTQzOTIzODcxNi4xNjI0MjkxMDQw" />
+                                                                                                                <div class="j2store-notifications">
+                                                                                                                </div>
+                                                                                                            </form>
 
-                                                                                                        <!-- Quick view -->
+                                                                                                            <!-- Quick view -->
+                                                                                                        </div>
                                                                                                     </div>
+                                                                                                    <!-- product image if postion is right -->
                                                                                                 </div>
-                                                                                                <!-- product image if postion is right -->
+                                                                                                <!-- end of product_cart_block -->
+                                                                                                <!-- intro text -->
+                                                                                                <!-- end intro text -->
+
                                                                                             </div>
-                                                                                            <!-- end of product_cart_block -->
-                                                                                            <!-- intro text -->
-                                                                                            <!-- end intro text -->
-
+                                                                                            <!-- End of ItemListElement -->
                                                                                         </div>
-                                                                                        <!-- End of ItemListElement -->
-                                                                                    </div>
-                                                                                }
+                                                                                    }
+                                                                                </div>
+                                                                            }
 
-
-                                                                            <!-- end single product -->
                                                                         </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -3022,10 +3031,10 @@
                                                                      itemtype="https://schema.org/ItemList"
                                                                      class="j2store-product-module j2store-product-module-list row">
                                                                     <!-- single product -->
-                                                                    @{ 
-                                                                        var first = Model.Take(4).ToList();
-                                                                        var second = Model.Take(4).ToList();
-                                                                    }
+                                                                @for (int i = 0; i < n; i+=4)
+                                                                {
+                                                                    var first = Model.Skip(i).Take(4).ToList();
+                                                                
                                                                     <div class="j2store-module-product-row row-0 row">
                                                                         @foreach (var item in first)
                                                                         {
@@ -3133,12 +3142,8 @@
                                                                                                                name="product_id"
                                                                                                                value="1" />
 
-                                                                                                        <input data-cart-action-always="Adding..."
-                                                                                                               data-cart-action-done="Add to cart"
-                                                                                                               data-cart-action-timeout="1000"
-                                                                                                               value="Add to cart"
-                                                                                                               type="submit"
-                                                                                                               class="j2store-cart-button btn btn-primary" />
+                                                                                                        <input style="font-size: 13px" data-cart-action-always="Đang thêm..." data-cart-action-done="Add to cart" data-cart-action-timeout="5000" value="Thêm vào giỏ hàng" type="submit" class="j2store-cart-button btn btn-primary" onclick="window.location.href='@Url.Action("Themgiohang", "Giohang", new { id = item.MaSach ,strUrl=Request.Url.ToString()})'">
+
 
                                                                                                     </div>
 
@@ -3181,160 +3186,11 @@
 
 
                                                                     </div>
-
+                                                                }
                                                                     <!-- end single product -->
                                                                     <!-- single product -->
 
-                                                                    <div class="j2store-module-product-row row-1 row">
-                                                                        @foreach (var item in second)
-                                                                        {
-                                                                            <div itemprop="itemListElement"
-                                                                                 itemscope=""
-                                                                                 itemtype="https://schema.org/ListItem"
-                                                                                 class="col-sm-3">
-                                                                                <meta itemprop="position"
-                                                                                      content="5" />
-                                                                                <div itemprop="item" itemscope=""
-                                                                                     itemtype="http://schema.org/Product"
-                                                                                     class="j2store product-9 j2store-module-product">
-
-                                                                                    <!-- product image if postion is top -->
-                                                                                    <div class="j2store-product-image  col-md-12  ">
-                                                                                        <a href="@Url.Action("Details","Home",new { id=item.MaSach})"
-                                                                                           title="@item.TenSach">
-                                                                                            <img itemprop="image"
-                                                                                                 alt="@item.TenSach"
-                                                                                                 class="j2store-img-responsive j2store-product-image-9"
-                                                                                                 src="~/images/@item.AnhBia"
-                                                                                                 width="auto"
-                                                                                                 height="auto" />
-
-                                                                                        </a>
-                                                                                    </div>
-
-                                                                                    <!-- product title -->
-                                                                                    <h4 itemprop="name"
-                                                                                        class="product-title">
-                                                                                        <a itemprop="url"
-                                                                                           href="@Url.Action("Details","Home",new { id=item.MaSach})"
-                                                                                           title="@item.TenSach">
-
-                                                                                            @item.TenSach
-                                                                                        </a>
-                                                                                    </h4>
-                                                                                    <!-- end product title -->
-
-                                                                                    <div class="product-cart-section col-sm-12 ">
-                                                                                        <!-- product image if postion is left -->
-                                                                                        <div class="product-cart-left-block  col-sm-12 ">
-                                                                                            <!-- Product price block-->
-                                                                                            <div itemprop="offers"
-                                                                                                 itemscope
-                                                                                                 itemtype="http://schema.org/Offer"
-                                                                                                 class="product-price-container">
-                                                                                                <div class="sale-price">
-                                                                                                    @item.GiaBan
-                                                                                                </div>
-                                                                                                <div class="tax-text">
-                                                                                                </div>
-                                                                                            </div>
-
-                                                                                            <!-- end Product price block-->
-                                                                                            <!-- SKU -->
-                                                                                            <!-- STOCK -->
-
-                                                                                            <div class="product_cart_block">
-
-                                                                                                <form action="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart/addItem"
-                                                                                                      method="post"
-                                                                                                      class="j2store-addtocart-form"
-                                                                                                      id="j2store-addtocart-form-9"
-                                                                                                      name="j2store-addtocart-form-9"
-                                                                                                      data-product_id="9"
-                                                                                                      data-product_type="downloadable"
-                                                                                                      enctype="multipart/form-data">
-
-
-
-
-                                                                                                    <!-- cart block -->
-                                                                                                    <div class="cart-action-complete"
-                                                                                                         style="display:none;">
-                                                                                                        <p class="text-success">
-                                                                                                            Item
-                                                                                                            added to
-                                                                                                            cart. <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart"
-                                                                                                                     class="j2store-checkout-link">
-                                                                                                                Checkout
-                                                                                                            </a>
-                                                                                                        </p>
-                                                                                                    </div>
-
-                                                                                                    <div id="add-to-cart-9"
-                                                                                                         class="j2store-add-to-cart">
-
-                                                                                                        <div class="product-qty">
-                                                                                                            <input type="number"
-                                                                                                                   name="product_qty"
-                                                                                                                   value="1"
-                                                                                                                   class="input-mini form-control"
-                                                                                                                   min="1"
-                                                                                                                   step='1' />
-                                                                                                        </div>
-
-                                                                                                        <input type="hidden"
-                                                                                                               name="product_id"
-                                                                                                               value="9" />
-
-                                                                                                        <input data-cart-action-always="Adding..."
-                                                                                                               data-cart-action-done="Add to cart"
-                                                                                                               data-cart-action-timeout="1000"
-                                                                                                               value="Add to cart"
-                                                                                                               type="submit"
-                                                                                                               class="j2store-cart-button btn btn-primary" />
-
-                                                                                                    </div>
-
-
-                                                                                                    <input type="hidden"
-                                                                                                           name="option"
-                                                                                                           value="com_j2store" />
-                                                                                                    <input type="hidden"
-                                                                                                           name="view"
-                                                                                                           value="carts" />
-                                                                                                    <input type="hidden"
-                                                                                                           name="task"
-                                                                                                           value="addItem" />
-                                                                                                    <input type="hidden"
-                                                                                                           name="ajax"
-                                                                                                           value="0" />
-                                                                                                    <input type="hidden"
-                                                                                                           name="43c8da9a892039287ecdab6901475eee"
-                                                                                                           value="1" />
-                                                                                                    <input type="hidden"
-                                                                                                           name="return"
-                                                                                                           value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi8/X2dhPTIuMTc5MDgzMTY5LjQ2NTUxMTAyMS4xNjI0MjkxMDQwLTQzOTIzODcxNi4xNjI0MjkxMDQw" />
-                                                                                                    <div class="j2store-notifications">
-                                                                                                    </div>
-                                                                                                </form>
-
-                                                                                                <!-- Quick view -->
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <!-- product image if postion is right -->
-                                                                                    </div>
-                                                                                    <!-- end of product_cart_block -->
-                                                                                    <!-- intro text -->
-                                                                                    <!-- end intro text -->
-
-                                                                                </div>
-                                                                                <!-- End of ItemListElement -->
-                                                                            </div>
-                                                                        }
-
-
-
-                                                                    </div>
+                                                                    
 
                                                                     <!-- end single product -->
                                                                 </div>

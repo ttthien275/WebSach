@@ -22,7 +22,7 @@ namespace WebBanSach.Controllers
             return lstGiohang;
         }
 
-        public ActionResult Themgiohang(int id,string strUrl)
+        public ActionResult Themgiohang(int id, int sl,string strUrl)
         {
             List<Giohang> lstGiohang = Laygiohang();
 
@@ -30,15 +30,48 @@ namespace WebBanSach.Controllers
             if (sanpham == null)
             {
                 sanpham = new Giohang(id);
+                sanpham.ghSoLuong = sl;
                 lstGiohang.Add(sanpham);
                 return Redirect(strUrl);
             }
             else
             {
-                sanpham.ghSoLuong++;
+                sanpham.ghSoLuong+=sl;
                 return Redirect(strUrl);
             }
         }
+
+        public ActionResult RemoveInCart(int id, string strUrl)
+        {
+            List<Giohang> lstGiohang = Laygiohang();
+
+            Giohang sanpham = lstGiohang.Find(n => n.ghMaSach == id);
+            if (sanpham != null)
+            {
+                
+                lstGiohang.Remove(sanpham);
+            }
+            return Redirect(strUrl);
+        }
+
+        public ActionResult UpdateCart(int id, int sl,string strUrl)
+        {
+            List<Giohang> lstGiohang = Laygiohang();
+
+            Giohang sanpham = lstGiohang.Find(n => n.ghMaSach == id);
+            if (sanpham != null)
+            {
+
+                sanpham.ghSoLuong = sl;
+                if (sanpham.ghSoLuong == 0)
+                {
+                    lstGiohang.Remove(sanpham);
+                }
+
+            }
+            return Redirect(strUrl);
+        }
+
 
         private int TongSoLuong()
         {

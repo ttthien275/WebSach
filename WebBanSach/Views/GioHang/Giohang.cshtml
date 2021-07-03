@@ -75,42 +75,30 @@
                                             <table class="j2store-cart-table table table-bordered">
                                                 <thead>
                                                     <tr>
-                                                        <th>Ma sach</th>
 
-                                                        <th>Ten sach</th>
-                                                        <th>So luong</th>
-                                                        <th>Gia ban</th>
+                                                        <th>Tên Sách</th>
+                                                        <th>Số Lượng</th>
+                                                        <th style="text-align:right">Giá Bán</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     @foreach (var item in Model)
                                                     {
                                                     <tr>
-                                                        <td>
-                                                            <span class="cart-product-name">
-                                                                @item.ghMaSach
-                                                            </span>  
-                                                        </td>
+
 
                                                         <td>
                                                             <span class="cart-product-name">
                                                                 @item.ghTenSach
                                                             </span>
-                                                            <br>
-                                                            <span class="cart-product-unit-price">
-                                                                <span class="cart-item-title">Unit Price</span>
-                                                                <span class="cart-item-value">
-                                                                    @item.ghGiaBan
-                                                                </span>
-                                                            </span>
                                                         </td>
                                                         <td>
-                                                            <div class="product-qty"><input type="number" name="quantities[176]" value="@item.ghSoLuong" class="input-mini" min="0" step="1"></div>							<a class="btn btn-small btn-danger btn-xs j2store-remove remove-icon" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart/remove?cartitem_id=176">
+                                                            <div class="product-qty"><input type="number" name="quantities[176]" value="@item.ghSoLuong" class="input-mini" min="0" step="1"></div>							<a class="btn btn-small btn-danger btn-xs j2store-remove remove-icon" href="@Url.Action("RemoveInCart", "Giohang", new { id = item.ghMaSach ,strUrl=Request.Url.ToString()})">
                                                                 <i class="fa fa-trash-o"></i>
                                                             </a>
                                                         </td>
                                                         <td class="cart-line-subtotal">
-                                                            @item.ghGiaBan
+                                                            @item.ghGiaBan VNĐ
                                                         </td>
                                                     </tr>
                                                     }
@@ -120,11 +108,10 @@
                                             <div class="j2store-cart-buttons">
                                                 <div class="buttons-left">
                                                     <span class="cart-continue-shopping-button">
-                                                        <input class="btn btn-primary" type="button" onclick="window.history.back();" value="Continue Shopping">
-
+                                                        <input class="btn btn-primary" type="button" onclick="window.history.back();" value="Tiếp tục mua sắm">
                                                     </span>
                                                     <span class="cart-update-button">
-                                                        <input class="btn btn-default" type="submit" value="Update">
+                                                       <input class="btn btn-default" type="submit" value="Cập nhật">
                                                     </span>
                                                 </div>
                                                 <div class="buttons-right">
@@ -517,13 +504,13 @@ $('#shipping-estimate-form select[name=\'country_id\']').trigger('change');
                                             <tbody>
                                                 <tr valign="top">
                                                     <th scope="row" colspan="2">
-                                                        Tong so luong
+                                                        Tổng số lượng
                                                     </th>
                                                     <td>@ViewBag.TongSoLuong</td>
                                                 </tr>
                                                 <tr valign="top">
                                                     <th scope="row" colspan="2">
-                                                        Tong tien
+                                                       Tổng tiền
                                                     </th>
                                                     <td>@ViewBag.TongTien</td>
                                                 </tr>

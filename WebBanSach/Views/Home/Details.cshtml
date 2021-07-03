@@ -125,7 +125,8 @@
 
                                                 <div class="product-qty"><input type="number" name="product_qty" value="1" class="input-mini form-control " min="0" step="1"></div>
                                                 <input type="hidden" id="j2store_product_id" name="product_id" value="1">
-                                                <a href=" @Url.Action("Themgiohang", "Giohang", new { id = Model.MaSach ,strUrl=Request.Url.ToString()})" data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">Add to cart</a>
+                                                <input style="font-size: 13px" data-cart-action-always="Đang thêm..." data-cart-action-done="Đang thêm..." data-cart-action-timeout="5000" value="Thêm vào giỏ hàng" type="submit" class="j2store-cart-button btn btn-primary" onclick="window.location.href='@Url.Action("Themgiohang", "Giohang", new { id = Model.MaSach ,strUrl=Request.Url.ToString()})'">
+                                                @*<a href=" @Url.Action("Themgiohang", "Giohang", new { id = Model.MaSach ,strUrl=Request.Url.ToString()})" data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">Add to cart</a>*@
                                                 @*<input data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">*@
                                             </div>
 

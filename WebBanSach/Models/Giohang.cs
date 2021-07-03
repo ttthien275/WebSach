@@ -31,7 +31,7 @@ namespace WebBanSach.Models
             ghTenSach = sach.TenSach;
             ghAnhBia = sach.AnhBia;
             ghGiaBan = decimal.Parse(sach.GiaBan.ToString());
-            ghSoLuong = 1;
+            ghSoLuong = 0;
         }
     }
 }

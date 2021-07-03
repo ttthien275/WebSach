@@ -34,7 +34,7 @@
 
                             <div class="item-product-details">
                                 <div class="access">
-                                    <a class="cart-remove text-error" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart/remove?cartitem_id=176"> <i class="fa fa-remove"></i></a>
+                                    <a class="cart-remove text-error" href="@Url.Action("RemoveInCart", "Giohang", new { id = item.ghMaSach ,strUrl=Request.Url.ToString()})"> <i class="fa fa-remove"></i></a>
                                 </div>
                             </div>
                             <span class="cart-item-qty">
@@ -48,11 +48,11 @@
             </ul>
                     <div class="j2store-cart-nav">
                         <a class="btn btn-primary btn-large" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/check-out">
-                            Checkout
+                            Thanh Toán
                         </a>
 
                         <a class="btn btn-default btn-large" href="@Url.Action("Giohang","GioHang")">
-                            View Cart
+                            Đến Giỏ Hàng
                         </a>
                     </div>
                 }
