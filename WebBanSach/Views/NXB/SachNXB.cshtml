@@ -166,42 +166,98 @@
                                                             <div class="discount-percentage">
                                                             </div>
 
-
-
-
-                                                            <form action="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart/addItem" method="post" class="j2store-addtocart-form" id="j2store-addtocart-form-19" name="j2store-addtocart-form-19" data-product_id="19" data-product_type="configurable" enctype="multipart/form-data">
-
-
-
-
-
-                                                                <div class="cart-action-complete" style="display:none;">
+                                                            @using (Html.BeginForm("UpdateCartIndex", "Giohang", new { id = item.MaSach, strUrl = Request.Url.ToString() }))
+                                                            {
+                                                                <div class="cart-action-complete"
+                                                                     style="display:none;">
                                                                     <p class="text-success">
-                                                                        Item added to cart.					<a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart" class="j2store-checkout-link">
+                                                                        Item
+                                                                        added
+                                                                        to
+                                                                        cart.
+                                                                        <a href="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart"
+                                                                           class="j2store-checkout-link">
                                                                             Checkout
                                                                         </a>
                                                                     </p>
                                                                 </div>
 
-                                                                <div id="add-to-cart-19" class="j2store-add-to-cart">
+                                                                <div id="add-to-cart-1"
+                                                                     class="j2store-add-to-cart">
 
-                                                                    <div class="product-qty"><input type="number" name="product_qty" value="1" class="input-mini form-control " min="0" step="1"></div>
-                                                                    <input type="hidden" name="product_id" value="19">
 
-                                                                    <input data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">
+                                                                    <div class="product-qty">
+                                                                        <input type="number"
+                                                                               name="txtSoluong"
+                                                                               value="1"
+                                                                               class="input-mini form-control"
+                                                                               min="1"
+                                                                               step="1" />
+                                                                    </div>
+
+                                                                    <input type="hidden"
+                                                                           name="product_id"
+                                                                           value="1" />
+                                                                    <input style="font-size: 13px" data-cart-action-always="Đang thêm..." data-cart-action-done="Add to cart" data-cart-action-timeout="5000" value="Thêm vào giỏ hàng" type="submit" class="j2store-cart-button btn btn-primary" @*onclick="window.location.href='@Url.Action("Themgiohang", "Giohang", new { id = item.MaSach, sl =1, strUrl = Request.Url.ToString() })'"*@>
+
 
                                                                 </div>
+                                                                <input type="hidden"
+                                                                       name="option"
+                                                                       value="com_j2store" />
+                                                                <input type="hidden"
+                                                                       name="view"
+                                                                       value="carts" />
+                                                                <input type="hidden"
+                                                                       name="task"
+                                                                       value="addItem" />
+                                                                <input type="hidden"
+                                                                       name="ajax"
+                                                                       value="0" />
+                                                                <input type="hidden"
+                                                                       name="43c8da9a892039287ecdab6901475eee"
+                                                                       value="1" />
+                                                                <input type="hidden"
+                                                                       name="return"
+                                                                       value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi8/X2dhPTIuMTc5MDgzMTY5LjQ2NTUxMTAyMS4xNjI0MjkxMDQwLTQzOTIzODcxNi4xNjI0MjkxMDQw" />
+                                                                <div class="j2store-notifications">
+                                                                </div>
+                                                            }
 
 
-                                                                <input type="hidden" name="option" value="com_j2store">
-                                                                <input type="hidden" name="view" value="carts">
-                                                                <input type="hidden" name="task" value="addItem">
-                                                                <input type="hidden" name="ajax" value="0">
-                                                                <input type="hidden" name="650520bba53a98058bb2cf8beba59fdd" value="1">	<input type="hidden" name="return" value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi9zdG9yZS9wcm9kdWN0">
-                                                                <div class="j2store-notifications"></div>
+                                                            @*<form action="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart/addItem" method="post" class="j2store-addtocart-form" id="j2store-addtocart-form-19" name="j2store-addtocart-form-19" data-product_id="19" data-product_type="configurable" enctype="multipart/form-data">
 
 
-                                                            </form>
+
+
+
+            <div class="cart-action-complete" style="display:none;">
+                <p class="text-success">
+                    Item added to cart.					<a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart" class="j2store-checkout-link">
+                        Checkout
+                    </a>
+                </p>
+            </div>
+
+            <div id="add-to-cart-19" class="j2store-add-to-cart">
+
+                <div class="product-qty"><input type="number" name="product_qty" value="1" class="input-mini form-control " min="0" step="1"></div>
+                <input type="hidden" name="product_id" value="19">
+
+                <input data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">
+
+            </div>
+
+
+            <input type="hidden" name="option" value="com_j2store">
+            <input type="hidden" name="view" value="carts">
+            <input type="hidden" name="task" value="addItem">
+            <input type="hidden" name="ajax" value="0">
+            <input type="hidden" name="650520bba53a98058bb2cf8beba59fdd" value="1">	<input type="hidden" name="return" value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi9zdG9yZS9wcm9kdWN0">
+            <div class="j2store-notifications"></div>
+
+
+        </form>*@
 
 
 

@@ -69,6 +69,27 @@ namespace WebBanSach.Controllers
             return RedirectToAction("Giohang");
         }
 
+        public ActionResult UpdateCartIndex(int id, FormCollection f, string strUrl)
+        {
+            List<Giohang> lstGiohang = Laygiohang();
+
+            Giohang sanpham = lstGiohang.SingleOrDefault(m => m.ghMaSach == id);
+            if (sanpham != null)
+            {
+
+                sanpham.ghSoLuong = sanpham.ghSoLuong + int.Parse(f["txtSoluong"].ToString());
+                //lstGiohang = Laygiohang();
+
+            }
+            else
+            {
+                sanpham = new Giohang(id);
+                sanpham.ghSoLuong = int.Parse(f["txtSoluong"].ToString());
+                lstGiohang.Add(sanpham); 
+            }
+            return Redirect(strUrl);
+        }
+
 
         private int TongSoLuong()
         {
