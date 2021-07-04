@@ -143,9 +143,6 @@ namespace WebBanSach.Controllers
             
             return PartialView(lstGiohang);
         }
-    public ActionResult testnay()
-        {
-            return View();
-        }
+
     }
 }
