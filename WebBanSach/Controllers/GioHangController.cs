@@ -54,22 +54,19 @@ namespace WebBanSach.Controllers
             return Redirect(strUrl);
         }
 
-        public ActionResult UpdateCart(int id, int sl,string strUrl)
+        public ActionResult UpdateCart(int id, FormCollection f)
         {
             List<Giohang> lstGiohang = Laygiohang();
 
-            Giohang sanpham = lstGiohang.Find(n => n.ghMaSach == id);
+            Giohang sanpham = lstGiohang.SingleOrDefault(m => m.ghMaSach == id);
             if (sanpham != null)
             {
 
-                sanpham.ghSoLuong = sl;
-                if (sanpham.ghSoLuong == 0)
-                {
-                    lstGiohang.Remove(sanpham);
-                }
+                sanpham.ghSoLuong = int.Parse(f["txtSoluong"].ToString());
+                //lstGiohang = Laygiohang();
 
             }
-            return Redirect(strUrl);
+            return RedirectToAction("Giohang");
         }
 
 
@@ -126,7 +123,6 @@ namespace WebBanSach.Controllers
             return PartialView(lstGiohang);
 
         }
-
         public ActionResult Index()
         {
             return View();

@@ -1913,13 +1913,13 @@
                                                                                                                                value="@sl_Sach"
                                                                                                                                class="input-mini form-control"
                                                                                                                                min="1"
-                                                                                                                               step="@{sl_Sach = sl_Sach + 1;}" />
+                                                                                                                               step="1" />
                                                                                                                     </div>
 
                                                                                                                     <input type="hidden"
                                                                                                                            name="product_id"
                                                                                                                            value="1" />
-                                                                                                                    <input style="font-size: 13px" data-cart-action-always="Đang thêm..." data-cart-action-done="Add to cart" data-cart-action-timeout="5000" value="Thêm vào giỏ hàng" type="submit" class="j2store-cart-button btn btn-primary" onclick="window.location.href='@Url.Action("Themgiohang", "Giohang", new { id = item.MaSach, sl = sl_Sach, strUrl = Request.Url.ToString() })'">
+                                                                                                                    <input style="font-size: 13px" data-cart-action-always="Đang thêm..." data-cart-action-done="Add to cart" data-cart-action-timeout="5000" value="Thêm vào giỏ hàng" type="submit" class="j2store-cart-button btn btn-primary" onclick="window.location.href='@Url.Action("Themgiohang", "Giohang", new { id = item.MaSach, sl =1, strUrl = Request.Url.ToString() })'">
                                                                                                                                    }
                                                                                                                     @*<a href=" @Url.Action("Themgiohang", "Giohang", new { id = item.MaSach ,strUrl=Request.Url.ToString()})" data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">Add to cart</a>*@
                                                                                                                     @*<inputds data-cart-action-always="Adding..."

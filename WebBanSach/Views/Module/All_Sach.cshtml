@@ -127,7 +127,7 @@
 
                                                             <div class="j2store-thumbnail-image">
                                                                 <a href="@Url.Action("Details","Home",new { id=item.MaSach})">
-                                                                    <img itemprop="image" alt="@item.TenSach" title="@item.TenSach" class="j2store-img-responsive j2store-product-thumb-image-19" src="~/images/nguoigiauconhatbabylon.jpg" width="0">
+                                                                    <img itemprop="image" alt="@item.TenSach" title="@item.TenSach" class="j2store-img-responsive j2store-product-thumb-image-19" src="~/images/@item.AnhBia" width="0">
                                                                 </a>
                                                             </div>
 
@@ -142,13 +142,6 @@
                                                                 @item.TenSach
                                                             </a>
                                                         </h2>
-
-
-
-
-
-
-
                                                         <div itemprop="offers" itemscope="" itemtype="https://schema.org/Offer" class="product-price-container">
 
                                                             <div class="sale-price">
@@ -187,7 +180,7 @@
                                                                 <div class="product-qty"><input type="number" name="product_qty" value="1" class="input-mini form-control " min="0" step="1"></div>
                                                                 <input type="hidden" name="product_id" value="@item.MaSach">
 
-                                                                <input style="font-size: 13px" data-cart-action-always="Đang thêm..." data-cart-action-done="Add to cart" data-cart-action-timeout="5000" value="Thêm vào giỏ hàng" type="submit" class="j2store-cart-button btn btn-primary"  onclick="window.location.href='@Url.Action("Themgiohang", "Giohang", new { id = item.MaSach ,strUrl=Request.Url.ToString()})'">
+                                                                <input style="font-size: 13px" data-cart-action-always="Đang thêm..." data-cart-action-done="Add to cart" data-cart-action-timeout="5000" value="Thêm vào giỏ hàng" type="submit" class="j2store-cart-button btn btn-primary"  onclick="window.location.href='@Url.Action("Themgiohang","Giohang", new { id = item.MaSach, sl = 1 ,strUrl=Request.Url.ToString()})'">
 
                                                             </div>
 

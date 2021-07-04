@@ -66,8 +66,6 @@
                                 <div class="col-md-12"></div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <form action="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart" method="post" name="j2store-cart-form" id="j2store-cart-form" enctype="multipart/form-data">
-
                                             <input type="hidden" name="option" value="com_j2store">
                                             <input type="hidden" name="view" value="carts">
                                             <input type="hidden" id="j2store-cart-task" name="task" value="update">
@@ -79,45 +77,47 @@
                                                         <th>Tên Sách</th>
                                                         <th>Số Lượng</th>
                                                         <th style="text-align:right">Giá Bán</th>
+                                                        <th style="text-align:right">Thao tác</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     @foreach (var item in Model)
                                                     {
-                                                    <tr>
+                                                        <tr>
+                                                            @using (Html.BeginForm("UpdateCart", "GioHang", new { id = item.ghMaSach }))
+                                                            {
 
+                                                                <td>
+                                                                    <span class="cart-product-name">
+                                                                        @item.ghTenSach
+                                                                    </span>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="product-qty"><input type="number" name="txtSoluong" value="@item.ghSoLuong" class="input-mini" min="1" step="1"></div>
+                                                                    <a class="btn btn-small btn-danger btn-xs j2store-remove remove-icon" href="@Url.Action("RemoveInCart", "Giohang", new { id = item.ghMaSach ,strUrl=Request.Url.ToString()})">
+                                                                        <i class="fa fa-trash-o"></i>
+                                                                    </a>
+                                                                </td>
+                                                                <td class="cart-line-subtotal">
+                                                                    @item.ghGiaBan VNĐ
+                                                                </td>
+                                                                <td><span><input style="position:right" class="btn btn-default" type="submit" value="Cập nhật" /></span></td>
+                                                            }
+                                                        </tr>
 
-                                                        <td>
-                                                            <span class="cart-product-name">
-                                                                @item.ghTenSach
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="product-qty"><input type="number" name="quantities[176]" value="@item.ghSoLuong" class="input-mini" min="0" step="1"></div>							<a class="btn btn-small btn-danger btn-xs j2store-remove remove-icon" href="@Url.Action("RemoveInCart", "Giohang", new { id = item.ghMaSach ,strUrl=Request.Url.ToString()})">
-                                                                <i class="fa fa-trash-o"></i>
-                                                            </a>
-                                                        </td>
-                                                        <td class="cart-line-subtotal">
-                                                            @item.ghGiaBan VNĐ
-                                                        </td>
-                                                    </tr>
                                                     }
-
                                                 </tbody>
                                             </table>
                                             <div class="j2store-cart-buttons">
                                                 <div class="buttons-left">
                                                     <span class="cart-continue-shopping-button">
-                                                        <input class="btn btn-primary" type="button" onclick="window.history.back();" value="Tiếp tục mua sắm">
-                                                    </span>
-                                                    <span class="cart-update-button">
-                                                       <input class="btn btn-default" type="submit" value="Cập nhật">
+                                                        <input class="btn btn-primary" type="button" onclick="window.location.href='@Url.Action("All_Sach","Module")'" value="Tiếp tục mua sắm">
                                                     </span>
                                                 </div>
                                                 <div class="buttons-right">
                                                 </div>
                                             </div>
-                                        </form>
+
                                         <!-- Display plugin results -->
                                     </div>
                                 </div>
@@ -416,83 +416,83 @@ j2store.jQuery('input[name=\'next\']').bind('click', function() {
                                                 <script type="text/javascript">
 <!--
 
- (function($) {
-	 $(document).on('click', '#button-quote', function() {
-		 var values = $('#shipping-estimate-form').serializeArray();
-		 $.ajax({
-				url:'/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart',
-				type: 'get',
-				data: values,
-				dataType: 'json',
-				beforeSend: function() {
-					$('#button-quote').after('<span class="wait">&nbsp;<img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/j2store/images/loader.gif" alt="" /></span>');
-				},
-				complete: function() {
-					$('.wait').remove();
-				},
-				success: function(json) {
-					$('.warning, .j2error').remove();
-					if (json['error']) {
-						$.each( json['error'], function( key, value ) {
-							if (value) {
-								$('#shipping-estimate-form #estimate_'+key).after('<br class="j2error" /><span class="j2error">' + value + '</span>');
-							}
+// (function($) {
+//	 $(document).on('click', '#button-quote', function() {
+//		 var values = $('#shipping-estimate-form').serializeArray();
+//		 $.ajax({
+//				url:'/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart',
+//				type: 'get',
+//				data: values,
+//				dataType: 'json',
+//				beforeSend: function() {
+//					$('#button-quote').after('<span class="wait">&nbsp;<img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/j2store/images/loader.gif" alt="" /></span>');
+//				},
+//				complete: function() {
+//					$('.wait').remove();
+//				},
+//				success: function(json) {
+//					$('.warning, .j2error').remove();
+//					if (json['error']) {
+//						$.each( json['error'], function( key, value ) {
+//							if (value) {
+//								$('#shipping-estimate-form #estimate_'+key).after('<br class="j2error" /><span class="j2error">' + value + '</span>');
+//							}
 
-						});
-					}
+//						});
+//					}
 
-					if (json['redirect']) {
-						window.location.href = json['redirect'];
-					}
-				}
-		 });
+//					if (json['redirect']) {
+//						window.location.href = json['redirect'];
+//					}
+//				}
+//		 });
 
-	 });
+//	 });
 
- })(j2store.jQuery);
+// })(j2store.jQuery);
 
-(function($) {
-$('#shipping-estimate-form select[name=\'country_id\']').bind('change', function() {
-	$.ajax({
-		url:'/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart',
-		type: 'get',
-		data: 'option=com_j2store&view=carts&task=getCountry&country_id=' + this.value,
-		dataType: 'json',
-		beforeSend: function() {
-			$('#shipping-estimate-form select[name=\'country_id\']').after('<span class="wait">&nbsp;<img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/j2store/images/loader.gif" alt="" /></span>');
-		},
-		complete: function() {
-			$('.wait').remove();
-		},
-		success: function(json) {
+//(function($) {
+//$('#shipping-estimate-form select[name=\'country_id\']').bind('change', function() {
+//	$.ajax({
+//		url:'/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart',
+//		type: 'get',
+//		data: 'option=com_j2store&view=carts&task=getCountry&country_id=' + this.value,
+//		dataType: 'json',
+//		beforeSend: function() {
+//			$('#shipping-estimate-form select[name=\'country_id\']').after('<span class="wait">&nbsp;<img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/j2store/images/loader.gif" alt="" /></span>');
+//		},
+//		complete: function() {
+//			$('.wait').remove();
+//		},
+//		success: function(json) {
 
-			html = '<option value="">-- Select --</option>';
+//			html = '<option value="">-- Select --</option>';
 
-			if (json['zone'] != '') {
-				for (i = 0; i < json['zone'].length; i++) {
-        			html += '<option value="' + json['zone'][i]['j2store_zone_id'] + '"';
+//			if (json['zone'] != '') {
+//				for (i = 0; i < json['zone'].length; i++) {
+//        			html += '<option value="' + json['zone'][i]['j2store_zone_id'] + '"';
 
-					if (json['zone'][i]['j2store_zone_id'] == '') {
-	      				html += ' selected="selected"';
-	    			}
+//					if (json['zone'][i]['j2store_zone_id'] == '') {
+//	      				html += ' selected="selected"';
+//	    			}
 
-	    			html += '>' + json['zone'][i]['zone_name'] + '</option>';
-				}
-			} else {
-				html += '<option value="0" selected="selected">None</option>';
-			}
+//	    			html += '>' + json['zone'][i]['zone_name'] + '</option>';
+//				}
+//			} else {
+//				html += '<option value="0" selected="selected">None</option>';
+//			}
 
-			$('#shipping-estimate-form select[name=\'zone_id\']').html(html);
-		},
-		error: function(xhr, ajaxOptions, thrownError) {
-			//alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-		}
-	});
-});
+//			$('#shipping-estimate-form select[name=\'zone_id\']').html(html);
+//		},
+//		error: function(xhr, ajaxOptions, thrownError) {
+//			//alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+//		}
+//	});
+//});
 
-$('#shipping-estimate-form select[name=\'country_id\']').trigger('change');
+//$('#shipping-estimate-form select[name=\'country_id\']').trigger('change');
 
-})(j2store.jQuery);
+//})(j2store.jQuery);
 //--></script>
                                             </div>
                                         </div>
