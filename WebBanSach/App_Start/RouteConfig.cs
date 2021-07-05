@@ -12,6 +12,12 @@ namespace WebBanSach
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapRoute(
+                name: "Details",
+                url: "product-detail",
+                defaults: new { controller = "Home", action = "Details"}
+            );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
