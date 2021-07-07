@@ -238,3 +238,4 @@ C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sa
 C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\PagedList.Mvc.dll
 C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\PagedList.xml
 C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\PagedList.Mvc.xml
+C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\obj\Debug\WebBanSach.csproj.AssemblyReference.cache
