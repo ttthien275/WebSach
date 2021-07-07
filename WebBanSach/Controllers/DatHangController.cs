@@ -17,7 +17,9 @@ namespace WebBanSach.Controllers
             {
                 TempData["dangnhap"] = "Bạn cần đăng nhập để thực hiện đặt hàng và thanh toán!";
                 return RedirectToAction("DangNhap", "Login");
+               
             }
+
             if (Session["Giohang"] == null)
             {
                 return RedirectToAction("Index", "Home");
@@ -59,8 +61,8 @@ namespace WebBanSach.Controllers
             }
             data.SubmitChanges();
             Session["Giohang"] = null;
-
-
+            //cái trnag đặt hàng tên gì z, view đặt hàng
+            //này là m đã đăng nhập r đúng k ừ này là cc á đạt hn thanh cong
             return RedirectToAction("TheoDoiTinhTrangDH", "DatHang");
         }
         public ActionResult TheoDoiTinhTrangDH()

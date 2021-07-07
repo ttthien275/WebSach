@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using WebBanSach.Models;
 using WebBanSach.DAO;
 
+using PagedList;
+using PagedList.Mvc;
+
 namespace WebBanSach.Controllers
 {
     public class ModuleController : Controller
@@ -20,27 +23,33 @@ namespace WebBanSach.Controllers
         }
         public ActionResult MenuNXB()
         {
+           
             DataBookDataContext data = new DataBookDataContext();
             var listNXB = from tt in data.NHAXUATBANs select tt;
             // var listNXB = from tt in data.NHAXUATBANs select tt;
             return PartialView(listNXB);
         }
 
-        public ActionResult All_Sach()
+        public ActionResult All_Sach(int ? page)
         {
+            int pageSize = 8;
+            int pageNum = (page ?? 1);
+
             DataBookDataContext data = new DataBookDataContext();
             SachDAO a = new SachDAO();
             // var all_Sach = a.listSachmoi(3);
             var all_Sach = data.SACHes.ToList();
            // var first = all_Sach.Skip(3).Take(3).ToList();
-            return View(all_Sach);
+            return View(all_Sach.ToPagedList(pageNum, pageSize));
         }
 
-        public ActionResult FilterChuDe()
+        public ActionResult FilterChuDe(int ? page)
         {
+            int pageSize = 8;
+            int pageNum = (page ?? 1);
             DataBookDataContext data = new DataBookDataContext();
             var chude = data.CHUDEs.ToList();
-            return PartialView(chude);
+            return PartialView(chude.ToPagedList(pageNum, pageSize));
         }
         public ActionResult FilterNXB()
         {

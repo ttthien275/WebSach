@@ -81,6 +81,7 @@ namespace WebBanSach.Controllers
         [HttpGet]
         public ActionResult DangNhap()
         {
+              
             return View();
         }
         [HttpPost]
@@ -104,8 +105,12 @@ namespace WebBanSach.Controllers
 
                     ViewBag.Thongbao = "chúc mừng đăng nhập thành công";
                     Session["USERNAME"] = tk;
-                    
-                    return RedirectToAction("Index", "Home");
+                    if (Session["Giohang"] != null)
+                    {
+                        return RedirectToAction("DatHang", "DatHang");
+                    }
+                    else
+                        return RedirectToAction("Index", "Home");
                 }
                 else
                     ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";

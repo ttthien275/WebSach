@@ -1,5 +1,7 @@
-﻿@model IEnumerable<WebBanSach.Models.SACH>
-
+﻿@*@model IEnumerable<WebBanSach.Models.SACH>*@
+@using WebBanSach.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<SACH>
 @{
     ViewBag.Title = "SachNXB";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -231,33 +233,33 @@
 
 
 
-            <div class="cart-action-complete" style="display:none;">
-                <p class="text-success">
-                    Item added to cart.					<a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart" class="j2store-checkout-link">
-                        Checkout
-                    </a>
-                </p>
-            </div>
+                                                                    <div class="cart-action-complete" style="display:none;">
+                                                                        <p class="text-success">
+                                                                            Item added to cart.					<a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart" class="j2store-checkout-link">
+                                                                                Checkout
+                                                                            </a>
+                                                                        </p>
+                                                                    </div>
 
-            <div id="add-to-cart-19" class="j2store-add-to-cart">
+                                                                    <div id="add-to-cart-19" class="j2store-add-to-cart">
 
-                <div class="product-qty"><input type="number" name="product_qty" value="1" class="input-mini form-control " min="0" step="1"></div>
-                <input type="hidden" name="product_id" value="19">
+                                                                        <div class="product-qty"><input type="number" name="product_qty" value="1" class="input-mini form-control " min="0" step="1"></div>
+                                                                        <input type="hidden" name="product_id" value="19">
 
-                <input data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">
+                                                                        <input data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">
 
-            </div>
-
-
-            <input type="hidden" name="option" value="com_j2store">
-            <input type="hidden" name="view" value="carts">
-            <input type="hidden" name="task" value="addItem">
-            <input type="hidden" name="ajax" value="0">
-            <input type="hidden" name="650520bba53a98058bb2cf8beba59fdd" value="1">	<input type="hidden" name="return" value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi9zdG9yZS9wcm9kdWN0">
-            <div class="j2store-notifications"></div>
+                                                                    </div>
 
 
-        </form>*@
+                                                                    <input type="hidden" name="option" value="com_j2store">
+                                                                    <input type="hidden" name="view" value="carts">
+                                                                    <input type="hidden" name="task" value="addItem">
+                                                                    <input type="hidden" name="ajax" value="0">
+                                                                    <input type="hidden" name="650520bba53a98058bb2cf8beba59fdd" value="1">	<input type="hidden" name="return" value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi9zdG9yZS9wcm9kdWN0">
+                                                                    <div class="j2store-notifications"></div>
+
+
+                                                                </form>*@
 
 
 
@@ -277,9 +279,21 @@
 
 
                                     <form id="j2store-pagination" name="j2storepagination" action="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product?filter_catid=" method="post">
-                                        <input type="hidden" name="option" value="com_j2store">						<input type="hidden" name="view" value="products">						<input type="hidden" name="task" id="task" value="browse">						<input type="hidden" name="boxchecked" value="0">						<input type="hidden" name="filter_order" value="">						<input type="hidden" name="filter_order_Dir" value="">						<input type="hidden" name="filter_catid" value="">						<input type="hidden" name="650520bba53a98058bb2cf8beba59fdd" value="1">						<div class="pagination">
+                                        <input type="hidden" name="option" value="com_j2store">						<input type="hidden" name="view" value="products">						<input type="hidden" name="task" id="task" value="browse">						<input type="hidden" name="boxchecked" value="0">						<input type="hidden" name="filter_order" value="">						<input type="hidden" name="filter_order_Dir" value="">						<input type="hidden" name="filter_catid" value="">						<input type="hidden" name="650520bba53a98058bb2cf8beba59fdd" value="1">
+                                        @*<div class="pagination">
                                             <ul class="pagination"><li class="disabled"><a>Start</a></li><li class="disabled"><a>Prev</a></li><li class="active hidden-xs hidden-sm"><a>1</a></li><li class="hidden-xs hidden-sm"><a title="2" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product?start=9" class="pagenav">2</a></li><li><a title="Next" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product?start=9" class="pagenav">Next</a></li><li><a title="End" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product?start=9" class="pagenav">End</a></li></ul>
+                                        </div>*@
+                                        Trang @(Model.PageCount<Model.PageNumber? 0:Model.PageNumber)/@Model.PageCount
+                                        <div class="menu">
+                                            <ul class="pagination">
+                                                @Html.PagedListPager(Model, page => Url.Action("SachNXB", new { page = page }))
+                                            </ul>
                                         </div>
+                                        <style>
+                                            .menu li {
+                                                display: inline;
+                                            }
+                                        </style>
                                     </form>
                                 </div>
 
