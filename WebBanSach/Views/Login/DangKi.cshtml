@@ -6,7 +6,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+@*nếu nhấn enter không cho phép hiển thị thông báo*@
+@*ràng buộc validation và ViewData chưa sử dụng được*@
 <div class="layout-item sunfw-item-page-content">
     <div id="system-message-container">
     </div>
@@ -103,7 +104,7 @@
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <button type="submit" class="btn btn-primary validate">
+                    <button type="submit" class="btn btn-primary validate" onclick="suceedLogin()">
                         Register
                     </button>
                     <a class="btn btn-default" href="/BookStore/Index" title="Cancel">
@@ -118,7 +119,11 @@
     </div>
 
 </div>
-
+<script>
+    function suceedLogin() {
+        alert("Chúc mừng bạn đã đăng kí thành công. Mời bạn đăng nhập để trải nghiệm dễ dàng.")
+    }
+</script>
 @*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }*@

@@ -91,7 +91,7 @@ namespace WebBanSach.Controllers
         }
 
 
-        private int TongSoLuong()
+        public int TongSoLuong()
         {
             int ghTongSOLuong = 0;
             List<Giohang> lstGiohang = Session["Giohang"] as List<Giohang>;
@@ -102,7 +102,7 @@ namespace WebBanSach.Controllers
             return ghTongSOLuong;
         }
 
-        private decimal TongTien()
+        public decimal TongTien()
         {
             decimal ghTongTien = 0;
             List<Giohang> lstGiohang = Session["Giohang"] as List<Giohang>;

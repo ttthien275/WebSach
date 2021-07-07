@@ -72,8 +72,9 @@ namespace WebBanSach.Controllers
                 //data.TAIKHOANs.InsertOnSubmit(tk);
                 data.TAIKHOANs.InsertOnSubmit(tk);
                 data.SubmitChanges();
+                return RedirectToAction("DangNhap", "Login");
             }
-            return this.DangKi();
+            return View(this.DangKi());
         }
         // GET: Login
 
@@ -103,6 +104,7 @@ namespace WebBanSach.Controllers
 
                     ViewBag.Thongbao = "chúc mừng đăng nhập thành công";
                     Session["USERNAME"] = tk;
+                    
                     return RedirectToAction("Index", "Home");
                 }
                 else

@@ -3,8 +3,11 @@
     ViewBag.Title = "DangNhap";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>DangNhap</h2>
+@if (TempData["dangnhap"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["dangnhap"]</p>
+}
+<h3>Đăng nhập thành viên</h3>
 
 <div class="login">
     <form action="/Login/Dangnhap" method="post" class="form-validate form-horizontal well">
@@ -44,8 +47,7 @@
             <div class="control-group">
                 <div class="controls">
                     <button type="submit" class="btn btn-primary">
-                
-                        Log in
+                        Đăng nhập
                     </button>
                 </div>
             </div>
@@ -55,17 +57,17 @@
                     <ul class="nav nav-tabs nav-stacked">
                         <li>
                             <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/user-profile?view=reset">
-                                Forgot your password?
+                                Quên mật khẩu?
                             </a>
                         </li>
                         <li>
                             <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/account-reminder">
-                                Forgot your username?
+                                Quên tên đăng nhập?
                             </a>
                         </li>
                         <li>
-                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/registration-form">
-                                Don't have an account?
+                            <a href="/Login/DangKi">
+                                Tạo tài khoản mới
                             </a>
                         </li>
                     </ul>

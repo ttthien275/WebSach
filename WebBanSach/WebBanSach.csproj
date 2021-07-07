@@ -123,6 +123,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookStoreController.cs" />
     <Compile Include="Controllers\ChudeController.cs" />
+    <Compile Include="Controllers\DatHangController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -154,6 +155,7 @@
     <Content Include="images\101-thi-nghiem-tuyet-voi-ong-mat-troi.jpg" />
     <Content Include="images\7-thoi-quen-de-tre-hanh-phuc.jpg" />
     <Content Include="images\adobe.jpg" />
+    <Content Include="images\avatar.png" />
     <Content Include="images\biquyethocnhanhnholau.jpg" />
     <Content Include="images\buocvaocuahieunhiemmau.jpg" />
     <Content Include="images\bushb.jpg" />
@@ -230,6 +232,8 @@
     <Content Include="Views\Login\DangNhap.cshtml" />
     <Content Include="Views\GioHang\Giohang.cshtml" />
     <Content Include="Views\GioHang\GiohangPartial.cshtml" />
+    <Content Include="Views\DatHang\DatHang.cshtml" />
+    <Content Include="Views\DatHang\TheoDoiTinhTrangDH.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

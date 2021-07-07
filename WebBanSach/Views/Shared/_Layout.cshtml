@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using WebBanSach.Models 
+<!DOCTYPE html>
 <!-- jsn_bookstore 1.0.3 -->
 <html lang="en-gb" dir="ltr">
 
@@ -642,77 +643,114 @@
                                         </div>
                                     </div>
                                 </div>
+                                @*Xây dựng form trên menu có chức năng hiển thị thông tin đăng nhập đã và trước khi đăng nhập đang phát triển chức năng dropdown lịch sử/logout/thông tin user*@
                                 <div class="module-style  login-topbar display-dropdown">
-                                    <div class="module-title">
-                                        <h3 class="box-title "><span>Login / Register</span></h3>
-                                    </div>
-                                    <div class="module-body">
-                                        <form action="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/en/?_ga=2.179083169.465511021.1624291040-439238716.1624291040"
-                                              method="post" id="login-form">
-                                            <div class="userdata">
-                                                <div id="form-login-username" class="form-group">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-user tip" title="Username"></i>
-                                                        </span>
-                                                        <input id="modlgn-username" type="text" name="username"
-                                                               class="input form-control" tabindex="0" size="18"
-                                                               placeholder="Username" />
-                                                    </div>
+                                    @{if (Session["USERNAME"] != null)
+
+                                        {
+                                            TAIKHOAN tk = (TAIKHOAN)Session["USERNAME"];
+                                            
+                                                <div class="module-title">
+                                                    <h3 class="box-title">Xin chào @tk.USERNAME</h3>
                                                 </div>
-                                                <div id="form-login-password" class="form-group">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-lock tip" title="Password"></i>
-                                                        </span>
-                                                        <input id="modlgn-passwd" type="password" name="password"
-                                                               class="input form-control" tabindex="0" size="18"
-                                                               placeholder="Password" />
-                                                    </div>
+                                                <div class="module-body">
+                                                    @*<div class="userdata">
+                                                    <ul class="dropdown-menu">
+                                                        <li>
+                                                            <a href="/Login/DangKi">
+                                                                Thông tin thành viên <span class="icon-arrow-right"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                Lịch sử đăng nhập
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                Đăng xuất
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    </div> *@
                                                 </div>
-                                                <div id="form-login-remember" class="form-group">
-                                                    <div class="checkbox">
-                                                        <label for="modlgn-remember" class="control-label">
-                                                            <input id="modlgn-remember" type="checkbox" name="remember"
-                                                                   class="inputbox" value="yes" />
-                                                            Remember Me
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div id="form-login-submit" class="control-group">
-                                                    <div class="controls">
-                                                        <button type="submit" tabindex="0" name="Submit"
-                                                                class="btn btn-primary">
-                                                            Log in
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <ul class="unstyled">
-                                                    <li>
-                                                        <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/registration-form">
-                                                            Create an account <span class="icon-arrow-right"></span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/account-reminder">
-                                                            Forgot your username?
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/user-profile?view=reset">
-                                                            Forgot your password?
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                                <input type="hidden" name="option" value="com_users" />
-                                                <input type="hidden" name="task" value="user.login" />
-                                                <input type="hidden" name="return"
-                                                       value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi8/X2dhPTIuMTc5MDgzMTY5LjQ2NTUxMTAyMS4xNjI0MjkxMDQwLTQzOTIzODcxNi4xNjI0MjkxMDQw" />
-                                                <input type="hidden" name="43c8da9a892039287ecdab6901475eee"
-                                                       value="1" />
+                                            
+                                        }
+                                        else
+                                        {
+                                            <div class="module-title">
+                                                <h3 class="box-title "><span>Đăng nhập/Đăng kí</span></h3>
                                             </div>
-                                        </form>
-                                    </div>
+
+                                            <div class="module-body">
+                                                <form action="/Login/DangNhap"
+                                                      method="post" id="login-form">
+                                                    <div class="userdata">
+                                                        <div id="form-login-username" class="form-group">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-user tip" title="Username"></i>
+                                                                </span>
+                                                                <input id="modlgn-username" type="text" name="username"
+                                                                       class="input form-control" tabindex="0" size="18"
+                                                                       placeholder="Username" />
+                                                            </div>
+                                                        </div>
+                                                        <div id="form-login-password" class="form-group">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-lock tip" title="Password"></i>
+                                                                </span>
+                                                                <input id="modlgn-passwd" type="password" name="password"
+                                                                       class="input form-control" tabindex="0" size="18"
+                                                                       placeholder="Password" />
+                                                            </div>
+                                                        </div>
+                                                        <div id="form-login-remember" class="form-group">
+                                                            <div class="checkbox">
+                                                                <label for="modlgn-remember" class="control-label">
+                                                                    <input id="modlgn-remember" type="checkbox" name="remember"
+                                                                           class="inputbox" value="yes" />
+                                                                    Remember Me
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div id="form-login-submit" class="control-group">
+                                                            <div class="controls">
+                                                                <button type="submit" tabindex="0" name="Submit"
+                                                                        class="btn btn-primary">
+                                                                    Đăng nhập
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <ul class="unstyled">
+                                                            <li>
+                                                                <a href="/Login/DangKi">
+                                                                    Tạo tài khoản mới <span class="icon-arrow-right"></span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/account-reminder">
+                                                                    Quên tên đăng nhập?
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/user-profile?view=reset">
+                                                                    Quên mật khẩu?
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <input type="hidden" name="option" value="com_users" />
+                                                        <input type="hidden" name="task" value="user.login" />
+                                                        <input type="hidden" name="return"
+                                                               value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi8/X2dhPTIuMTc5MDgzMTY5LjQ2NTUxMTAyMS4xNjI0MjkxMDQwLTQzOTIzODcxNi4xNjI0MjkxMDQw" />
+                                                        <input type="hidden" name="43c8da9a892039287ecdab6901475eee"
+                                                               value="1" />
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            }
+                                        }
                                 </div>
                                 <div class="module-style  top-cart">
                                     <div class="module-body">
@@ -768,9 +806,10 @@
                                                 </a>
                                             </li>
                                             @Html.Action("MenuChuDe", "Module")
+                                            @*Thêm thông tin tổng quan một số chức năng trong web*@
                                             <li class="item-478 parent dropdown-submenu">
                                                 <span class="nav-header ">
-                                                    <span class="heading-data-title">Joomla!</span><span class="caret"></span>
+                                                    <span class="heading-data-title">THÔNG TIN</span><span class="caret"></span>
                                                 </span>
                                                 <ul class="sunfw-megamenu-sub-menu" style="width:900px">
                                                     <div class="grid" style="background-color:custom">
@@ -942,140 +981,118 @@
                                                 </ul>
                                             </li>
                                             @Html.Action("MenuNXB", "Module")
-                                            <li class="item-455 parent dropdown-submenu">
-                                                <span class="nav-header ">
-                                                    <span class="heading-data-title">Pages</span><span class="caret"></span>
-                                                </span>
-                                                <ul class="dropdown-menu">
-                                                    <li class="item-570">
-                                                        <a class="clearfix"
-                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/about">
-                                                            <span data-title="About">
-                                                                <span class="menutitle">About</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-566">
-                                                        <a class="clearfix"
-                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/contact">
-                                                            <span data-title="Contact">
-                                                                <span class="menutitle">Contact</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-492">
-                                                        <a class="jsn-404-page clearfix"
-                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/404">
-                                                            <span data-title="404">
-                                                                <span class="menutitle">404</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-572">
-                                                        <a class="clearfix"
-                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/coming-soon">
-                                                            <span data-title="Coming Soon">
-                                                                <span class="menutitle">
-                                                                    Coming
-                                                                    Soon
-                                                                </span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="item-928 parent dropdown-submenu">
-                                                <span class="nav-header ">
-                                                    <span class="heading-data-title">Store</span><span class="caret"></span>
-                                                </span>
-                                                <ul class="dropdown-menu">
-                                                    <li class="item-922">
-                                                        <a class="clearfix"
-                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product">
-                                                            <span data-title="Product">
-                                                                <span class="menutitle">Product</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-929">
-                                                        <a class="clearfix"
-                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/my-account">
-                                                            <span data-title="My Account">
-                                                                <span class="menutitle">
-                                                                    My
-                                                                    Account
-                                                                </span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-930">
-                                                        <a class="clearfix"
-                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/check-out">
-                                                            <span data-title="Check Out">
-                                                                <span class="menutitle">
-                                                                    Check
-                                                                    Out
-                                                                </span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-931">
-                                                        <a class="clearfix"
-                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart">
-                                                            <span data-title="Cart">
-                                                                <span class="menutitle">Cart</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="item-932 parent dropdown-submenu">
-                                                <a class="clearfix dropdown-toggle"
-                                                   href="/joomla-templates/jsn_bookstore/pro/bookstore/en/j2store">
-                                                    <span data-title="J2Store">
-                                                        <span class="menutitle">J2Store</span>
-                                                    </span><span class="caret"></span>
+                                            @*Thêm danh mục sách vào menu hiển thị toàn bộ sách*@
+                                            <li class="item-435">
+                                                <a class="clearfix"
+                                                   href="/Module/All_Sach">
+                                                    <span data-title="Danh mục Sách"><span class="menutitle">Danh mục Sách</span></span>
                                                 </a>
-                                                <ul class="dropdown-menu">
-                                                    <li class="item-933">
-                                                        <a class="clearfix"
-                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/store/product/simple">
-                                                            <span data-title="Simple">
-                                                                <span class="menutitle">Simple</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-934">
-                                                        <a class="clearfix"
-                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/store/product/variable-product">
-                                                            <span data-title="Variable product">
-                                                                <span class="menutitle">Variable product</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-935">
-                                                        <a class="clearfix"
-                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/store/product/configurable-product">
-                                                            <span data-title="Configurable product">
-                                                                <span class="menutitle">
-                                                                    Configurable
-                                                                    product
-                                                                </span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-936">
-                                                        <a class="clearfix"
-                                                           href="/joomla-templates/jsn_bookstore/pro/bookstore/store/product/downloadable-product">
-                                                            <span data-title="Downloadable product">
-                                                                <span class="menutitle">
-                                                                    Downloadable
-                                                                    product
-                                                                </span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
                                             </li>
+                                            @*Thêm thông tin nhà phát triển vào menu tuy nhiên trang này chưa phát triẻn*@
+                                            <li class="item-435">
+                                                <a class="clearfix"
+                                                   href="#">
+                                                    <span data-title="About"><span class="menutitle">About</span></span>
+                                                </a>
+                                            </li>
+                                            @*Thêm trang liên lac vào menu hướng đến cuối trang*@
+                                            <li class="item-435">
+                                                <a class="clearfix"
+                                                   href="#sunfw_section_section_footer">
+                                                    <span data-title="Liên hệ"><span class="menutitle">Liên hệ</span></span>
+                                                </a>
+                                            </li>
+                                            @*<li class="item-928 parent dropdown-submenu">
+            <span class="nav-header ">
+                <span class="heading-data-title">Store</span><span class="caret"></span>
+            </span>
+            <ul class="dropdown-menu">
+                <li class="item-922">
+                    <a class="clearfix"
+                       href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product">
+                        <span data-title="Product">
+                            <span class="menutitle">Product</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="item-929">
+                    <a class="clearfix"
+                       href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/my-account">
+                        <span data-title="My Account">
+                            <span class="menutitle">
+                                My
+                                Account
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="item-930">
+                    <a class="clearfix"
+                       href="/DatHang/DatHang">
+                        <span data-title="Check Out">
+                            <span class="menutitle">
+                                Thanh toán
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="item-931">
+                    <a class="clearfix"
+                       href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart">
+                        <span data-title="Cart">
+                            <span class="menutitle">Cart</span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </li>*@
+                                            @*<li class="item-932 parent dropdown-submenu">
+            <a class="clearfix dropdown-toggle"
+               href="/joomla-templates/jsn_bookstore/pro/bookstore/en/j2store">
+                <span data-title="J2Store">
+                    <span class="menutitle">J2Store</span>
+                </span><span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="item-933">
+                    <a class="clearfix"
+                       href="/joomla-templates/jsn_bookstore/pro/bookstore/store/product/simple">
+                        <span data-title="Simple">
+                            <span class="menutitle">Simple</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="item-934">
+                    <a class="clearfix"
+                       href="/joomla-templates/jsn_bookstore/pro/bookstore/store/product/variable-product">
+                        <span data-title="Variable product">
+                            <span class="menutitle">Variable product</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="item-935">
+                    <a class="clearfix"
+                       href="/joomla-templates/jsn_bookstore/pro/bookstore/store/product/configurable-product">
+                        <span data-title="Configurable product">
+                            <span class="menutitle">
+                                Configurable
+                                product
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="item-936">
+                    <a class="clearfix"
+                       href="/joomla-templates/jsn_bookstore/pro/bookstore/store/product/downloadable-product">
+                        <span data-title="Downloadable product">
+                            <span class="menutitle">
+                                Downloadable
+                                product
+                            </span>
+                        </span>
+                    </a>
+                </li>
+        </li>*@
                                         </ul>
                                         </ul>
                                     </div>
