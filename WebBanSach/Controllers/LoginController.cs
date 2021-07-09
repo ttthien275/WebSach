@@ -1,9 +1,13 @@
-﻿using System;
+﻿using NPOI.POIFS.Crypt;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebBanSach.Models;
+using WebBanSach.DAO;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace WebBanSach.Controllers
 {
@@ -18,6 +22,7 @@ namespace WebBanSach.Controllers
         }
         //post: nhận data từ form đăng kí và lưu data xuống DB
         [HttpPost]
+       // [CaptchaValidation("CaptchaCode", "registerCaptcha,"Mã xác nhận không đúng"))]
         public ActionResult DangKi(FormCollection collection)
         {
             TAIKHOAN tk = new TAIKHOAN();
@@ -65,7 +70,7 @@ namespace WebBanSach.Controllers
                 tk.HOTEN = hoten;
                 tk.ID_LOAITK = 3;
                 tk.USERNAME = username;
-                tk.MATKHAU = matkhau;
+                tk.MATKHAU = encryptorPass(matkhau);
                 tk.DIACHI_TK = diachi;
                 tk.SDT = sdt;
                 tk.EMAIL_TK = email_tk;
@@ -99,13 +104,14 @@ namespace WebBanSach.Controllers
                 }
                 else
                 {
-                TAIKHOAN tk = data.TAIKHOANs.SingleOrDefault(n => n.USERNAME == Username && n.MATKHAU == Password);
+                TAIKHOAN tk = data.TAIKHOANs.SingleOrDefault(n => n.USERNAME == Username && n.MATKHAU == encryptorPass(Password));
                 if (tk != null)
                 {
 
                     ViewBag.Thongbao = "chúc mừng đăng nhập thành công";
                     Session["USERNAME"] = tk;
-                    if (Session["Giohang"] != null)
+                    List<Giohang> gh = Session["Giohang"] as List<Giohang>;
+                    if (gh.Count !=0)
                     {
                         return RedirectToAction("DatHang", "DatHang");
                     }
@@ -119,11 +125,32 @@ namespace WebBanSach.Controllers
                 }
             return View();
         }
-
+        public ActionResult DangXuat()
+        {
+            Session["USERNAME"] = null;
+            Session["Giohang"] = null;
+            return Redirect("/Home/Index");
+        }
 
         public ActionResult Index()
         {
             return View();
+        }
+        //mã hóa md5
+        public static string encryptorPass(string originalPassword)
+        {
+            //Declarations
+            Byte[] originalBytes;
+            Byte[] encodedBytes;
+            MD5 md5;
+
+            //Instantiate MD5CryptoServiceProvider, get bytes for original password and compute hash (encoded password)
+            md5 = new MD5CryptoServiceProvider();
+            originalBytes = ASCIIEncoding.Default.GetBytes(originalPassword);
+            encodedBytes = md5.ComputeHash(originalBytes);
+
+            //Convert encoded bytes back to a 'readable' string
+            return BitConverter.ToString(encodedBytes);
         }
     }
 }

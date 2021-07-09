@@ -238,4 +238,16 @@ C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sa
 C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\PagedList.Mvc.dll
 C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\PagedList.xml
 C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\PagedList.Mvc.xml
+C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\BouncyCastle.Crypto.dll
+C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\NPOI.dll
+C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\NPOI.OOXML.dll
+C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\NPOI.OpenXml4Net.dll
+C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\NPOI.OpenXmlFormats.dll
+C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\BouncyCastle.Crypto.xml
+C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\ICSharpCode.SharpZipLib.pdb
+C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\ICSharpCode.SharpZipLib.xml
+C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\NPOI.xml
+C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\NPOI.OOXML.xml
+C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\bin\NPOI.OpenXml4Net.xml
 C:\Users\ACER\Dropbox\My PC (LAPTOP-42EV1F8L)\Documents\lap-trinh-web\web-ban-sach\lap-trinh-web\WebBanSach\obj\Debug\WebBanSach.csproj.AssemblyReference.cache
