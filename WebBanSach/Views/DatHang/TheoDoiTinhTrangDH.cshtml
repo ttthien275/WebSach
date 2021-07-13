@@ -1,0 +1,76 @@
+﻿@model WebBanSach.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "TheoDoiTinhTrangDH";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tình trạng đơn hàng</h2>
+
+<div>
+    <h4>Bạn đã đặt hàng thành công. Vui lòng theo dõi đơn hàng của bạn tại đây</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Họ tên khách hàng: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_TAIKHOAN)
+        </dd>
+
+        <dt>
+           Tình trạng thanh toán:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaThanhToan)
+        </dd>
+
+        <dt>
+            Tinh trạng giao hàng: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrangGiaoHang)
+        </dd>
+
+        <dt>
+            Ngày đặt:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDat)
+        </dd>
+
+        <dt>
+            Ngày giao:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayGiao)
+        </dd>
+
+        <dt>
+           Hình thức thanh toán:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhThucThanhToan)
+        </dd>
+
+        <dt>
+            Tình trạng đơn hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRANGTHAI)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = 1 }) |
+    @Html.ActionLink("Back to List", "Index", "Home")
+</p>
