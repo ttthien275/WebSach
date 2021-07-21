@@ -7,6 +7,7 @@
     TAIKHOAN tk = (TAIKHOAN)Session["USERNAME"];
 }
 
+<link href="~/Content/NganLuong.css" rel="stylesheet" />
 <div id="sunfw_section_section_main_body" class="sunfw-section sunfw_section_section_main_body visible-lg visible-md visible-sm visible-xs">
     <div class="container">
         <div id="row_row-1" class="row sunfw-flex-component">
@@ -19,195 +20,6 @@
                         <div id="j2store-checkout" class="j2store checkout">
                             <div id="j2store-checkout-content">
                                 <h1>Đặt hàng</h1>
-
-                                <div id="billing-address">
-                                    <div class="checkout-heading"><span>Billing Address</span></div>
-                                    <div class="checkout-content" style="display: block;">
-                                        <div id="akeeba-renderjoomla">
-
-                                            <input type="radio" name="billing_address" value="existing" id="billing-address-existing" checked="checked">
-                                            <label for="billing-address-existing">Tôi muốn lấy thông tin địa chỉ đặt hàng từ địa chỉ đã lưu</label>
-                                            <div id="billing-existing">
-                                                <select name="address_id" style="width: 100%; margin-bottom: 15px;" size="5">
-
-                                                    <option value="30" selected="selected">
-                                                        <strong>@tk.DIACHI_TK</strong>
-                                                    </option>
-
-
-                                                </select>
-                                            </div>
-                                            <p>
-                                                <input type="radio" name="billing_address" value="new" id="billing-address-new">
-                                                <label for="billing-address-new">Thêm một địa chỉ mới</label>
-                                            </p>
-
-                                            <div id="billing-new" style="display: none;">
-
-
-
-
-                                                <div class="row">
-                                                    <div class="col-md-6"><span class="j2store_field_required">*</span><label for="first_name">First name</label><input class="inputbox" id="first_name" type="text" name="first_name" value=""><br> <span class="j2store_field_required">*</span><label for="last_name">Last name</label><input class="inputbox" id="last_name" type="text" name="last_name" value=""><br> <label for="phone_1">Phone</label><input class="inputbox" id="phone_1" type="text" name="phone_1" value=""><br> <span class="j2store_field_required">*</span><label for="phone_2">Mobile</label><input class="inputbox" id="phone_2" type="text" name="phone_2" value=""><br> <label for="company">Company</label><input class="inputbox" id="company" type="text" name="company" value=""><br> <label for="tax_number">Tax Number</label><input class="inputbox" id="tax_number" type="text" name="tax_number" value=""><br></div>
-                                                    <div class="col-md-6">
-                                                        <span class="j2store_field_required">*</span><label for="address_1">Address Line 1</label><input class="inputbox" id="address_1" type="text" name="address_1" value=""><br> <label for="address_2">Address Line 2</label><input class="inputbox" id="address_2" type="text" name="address_2" value=""><br> <span class="j2store_field_required">*</span><label for="city">City</label><input class="inputbox" id="city" type="text" name="city" value=""><br> <span class="j2store_field_required">*</span><label for="zip">Zip / Postal code</label><input class="inputbox" id="zip" type="text" name="zip" value=""><br> <span class="j2store_field_required">*</span><label for="country_id">Country</label><select id="country_id" name="country_id" size="1"><option value="1" id="country_id_1">Afghanistan</option><option value="2" id="country_id_2">Albania</option><option value="3" id="country_id_3">Algeria</option><option value="4" id="country_id_4">American Samoa</option><option value="5" id="country_id_5">Andorra</option><option value="6" id="country_id_6">Angola</option><option value="7" id="country_id_7">Anguilla</option><option value="8" id="country_id_8">Antarctica</option><option value="9" id="country_id_9">Antigua and Barbuda</option><option value="10" id="country_id_10">Argentina</option><option value="11" id="country_id_11">Armenia</option><option value="12" id="country_id_12">Aruba</option><option value="13" id="country_id_13">Australia</option><option value="14" id="country_id_14">Austria</option><option value="15" id="country_id_15">Azerbaijan</option><option value="16" id="country_id_16">Bahamas</option><option value="17" id="country_id_17">Bahrain</option><option value="18" id="country_id_18">Bangladesh</option><option value="19" id="country_id_19">Barbados</option><option value="20" id="country_id_20">Belarus</option><option value="21" id="country_id_21">Belgium</option><option value="22" id="country_id_22">Belize</option><option value="23" id="country_id_23">Benin</option><option value="24" id="country_id_24">Bermuda</option><option value="25" id="country_id_25">Bhutan</option><option value="26" id="country_id_26">Bolivia</option><option value="27" id="country_id_27">Bosnia and Herzegowina</option><option value="28" id="country_id_28">Botswana</option><option value="29" id="country_id_29">Bouvet Island</option><option value="30" id="country_id_30">Brazil</option><option value="31" id="country_id_31">British Indian Ocean Territory</option><option value="32" id="country_id_32">Brunei Darussalam</option><option value="33" id="country_id_33">Bulgaria</option><option value="34" id="country_id_34">Burkina Faso</option><option value="35" id="country_id_35">Burundi</option><option value="36" id="country_id_36">Cambodia</option><option value="37" id="country_id_37">Cameroon</option><option value="38" id="country_id_38">Canada</option><option value="39" id="country_id_39">Cape Verde</option><option value="40" id="country_id_40">Cayman Islands</option><option value="41" id="country_id_41">Central African Republic</option><option value="42" id="country_id_42">Chad</option><option value="43" id="country_id_43">Chile</option><option value="44" id="country_id_44">China</option><option value="45" id="country_id_45">Christmas Island</option><option value="46" id="country_id_46">Cocos (Keeling) Islands</option><option value="47" id="country_id_47">Colombia</option><option value="48" id="country_id_48">Comoros</option><option value="49" id="country_id_49">Congo</option><option value="50" id="country_id_50">Cook Islands</option><option value="51" id="country_id_51">Costa Rica</option><option value="52" id="country_id_52">Cote D'Ivoire</option><option value="53" id="country_id_53">Croatia</option><option value="54" id="country_id_54">Cuba</option><option value="55" id="country_id_55">Cyprus</option><option value="56" id="country_id_56">Czech Republic</option><option value="57" id="country_id_57">Denmark</option><option value="58" id="country_id_58">Djibouti</option><option value="59" id="country_id_59">Dominica</option><option value="60" id="country_id_60">Dominican Republic</option><option value="61" id="country_id_61">East Timor</option><option value="62" id="country_id_62">Ecuador</option><option value="63" id="country_id_63">Egypt</option><option value="64" id="country_id_64">El Salvador</option><option value="65" id="country_id_65">Equatorial Guinea</option><option value="66" id="country_id_66">Eritrea</option><option value="67" id="country_id_67">Estonia</option><option value="68" id="country_id_68">Ethiopia</option><option value="69" id="country_id_69">Falkland Islands (Malvinas)</option><option value="70" id="country_id_70">Faroe Islands</option><option value="71" id="country_id_71">Fiji</option><option value="72" id="country_id_72">Finland</option><option value="73" id="country_id_73">France</option><option value="74" id="country_id_74">France, Metropolitan</option><option value="75" id="country_id_75">French Guiana</option><option value="76" id="country_id_76">French Polynesia</option><option value="77" id="country_id_77">French Southern Territories</option><option value="78" id="country_id_78">Gabon</option><option value="79" id="country_id_79">Gambia</option><option value="80" id="country_id_80">Georgia</option><option value="81" id="country_id_81">Germany</option><option value="82" id="country_id_82">Ghana</option><option value="83" id="country_id_83">Gibraltar</option><option value="84" id="country_id_84">Greece</option><option value="85" id="country_id_85">Greenland</option><option value="86" id="country_id_86">Grenada</option><option value="87" id="country_id_87">Guadeloupe</option><option value="88" id="country_id_88">Guam</option><option value="89" id="country_id_89">Guatemala</option><option value="90" id="country_id_90">Guinea</option><option value="91" id="country_id_91">Guinea-bissau</option><option value="92" id="country_id_92">Guyana</option><option value="93" id="country_id_93">Haiti</option><option value="94" id="country_id_94">Heard and Mc Donald Islands</option><option value="95" id="country_id_95">Honduras</option><option value="96" id="country_id_96">Hong Kong</option><option value="97" id="country_id_97">Hungary</option><option value="98" id="country_id_98">Iceland</option><option value="99" id="country_id_99">India</option><option value="100" id="country_id_100">Indonesia</option><option value="101" id="country_id_101">Iran (Islamic Republic of)</option><option value="102" id="country_id_102">Iraq</option><option value="103" id="country_id_103">Ireland</option><option value="104" id="country_id_104">Israel</option><option value="105" id="country_id_105">Italy</option><option value="106" id="country_id_106">Jamaica</option><option value="107" id="country_id_107">Japan</option><option value="108" id="country_id_108">Jordan</option><option value="109" id="country_id_109">Kazakhstan</option><option value="110" id="country_id_110">Kenya</option><option value="111" id="country_id_111">Kiribati</option><option value="113" id="country_id_113">Korea, Republic of</option><option value="114" id="country_id_114">Kuwait</option><option value="115" id="country_id_115">Kyrgyzstan</option><option value="116" id="country_id_116">Lao People's Democratic Republic</option><option value="117" id="country_id_117">Latvia</option><option value="118" id="country_id_118">Lebanon</option><option value="119" id="country_id_119">Lesotho</option><option value="120" id="country_id_120">Liberia</option><option value="121" id="country_id_121">Libyan Arab Jamahiriya</option><option value="122" id="country_id_122">Liechtenstein</option><option value="123" id="country_id_123">Lithuania</option><option value="124" id="country_id_124">Luxembourg</option><option value="125" id="country_id_125">Macau</option><option value="126" id="country_id_126">Macedonia, The Former Yugoslav Republic of</option><option value="127" id="country_id_127">Madagascar</option><option value="128" id="country_id_128">Malawi</option><option value="129" id="country_id_129">Malaysia</option><option value="130" id="country_id_130">Maldives</option><option value="131" id="country_id_131">Mali</option><option value="132" id="country_id_132">Malta</option><option value="133" id="country_id_133">Marshall Islands</option><option value="134" id="country_id_134">Martinique</option><option value="135" id="country_id_135">Mauritania</option><option value="136" id="country_id_136">Mauritius</option><option value="137" id="country_id_137">Mayotte</option><option value="138" id="country_id_138">Mexico</option><option value="139" id="country_id_139">Micronesia, Federated States of</option><option value="140" id="country_id_140">Moldova, Republic of</option><option value="141" id="country_id_141">Monaco</option><option value="142" id="country_id_142">Mongolia</option><option value="241" id="country_id_241">Montenegro</option><option value="143" id="country_id_143">Montserrat</option><option value="144" id="country_id_144">Morocco</option><option value="145" id="country_id_145">Mozambique</option><option value="146" id="country_id_146">Myanmar</option><option value="147" id="country_id_147">Namibia</option><option value="148" id="country_id_148">Nauru</option><option value="149" id="country_id_149">Nepal</option><option value="150" id="country_id_150">Netherlands</option><option value="151" id="country_id_151">Netherlands Antilles</option><option value="152" id="country_id_152">New Caledonia</option><option value="153" id="country_id_153">New Zealand</option><option value="154" id="country_id_154">Nicaragua</option><option value="155" id="country_id_155">Niger</option><option value="156" id="country_id_156">Nigeria</option><option value="157" id="country_id_157">Niue</option><option value="158" id="country_id_158">Norfolk Island</option><option value="112" id="country_id_112">North Korea</option><option value="159" id="country_id_159">Northern Mariana Islands</option><option value="160" id="country_id_160">Norway</option><option value="161" id="country_id_161">Oman</option><option value="162" id="country_id_162">Pakistan</option><option value="163" id="country_id_163">Palau</option><option value="164" id="country_id_164">Panama</option><option value="165" id="country_id_165">Papua New Guinea</option><option value="166" id="country_id_166">Paraguay</option><option value="167" id="country_id_167">Peru</option><option value="168" id="country_id_168">Philippines</option><option value="169" id="country_id_169">Pitcairn</option><option value="170" id="country_id_170">Poland</option><option value="171" id="country_id_171">Portugal</option><option value="172" id="country_id_172">Puerto Rico</option><option value="173" id="country_id_173">Qatar</option><option value="174" id="country_id_174">Reunion</option><option value="175" id="country_id_175">Romania</option><option value="176" id="country_id_176">Russian Federation</option><option value="177" id="country_id_177">Rwanda</option><option value="178" id="country_id_178">Saint Kitts and Nevis</option><option value="179" id="country_id_179">Saint Lucia</option><option value="180" id="country_id_180">Saint Vincent and the Grenadines</option><option value="181" id="country_id_181">Samoa</option><option value="182" id="country_id_182">San Marino</option><option value="183" id="country_id_183">Sao Tome and Principe</option><option value="184" id="country_id_184">Saudi Arabia</option><option value="185" id="country_id_185">Senegal</option><option value="240" id="country_id_240">Serbia</option><option value="186" id="country_id_186">Seychelles</option><option value="187" id="country_id_187">Sierra Leone</option><option value="188" id="country_id_188">Singapore</option><option value="189" id="country_id_189">Slovakia (Slovak Republic)</option><option value="190" id="country_id_190">Slovenia</option><option value="191" id="country_id_191">Solomon Islands</option><option value="192" id="country_id_192">Somalia</option><option value="193" id="country_id_193">South Africa</option><option value="194" id="country_id_194">South Georgia and the South Sandwich Islands</option><option value="195" id="country_id_195">Spain</option><option value="196" id="country_id_196">Sri Lanka</option><option value="197" id="country_id_197">St. Helena</option><option value="198" id="country_id_198">St. Pierre and Miquelon</option><option value="199" id="country_id_199">Sudan</option><option value="200" id="country_id_200">Suriname</option><option value="201" id="country_id_201">Svalbard and Jan Mayen Islands</option><option value="202" id="country_id_202">Swaziland</option><option value="203" id="country_id_203">Sweden</option><option value="204" id="country_id_204">Switzerland</option><option value="205" id="country_id_205">Syrian Arab Republic</option><option value="206" id="country_id_206">Taiwan</option><option value="207" id="country_id_207">Tajikistan</option><option value="208" id="country_id_208">Tanzania, United Republic of</option><option value="209" id="country_id_209">Thailand</option><option value="210" id="country_id_210">Togo</option><option value="211" id="country_id_211">Tokelau</option><option value="212" id="country_id_212">Tonga</option><option value="213" id="country_id_213">Trinidad and Tobago</option><option value="214" id="country_id_214">Tunisia</option><option value="215" id="country_id_215">Turkey</option><option value="216" id="country_id_216">Turkmenistan</option><option value="217" id="country_id_217">Turks and Caicos Islands</option><option value="218" id="country_id_218">Tuvalu</option><option value="219" id="country_id_219">Uganda</option><option value="220" id="country_id_220">Ukraine</option><option value="221" id="country_id_221">United Arab Emirates</option><option value="222" id="country_id_222">United Kingdom</option><option value="223" id="country_id_223" selected="selected">United States</option><option value="224" id="country_id_224">United States Minor Outlying Islands</option><option value="225" id="country_id_225">Uruguay</option><option value="226" id="country_id_226">Uzbekistan</option><option value="227" id="country_id_227">Vanuatu</option><option value="228" id="country_id_228">Vatican City State (Holy See)</option><option value="229" id="country_id_229">Venezuela</option><option value="230" id="country_id_230">Viet Nam</option><option value="231" id="country_id_231">Virgin Islands (British)</option><option value="232" id="country_id_232">Virgin Islands (U.S.)</option><option value="233" id="country_id_233">Wallis and Futuna Islands</option><option value="234" id="country_id_234">Western Sahara</option><option value="235" id="country_id_235">Yemen</option><option value="237" id="country_id_237">Zaire</option><option value="238" id="country_id_238">Zambia</option><option value="239" id="country_id_239">Zimbabwe</option></select><br> <span class="j2store_field_required">*</span><label for="zone_id">Zone / Region</label><span id="zone_id_container">
-                                                            <select id="zone_id" name="zone_id" class="inputbox" size="1">
-                                                                <option value="0">-- Select --</option>
-                                                                <option value="3613">Alabama</option>
-                                                                <option value="3614">Alaska</option>
-                                                                <option value="3615">American Samoa</option>
-                                                                <option value="3616">Arizona</option>
-                                                                <option value="3617">Arkansas</option>
-                                                                <option value="3618">Armed Forces Africa</option>
-                                                                <option value="3619">Armed Forces Americas</option>
-                                                                <option value="3620">Armed Forces Canada</option>
-                                                                <option value="3621">Armed Forces Europe</option>
-                                                                <option value="3622">Armed Forces Middle East</option>
-                                                                <option value="3623">Armed Forces Pacific</option>
-                                                                <option value="3624" selected="selected">California</option>
-                                                                <option value="3625">Colorado</option>
-                                                                <option value="3626">Connecticut</option>
-                                                                <option value="3627">Delaware</option>
-                                                                <option value="3628">District of Columbia</option>
-                                                                <option value="3629">Federated States Of Micronesia</option>
-                                                                <option value="3630">Florida</option>
-                                                                <option value="3631">Georgia</option>
-                                                                <option value="3632">Guam</option>
-                                                                <option value="3633">Hawaii</option>
-                                                                <option value="3634">Idaho</option>
-                                                                <option value="3635">Illinois</option>
-                                                                <option value="3636">Indiana</option>
-                                                                <option value="3637">Iowa</option>
-                                                                <option value="3638">Kansas</option>
-                                                                <option value="3639">Kentucky</option>
-                                                                <option value="3640">Louisiana</option>
-                                                                <option value="3641">Maine</option>
-                                                                <option value="3642">Marshall Islands</option>
-                                                                <option value="3643">Maryland</option>
-                                                                <option value="3644">Massachusetts</option>
-                                                                <option value="3645">Michigan</option>
-                                                                <option value="3646">Minnesota</option>
-                                                                <option value="3647">Mississippi</option>
-                                                                <option value="3648">Missouri</option>
-                                                                <option value="3649">Montana</option>
-                                                                <option value="3650">Nebraska</option>
-                                                                <option value="3651">Nevada</option>
-                                                                <option value="3652">New Hampshire</option>
-                                                                <option value="3653">New Jersey</option>
-                                                                <option value="3654">New Mexico</option>
-                                                                <option value="3655">New York</option>
-                                                                <option value="3656">North Carolina</option>
-                                                                <option value="3657">North Dakota</option>
-                                                                <option value="3658">Northern Mariana Islands</option>
-                                                                <option value="3659">Ohio</option>
-                                                                <option value="3660">Oklahoma</option>
-                                                                <option value="3661">Oregon</option>
-                                                                <option value="3662">Palau</option>
-                                                                <option value="3663">Pennsylvania</option>
-                                                                <option value="3664">Puerto Rico</option>
-                                                                <option value="3665">Rhode Island</option>
-                                                                <option value="3666">South Carolina</option>
-                                                                <option value="3667">South Dakota</option>
-                                                                <option value="3668">Tennessee</option>
-                                                                <option value="3669">Texas</option>
-                                                                <option value="3670">Utah</option>
-                                                                <option value="3671">Vermont</option>
-                                                                <option value="3672">Virgin Islands</option>
-                                                                <option value="3673">Virginia</option>
-                                                                <option value="3674">Washington</option>
-                                                                <option value="3675">West Virginia</option>
-                                                                <option value="3676">Wisconsin</option>
-                                                                <option value="3677">Wyoming</option>
-                                                            </select>
-                                                        </span><input type="hidden" id="zone_id_default_value" name="zone_id_default_value" value="3624"><br>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <br>
-                                            <div class="buttons">
-                                                <div class="left">
-                                                    <input href=".checkout-heading" type="button" value="Continue" id="button-billing-address" class="button btn btn-primary">
-                                                </div>
-                                            </div>
-                                            <input type="hidden" name="email" value="ng@gmail.com">
-                                            <input type="hidden" name="task" value="billing_address_validate">
-                                            <input type="hidden" name="option" value="com_j2store">
-                                            <input type="hidden" name="view" value="checkout">
-
-                                            <script type="text/javascript">
-<!--
-                                                (function ($) {
-                                                    $(document).on('change', '#billing-address input[name=\'billing_address\']', function () {
-                                                        if (this.value == 'new') {
-                                                            $('#billing-existing').hide();
-                                                            $('#billing-new').show();
-                                                        } else {
-                                                            $('#billing-existing').show();
-                                                            $('#billing-new').hide();
-                                                        }
-                                                    });
-                                                })(j2store.jQuery);
-                                                //--></script>
-
-                                            <script type="text/javascript">
-<!--
-                                                (function ($) {
-                                                    $('#billing-address select[name=\'country_id\']').bind('change', function () {
-                                                        if (this.value == '') return;
-                                                        $.ajax({
-                                                            url: 'index.php?option=com_j2store&view=carts&task=getCountry&country_id=' + this.value,
-                                                            dataType: 'json',
-                                                            beforeSend: function () {
-                                                                $('#billing-address select[name=\'country_id\']').after('<span class="wait">&nbsp;<img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/j2store/images/loader.gif" alt="" /></span>');
-                                                            },
-                                                            complete: function () {
-                                                                $('.wait').remove();
-                                                            },
-                                                            success: function (json) {
-                                                                if (json['postcode_required'] == '1') {
-                                                                    $('#billing-postcode-required').show();
-                                                                } else {
-                                                                    $('#billing-postcode-required').hide();
-                                                                }
-
-                                                                html = '<option value="">-- Select --</option>';
-
-                                                                if (json['zone'] != '') {
-                                                                    default_zone_id = $('#billing-address #zone_id_default_value').val();
-                                                                    for (i = 0; i < json['zone'].length; i++) {
-                                                                        html += '<option value="' + json['zone'][i]['j2store_zone_id'] + '"';
-
-                                                                        if (json['zone'][i]['j2store_zone_id'] == default_zone_id) {
-                                                                            html += ' selected="selected"';
-                                                                        }
-
-                                                                        html += '>' + json['zone'][i]['zone_name'] + '</option>';
-                                                                    }
-                                                                } else {
-                                                                    html += '<option value="0" selected="selected">J2STORE_CHECKOUT_NONE</option>';
-                                                                }
-
-                                                                $('#billing-address select[name=\'zone_id\']').html(html);
-                                                            },
-                                                            error: function (xhr, ajaxOptions, thrownError) {
-                                                                //alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-                                                            }
-                                                        });
-                                                    });
-                                                })(j2store.jQuery);
-
-                                                (function ($) {
-                                                    if ($('#billing-address select[name=\'country_id\']').length > 0) {
-                                                        $('#billing-address select[name=\'country_id\']').trigger('change');
-                                                    }
-                                                })(j2store.jQuery);
-
-                                                //--></script>
-                                        </div>
-                                    </div>
-                                </div>
-                                @* Vùng địa chỉ giao hàng *@
                                 <div id="shipping-address">
                                     <div class="checkout-heading">Shipping Address</div>
                                     <div class="checkout-content" style="display: block;">
@@ -310,16 +122,10 @@
 
                                             </div>
                                             <br>
-                                            <div class="buttons">
-                                                <div class="left">
-                                                    <input type="button" value="Continue" id="button-shipping-address" class="button btn btn-primary">
-                                                </div>
-                                            </div>
                                             <input type="hidden" name="task" value="shipping_address_validate">
                                             <input type="hidden" name="option" value="com_j2store">
                                             <input type="hidden" name="view" value="checkout">
                                             <script type="text/javascript">
-<!--
                                                 (function ($) {
                                                     $(document).on('change', '#shipping-address input[name=\'shipping_address\']', function () {
                                                         if (this.value == 'new') {
@@ -332,9 +138,8 @@
                                                     });
                                                 })(j2store.jQuery);
 
-                                                //--></script>
+                                            </script>
                                             <script type="text/javascript">
-<!--
                                                 (function ($) {
                                                     $('#shipping-address select[name=\'country_id\']').bind('change', function () {
                                                         if (this.value == '') return;
@@ -386,114 +191,10 @@
                                                         $('#shipping-address select[name=\'country_id\']').trigger('change');
                                                     }
                                                 })(j2store.jQuery);
-                                                //--></script>
-                                        </div>
-                                    </div>
-                                </div>
-                                @*Vùng phương thức thanh toán và giao hàng*@
-                                <div id="shipping-payment-method">
-                                    <div class="checkout-heading">
-                                        Shipping &amp; Payment Methods
-                                    </div>
-                                    <div class="checkout-content" style="display: block;">
-                                        <div id="akeeba-renderjoomla">
-                                            <script type="text/javascript">
-	<!--
-                                                function j2storeGetPaymentForm(element, container) {
-                                                    var url = '/DatHang/TheoDoiTinhTrangDH';
-                                                    var data = 'option=com_j2store&view=checkout&task=getPaymentForm&tmpl=component&payment_element=' + element;
-                                                    j2storeDoTask(url, container, document.adminForm, '', data);
-                                                }
-                                                //-->
                                             </script>
-                                            <!-- SHIPPING METHOD -->
-                                            <div class="j2store-shipping" id="shippingcost-pane">
-                                                <div id="onCheckoutShipping_wrapper">
-                                                    <div id="akeeba-renderjoomla">
-                                                        <input type="hidden" name="shipping_price" id="shipping_price" value="">
-                                                        <input type="hidden" name="shipping_tax" id="shipping_tax" value="">
-                                                        <input type="hidden" name="shipping_name" id="shipping_name" value="">
-                                                        <input type="hidden" name="shipping_code" id="shipping_code" value="">
-                                                        <input type="hidden" name="shipping_extra" id="shipping_extra" value="">
-
-                                                        <div id="shipping_form_div" style="padding-top: 10px;"></div>
-                                                        <div id="shipping_error_div" style="padding-top: 10px;"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- SHIPPING METHOD END -->
-
-
-                                            <div id="onCheckoutPayment_wrapper">
-                                                <h3>
-                                                    Lựa chọn phương thức thanh toán
-                                                </h3>
-
-
-                                                <label class="payment-plugin-image-label payment_cash">
-                                                    <input value="payment_cash" class="payment_plugin" name="payment_plugin" type="radio" onclick="j2storeGetPaymentForm('payment_cash', 'payment_form_div');" title="Select a payment method">
-
-                                                    Thanh toán khi giao hàng
-                                                </label>
-
-
-
-                                                <label class="payment-plugin-image-label payment_moneyorder">
-                                                    <input value="payment_moneyorder" class="payment_plugin" name="payment_plugin" type="radio" onclick="j2storeGetPaymentForm('payment_moneyorder', 'payment_form_div');" title="Select a payment method">
-
-                                                    Thanh toán bằng ví điện tử
-                                                </label>
-
-
-
-                                                <label class="payment-plugin-image-label payment_banktransfer">
-                                                    <input value="payment_banktransfer" class="payment_plugin" name="payment_plugin" type="radio" onclick="j2storeGetPaymentForm('payment_banktransfer', 'payment_form_div');" checked="" title="Select a payment method">
-
-                                                    Thanh khoản ngân hàng
-                                                </label>
-
-
-
-                                                <label class="payment-plugin-image-label payment_sagepay">
-                                                    <input value="payment_sagepay" class="payment_plugin" name="payment_plugin" type="radio" onclick="j2storeGetPaymentForm('payment_sagepay', 'payment_form_div');" title="Select a payment method">
-
-                                                    Thanh toán bằng ví BookStoreMember
-                                                </label>
-
-
-
-                                            </div>
-                                            <div class="j2error"></div>
-                                            <div id="payment_form_div" style="padding-top: 10px;">
-
-
-                                            </div>
-                                            <div class="customer-note">
-                                                <h3>
-                                                    Lời nhắn từ khách hàng
-                                                </h3>
-                                                <textarea name="customer_note" rows="3" cols="40"></textarea>
-                                            </div>
-
-
-                                            <div id="checkbox_tos">
-                                                <p>Bằng cách đặt hàng, bạn <strong>đồng ý với các Điều khoản và điều kiện của chúng tôi</strong></p>
-                                            </div>
-
-
-                                            <div class="buttons">
-                                                <div class="left">
-                                                    <input type="button" value="Continue" id="button-payment-method" class="button btn btn-primary">
-                                                </div>
-                                            </div>
-                                            <input type="hidden" name="task" value="shipping_payment_method_validate">
-                                            <input type="hidden" name="option" value="com_j2store">
-                                            <input type="hidden" name="view" value="checkout">
                                         </div>
                                     </div>
                                 </div>
-                                @* Vùng xác nhận đơn hàng *@
                                 <div id="confirm">
                                     <div class="checkout-heading">Confirm order</div>
                                     <div class="checkout-content" style="display: block;">
@@ -532,7 +233,9 @@
                                                                             </span>
                                                                         </td>
                                                                         <td>
-                                                                            <div class="product-qty"><input type="number" name="txtSoluong" value="@item.ghSoLuong" class="input-mini" min="1" step="1"></div>
+                                                                            <span class="cart-product-qty">
+                                                                                @item.ghSoLuong
+                                                                            </span>
                                                                             @*<a class="btn btn-small btn-danger btn-xs j2store-remove remove-icon" href="@Url.Action("RemoveInCart", "Giohang", new { id = item.ghMaSach, strUrl = Request.Url.ToString() })">*@
                                                                             @*</a>*@
                                                                         </td>
@@ -564,46 +267,320 @@
 
 
                                                 <!--    PAYMENT METHOD   -->
-                                                <h3>
-                                                    Phương thức thanh toán
-                                                </h3>
 
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*Vùng phương thức thanh toán và giao hàng*@
+                                <div id="shipping-payment-method">
+                                    <div class="checkout-heading">
+                                        Shipping &amp; Payment Methods
+                                    </div>
+                                    <div class="checkout-content" style="display: block;">
+                                        <div id="akeeba-renderjoomla">
+                                            <script type="text/javascript">
+                                                function j2storeGetPaymentForm(element, container) {
+                                                    var url = '/DatHang/TheoDoiTinhTrangDH';
+                                                    var data = 'option=com_j2store&view=checkout&task=getPaymentForm&tmpl=component&payment_element=' + elemenUrUrl; ★ ActionActionctionAction
+                                                    j2storeDoTask(url, container, document.adminForm, '', data);
+                                                }
+
+                                            </script>
+                                            <!-- SHIPPING METHOD -->
+                                            <div class="j2store-shipping" id="shippingcost-pane">
+                                                <div id="onCheckoutShipping_wrapper">
+                                                    <div id="akeeba-renderjoomla">
+                                                        <input type="hidden" name="shipping_price" id="shipping_price" value="">
+                                                        <input type="hidden" name="shipping_tax" id="shipping_tax" value="">
+                                                        <input type="hidden" name="shipping_name" id="shipping_name" value="">
+                                                        <input type="hidden" name="shipping_code" id="shipping_code" value="">
+                                                        <input type="hidden" name="shipping_extra" id="shipping_extra" value="">
+
+                                                        <div id="shipping_form_div" style="padding-top: 10px;"></div>
+                                                        <div id="shipping_error_div" style="padding-top: 10px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- SHIPPING METHOD END -->
+
+
+                                            <div class="j2error"></div>
+                                            <div id="payment_form_div" style="padding-top: 10px;">
                                                 <div class="payment">
 
                                                     <form action="/DatHang/TheoDoiTinhTrangDH" method="post" name="bank_form" id="bank_form" enctype="multipart/form-data">
 
-                                                        <div class="note note-payment_banktransfer">
+
+                                                        <div id="onCheckoutPayment_wrapper">
+                                                            <h3>
+                                                                Lựa chọn phương thức thanh toán
+                                                            </h3>
 
 
-                                                            <p class="j2store-payment-display-name">
-                                                                <strong>Thanh toán khi giao hàng</strong>
-                                                            </p>
-                                                            <p class="j2store-on-before-payment-text"></p>
-                                                            <p class="j2store-bank-information"></p>
+                                                            <label>
+                                                                <input value="CASH" name="paymentMethod" type="radio" checked="">
+
+                                                                Thanh toán khi giao hàng
+                                                            </label>
+
+
+
+                                                            <label>
+                                                                <input value="NL" name="paymentMethod" id="rdoNL" type="radio">
+
+                                                                Thanh toán bằng Ngân Lượng
+                                                            </label>
+                                                            <div id="nganluongContent" class="boxContent" style="display:none">
+                                                                <p>
+                                                                    Thanh toán trực tuyến AN TOÀN và ĐƯỢC BẢO VỆ, sử dụng thẻ ngân hàng trong và ngoài nước hoặc nhiều hình thức tiện lợi khác.
+                                                                    Được bảo hộ & cấp phép bởi NGÂN HÀNG NHÀ NƯỚC, ví điện tử duy nhất được cộng đồng ƯA THÍCH NHẤT 2 năm liên tiếp, Bộ Thông tin Truyền thông trao giải thưởng Sao Khuê
+                                                                    <br />Giao dịch. Đăng ký ví NgânLượng.vn miễn phí <a href="https://www.nganluong.vn/?portal=nganluong&amp;page=user_register" target="_blank" style="color:#ffc12c">tại đây</a>
+                                                                </p>
+                                                            </div>
+
+
+                                                            <label>
+                                                                <input value="ATM_ONLINE" id="rdoBank" name="paymentMethod" type="radio">
+
+                                                                Thanh toán bằng ngân hàng nội địa
+                                                            </label>
+
+                                                            <div id="bankContent" class="boxContent" style="display:none">
+                                                                Danh sách ngân hàng nội địa:
+                                                                <span style="color:#ff5a00;font-weight:bold;text-decoration:underline;">Lưu ý</span>: Bạn cần đăng ký Internet-Banking hoặc dịch vụ thanh toán trực tuyến tại ngân hàng trước khi thực hiện.</i></p>
+                                                                <ul class="cardList clearfix">
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="vcb_ck_on">
+                                                                            <i class="VCB" title="Ngân hàng TMCP Ngoại Thương Việt Nam"></i>
+                                                                            <input type="radio" ID="VCB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="vnbc_ck_on">
+                                                                            <i class="DAB" title="Ngân hàng Đông Á"></i>
+                                                                            <input type="radio" ID="DAB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="tcb_ck_on">
+                                                                            <i class="TCB" title="Ngân hàng Kỹ Thương"></i>
+                                                                            <input type="radio" ID="TCB" GroupName="bankcode" />
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="sml_atm_mb_ck_on">
+                                                                            <i class="MB" title="Ngân hàng Quân Đội"></i>
+                                                                            <input type="radio" ID="MB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="shb_ck_on">
+                                                                            <i class="SHB" title="Ngân hàng Sài Gòn - Hà Nội"></i>
+                                                                            <input type="radio" ID="SHB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="sml_atm_vib_ck_on">
+                                                                            <i class="VIB" title="Ngân hàng Quốc tế"></i>
+                                                                            <input type="radio" ID="VIB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="sml_atm_vtb_ck_on">
+                                                                            <i class="ICB" title="Ngân hàng Công Thương Việt Nam"></i>
+                                                                            <input type="radio" ID="ICB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="sml_atm_exb_ck_on">
+                                                                            <i class="EXB" title="Ngân hàng Xuất Nhập Khẩu"></i>
+                                                                            <input type="radio" ID="EXB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="sml_atm_acb_ck_on">
+                                                                            <i class="ACB" title="Ngân hàng Á Châu"></i>
+                                                                            <input type="radio" ID="ACB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="sml_atm_hdb_ck_on">
+                                                                            <i class="HDB" title="Ngân hàng Phát triển Nhà TPHCM"></i>
+                                                                            <input type="radio" ID="HDB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="sml_atm_msb_ck_on">
+                                                                            <i class="MSB" title="Ngân hàng Hàng Hải"></i>
+                                                                            <input type="radio" ID="MSB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="sml_atm_nvb_ck_on">
+                                                                            <i class="NVB" title="Ngân hàng Nam Việt"></i>
+                                                                            <input type="radio" ID="NVB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="sml_atm_vab_ck_on">
+                                                                            <i class="VAB" title="Ngân hàng Việt Á"></i>
+                                                                            <input type="radio" ID="VAB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="sml_atm_vpb_ck_on">
+                                                                            <i class="VPB" title="Ngân Hàng Việt Nam Thịnh Vượng"></i>
+                                                                            <input type="radio" ID="VPB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="sml_atm_scb_ck_on">
+                                                                            <i class="SCB" title="Ngân hàng Sài Gòn Thương tín"></i>
+                                                                            <input type="radio" ID="SCB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="ojb_ck_on">
+                                                                            <i class="OJB" title="Ngân hàng Đại Dương"></i>
+                                                                            <input type="radio" ID="OJB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="bnt_atm_pgb_ck_on">
+                                                                            <i class="PGB" title="Ngân hàng Xăng dầu Petrolimex"></i>
+                                                                            <input type="radio" ID="PGB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="bnt_atm_gpb_ck_on">
+                                                                            <i class="GPB" title="Ngân hàng TMCP Dầu khí Toàn Cầu"></i>
+                                                                            <input type="radio" ID="GPB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="bnt_atm_agb_ck_on">
+                                                                            <i class="AGB" title="Ngân hàng Nông nghiệp &amp; Phát triển nông thôn"></i>
+                                                                            <input type="radio" ID="AGB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="bnt_atm_sgb_ck_on">
+                                                                            <i class="SGB" title="Ngân hàng Sài Gòn Công Thương"></i>
+                                                                            <input type="radio" ID="SGB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="bnt_atm_nab_ck_on">
+                                                                            <i class="NAB" title="Ngân hàng Nam Á"></i>
+                                                                            <input type="radio" ID="NAB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                    <li class="bank-online-methods ">
+                                                                        <label for="sml_atm_bab_ck_on">
+                                                                            <i class="BAB" title="Ngân hàng Bắc Á"></i>
+                                                                            <input type="radio" ID="BAB" GroupName="bankcode" />
+
+                                                                        </label>
+                                                                    </li>
+
+                                                                </ul>
+                                                            </div>
+
+                                                            <label>
+                                                                <input value="visa" id="rdoVISA" name="paymentMethod" type="radio">
+
+                                                                Thanh toán bằng VISA
+                                                            </label>
+                                                            @*<textarea value="" id="txtMessage" rows="5"></textarea>*@
+
                                                         </div>
-                                                        <button type="submit" onclick="datHang()" id="bank-submit-button" class="j2store_cart_button button btn btn-primary"> Đặt hàng </button>
-                                                        @*<input type="button" onclick="datHang()" id="bank-submit-button" class="j2store_cart_button button btn btn-primary" value="Đặt hàng">*@
-                                                        <input type="hidden" name="order_id" value="162556193610">
-                                                        <input type="hidden" name="orderpayment_id" value="10">
-                                                        <input type="hidden" name="orderpayment_type" value="payment_banktransfer">
-
-                                                        <input type="hidden" name="option" value="com_j2store">
-                                                        <input type="hidden" name="view" value="checkout">
-                                                        <input type="hidden" name="task" value="confirmPayment">
-                                                        <input type="hidden" name="paction" value="process">
-                                                        <input type="hidden" name="hash" value="1f810050f9f8af28b0d6341c65684978">
-                                                        <div class="plugin_error_div">
-                                                            <span class="plugin_error"></span>
-                                                            <span class="plugin_error_instruction"></span>
-                                                        </div>
-                                                        <input type="hidden" name="0a17eb7eec675249a198c881f3dab1b6" value="1">
                                                     </form>
+                                                    <script type="text/javascript">
+                                                        (function ($) {
+                                                            $('input[name="paymentMethod"]').off('click').on('click', function () {
+                                                                if ($(this).val() == 'NL') {
+                                                                    $('.boxContent').hide();
+                                                                    $('#nganluongContent').show();
+                                                                }
+                                                                else if ($(this).val() == 'ATM_ONLINE') {
+                                                                    $('.boxContent').hide();
+                                                                    $('#bankContent').show();
+                                                                }
+                                                                else {
+                                                                    $('.boxContent').hide();
+                                                                    //$('#nganluongContent').hide();
+                                                                    //$('#bankContent').hide();
+                                                                }
+                                                            });
+
+                                                            //$('#btnCreateOrder').off('click').on('click', function (e) {
+                                                            //    e.preventDefault();
+                                                            //    var isValid = $('#bank_form').valid();
+                                                            //    if (isValid) {
+                                                            //        datHang();
+                                                            //    }
+                                                            //})
+                                                        })(j2store.jQuery);
+
+                                                    </script>
                                                     <script>
                                                         //Đang phát triển trang tình trạng đơn hàng
-                                                    function datHang() {
-                                                        alert("Chúc mừng bạn @tk.HOTEN đã đặt hàng thành công.");
-                                                        window.location ="/DatHang/TheoDoiTinhTrangDH"
-                                                    }
+                                                        //function datHang() {
+                                                        //    var paymentMethod= $('input[name="paymentMethod"]:checked').value;
+                                                        //    var bankCode = $('input[groupname="bankcode"]:checked').id;
+                                                        //    $.get('/DatHang/DatHang', { 'paymentMethod': paymentMethod, 'bankCode': bankCode });
+                                                        @*alert("Chúc mừng bạn @tk.HOTEN đã đặt hàng thành công.");
+                                                        window.location ="/DatHang/TheoDoiTinhTrangDH"*@
+                                                        //};
+
+
+
                                                     function doSendRequest() {
                                                         (function ($) {
                                                             var button = j2store.jQuery('#bank-submit-button');
@@ -647,15 +624,49 @@
                                                                 $('.wait').remove();
                                                             });
 
+
+
+
+
                                                         })(j2store.jQuery);
-                                                    }
+                                                        }
+
+
                                                     </script>
                                                 </div>
 
                                             </div>
+                                            <br />
+                                            <br />
+                                            <div class="customer-note">
+                                                <h3>
+                                                    Lời nhắn từ khách hàng
+                                                </h3>
+                                                <textarea name="customer_note" rows="3" cols="40"></textarea>
+                                            </div>
+
+
+                                            <div id="checkbox_tos">
+                                                <p>Bằng cách đặt hàng, bạn <strong>đồng ý với các Điều khoản và điều kiện của chúng tôi</strong></p>
+                                            </div>
+
+
+                                            <div class="buttons">
+                                                <div class="left">
+
+                                                    <input type="submit" id="btnCreateOrder" class="j2store_cart_button button btn btn-primary" value="Thanh toán" />
+                                                    <input type="submit" class="j2store_cart_button button btn btn-primary" value="Thanh toán Paypal" />
+                                                    <input type="submit" class="j2store_cart_button button btn btn-primary" value="Thanh toán MoMo" />
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="task" value="shipping_payment_method_validate">
+                                            <input type="hidden" name="option" value="com_j2store">
+                                            <input type="hidden" name="view" value="checkout">
                                         </div>
                                     </div>
                                 </div>
+                                @* Vùng xác nhận đơn hàng *@
+
                             </div>
                         </div>
 
