@@ -33,7 +33,7 @@ namespace WebBanSach.Controllers
 
                     Session["username_Admin"] = loginInfo.USERNAME;
                   
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "DashBoard");
                 }
                 ModelState.AddModelError("", "Tài khoản hoặc mật khẩu không đúng");
             }
@@ -46,7 +46,7 @@ namespace WebBanSach.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "DashBoard");
         }
         public static string encryptorPass(string originalPassword)
         {

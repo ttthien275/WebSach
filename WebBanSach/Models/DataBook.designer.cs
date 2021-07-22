@@ -20,9 +20,9 @@ namespace WebBanSach.Models
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-    using System.ComponentModel.DataAnnotations;
-
-    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QLBANSACH")]
+	
+	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QLBANSACH")]
 	public partial class DataBookDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -30,15 +30,12 @@ namespace WebBanSach.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertBANGGIA(BANGGIA instance);
-    partial void UpdateBANGGIA(BANGGIA instance);
-    partial void DeleteBANGGIA(BANGGIA instance);
-    partial void InsertVIETSACH(VIETSACH instance);
-    partial void UpdateVIETSACH(VIETSACH instance);
-    partial void DeleteVIETSACH(VIETSACH instance);
     partial void InsertCHITIETDATHANG(CHITIETDATHANG instance);
     partial void UpdateCHITIETDATHANG(CHITIETDATHANG instance);
     partial void DeleteCHITIETDATHANG(CHITIETDATHANG instance);
+    partial void InsertVIETSACH(VIETSACH instance);
+    partial void UpdateVIETSACH(VIETSACH instance);
+    partial void DeleteVIETSACH(VIETSACH instance);
     partial void InsertCHITIETKM(CHITIETKM instance);
     partial void UpdateCHITIETKM(CHITIETKM instance);
     partial void DeleteCHITIETKM(CHITIETKM instance);
@@ -51,9 +48,6 @@ namespace WebBanSach.Models
     partial void InsertDONDATHANG(DONDATHANG instance);
     partial void UpdateDONDATHANG(DONDATHANG instance);
     partial void DeleteDONDATHANG(DONDATHANG instance);
-    partial void InsertGIAOHANG(GIAOHANG instance);
-    partial void UpdateGIAOHANG(GIAOHANG instance);
-    partial void DeleteGIAOHANG(GIAOHANG instance);
     partial void InsertKHUYENMAI(KHUYENMAI instance);
     partial void UpdateKHUYENMAI(KHUYENMAI instance);
     partial void DeleteKHUYENMAI(KHUYENMAI instance);
@@ -116,11 +110,11 @@ namespace WebBanSach.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<BANGGIA> BANGGIAs
+		public System.Data.Linq.Table<CHITIETDATHANG> CHITIETDATHANGs
 		{
 			get
 			{
-				return this.GetTable<BANGGIA>();
+				return this.GetTable<CHITIETDATHANG>();
 			}
 		}
 		
@@ -129,14 +123,6 @@ namespace WebBanSach.Models
 			get
 			{
 				return this.GetTable<VIETSACH>();
-			}
-		}
-		
-		public System.Data.Linq.Table<CHITIETDATHANG> CHITIETDATHANGs
-		{
-			get
-			{
-				return this.GetTable<CHITIETDATHANG>();
 			}
 		}
 		
@@ -169,14 +155,6 @@ namespace WebBanSach.Models
 			get
 			{
 				return this.GetTable<DONDATHANG>();
-			}
-		}
-		
-		public System.Data.Linq.Table<GIAOHANG> GIAOHANGs
-		{
-			get
-			{
-				return this.GetTable<GIAOHANG>();
 			}
 		}
 		
@@ -261,25 +239,23 @@ namespace WebBanSach.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BANGGIA")]
-	public partial class BANGGIA : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CHITIETDATHANG")]
+	public partial class CHITIETDATHANG : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private long _IDGIA;
+		private int _ID;
 		
-		private System.Nullable<int> _ID_SACH;
+		private int _SoDH;
 		
-		private System.Nullable<double> _GIANHAP;
+		private int _MaSach;
 		
-		private System.Nullable<double> _GIABAN;
+		private System.Nullable<int> _SoLuong;
 		
-		private System.Nullable<System.DateTime> _THOIGIANBD;
+		private System.Nullable<decimal> _DonGia;
 		
-		private System.Nullable<System.DateTime> _THOIGIANKT;
-		
-		private System.Nullable<bool> _IS_DELETE;
+		private EntityRef<DONDATHANG> _DONDATHANG;
 		
 		private EntityRef<SACH> _SACH;
 		
@@ -287,173 +263,168 @@ namespace WebBanSach.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIDGIAChanging(long value);
-    partial void OnIDGIAChanged();
-    partial void OnID_SACHChanging(System.Nullable<int> value);
-    partial void OnID_SACHChanged();
-    partial void OnGIANHAPChanging(System.Nullable<double> value);
-    partial void OnGIANHAPChanged();
-    partial void OnGIABANChanging(System.Nullable<double> value);
-    partial void OnGIABANChanged();
-    partial void OnTHOIGIANBDChanging(System.Nullable<System.DateTime> value);
-    partial void OnTHOIGIANBDChanged();
-    partial void OnTHOIGIANKTChanging(System.Nullable<System.DateTime> value);
-    partial void OnTHOIGIANKTChanged();
-    partial void OnIS_DELETEChanging(System.Nullable<bool> value);
-    partial void OnIS_DELETEChanged();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnSoDHChanging(int value);
+    partial void OnSoDHChanged();
+    partial void OnMaSachChanging(int value);
+    partial void OnMaSachChanged();
+    partial void OnSoLuongChanging(System.Nullable<int> value);
+    partial void OnSoLuongChanged();
+    partial void OnDonGiaChanging(System.Nullable<decimal> value);
+    partial void OnDonGiaChanged();
     #endregion
 		
-		public BANGGIA()
+		public CHITIETDATHANG()
 		{
+			this._DONDATHANG = default(EntityRef<DONDATHANG>);
 			this._SACH = default(EntityRef<SACH>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDGIA", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long IDGIA
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
 		{
 			get
 			{
-				return this._IDGIA;
+				return this._ID;
 			}
 			set
 			{
-				if ((this._IDGIA != value))
+				if ((this._ID != value))
 				{
-					this.OnIDGIAChanging(value);
+					this.OnIDChanging(value);
 					this.SendPropertyChanging();
-					this._IDGIA = value;
-					this.SendPropertyChanged("IDGIA");
-					this.OnIDGIAChanged();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_SACH", DbType="Int")]
-		public System.Nullable<int> ID_SACH
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDH", DbType="Int NOT NULL")]
+		public int SoDH
 		{
 			get
 			{
-				return this._ID_SACH;
+				return this._SoDH;
 			}
 			set
 			{
-				if ((this._ID_SACH != value))
+				if ((this._SoDH != value))
+				{
+					if (this._DONDATHANG.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSoDHChanging(value);
+					this.SendPropertyChanging();
+					this._SoDH = value;
+					this.SendPropertyChanged("SoDH");
+					this.OnSoDHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSach", DbType="Int NOT NULL")]
+		public int MaSach
+		{
+			get
+			{
+				return this._MaSach;
+			}
+			set
+			{
+				if ((this._MaSach != value))
 				{
 					if (this._SACH.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnID_SACHChanging(value);
+					this.OnMaSachChanging(value);
 					this.SendPropertyChanging();
-					this._ID_SACH = value;
-					this.SendPropertyChanged("ID_SACH");
-					this.OnID_SACHChanged();
+					this._MaSach = value;
+					this.SendPropertyChanged("MaSach");
+					this.OnMaSachChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIANHAP", DbType="Float")]
-		public System.Nullable<double> GIANHAP
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuong", DbType="Int")]
+		public System.Nullable<int> SoLuong
 		{
 			get
 			{
-				return this._GIANHAP;
+				return this._SoLuong;
 			}
 			set
 			{
-				if ((this._GIANHAP != value))
+				if ((this._SoLuong != value))
 				{
-					this.OnGIANHAPChanging(value);
+					this.OnSoLuongChanging(value);
 					this.SendPropertyChanging();
-					this._GIANHAP = value;
-					this.SendPropertyChanged("GIANHAP");
-					this.OnGIANHAPChanged();
+					this._SoLuong = value;
+					this.SendPropertyChanged("SoLuong");
+					this.OnSoLuongChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIABAN", DbType="Float")]
-		public System.Nullable<double> GIABAN
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonGia", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> DonGia
 		{
 			get
 			{
-				return this._GIABAN;
+				return this._DonGia;
 			}
 			set
 			{
-				if ((this._GIABAN != value))
+				if ((this._DonGia != value))
 				{
-					this.OnGIABANChanging(value);
+					this.OnDonGiaChanging(value);
 					this.SendPropertyChanging();
-					this._GIABAN = value;
-					this.SendPropertyChanged("GIABAN");
-					this.OnGIABANChanged();
+					this._DonGia = value;
+					this.SendPropertyChanged("DonGia");
+					this.OnDonGiaChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THOIGIANBD", DbType="DateTime")]
-		public System.Nullable<System.DateTime> THOIGIANBD
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DONDATHANG_CHITIETDATHANG", Storage="_DONDATHANG", ThisKey="SoDH", OtherKey="SoDH", IsForeignKey=true)]
+		public DONDATHANG DONDATHANG
 		{
 			get
 			{
-				return this._THOIGIANBD;
+				return this._DONDATHANG.Entity;
 			}
 			set
 			{
-				if ((this._THOIGIANBD != value))
+				DONDATHANG previousValue = this._DONDATHANG.Entity;
+				if (((previousValue != value) 
+							|| (this._DONDATHANG.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnTHOIGIANBDChanging(value);
 					this.SendPropertyChanging();
-					this._THOIGIANBD = value;
-					this.SendPropertyChanged("THOIGIANBD");
-					this.OnTHOIGIANBDChanged();
+					if ((previousValue != null))
+					{
+						this._DONDATHANG.Entity = null;
+						previousValue.CHITIETDATHANGs.Remove(this);
+					}
+					this._DONDATHANG.Entity = value;
+					if ((value != null))
+					{
+						value.CHITIETDATHANGs.Add(this);
+						this._SoDH = value.SoDH;
+					}
+					else
+					{
+						this._SoDH = default(int);
+					}
+					this.SendPropertyChanged("DONDATHANG");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THOIGIANKT", DbType="DateTime")]
-		public System.Nullable<System.DateTime> THOIGIANKT
-		{
-			get
-			{
-				return this._THOIGIANKT;
-			}
-			set
-			{
-				if ((this._THOIGIANKT != value))
-				{
-					this.OnTHOIGIANKTChanging(value);
-					this.SendPropertyChanging();
-					this._THOIGIANKT = value;
-					this.SendPropertyChanged("THOIGIANKT");
-					this.OnTHOIGIANKTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_DELETE", DbType="Bit")]
-		public System.Nullable<bool> IS_DELETE
-		{
-			get
-			{
-				return this._IS_DELETE;
-			}
-			set
-			{
-				if ((this._IS_DELETE != value))
-				{
-					this.OnIS_DELETEChanging(value);
-					this.SendPropertyChanging();
-					this._IS_DELETE = value;
-					this.SendPropertyChanged("IS_DELETE");
-					this.OnIS_DELETEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SACH_BANGGIA", Storage="_SACH", ThisKey="ID_SACH", OtherKey="MaSach", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SACH_CHITIETDATHANG", Storage="_SACH", ThisKey="MaSach", OtherKey="MaSach", IsForeignKey=true)]
 		public SACH SACH
 		{
 			get
@@ -470,17 +441,17 @@ namespace WebBanSach.Models
 					if ((previousValue != null))
 					{
 						this._SACH.Entity = null;
-						previousValue.BANGGIAs.Remove(this);
+						previousValue.CHITIETDATHANGs.Remove(this);
 					}
 					this._SACH.Entity = value;
 					if ((value != null))
 					{
-						value.BANGGIAs.Add(this);
-						this._ID_SACH = value.MaSach;
+						value.CHITIETDATHANGs.Add(this);
+						this._MaSach = value.MaSach;
 					}
 					else
 					{
-						this._ID_SACH = default(Nullable<int>);
+						this._MaSach = default(int);
 					}
 					this.SendPropertyChanged("SACH");
 				}
@@ -699,222 +670,6 @@ namespace WebBanSach.Models
 						this._MaTG = default(int);
 					}
 					this.SendPropertyChanged("TACGIA");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CHITIETDATHANG")]
-	public partial class CHITIETDATHANG : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _SoDH;
-		
-		private int _MaSach;
-		
-		private System.Nullable<int> _SoLuong;
-		
-		private System.Nullable<decimal> _DonGia;
-		
-		private EntityRef<DONDATHANG> _DONDATHANG;
-		
-		private EntityRef<SACH> _SACH;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSoDHChanging(int value);
-    partial void OnSoDHChanged();
-    partial void OnMaSachChanging(int value);
-    partial void OnMaSachChanged();
-    partial void OnSoLuongChanging(System.Nullable<int> value);
-    partial void OnSoLuongChanged();
-    partial void OnDonGiaChanging(System.Nullable<decimal> value);
-    partial void OnDonGiaChanged();
-    #endregion
-		
-		public CHITIETDATHANG()
-		{
-			this._DONDATHANG = default(EntityRef<DONDATHANG>);
-			this._SACH = default(EntityRef<SACH>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDH", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int SoDH
-		{
-			get
-			{
-				return this._SoDH;
-			}
-			set
-			{
-				if ((this._SoDH != value))
-				{
-					if (this._DONDATHANG.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSoDHChanging(value);
-					this.SendPropertyChanging();
-					this._SoDH = value;
-					this.SendPropertyChanged("SoDH");
-					this.OnSoDHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSach", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MaSach
-		{
-			get
-			{
-				return this._MaSach;
-			}
-			set
-			{
-				if ((this._MaSach != value))
-				{
-					if (this._SACH.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaSachChanging(value);
-					this.SendPropertyChanging();
-					this._MaSach = value;
-					this.SendPropertyChanged("MaSach");
-					this.OnMaSachChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuong", DbType="Int")]
-		public System.Nullable<int> SoLuong
-		{
-			get
-			{
-				return this._SoLuong;
-			}
-			set
-			{
-				if ((this._SoLuong != value))
-				{
-					this.OnSoLuongChanging(value);
-					this.SendPropertyChanging();
-					this._SoLuong = value;
-					this.SendPropertyChanged("SoLuong");
-					this.OnSoLuongChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonGia", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> DonGia
-		{
-			get
-			{
-				return this._DonGia;
-			}
-			set
-			{
-				if ((this._DonGia != value))
-				{
-					this.OnDonGiaChanging(value);
-					this.SendPropertyChanging();
-					this._DonGia = value;
-					this.SendPropertyChanged("DonGia");
-					this.OnDonGiaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DONDATHANG_CHITIETDATHANG", Storage="_DONDATHANG", ThisKey="SoDH", OtherKey="SoDH", IsForeignKey=true)]
-		public DONDATHANG DONDATHANG
-		{
-			get
-			{
-				return this._DONDATHANG.Entity;
-			}
-			set
-			{
-				DONDATHANG previousValue = this._DONDATHANG.Entity;
-				if (((previousValue != value) 
-							|| (this._DONDATHANG.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DONDATHANG.Entity = null;
-						previousValue.CHITIETDATHANGs.Remove(this);
-					}
-					this._DONDATHANG.Entity = value;
-					if ((value != null))
-					{
-						value.CHITIETDATHANGs.Add(this);
-						this._SoDH = value.SoDH;
-					}
-					else
-					{
-						this._SoDH = default(int);
-					}
-					this.SendPropertyChanged("DONDATHANG");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SACH_CHITIETDATHANG", Storage="_SACH", ThisKey="MaSach", OtherKey="MaSach", IsForeignKey=true)]
-		public SACH SACH
-		{
-			get
-			{
-				return this._SACH.Entity;
-			}
-			set
-			{
-				SACH previousValue = this._SACH.Entity;
-				if (((previousValue != value) 
-							|| (this._SACH.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._SACH.Entity = null;
-						previousValue.CHITIETDATHANGs.Remove(this);
-					}
-					this._SACH.Entity = value;
-					if ((value != null))
-					{
-						value.CHITIETDATHANGs.Add(this);
-						this._MaSach = value.MaSach;
-					}
-					else
-					{
-						this._MaSach = default(int);
-					}
-					this.SendPropertyChanged("SACH");
 				}
 			}
 		}
@@ -1664,8 +1419,6 @@ namespace WebBanSach.Models
 		
 		private System.Nullable<int> _ID_TAIKHOAN;
 		
-		private System.Nullable<int> _ID_GIAOHANG;
-		
 		private System.Nullable<bool> _DaThanhToan;
 		
 		private System.Nullable<bool> _TinhTrangGiaoHang;
@@ -1680,7 +1433,7 @@ namespace WebBanSach.Models
 		
 		private string _TRANGTHAI;
 		
-		private bool _IS_DELETE;
+		private System.Nullable<bool> _IS_DELETE;
 		
 		private string _CREATEBY;
 		
@@ -1694,8 +1447,6 @@ namespace WebBanSach.Models
 		
 		private EntitySet<CHITIETDATHANG> _CHITIETDATHANGs;
 		
-		private EntityRef<GIAOHANG> _GIAOHANG;
-		
 		private EntityRef<TAIKHOAN> _TAIKHOAN;
 		
     #region Extensibility Method Definitions
@@ -1706,8 +1457,6 @@ namespace WebBanSach.Models
     partial void OnSoDHChanged();
     partial void OnID_TAIKHOANChanging(System.Nullable<int> value);
     partial void OnID_TAIKHOANChanged();
-    partial void OnID_GIAOHANGChanging(System.Nullable<int> value);
-    partial void OnID_GIAOHANGChanged();
     partial void OnDaThanhToanChanging(System.Nullable<bool> value);
     partial void OnDaThanhToanChanged();
     partial void OnTinhTrangGiaoHangChanging(System.Nullable<bool> value);
@@ -1722,7 +1471,7 @@ namespace WebBanSach.Models
     partial void OnTHANHTIEN_HOADONChanged();
     partial void OnTRANGTHAIChanging(string value);
     partial void OnTRANGTHAIChanged();
-    partial void OnIS_DELETEChanging(bool value);
+    partial void OnIS_DELETEChanging(System.Nullable<bool> value);
     partial void OnIS_DELETEChanged();
     partial void OnCREATEBYChanging(string value);
     partial void OnCREATEBYChanged();
@@ -1739,7 +1488,6 @@ namespace WebBanSach.Models
 		public DONDATHANG()
 		{
 			this._CHITIETDATHANGs = new EntitySet<CHITIETDATHANG>(new Action<CHITIETDATHANG>(this.attach_CHITIETDATHANGs), new Action<CHITIETDATHANG>(this.detach_CHITIETDATHANGs));
-			this._GIAOHANG = default(EntityRef<GIAOHANG>);
 			this._TAIKHOAN = default(EntityRef<TAIKHOAN>);
 			OnCreated();
 		}
@@ -1784,30 +1532,6 @@ namespace WebBanSach.Models
 					this._ID_TAIKHOAN = value;
 					this.SendPropertyChanged("ID_TAIKHOAN");
 					this.OnID_TAIKHOANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_GIAOHANG", DbType="Int")]
-		public System.Nullable<int> ID_GIAOHANG
-		{
-			get
-			{
-				return this._ID_GIAOHANG;
-			}
-			set
-			{
-				if ((this._ID_GIAOHANG != value))
-				{
-					if (this._GIAOHANG.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnID_GIAOHANGChanging(value);
-					this.SendPropertyChanging();
-					this._ID_GIAOHANG = value;
-					this.SendPropertyChanged("ID_GIAOHANG");
-					this.OnID_GIAOHANGChanged();
 				}
 			}
 		}
@@ -1932,7 +1656,7 @@ namespace WebBanSach.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRANGTHAI", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRANGTHAI", DbType="NVarChar(50)")]
 		public string TRANGTHAI
 		{
 			get
@@ -1952,8 +1676,8 @@ namespace WebBanSach.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_DELETE", DbType="Bit NOT NULL")]
-		public bool IS_DELETE
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_DELETE", DbType="Bit")]
+		public System.Nullable<bool> IS_DELETE
 		{
 			get
 			{
@@ -2085,40 +1809,6 @@ namespace WebBanSach.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GIAOHANG_DONDATHANG", Storage="_GIAOHANG", ThisKey="ID_GIAOHANG", OtherKey="ID", IsForeignKey=true)]
-		public GIAOHANG GIAOHANG
-		{
-			get
-			{
-				return this._GIAOHANG.Entity;
-			}
-			set
-			{
-				GIAOHANG previousValue = this._GIAOHANG.Entity;
-				if (((previousValue != value) 
-							|| (this._GIAOHANG.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._GIAOHANG.Entity = null;
-						previousValue.DONDATHANGs.Remove(this);
-					}
-					this._GIAOHANG.Entity = value;
-					if ((value != null))
-					{
-						value.DONDATHANGs.Add(this);
-						this._ID_GIAOHANG = value.ID;
-					}
-					else
-					{
-						this._ID_GIAOHANG = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("GIAOHANG");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TAIKHOAN_DONDATHANG", Storage="_TAIKHOAN", ThisKey="ID_TAIKHOAN", OtherKey="ID", IsForeignKey=true)]
 		public TAIKHOAN TAIKHOAN
 		{
@@ -2186,288 +1876,6 @@ namespace WebBanSach.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GIAOHANG")]
-	public partial class GIAOHANG : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private long _HOADON_ID;
-		
-		private string _USERNAME;
-		
-		private string _GHICHU;
-		
-		private bool _IS_DELETE;
-		
-		private string _CREATEBY;
-		
-		private System.Nullable<System.DateTime> _CREATEDATE;
-		
-		private string _MODIFLIEDBY;
-		
-		private System.Nullable<System.DateTime> _MODIFILEDDATE;
-		
-		private EntitySet<DONDATHANG> _DONDATHANGs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnHOADON_IDChanging(long value);
-    partial void OnHOADON_IDChanged();
-    partial void OnUSERNAMEChanging(string value);
-    partial void OnUSERNAMEChanged();
-    partial void OnGHICHUChanging(string value);
-    partial void OnGHICHUChanged();
-    partial void OnIS_DELETEChanging(bool value);
-    partial void OnIS_DELETEChanged();
-    partial void OnCREATEBYChanging(string value);
-    partial void OnCREATEBYChanged();
-    partial void OnCREATEDATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCREATEDATEChanged();
-    partial void OnMODIFLIEDBYChanging(string value);
-    partial void OnMODIFLIEDBYChanged();
-    partial void OnMODIFILEDDATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMODIFILEDDATEChanged();
-    #endregion
-		
-		public GIAOHANG()
-		{
-			this._DONDATHANGs = new EntitySet<DONDATHANG>(new Action<DONDATHANG>(this.attach_DONDATHANGs), new Action<DONDATHANG>(this.detach_DONDATHANGs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOADON_ID", DbType="BigInt NOT NULL")]
-		public long HOADON_ID
-		{
-			get
-			{
-				return this._HOADON_ID;
-			}
-			set
-			{
-				if ((this._HOADON_ID != value))
-				{
-					this.OnHOADON_IDChanging(value);
-					this.SendPropertyChanging();
-					this._HOADON_ID = value;
-					this.SendPropertyChanged("HOADON_ID");
-					this.OnHOADON_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string USERNAME
-		{
-			get
-			{
-				return this._USERNAME;
-			}
-			set
-			{
-				if ((this._USERNAME != value))
-				{
-					this.OnUSERNAMEChanging(value);
-					this.SendPropertyChanging();
-					this._USERNAME = value;
-					this.SendPropertyChanged("USERNAME");
-					this.OnUSERNAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GHICHU", DbType="NVarChar(250)")]
-		public string GHICHU
-		{
-			get
-			{
-				return this._GHICHU;
-			}
-			set
-			{
-				if ((this._GHICHU != value))
-				{
-					this.OnGHICHUChanging(value);
-					this.SendPropertyChanging();
-					this._GHICHU = value;
-					this.SendPropertyChanged("GHICHU");
-					this.OnGHICHUChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_DELETE", DbType="Bit NOT NULL")]
-		public bool IS_DELETE
-		{
-			get
-			{
-				return this._IS_DELETE;
-			}
-			set
-			{
-				if ((this._IS_DELETE != value))
-				{
-					this.OnIS_DELETEChanging(value);
-					this.SendPropertyChanging();
-					this._IS_DELETE = value;
-					this.SendPropertyChanged("IS_DELETE");
-					this.OnIS_DELETEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEBY", DbType="NVarChar(50)")]
-		public string CREATEBY
-		{
-			get
-			{
-				return this._CREATEBY;
-			}
-			set
-			{
-				if ((this._CREATEBY != value))
-				{
-					this.OnCREATEBYChanging(value);
-					this.SendPropertyChanging();
-					this._CREATEBY = value;
-					this.SendPropertyChanged("CREATEBY");
-					this.OnCREATEBYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CREATEDATE
-		{
-			get
-			{
-				return this._CREATEDATE;
-			}
-			set
-			{
-				if ((this._CREATEDATE != value))
-				{
-					this.OnCREATEDATEChanging(value);
-					this.SendPropertyChanging();
-					this._CREATEDATE = value;
-					this.SendPropertyChanged("CREATEDATE");
-					this.OnCREATEDATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MODIFLIEDBY", DbType="NVarChar(50)")]
-		public string MODIFLIEDBY
-		{
-			get
-			{
-				return this._MODIFLIEDBY;
-			}
-			set
-			{
-				if ((this._MODIFLIEDBY != value))
-				{
-					this.OnMODIFLIEDBYChanging(value);
-					this.SendPropertyChanging();
-					this._MODIFLIEDBY = value;
-					this.SendPropertyChanged("MODIFLIEDBY");
-					this.OnMODIFLIEDBYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MODIFILEDDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MODIFILEDDATE
-		{
-			get
-			{
-				return this._MODIFILEDDATE;
-			}
-			set
-			{
-				if ((this._MODIFILEDDATE != value))
-				{
-					this.OnMODIFILEDDATEChanging(value);
-					this.SendPropertyChanging();
-					this._MODIFILEDDATE = value;
-					this.SendPropertyChanged("MODIFILEDDATE");
-					this.OnMODIFILEDDATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GIAOHANG_DONDATHANG", Storage="_DONDATHANGs", ThisKey="ID", OtherKey="ID_GIAOHANG")]
-		public EntitySet<DONDATHANG> DONDATHANGs
-		{
-			get
-			{
-				return this._DONDATHANGs;
-			}
-			set
-			{
-				this._DONDATHANGs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_DONDATHANGs(DONDATHANG entity)
-		{
-			this.SendPropertyChanging();
-			entity.GIAOHANG = this;
-		}
-		
-		private void detach_DONDATHANGs(DONDATHANG entity)
-		{
-			this.SendPropertyChanging();
-			entity.GIAOHANG = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KHUYENMAI")]
 	public partial class KHUYENMAI : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2528,7 +1936,7 @@ namespace WebBanSach.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChiTiet", DbType="NVarChar(500)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChiTiet", DbType="NVarChar(MAX)")]
 		public string ChiTiet
 		{
 			get
@@ -2908,7 +2316,7 @@ namespace WebBanSach.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChiTietquyen", DbType="NVarChar(500)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChiTietquyen", DbType="NVarChar(MAX)")]
 		public string ChiTietquyen
 		{
 			get
@@ -3092,12 +2500,7 @@ namespace WebBanSach.Models
 			this.SendPropertyChanging();
 			entity.LOAITAIKHOAN = null;
 		}
-
-        public static implicit operator LOAITAIKHOAN(int v)
-        {
-            throw new NotImplementedException();
-        }
-    }
+	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NHAXUATBAN")]
 	public partial class NHAXUATBAN : INotifyPropertyChanging, INotifyPropertyChanged
@@ -3158,7 +2561,7 @@ namespace WebBanSach.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNXB", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNXB", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
 		public string TenNXB
 		{
 			get
@@ -3198,7 +2601,7 @@ namespace WebBanSach.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="VarChar(12)")]
 		public string DienThoai
 		{
 			get
@@ -3860,11 +3263,9 @@ namespace WebBanSach.Models
 		
 		private string _Weight;
 		
-		private EntitySet<BANGGIA> _BANGGIAs;
+		private EntitySet<CHITIETDATHANG> _CHITIETDATHANGs;
 		
 		private EntitySet<VIETSACH> _VIETSACHes;
-		
-		private EntitySet<CHITIETDATHANG> _CHITIETDATHANGs;
 		
 		private EntitySet<CHITIETKM> _CHITIETKMs;
 		
@@ -3910,9 +3311,8 @@ namespace WebBanSach.Models
 		
 		public SACH()
 		{
-			this._BANGGIAs = new EntitySet<BANGGIA>(new Action<BANGGIA>(this.attach_BANGGIAs), new Action<BANGGIA>(this.detach_BANGGIAs));
-			this._VIETSACHes = new EntitySet<VIETSACH>(new Action<VIETSACH>(this.attach_VIETSACHes), new Action<VIETSACH>(this.detach_VIETSACHes));
 			this._CHITIETDATHANGs = new EntitySet<CHITIETDATHANG>(new Action<CHITIETDATHANG>(this.attach_CHITIETDATHANGs), new Action<CHITIETDATHANG>(this.detach_CHITIETDATHANGs));
+			this._VIETSACHes = new EntitySet<VIETSACH>(new Action<VIETSACH>(this.attach_VIETSACHes), new Action<VIETSACH>(this.detach_VIETSACHes));
 			this._CHITIETKMs = new EntitySet<CHITIETKM>(new Action<CHITIETKM>(this.attach_CHITIETKMs), new Action<CHITIETKM>(this.detach_CHITIETKMs));
 			this._CTPHIEUNHAPSACHes = new EntitySet<CTPHIEUNHAPSACH>(new Action<CTPHIEUNHAPSACH>(this.attach_CTPHIEUNHAPSACHes), new Action<CTPHIEUNHAPSACH>(this.detach_CTPHIEUNHAPSACHes));
 			this._RATINGs = new EntitySet<RATING>(new Action<RATING>(this.attach_RATINGs), new Action<RATING>(this.detach_RATINGs));
@@ -4189,16 +3589,16 @@ namespace WebBanSach.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SACH_BANGGIA", Storage="_BANGGIAs", ThisKey="MaSach", OtherKey="ID_SACH")]
-		public EntitySet<BANGGIA> BANGGIAs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SACH_CHITIETDATHANG", Storage="_CHITIETDATHANGs", ThisKey="MaSach", OtherKey="MaSach")]
+		public EntitySet<CHITIETDATHANG> CHITIETDATHANGs
 		{
 			get
 			{
-				return this._BANGGIAs;
+				return this._CHITIETDATHANGs;
 			}
 			set
 			{
-				this._BANGGIAs.Assign(value);
+				this._CHITIETDATHANGs.Assign(value);
 			}
 		}
 		
@@ -4212,19 +3612,6 @@ namespace WebBanSach.Models
 			set
 			{
 				this._VIETSACHes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SACH_CHITIETDATHANG", Storage="_CHITIETDATHANGs", ThisKey="MaSach", OtherKey="MaSach")]
-		public EntitySet<CHITIETDATHANG> CHITIETDATHANGs
-		{
-			get
-			{
-				return this._CHITIETDATHANGs;
-			}
-			set
-			{
-				this._CHITIETDATHANGs.Assign(value);
 			}
 		}
 		
@@ -4355,13 +3742,13 @@ namespace WebBanSach.Models
 			}
 		}
 		
-		private void attach_BANGGIAs(BANGGIA entity)
+		private void attach_CHITIETDATHANGs(CHITIETDATHANG entity)
 		{
 			this.SendPropertyChanging();
 			entity.SACH = this;
 		}
 		
-		private void detach_BANGGIAs(BANGGIA entity)
+		private void detach_CHITIETDATHANGs(CHITIETDATHANG entity)
 		{
 			this.SendPropertyChanging();
 			entity.SACH = null;
@@ -4374,18 +3761,6 @@ namespace WebBanSach.Models
 		}
 		
 		private void detach_VIETSACHes(VIETSACH entity)
-		{
-			this.SendPropertyChanging();
-			entity.SACH = null;
-		}
-		
-		private void attach_CHITIETDATHANGs(CHITIETDATHANG entity)
-		{
-			this.SendPropertyChanging();
-			entity.SACH = this;
-		}
-		
-		private void detach_CHITIETDATHANGs(CHITIETDATHANG entity)
 		{
 			this.SendPropertyChanging();
 			entity.SACH = null;
@@ -4440,9 +3815,9 @@ namespace WebBanSach.Models
 		
 		private string _LINK;
 		
-		private System.Nullable<int> _DISPLAYORDER;
+		private System.Nullable<System.DateTime> _from_DATE;
 		
-		private string _GHICHU;
+		private System.Nullable<System.DateTime> _to_DATE;
 		
 		private System.Nullable<int> _STATUS;
 		
@@ -4451,10 +3826,6 @@ namespace WebBanSach.Models
 		private string _CREATEBY;
 		
 		private System.Nullable<System.DateTime> _CREATEDATE;
-		
-		private string _MODIFILEDBY;
-		
-		private System.Nullable<System.DateTime> _MODIFILEDDATE;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -4466,10 +3837,10 @@ namespace WebBanSach.Models
     partial void OnIMAGEChanged();
     partial void OnLINKChanging(string value);
     partial void OnLINKChanged();
-    partial void OnDISPLAYORDERChanging(System.Nullable<int> value);
-    partial void OnDISPLAYORDERChanged();
-    partial void OnGHICHUChanging(string value);
-    partial void OnGHICHUChanged();
+    partial void Onfrom_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void Onfrom_DATEChanged();
+    partial void Onto_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void Onto_DATEChanged();
     partial void OnSTATUSChanging(System.Nullable<int> value);
     partial void OnSTATUSChanged();
     partial void OnIS_DELETEChanging(System.Nullable<bool> value);
@@ -4478,10 +3849,6 @@ namespace WebBanSach.Models
     partial void OnCREATEBYChanged();
     partial void OnCREATEDATEChanging(System.Nullable<System.DateTime> value);
     partial void OnCREATEDATEChanged();
-    partial void OnMODIFILEDBYChanging(string value);
-    partial void OnMODIFILEDBYChanged();
-    partial void OnMODIFILEDDATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMODIFILEDDATEChanged();
     #endregion
 		
 		public SLIDE()
@@ -4549,42 +3916,42 @@ namespace WebBanSach.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISPLAYORDER", DbType="Int")]
-		public System.Nullable<int> DISPLAYORDER
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_from_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> from_DATE
 		{
 			get
 			{
-				return this._DISPLAYORDER;
+				return this._from_DATE;
 			}
 			set
 			{
-				if ((this._DISPLAYORDER != value))
+				if ((this._from_DATE != value))
 				{
-					this.OnDISPLAYORDERChanging(value);
+					this.Onfrom_DATEChanging(value);
 					this.SendPropertyChanging();
-					this._DISPLAYORDER = value;
-					this.SendPropertyChanged("DISPLAYORDER");
-					this.OnDISPLAYORDERChanged();
+					this._from_DATE = value;
+					this.SendPropertyChanged("from_DATE");
+					this.Onfrom_DATEChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GHICHU", DbType="NVarChar(250)")]
-		public string GHICHU
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_to_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> to_DATE
 		{
 			get
 			{
-				return this._GHICHU;
+				return this._to_DATE;
 			}
 			set
 			{
-				if ((this._GHICHU != value))
+				if ((this._to_DATE != value))
 				{
-					this.OnGHICHUChanging(value);
+					this.Onto_DATEChanging(value);
 					this.SendPropertyChanging();
-					this._GHICHU = value;
-					this.SendPropertyChanged("GHICHU");
-					this.OnGHICHUChanged();
+					this._to_DATE = value;
+					this.SendPropertyChanged("to_DATE");
+					this.Onto_DATEChanged();
 				}
 			}
 		}
@@ -4665,46 +4032,6 @@ namespace WebBanSach.Models
 					this._CREATEDATE = value;
 					this.SendPropertyChanged("CREATEDATE");
 					this.OnCREATEDATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MODIFILEDBY", DbType="NVarChar(50)")]
-		public string MODIFILEDBY
-		{
-			get
-			{
-				return this._MODIFILEDBY;
-			}
-			set
-			{
-				if ((this._MODIFILEDBY != value))
-				{
-					this.OnMODIFILEDBYChanging(value);
-					this.SendPropertyChanging();
-					this._MODIFILEDBY = value;
-					this.SendPropertyChanged("MODIFILEDBY");
-					this.OnMODIFILEDBYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MODIFILEDDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MODIFILEDDATE
-		{
-			get
-			{
-				return this._MODIFILEDDATE;
-			}
-			set
-			{
-				if ((this._MODIFILEDDATE != value))
-				{
-					this.OnMODIFILEDDATEChanging(value);
-					this.SendPropertyChanging();
-					this._MODIFILEDDATE = value;
-					this.SendPropertyChanged("MODIFILEDDATE");
-					this.OnMODIFILEDDATEChanged();
 				}
 			}
 		}
@@ -5046,8 +4373,7 @@ namespace WebBanSach.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOTEN", DbType="NVarChar(50)")]
-		[Required(ErrorMessage = "Vui lòng nhập đầy đủ họ và tên!")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOTEN", DbType="NVarChar(MAX)")]
 		public string HOTEN
 		{
 			get
@@ -5066,7 +4392,7 @@ namespace WebBanSach.Models
 				}
 			}
 		}
-		[Required(ErrorMessage = "Vui lòng nhập tên đăng nhập!")]
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(150)")]
 		public string USERNAME
 		{
@@ -5086,8 +4412,8 @@ namespace WebBanSach.Models
 				}
 			}
 		}
-		[Required(ErrorMessage = "Vui lòng điền đầy đủ mật khẩu!")]
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATKHAU", DbType="NVarChar(50)")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATKHAU", DbType="VarChar(50)")]
 		public string MATKHAU
 		{
 			get
@@ -5106,8 +4432,8 @@ namespace WebBanSach.Models
 				}
 			}
 		}
-		[Required(ErrorMessage = "Vui lòng điền chính xác email!")]
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAIL_TK", DbType="NVarChar(250)")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAIL_TK", DbType="VarChar(250)")]
 		public string EMAIL_TK
 		{
 			get
@@ -5126,8 +4452,8 @@ namespace WebBanSach.Models
 				}
 			}
 		}
-		[Required(ErrorMessage = "Vui lòng điền đầy đủ địa chỉ!")]
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHI_TK", DbType="NVarChar(300)")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHI_TK", DbType="NVarChar(MAX)")]
 		public string DIACHI_TK
 		{
 			get
@@ -5146,7 +4472,7 @@ namespace WebBanSach.Models
 				}
 			}
 		}
-		[Required(ErrorMessage = "Vui lòng không để trống số điện thoại!")]
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="VarChar(11)")]
 		public string SDT
 		{
