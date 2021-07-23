@@ -352,7 +352,9 @@
     <Content Include="Content\ie6.css" />
     <Content Include="Content\NganLuong.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Slide.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\StyleIndex.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -376,6 +378,10 @@
     <Content Include="images\muonkiepnhansinh2.jpg" />
     <Content Include="images\nguoigiauconhatbabylon.jpg" />
     <Content Include="images\putinb.jpg" />
+    <Content Include="images\Slide\banner.jpeg" />
+    <Content Include="images\Slide\banner2.jpeg" />
+    <Content Include="images\Slide\photo-1475855108103-e43b88c99052.jfif" />
+    <Content Include="images\Slide\Slide-show.jpeg" />
     <Content Include="images\thaidoquyetdinhthanhcong.jpg" />
     <Content Include="images\thaydoicuocsongnhansohoc.jpg" />
     <Content Include="images\toihocdaihoc.jpg" />
