@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>@ViewBag.Title </title>
-
+    <script src="~/tinycme/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
@@ -167,13 +168,13 @@
                         <a href="@Url.Action("Index", "Dashboard")"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li class="@(ViewBag.Title == "Order" ? "active" : "")">
-                        <a href="@Url.Action("Index", "#")"><i class="fa fa-fw fa-shopping-cart"></i> Đơn đặt hàng</a>
+                        <a href="@Url.Action("QLDonDH", "QLDonDH")"><i class="fa fa-fw fa-shopping-cart"></i> Đơn đặt hàng</a>
                     </li>
                     <li class="@(ViewBag.Title == "Product" ? "active" : "")">
                         <a href="@Url.Action("Index", "#")"><i class="fa fa-fw fa-table"></i> Quản lý sản phẩm</a>
                     </li>
                     <li class="@(ViewBag.Title == "Supplier" ? "active" : "")">
-                        <a href="@Url.Action("Index", "#")"><i class="fa fa-fw fa-truck"></i> Nhà cung cấp</a>
+                        <a href="@Url.Action("Index", "QLNhaCC")"><i class="fa fa-fw fa-truck"></i> Nhà cung cấp</a>
                     </li>
                     <li class="@(ViewBag.Title == "Customer" ? "active" : "")">
                         <a href="@Url.Action("Index", "#")"><i class="fa fa-fw fa-male"></i> Quản lý khách hàng</a>

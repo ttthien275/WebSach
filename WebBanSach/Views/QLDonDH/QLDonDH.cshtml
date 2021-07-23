@@ -1,0 +1,112 @@
+﻿@model IEnumerable<WebBanSach.Models.DONDATHANG>
+
+@{
+    ViewBag.Title = "Quản lý Đơn đặt hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý Đơn đặt hàng</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            Số đơn hàng
+        </th>
+        <th>
+            Khách hàng
+        </th>
+        <th>
+            Tình trạng thanh toán
+        </th>
+        <th>
+            Tình trạng giao hàng
+        </th>
+        <th>
+            Ngày đặt
+        </th>
+        <th>
+            Ngày giao hàng
+        </th>
+        <th>
+            Hình thức thanh toán
+        </th>
+        <th>
+            Thành tiền
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th>
+            Nhân viên tạo ĐH
+        </th>
+        <th>
+            Ngày tạo ĐH
+        </th>
+        <th>
+            Nhân viên xử lý
+        </th>
+        <th>
+            Ngày xử lý ĐH
+        </th>
+        <th>
+            Ghi chú
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.SoDH)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_TAIKHOAN)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DaThanhToan)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TinhTrangGiaoHang)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NgayDat)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NgayGiao)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HinhThucThanhToan)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.THANHTIEN_HOADON)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TRANGTHAI)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CREATEBY)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CREATEDATE)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MODIFILEDBY)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MODIFILEDDATE)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GHICHU_HOADON)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.SoDH }) |
+        @Html.ActionLink("Details", "Details", new { id = item.SoDH }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.SoDH })
+    </td>
+</tr>
+}
+
+</table>
