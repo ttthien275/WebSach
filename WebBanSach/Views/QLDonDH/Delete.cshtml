@@ -1,0 +1,129 @@
+﻿@model WebBanSach.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa đơn đặt hàng</h2>
+
+<h3>Bạn có chắc chắn xóa đơn đặt hàng không?</h3>
+<div>
+    <h4>Đơn đặt hàng</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Khách hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_TAIKHOAN)
+        </dd>
+
+        <dt>
+            Tình trạng thanh toán
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaThanhToan)
+        </dd>
+
+        <dt>
+          Tình trạng giao hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrangGiaoHang)
+        </dd>
+
+        <dt>
+           Ngày đặt hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDat)
+        </dd>
+
+        <dt>
+            Ngày giao hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayGiao)
+        </dd>
+
+        <dt>
+            Hình thức thanh toán
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhThucThanhToan)
+        </dd>
+
+        <dt>
+            Thành tiền
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THANHTIEN_HOADON)
+        </dd>
+
+        <dt>
+            Trạng thái
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRANGTHAI)
+        </dd>
+
+        <dt>
+            Người tạo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CREATEBY)
+        </dd>
+
+        <dt>
+           Ngày tạo 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CREATEDATE)
+        </dd>
+
+        <dt>
+            Người xử lý
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MODIFILEDBY)
+        </dd>
+
+        <dt>
+            Ngày xử lý
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MODIFILEDDATE)
+        </dd>
+
+        <dt>
+            Ghi chú
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GHICHU_HOADON)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "QLDonDH")
+        </div>
+    }
+</div>
