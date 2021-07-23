@@ -10,6 +10,17 @@ namespace WebBanSach.Controllers
     public class DatHangController : Controller
     {
         // GET: DatHang
+
+        public decimal TongTien()
+        {
+            decimal ghTongTien = 0;
+            List<Giohang> lstGiohang = Session["Giohang"] as List<Giohang>;
+            if (lstGiohang != null)
+            {
+                ghTongTien = lstGiohang.Sum(n => n.ghThanhTien);
+            }
+            return ghTongTien;
+        }
         public ActionResult DatHang()
         {
             //kiểm tra xem có đăng nhập ko chỉ đc đặt hàng khi dăng nhập
@@ -19,7 +30,7 @@ namespace WebBanSach.Controllers
                 return RedirectToAction("DangNhap", "Login");
                
             }
-
+            ViewBag.TongTien = TongTien();
             if (Session["Giohang"] == null)
             {
                 return RedirectToAction("Index", "Home");
