@@ -161,6 +161,7 @@ namespace WebBanSach.Controllers
             {
                 items = new List<Item>()
             };
+            decimal menhgia = 22000;
             var tongtien = TongTien();
             foreach (var cart in lstGiohang)
             {
@@ -169,7 +170,7 @@ namespace WebBanSach.Controllers
                     {
                         name = cart.ghTenSach,
                         currency = "USD",
-                        price = cart.ghGiaBan.ToString(),
+                        price = (cart.ghGiaBan/ menhgia).ToString("#.##"),
                         quantity = cart.ghSoLuong.ToString(),
                         sku = "sku"
                     });
@@ -188,7 +189,7 @@ namespace WebBanSach.Controllers
             {
                 tax = "0",
                 shipping = "0",
-                subtotal = tongtien.ToString()
+                subtotal = (tongtien/ menhgia).ToString("#.##")
             };
 
             var amount = new Amount()
