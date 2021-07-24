@@ -75,6 +75,9 @@
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="PayPal, Version=1.9.0.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.0\lib\net451\PayPal.dll</HintPath>
+    </Reference>
     <Reference Include="Pipelines.Sockets.Unofficial, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42ea0a778e13fbe2, processorArchitecture=MSIL">
       <HintPath>..\packages\Pipelines.Sockets.Unofficial.2.2.0\lib\net472\Pipelines.Sockets.Unofficial.dll</HintPath>
     </Reference>
@@ -211,6 +214,8 @@
       <DependentUpon>DataBook.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\Giohang.cs" />
+    <Compile Include="Models\PaypalConfiguration.cs" />
+    <Compile Include="Models\PaypalLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -390,7 +395,9 @@
     <Content Include="Content\ie6.css" />
     <Content Include="Content\NganLuong.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Slide.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\StyleIndex.css" />
     <Content Include="Content\tinymce\js\tinymce\icons\default\icons.min.js" />
     <Content Include="Content\tinymce\js\tinymce\jquery.tinymce.min.js" />
     <Content Include="Content\tinymce\js\tinymce\license.txt" />
@@ -484,6 +491,10 @@
     <Content Include="images\muonkiepnhansinh2.jpg" />
     <Content Include="images\nguoigiauconhatbabylon.jpg" />
     <Content Include="images\putinb.jpg" />
+    <Content Include="images\Slide\banner.jpeg" />
+    <Content Include="images\Slide\banner2.jpeg" />
+    <Content Include="images\Slide\photo-1475855108103-e43b88c99052.jfif" />
+    <Content Include="images\Slide\Slide-show.jpeg" />
     <Content Include="images\thaidoquyetdinhthanhcong.jpg" />
     <Content Include="images\thaydoicuocsongnhansohoc.jpg" />
     <Content Include="images\toihocdaihoc.jpg" />
@@ -678,6 +689,9 @@
     <Content Include="Views\DashBoard\Index.cshtml" />
     <Content Include="Views\CaiDat\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\GioHang\Failure.cshtml" />
+    <Content Include="Views\GioHang\Success.cshtml" />
+    <Content Include="Views\GioHang\PaymentWithPaypal.cshtml" />
     <Content Include="Views\QLDonDH\Index.cshtml" />
     <Content Include="Views\QLDonDH\QLDonDH.cshtml" />
     <Content Include="Views\QLDonDH\Edit.cshtml" />
