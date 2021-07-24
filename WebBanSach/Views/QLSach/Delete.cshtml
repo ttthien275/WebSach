@@ -1,0 +1,120 @@
+﻿@model WebBanSach.Models.SACH
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3>Xác Nhận Xóa Sách</h3>
+
+<h4 style="color:red;font-style:italic">Bạn chắc chắn muốn xóa quyển sách này?</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Sách:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSach)
+        </dd>
+
+        <dt>
+            Giá Bán:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaBan)
+        </dd>
+
+        <dt>
+            Giá Bìa:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaBia)
+        </dd>
+
+        <dt>
+            Mô Tả:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            Ảnh Bìa:
+        </dt>
+
+        <dd>
+            <img src="~/images/@Model.AnhBia" width="100" />
+        </dd>
+
+        <dt>
+            Ngày Cập Nhật:
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            Số Lượng Tồn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+
+        <dt>
+            Tên Chủ Đề:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHUDE.TenChuDe)
+        </dd>
+
+        <dt>
+            Tên NXB:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHAXUATBAN.TenNXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở Về", "Sach")
+        </div>
+    }
+</div>

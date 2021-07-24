@@ -63,5 +63,17 @@ namespace WebBanSach.Controllers
             //Convert encoded bytes back to a 'readable' string
             return BitConverter.ToString(encodedBytes);
         }
+
+        //CÁC CHỨC NĂNG QUẢN LÝ CHO TABLE SÁCH
+        public ActionResult Sach(int? page)
+        {
+            //int pagesize = 7;
+            //int pagenum = (page ?? 1);
+            if (Session["TaikhoanAdmin"] == null)
+                return RedirectToAction("DangNhapAdmin", "Admin");
+            else
+                return View(data.SACHes.ToList());
+        }
+
     }
 }
