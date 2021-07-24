@@ -285,36 +285,39 @@ namespace WebBanSach.Controllers
             //Them don hang
             DONDATHANG ddh = new DONDATHANG();
             TAIKHOAN tk = (TAIKHOAN)Session["USERNAME"];
-            List<Giohang> gh = Session["Giohang"] as List<Giohang>;
-
             ddh.ID_TAIKHOAN = tk.ID;
             ddh.CREATEDATE = DateTime.Now;
             ddh.NgayDat = DateTime.Now;
-            //var ngaygiao = String.Format("{0:dd/MM/yyyy}", collection["ngaygiao"]);
+            //var ngaygiao = ddh.NgayDat.ToString();
             //ddh.NgayGiao = DateTime.Parse(ngaygiao);
             //ViewBag.ngaygiao = DateTime.Parse(ngaygiao);
             ddh.DaThanhToan = true;
-            ddh.TRANGTHAI = "Đang giao";
+            ddh.TRANGTHAI = "";
+            ddh.HinhThucThanhToan = true;
             ddh.TinhTrangGiaoHang = false;
-            decimal ghTongTien = gh.Sum(n => n.ghThanhTien);
+            decimal ghTongTien = lstGiohang.Sum(n => n.ghThanhTien);
             ddh.THANHTIEN_HOADON = (double?)ghTongTien;
             data.DONDATHANGs.InsertOnSubmit(ddh);
+
             data.SubmitChanges();
-            //Them chi tiết đơn đặt sách
-            foreach (var item in gh)
+            foreach (var item in lstGiohang)
             {
                 CHITIETDATHANG ctdh = new CHITIETDATHANG();
                 ctdh.SoDH = ddh.SoDH;
                 ctdh.MaSach = item.ghMaSach;
                 ctdh.SoLuong = item.ghSoLuong;
                 ctdh.DonGia = (decimal)item.ghGiaBan;
+                SACH a = data.SACHes.Single(m => m.MaSach == ctdh.MaSach);
+                a.SoLuongTon -= ctdh.SoLuong;
+                data.SubmitChanges();
                 data.CHITIETDATHANGs.InsertOnSubmit(ctdh);
             }
             data.SubmitChanges();
-            Session["Giohang"] = null;
+            ViewBag.message = "Thanh toán thành công";
+            Session["Giohang"] = new List<Giohang>();
             //cái trnag đặt hàng tên gì z, view đặt hàng
             //này là m đã đăng nhập r đúng k ừ này là cc á đạt hn thanh cong
-            return RedirectToAction("TheoDoiTinhTrangDH", "DatHang");
+            return RedirectToAction("ThongTinDonHang", "DatHang", ddh);
             //return View("Success");
         }
     }
