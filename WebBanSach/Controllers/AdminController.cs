@@ -25,14 +25,16 @@ namespace WebBanSach.Controllers
             if (ModelState.IsValid)
             {
                 var model = (from m in data.TAIKHOANs
-                             where m.USERNAME == USERNAME && m.MATKHAU== encryptorPass(MATKHAU) && m.ID_LOAITK == 1
+                             where m.USERNAME == USERNAME && m.MATKHAU== encryptorPass(MATKHAU) && (m.ID_LOAITK == 1||m.ID_LOAITK==2)
                              select m).Any();
                 if (model)
                 {
                     var loginInfo = data.TAIKHOANs.Where(x => x.USERNAME == USERNAME && x.MATKHAU == encryptorPass(MATKHAU)).FirstOrDefault();
 
                     Session["username_Admin"] = loginInfo.USERNAME;
-                  
+                    Session["TAIKHOAN"] = loginInfo;
+
+
                     return RedirectToAction("Index", "DashBoard");
                 }
                 ModelState.AddModelError("", "Tài khoản hoặc mật khẩu không đúng");
@@ -46,7 +48,8 @@ namespace WebBanSach.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
-            return RedirectToAction("Index", "DashBoard");
+            Session["TAIKHOAN"] = null;
+            return RedirectToAction("DangNhapAdmin", "Admin");
         }
         public static string encryptorPass(string originalPassword)
         {

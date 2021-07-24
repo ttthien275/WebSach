@@ -1,0 +1,175 @@
+﻿
+@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="sunfw_section_section_main_body" class="sunfw-section sunfw_section_section_main_body visible-lg visible-md visible-sm visible-xs">
+    <div class="container">
+        <h4>Thông tin chi tiết đơn hàng</h4>
+        <div id="row_row-1" class="row sunfw-flex-component">
+            <div id="column_column-1" class="col-xs-36 col-sm-12 col-md-12 col-lg-12  flex-md-unordered">
+                <div class="layout-item sunfw-item-page-content">
+                    <div id="system-message-container">
+                    </div>
+
+                    <div id="akeeba-renderjoomla">
+                        <div class="j2store">
+                            <div class="j2store-cart">
+                                <div class="col-md-12"></div>
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <input type="hidden" name="option" value="com_j2store">
+                                        <input type="hidden" name="view" value="carts">
+                                        <input type="hidden" id="j2store-cart-task" name="task" value="update">
+
+
+                                        <table class="j2store-cart-table table table-bordered">
+
+                                            <thead>
+                                                <tr>
+                                                    <th style="text-align:left">STT</th>
+                                                    <th style="text-align:left">Tên sách</th>
+                                                    <th style="text-align:right">Số lượng</th>
+                                                    <th style="text-align:right">Giá tiền</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{ int n = 1;}
+                                                @foreach (var item in Model)
+                                                {
+
+                                                    <tr>
+                                                        <td>
+
+                                                            <span class="cart-product-name">
+                                                                @n
+                                                            </span>
+                                                        </td>
+                                                        <td>
+
+                                                            <span class="cart-product-name">
+                                                                @item.SACH.TenSach
+                                                            </span>
+                                                        </td>
+                                                        <td class="cart-line-subtotal">
+                                                            @item.SoLuong
+                                                        </td>
+                                                        <td class="cart-line-subtotal">
+                                                            @item.DonGia
+                                                        </td>
+                                                    </tr>
+                                                    n++;
+                                                }
+                                            </tbody>
+                                            <tfoot class="cart-footer">
+                                                <tr>
+                                                    <th> Tổng tiền</th>
+                                                    <th scope="row" colspan="3">
+                                                        @ViewBag.TongTien VNĐ
+                                                    </th>
+                                                </tr>
+
+                                            </tfoot>
+                                            <tr>
+                                                <th>Người đặt</th>
+                                                <th scope="row" colspan="3">
+                                                    @ViewBag.HoTen
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>Ngày đặt</th>
+                                                <th scope="row" colspan="3">
+                                                    @ViewBag.NgayDat
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>Ngày giao</th>
+                                                <th scope="row" colspan="3">
+                                                    @ViewBag.NgayDat
+                                                </th>
+                                            </tr>
+                                            @{ string tt = "";
+                                                string tted = "";
+                                                string gh = "";
+                                                if (@ViewBag.HinhThucTT)
+                                                {
+                                                    tt = "Thanh toán trực tuyến";
+                                                }
+                                                else
+                                                {
+                                                    tt = "Thanh toán khi nhận hàng";
+                                                }
+                                                if (@ViewBag.TrangThaiTT)
+                                                {
+                                                    tted = "Đã thanh toán";
+                                                }
+                                                else
+                                                {
+                                                    tted = "Chưa thanh toán";
+                                                }
+                                                if (@ViewBag.TrangThaiGH)
+                                                {
+
+                                                    gh = "Đã giao hàng";
+                                                }
+                                                else
+                                                {
+                                                    gh = "Chờ giao hàng";
+                                                }
+                                            }
+                                            <tr>
+                                                <th>Trạng thái Thanh Toán</th>
+                                                <th scope="row" colspan="3">
+                                                   @tted
+                                                </th>
+                                            </tr>
+                                            <tr>
+
+                                                <th>Hình thức Thanh Toán</th>
+                                                <th scope="row" colspan="3">
+                                                    @tt
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>Tình trạng giao hàng</th>
+                                                <th scope="row" colspan="3">
+                                                    @gh
+                                                </th>
+                                            </tr>
+                                        </table>
+
+
+
+
+
+
+                                        <div class="j2store-cart-buttons">
+                                            <div class="buttons-left">
+                                                <span class="cart-continue-shopping-button">
+                                                    <input class="btn btn-primary" type="button" onclick="window.location.href='@Url.Action("AllDonHang","DatHang")'" value="Xem lịch sử mua hàng">
+                                                    <input class="btn btn-primary" type="button" onclick="window.location.href='@Url.Action("All_Sach","Module")'" value="Tiếp tục mua sắm">
+
+
+                                                </span>
+                                            </div>
+                                            <div class="buttons-right">
+                                            </div>
+                                        </div>
+
+                                        <!-- Display plugin results -->
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

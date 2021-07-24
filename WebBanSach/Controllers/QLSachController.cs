@@ -160,7 +160,6 @@ namespace WebBanSach.Controllers
                 }
             }
         }
-
         //5 ĐIỀU CHỈNH THÔNG TIN 1 CUỐN SÁCH
         [HttpGet]
         public ActionResult Edit(int id)

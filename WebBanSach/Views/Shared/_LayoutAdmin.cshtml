@@ -17,8 +17,13 @@
     <link href="~/Admin/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Admin/css/sb-admin.css" rel="stylesheet" />
     <link href="~/Admin/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    @Styles.Render("~/Admin/css")
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link href="~/Content/LayoutAdmin.css" rel="stylesheet" />
+    <link href="~/Content/all.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    @Styles.Render("~/Admin/css")
+    @RenderSection("header", required: false)
     <style>
         .page-header {
             padding-bottom: 5px;
@@ -55,7 +60,7 @@
                 <a class="navbar-brand" rel="home" href="@Url.Action("Index","DashBoard")" title="Kahreedo.pk">
                     @*<img style="max-width:50px; margin-right: 10px; display:inline-block"
                         src="~/Fasticon-Shop-Cart-Shop-cart.ico">Kahreedo.pk*@
-                    <h3>Admin Panel</h3>
+                    @Html.Action("NamePartial","DashBoard")
 
                 </a>
 
@@ -166,6 +171,7 @@
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
+<<<<<<< HEAD
                 <ul class="nav navbar-nav side-nav">
                     <li class="@(ViewBag.Title=="Dashboard" ? "active" : "")">
                         <a href="@Url.Action("Index", "Dashboard")"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
@@ -204,11 +210,14 @@
                         <a href="@Url.Action("Logout", "Admin")"><i class="fa fa-fw fa-sign-out"></i>Đăng xuất</a>
                     </li>
                 </ul>
+=======
+                @Html.Action("MenuPartial","DashBoard")
+>>>>>>> 6428e41ae9158c247192fc3daec1a09088974c1d
             </div>
             <!-- /.navbar-collapse -->
         </nav>
         <div id="page-wrapper">
-            <div class="container-fluid">
+            <div class="container-fluid" style="width:auto;height:auto">
 
                 <!-- Page Heading -->
                 <div class="row">
@@ -228,7 +237,9 @@
                                 <i class=""></i> @ViewBag.SubTitle
                             </li>
                         </ol>
+                        
                         @RenderBody()
+
                     </div>
                 </div>
                 <!-- /.row -->
@@ -246,6 +257,6 @@
     <!-- jQuery and Bootstrap Core JavaScript -->
     @Scripts.Render("~/Admin/js")
     @RenderSection("scripts", required: false)
-
+    @RenderSection("footer", required: false)
 </body>
 </html>

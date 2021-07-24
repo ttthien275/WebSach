@@ -112,8 +112,8 @@ E:\web_bansach\WebBanSach\bin\System.Web.WebPages.Razor.xml
 E:\web_bansach\WebBanSach\bin\Newtonsoft.Json.xml
 E:\web_bansach\WebBanSach\bin\Antlr3.Runtime.pdb
 E:\web_bansach\WebBanSach\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\web_bansach\WebBanSach\obj\Debug\WebBanSach.csproj.AssemblyReference.cache
 E:\web_bansach\WebBanSach\obj\Debug\WebBanSach.csproj.CoreCompileInputs.cache
 E:\web_bansach\WebBanSach\obj\Debug\WebBanSach.csproj.CopyComplete
 E:\web_bansach\WebBanSach\obj\Debug\WebBanSach.dll
 E:\web_bansach\WebBanSach\obj\Debug\WebBanSach.pdb
-E:\web_bansach\WebBanSach\obj\Debug\WebBanSach.csproj.AssemblyReference.cache
