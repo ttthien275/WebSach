@@ -57,7 +57,7 @@
                 <a class="navbar-brand" rel="home" href="@Url.Action("Index","DashBoard")" title="Kahreedo.pk">
                     @*<img style="max-width:50px; margin-right: 10px; display:inline-block"
                         src="~/Fasticon-Shop-Cart-Shop-cart.ico">Kahreedo.pk*@
-                    <h3>Admin Panel</h3>
+                    @Html.Action("NamePartial","DashBoard")
 
                 </a>
 
@@ -168,44 +168,7 @@
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="@(ViewBag.Title=="Dashboard" ? "active" : "")">
-                        <a href="@Url.Action("Index", "Dashboard")"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li class="@(ViewBag.Title == "Order" ? "active" : "")">
-                        <a href="@Url.Action("QLDonDH", "QLDonDH")"><i class="fa fa-fw fa-shopping-cart"></i> Đơn đặt hàng</a>
-                    </li>
-                    <li class="@(ViewBag.Title == "Product" ? "active" : "")">
-                        <a href="@Url.Action("Index", "#")"><i class="fa fa-fw fa-table"></i> Quản lý sản phẩm</a>
-                    </li>
-                    <li class="@(ViewBag.Title == "Supplier" ? "active" : "")">
-                        <a href="@Url.Action("Index", "QLNhaCC")"><i class="fa fa-fw fa-truck"></i> Nhà cung cấp</a>
-                    </li>
-                    <li class="@(ViewBag.Title == "Customer" ? "active" : "")">
-                        <a href="@Url.Action("Index", "QLTaikhoanKH")"><i class="fa fa-fw fa-male"></i> Quản lý khách hàng</a>
-                    </li>
-                    <li class="@(ViewBag.Title == "Employee" ? "active" : "")">
-                        <a href="@Url.Action("Index", "#")"><i class="fa fa-fw fa-user"></i>Quản lý Nhân viên</a>
-                    </li>
-                    @*<li>
-                            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                            <ul id="demo" class="collapse">
-                                <li>
-                                    <a href="#">Dropdown Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Dropdown Item</a>
-                                </li>
-                            </ul>
-                        </li>*@
-
-                    <li class="@(ViewBag.Title == "Settings" ? "active" : "")">
-                        <a href="@Url.Action("Index", "CaiDat")"><i class="fa fa-fw fa-gear"></i>Cài đặt</a>
-                    </li>
-                    <li class="@(ViewBag.Title == "Logout" ? "active" : "")">
-                        <a href="@Url.Action("Logout", "Admin")"><i class="fa fa-fw fa-sign-out"></i>Đăng xuất</a>
-                    </li>
-                </ul>
+                @Html.Action("MenuPartial","DashBoard")
             </div>
             <!-- /.navbar-collapse -->
         </nav>

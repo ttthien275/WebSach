@@ -735,6 +735,8 @@
     <Content Include="Views\DatHang\AllDonHang.cshtml" />
     <Content Include="Views\DatHang\ChiTietDonHang.cshtml" />
     <Content Include="Views\DatHang\ThongTinDonHang.cshtml" />
+    <Content Include="Views\DashBoard\MenuPartial.cshtml" />
+    <Content Include="Views\DashBoard\NamePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

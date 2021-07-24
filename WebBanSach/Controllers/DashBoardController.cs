@@ -103,5 +103,27 @@ namespace WebBanSach.Controllers
         //    return Json(dataforBarchart, JsonRequestBehavior.AllowGet);
         //}
 
+
+        public ActionResult MenuPartial()
+        {
+            if (Session["username_Admin"] == null)
+            {
+                ViewBag.ThongBao = "Bạn cần đăng nhập trước khi sử dụng chức năng chỉnh sửa!";
+                return RedirectToAction("DangNhapAdmin", "Admin");
+            }
+            var tk = Session["TAIKHOAN"];
+            return PartialView(tk);
+        }
+
+        public ActionResult NamePartial()
+        {
+            if (Session["username_Admin"] == null)
+            {
+                ViewBag.ThongBao = "Bạn cần đăng nhập trước khi sử dụng chức năng chỉnh sửa!";
+                return RedirectToAction("DangNhapAdmin", "Admin");
+            }
+            var tk = Session["TAIKHOAN"];
+            return PartialView(tk);
+        }
     }
 }
