@@ -220,7 +220,7 @@ namespace WebBanSach.Controllers
             //{
             //    payment.Create(apiContext);
             //}
-            //catch(PayPal.PaymentsException ex)
+            //catch (PayPal.PaymentsException ex)
             //{
             //    PaypalLogger.Log("Error: " + ex.Response);
             //}
