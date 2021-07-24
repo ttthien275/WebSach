@@ -31,7 +31,7 @@ namespace WebBanSach.Controllers
                 return RedirectToAction("DangNhapAdmin", "Admin");
             }
             else
-                 return View(data.SACHes.ToList().OrderByDescending(n => n.MaSach).ToPagedList(pagenum,pagesize));
+            return View(data.SACHes.ToList().OrderByDescending(n => n.MaSach).ToPagedList(pagenum,pagesize));
         }
 
         //2. Xem CHI TIẾT SÁCH 
