@@ -124,8 +124,14 @@
         </dd>
 
     </dl>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10 my-3">
+            <a href="@Url.Action("Edit","QLTaikhoanKH", new { id = Model.ID })" class="btn btn-info">Chỉnh sửa</a>
+            <a href="@Url.Action("Index","QLTaikhoanKH")" class="btn btn-success">Quay lại</a>
+        </div>
+    </div>
 </div>
-<p>
+@*<p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</p>*@

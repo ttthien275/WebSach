@@ -14,6 +14,11 @@ namespace WebBanSach.Controllers
         // GET: QLTaikhoanKH
         public ActionResult Index()
         {
+            if (Session["username_Admin"] == null)
+            {
+                ViewBag.ThongBao = "Bạn cần đăng nhập trước khi sử dụng chức năng chỉnh sửa!";
+                return RedirectToAction("DangNhapAdmin", "Admin");
+            }
             var listKh = data.TAIKHOANs.Where(p => p.ID_LOAITK == 2 || p.ID_LOAITK == 3).ToList();
             return View(listKh);
         }
@@ -111,7 +116,7 @@ namespace WebBanSach.Controllers
             {
                 UpdateModel(tk);
                 data.SubmitChanges();
-                return RedirectToAction("Index", "QLNhaCC");
+                return RedirectToAction("Index", "QLTaikhoanKH");
             }
             return HttpNotFound();
         }

@@ -23,7 +23,7 @@
     <link href="~/Content/all.min.css" rel="stylesheet" />
     <script src="~/Scripts/bootstrap.js"></script>
     @Styles.Render("~/Admin/css")
-
+    @RenderSection("header", required: false)
     <style>
         .page-header {
             padding-bottom: 5px;
@@ -209,7 +209,7 @@
             </div>
             <!-- /.navbar-collapse -->
         </nav>
-        <div id="page-wrapper" >
+        <div id="page-wrapper">
             <div class="container-fluid" style="width:auto;height:auto">
 
                 <!-- Page Heading -->
@@ -230,7 +230,9 @@
                                 <i class=""></i> @ViewBag.SubTitle
                             </li>
                         </ol>
+                        
                         @RenderBody()
+
                     </div>
                 </div>
                 <!-- /.row -->
@@ -248,6 +250,6 @@
     <!-- jQuery and Bootstrap Core JavaScript -->
     @Scripts.Render("~/Admin/js")
     @RenderSection("scripts", required: false)
-
+    @RenderSection("footer", required: false)
 </body>
 </html>

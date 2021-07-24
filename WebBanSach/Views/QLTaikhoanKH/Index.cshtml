@@ -53,65 +53,77 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>
-                        <input name="STT" type="checkbox" class="text-center" />
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ID_LOAITK)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.HOTEN)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.USERNAME)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MATKHAU)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EMAIL_TK)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DIACHI_TK)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SDT)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.STATUS)
-                    </td>
-                    <td class="text-center">
-                        @* buttun trang thai(de day t dung copy neu can)
-                @if (item.status == 1)
-            {
-                <a class="btn btn-success btn-sm" href="@Url.Action("Status","User_NV",new { id = item.id_NV })"><i class="fas fa-toggle-on"></i></a>
-            }
-            else
-            {
-                <a class="btn btn-danger btn-sm" href="@Url.Action("Status","User_NV",new { id = item.id_NV })"><i class="fas fa-toggle-off"></i></a>
-            }
+                    <tr>
+                        <td>
+                            <input name="STT" type="checkbox" class="text-center" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID_LOAITK)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HOTEN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.USERNAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MATKHAU)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EMAIL_TK)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DIACHI_TK)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SDT)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.STATUS)
+                        </td>
+                        <td class="text-center">
+                            @* buttun trang thai(de day t dung copy neu can)
+                                    @if (item.status == 1)
+                                {
+                                    <a class="btn btn-success btn-sm" href="@Url.Action("Status","User_NV",new { id = item.id_NV })"><i class="fas fa-toggle-on"></i></a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-danger btn-sm" href="@Url.Action("Status","User_NV",new { id = item.id_NV })"><i class="fas fa-toggle-off"></i></a>
+                                }
 
-            public ActionResult Status(int? id)
-            {
-            if (id == null)
-            {
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Product product=db.Product.Find(id)
-            product.Status=(product.Status==1)?2:1;
-            if(product.Status==1)
-            db.Entry(product).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
-            }*@
-                        <a class="btn btn-info btn-sm" href="@Url.Action("Edit","QLTaikhoanKH",new { id =item.ID  })"><i class="fas fa-edit"></i></a>
-                        <a class="btn btn-warning btn-sm" href="@Url.Action("Details","QLTaikhoanKH",new { id = item.ID })"><i class="fas fa-eye"></i></a>
-                        <a class="btn btn-danger btn-sm" href="@Url.Action("Delete","QLTaikhoanKH",new { id = item.ID })"><i class="fas fa-trash"></i></a>
-                    </td>
-                </tr>
+                                public ActionResult Status(int? id)
+                                {
+                                if (id == null)
+                                {
+                                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                                }
+                                Product product=db.Product.Find(id)
+                                product.Status=(product.Status==1)?2:1;
+                                if(product.Status==1)
+                                db.Entry(product).State = EntityState.Modified;
+                                db.SaveChanges();
+                                return RedirectToAction("Index");
+                                }*@
+                            <a class="btn btn-info btn-sm" href="@Url.Action("Edit","QLTaikhoanKH",new { id =item.ID  })"><i class="fas fa-edit"></i></a>
+                            <a class="btn btn-warning btn-sm" href="@Url.Action("Details","QLTaikhoanKH",new { id = item.ID })"><i class="fas fa-eye"></i></a>
+                            <a class="btn btn-danger btn-sm" href="@Url.Action("Delete","QLTaikhoanKH",new { id = item.ID })"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
     </div>
 </div>
+@section header{
+
+    <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section footer{
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('#myTable').DataTable();
+        });
+    </script>
+}
