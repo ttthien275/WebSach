@@ -26,7 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>4.2</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -209,7 +209,7 @@
     <Compile Include="Controllers\QLNhaCCController.cs" />
     <Compile Include="Controllers\QLSachController.cs" />
     <Compile Include="Controllers\QLTaikhoanKHController.cs" />
-
+    <Compile Include="Controllers\QLTaiKhoanNVController.cs" />
     <Compile Include="DAO\SachDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -823,6 +823,11 @@
     <Content Include="Views\DatHang\ThongTinDonHang.cshtml" />
     <Content Include="Views\DashBoard\MenuPartial.cshtml" />
     <Content Include="Views\DashBoard\NamePartial.cshtml" />
+    <Content Include="Views\QLTaiKhoanNV\Index.cshtml" />
+    <Content Include="Views\QLTaiKhoanNV\Edit.cshtml" />
+    <Content Include="Views\QLTaiKhoanNV\Details.cshtml" />
+    <Content Include="Views\QLTaiKhoanNV\Delete.cshtml" />
+    <Content Include="Views\QLTaiKhoanNV\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
