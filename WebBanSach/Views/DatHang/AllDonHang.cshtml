@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "TheoDoiTinhTrangDH";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Lịch sử mua hàng</h2>
+<div id="sunfw_section_section_main_body" class="sunfw-section sunfw_section_section_main_body visible-lg visible-md visible-sm visible-xs">
+    <div class="container">
+
+        <div id="row_row-1" class="row sunfw-flex-component">
+            <div id="column_column-1" class="col-xs-36 col-sm-12 col-md-12 col-lg-12  flex-md-unordered">
+                <div class="layout-item sunfw-item-page-content">
+                    <div id="system-message-container">
+                    </div>
+
+                    <div id="akeeba-renderjoomla">
+                        <div class="j2store">
+                            <div class="j2store-cart">
+                                <div class="col-md-12"></div>
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <input type="hidden" name="option" value="com_j2store">
+                                        <input type="hidden" name="view" value="carts">
+                                        <input type="hidden" id="j2store-cart-task" name="task" value="update">
+
+
+
+                                        <table class="j2store-cart-table table table-bordered">
+
+                                            <thead>
+                                                <tr>
+                                                    <th style="text-align:left">Mã Đơn hàng</th>
+                                                    <th style="text-align:left">Ngày đặt</th>
+                                                    <th style="text-align:left">Ngày giao</th>
+                                                    <th style="text-align:left">Tổng Tiền</th>
+                                                    <th style="text-align:right">Thao tác</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td>
+
+                                                            <span class="cart-product-name">
+                                                                @item.SoDH
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="cart-product-name">
+                                                                @item.NgayDat
+                                                            </span>
+                                                        </td>
+                                                        <td class="cart-line-subtotal">
+                                                            @item.NgayGiao
+                                                        </td>
+                                                        <td class="cart-line-subtotal">
+                                                            @item.THANHTIEN_HOADON
+                                                        </td>
+                                                        <td class="cart-line-subtotal">
+                                                            <input class="btn btn-primary" type="button" onclick="window.location.href='@Url.Action("ChiTietDonHang", "DatHang", new { id = item.SoDH })'" value="Chi tiết">
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+
+
+
+
+                                        <div class="j2store-cart-buttons">
+                                            <div class="buttons-left">
+                                                <span class="cart-continue-shopping-button">
+                                                    <input class="btn btn-primary" type="button" onclick="window.location.href='@Url.Action("All_Sach","Module")'" value="Tiếp tục mua sắm">
+
+                                                </span>
+                                            </div>
+                                            <div class="buttons-right">
+                                            </div>
+                                        </div>
+
+                                        <!-- Display plugin results -->
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

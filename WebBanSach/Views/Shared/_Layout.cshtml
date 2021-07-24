@@ -1,4 +1,4 @@
-﻿@using WebBanSach.Models 
+﻿@using WebBanSach.Models
 <!DOCTYPE html>
 <!-- jsn_bookstore 1.0.3 -->
 <html lang="en-gb" dir="ltr">
@@ -122,36 +122,27 @@
     <!--[if lt IE 9]><script src="/joomla-templates/jsn_bookstore/pro/bookstore/media/system/js/polyfill.event.js?93ec787f24f439da8d2ad88e9d6a770d"></script><![endif]-->
     <script src="/joomla-templates/jsn_bookstore/pro/bookstore/media/system/js/keepalive.js?93ec787f24f439da8d2ad88e9d6a770d"></script>
     <script>
-
         var j2storeURL = 'https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/';
-
         if (typeof (j2store) == 'undefined') {
             var j2store = {};
         }
-
         if (typeof (jQuery) != 'undefined') {
             jQuery.noConflict();
         }
-
         if (typeof (j2store.jQuery) == 'undefined') {
             j2store.jQuery = jQuery.noConflict();
         }
-
         if (typeof (j2store.jQuery) != 'undefined') {
-
             (function ($) {
                 $(document).ready(function () {
                     /*date, time, datetime*/
-
                     if ($('.j2store_date').length) {
                         $('.j2store_date').datepicker({ dateFormat: 'yy-mm-dd' });
                     }
-
                     if ($('.j2store_datetime').length) {
                         $('.j2store_datetime').datetimepicker({
                             dateFormat: 'yy-mm-dd',
                             timeFormat: 'HH:mm',
-
                             currentText: 'Now',
                             closeText: 'Done',
                             timeOnlyTitle: 'Choose Time',
@@ -161,10 +152,8 @@
                             secondText: 'Seconds',
                             millisecText: 'Milliseconds',
                             timezoneText: 'Time Zone'
-
                         });
                     }
-
                     if ($('.j2store_time').length) {
                         $('.j2store_time').timepicker({
                             timeFormat: 'HH:mm',
@@ -179,11 +168,9 @@
                             timezoneText: 'Time Zone'
                         });
                     }
-
                 });
             })(j2store.jQuery);
         }
-
         jQuery(document).off("click.fb-start", "[data-trigger]");
         jQuery(window).on('load', function () {
             new JCaption('img.caption');
@@ -202,18 +189,15 @@
                 }
             });
         }
-
         jQuery(function ($) {
             $(document).ready(function () {
                 $("ul.sunfw-tpl-menu li.item-478").addClass("megamenu").removeClass("dropdown-submenu");
                 $("ul.sunfw-tpl-menu li.item-478").addClass("center")
             });
         });
-
         jQuery(document).off("click.fb-start", "[data-trigger]");
         jQuery(document).off("click.fb-start", "[data-trigger]");
         jQuery(function ($) { initTooltips(); $("body").on("subform-row-add", initTooltips); function initTooltips(event, container) { container = container || document; $(container).find(".hasTooltip").tooltip({ "html": true, "container": "body" }); } });
-
         if (typeof (j2store) == 'undefined') {
             var j2store = {};
         }
@@ -222,9 +206,7 @@
         }
         (function ($) {
             $(document).bind('after_adding_to_cart', function (element, data, type) {
-
                 var murl = '/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart/ajaxmini';
-
                 $.ajax({
                     url: murl,
                     type: 'get',
@@ -242,12 +224,9 @@
                             });
                         }
                     }
-
                 });
-
             });
         })(j2store.jQuery);
-
         jQuery(document).off("click.fb-start", "[data-trigger]");
     </script>
 
@@ -281,14 +260,12 @@
         var chatbox = document.getElementById('fb-customer-chat');
         chatbox.setAttribute("page_id", "101638042195361");
         chatbox.setAttribute("attribution", "biz_inbox");
-
         window.fbAsyncInit = function () {
             FB.init({
                 xfbml: true,
                 version: 'v11.0'
             });
         };
-
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
@@ -470,9 +447,7 @@
                                                     .aevsi::after {
                                                         display: inline;
                                                     }
-
                                                 /* PageFly Styles */
-
                                                 @@media all {
                                                     .__pf .pf-9c042a4e-1d3287b2 {
                                                         margin-bottom: 0px;
@@ -536,14 +511,12 @@
                                 <div class="module-style ">
                                     <div class="module-body">
                                         <script type="text/javascript">
-
                                             if (typeof (j2store) == 'undefined') {
                                                 var j2store = {};
                                             }
                                             if (typeof (j2store.jQuery) == 'undefined') {
                                                 j2store.jQuery = jQuery.noConflict();
                                             }
-
                                             //-->
                                         </script>
 
@@ -560,7 +533,6 @@
                                                     #j2store_currency a.active {
                                                         color: #000000;
                                                     }
-
 
                                                     #j2store_currency a:hover {
                                                         color: #000000;
@@ -673,115 +645,101 @@
                                     </div>
                                 </div>
                                 @*Xây dựng form trên menu có chức năng hiển thị thông tin đăng nhập đã và trước khi đăng nhập đang phát triển chức năng dropdown lịch sử/logout/thông tin user*@
-                                <div class="module-style  login-topbar display-dropdown">
-                                    @{if (Session["USERNAME"] != null)
+                            <div class="module-style  login-topbar display-dropdown">
+                                @{if (Session["USERNAME"] != null)
 
-                                        {
-                                            TAIKHOAN tk = (TAIKHOAN)Session["USERNAME"];
+                                    {
+                                        TAIKHOAN tk = (TAIKHOAN)Session["USERNAME"];
 
-                                                <div class="module-title">
-                                                    <h3 class="box-title">Xin chào @tk.USERNAME</h3>
-                                                    <a class="box-title" href="/Login/DangXuat">Thoát</a>
-                                                </div>
-                                            <div class="module-body">
-                                                @*<div class="userdata">
-                                                    <ul class="dropdown-menu">
+                                        <div class="module-title">
+                                            <h3 class="box-title">Xin chào @tk.USERNAME</h3>
+                                            @*<a class="box-title" href="/Login/DangXuat">Thoát</a>*@
+                                        </div>
+                                        <div class="module-body">
+                                            <form action="/Login/DangNhap"
+                                                  method="post" id="login-form">
+                                                <a style="float:inherit; margin-right:50px ;font-size:medium " class="box-title" href="@Url.Action("AllDonHang","DatHang")">Lịch sử mua hàng</a>
+                                                <a style="float:initial;font-size:medium" class="box-title" href="@Url.Action("DangXuat","Login")">Đăng xuất</a>
+                                            </form>
+                                        </div>
+
+                                    }
+                                    else
+                                    {
+                                        <div class="module-title">
+                                            <h3 class="box-title "><span>Đăng nhập/Đăng kí</span></h3>
+                                        </div>
+
+                                        <div class="module-body">
+                                            <form action="/Login/DangNhap"
+                                                  method="post" id="login-form">
+                                                <div class="userdata">
+                                                    <div id="form-login-username" class="form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-user tip" title="Username"></i>
+                                                            </span>
+                                                            <input id="modlgn-username" type="text" name="username"
+                                                                   class="input form-control" tabindex="0" size="18"
+                                                                   placeholder="Username" />
+                                                        </div>
+                                                    </div>
+                                                    <div id="form-login-password" class="form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-lock tip" title="Password"></i>
+                                                            </span>
+                                                            <input id="modlgn-passwd" type="password" name="password"
+                                                                   class="input form-control" tabindex="0" size="18"
+                                                                   placeholder="Password" />
+                                                        </div>
+                                                    </div>
+                                                    <div id="form-login-remember" class="form-group">
+                                                        <div class="checkbox">
+                                                            <label for="modlgn-remember" class="control-label">
+                                                                <input id="modlgn-remember" type="checkbox" name="remember"
+                                                                       class="inputbox" value="yes" />
+                                                                Remember Me
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div id="form-login-submit" class="control-group">
+                                                        <div class="controls">
+                                                            <button type="submit" tabindex="0" name="Submit"
+                                                                    class="btn btn-primary">
+                                                                Đăng nhập
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="unstyled">
                                                         <li>
                                                             <a href="/Login/DangKi">
-                                                                Thông tin thành viên <span class="icon-arrow-right"></span>
+                                                                Tạo tài khoản mới <span class="icon-arrow-right"></span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                Lịch sử đăng nhập
+                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/account-reminder">
+                                                                Quên tên đăng nhập?
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                Đăng xuất
+                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/user-profile?view=reset">
+                                                                Quên mật khẩu?
                                                             </a>
                                                         </li>
                                                     </ul>
-                                                    </div> *@
-                                            </div>
-
-                                        }
-                                        else
-                                        {
-                                            <div class="module-title">
-                                                <h3 class="box-title "><span>Đăng nhập/Đăng kí</span></h3>
-                                            </div>
-
-                                            <div class="module-body">
-                                                <form action="/Login/DangNhap"
-                                                      method="post" id="login-form">
-                                                    <div class="userdata">
-                                                        <div id="form-login-username" class="form-group">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">
-                                                                    <i class="fa fa-user tip" title="Username"></i>
-                                                                </span>
-                                                                <input id="modlgn-username" type="text" name="username"
-                                                                       class="input form-control" tabindex="0" size="18"
-                                                                       placeholder="Username" />
-                                                            </div>
-                                                        </div>
-                                                        <div id="form-login-password" class="form-group">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">
-                                                                    <i class="fa fa-lock tip" title="Password"></i>
-                                                                </span>
-                                                                <input id="modlgn-passwd" type="password" name="password"
-                                                                       class="input form-control" tabindex="0" size="18"
-                                                                       placeholder="Password" />
-                                                            </div>
-                                                        </div>
-                                                        <div id="form-login-remember" class="form-group">
-                                                            <div class="checkbox">
-                                                                <label for="modlgn-remember" class="control-label">
-                                                                    <input id="modlgn-remember" type="checkbox" name="remember"
-                                                                           class="inputbox" value="yes" />
-                                                                    Remember Me
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                        <div id="form-login-submit" class="control-group">
-                                                            <div class="controls">
-                                                                <button type="submit" tabindex="0" name="Submit"
-                                                                        class="btn btn-primary">
-                                                                    Đăng nhập
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <ul class="unstyled">
-                                                            <li>
-                                                                <a href="/Login/DangKi">
-                                                                    Tạo tài khoản mới <span class="icon-arrow-right"></span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/account-reminder">
-                                                                    Quên tên đăng nhập?
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/user-profile?view=reset">
-                                                                    Quên mật khẩu?
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                        <input type="hidden" name="option" value="com_users" />
-                                                        <input type="hidden" name="task" value="user.login" />
-                                                        <input type="hidden" name="return"
-                                                               value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi8/X2dhPTIuMTc5MDgzMTY5LjQ2NTUxMTAyMS4xNjI0MjkxMDQwLTQzOTIzODcxNi4xNjI0MjkxMDQw" />
-                                                        <input type="hidden" name="43c8da9a892039287ecdab6901475eee"
-                                                               value="1" />
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        }
+                                                    <input type="hidden" name="option" value="com_users" />
+                                                    <input type="hidden" name="task" value="user.login" />
+                                                    <input type="hidden" name="return"
+                                                           value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi8/X2dhPTIuMTc5MDgzMTY5LjQ2NTUxMTAyMS4xNjI0MjkxMDQwLTQzOTIzODcxNi4xNjI0MjkxMDQw" />
+                                                    <input type="hidden" name="43c8da9a892039287ecdab6901475eee"
+                                                           value="1" />
+                                                </div>
+                                            </form>
+                                        </div>
                                     }
-                                </div>
+                                }
+                            </div>
                                 <div class="module-style  top-cart">
                                     <div class="module-body">
                                         <!--cho code partial view cho gio hang-->
@@ -1579,9 +1537,7 @@
                                                     .aevsi::after {
                                                         display: inline;
                                                     }
-
                                                 /* PageFly Styles */
-
                                                 @@media all {
                                                     .__pf .pf-506fe5d9-58fc970f {
                                                         margin-bottom: 0px;
@@ -1804,9 +1760,7 @@
                                                     .aevsi::after {
                                                         display: inline;
                                                     }
-
                                                 /* PageFly Styles */
-
                                                 @@media all {
                                                     .__pf .pf-9afcdfd9-99b0eeb1 {
                                                         font-size: 16px;
@@ -2062,9 +2016,7 @@
                                                     .aevsi::after {
                                                         display: inline;
                                                     }
-
                                                 /* PageFly Styles */
-
                                                 @@media all {
                                                     .__pf .pf-8da1a29d-4ac39e1a {
                                                         color: rgb(255, 255, 255);
@@ -2329,9 +2281,7 @@
                                                     .aevsi::after {
                                                         display: inline;
                                                     }
-
                                                 /* PageFly Styles */
-
                                                 @@media all {
                                                     .__pf .pf-d15f133a-6854b4fc {
                                                         text-align: center;
@@ -2514,17 +2464,14 @@
 
                                             <script type="text/javascript">
                                                 jQuery(document).ready(function ($) {
-
                                                     $('.toolbar-open').click(function () {
                                                         $('body').toggleClass('demo-open').trigger("jsndemo");
                                                     });
-
                                                     $("body").unbind('jsndemo').on("jsndemo", function () {
                                                         $('.demo-open .overlay').unbind('click').click(function () {
                                                             $('body').toggleClass('demo-open');
                                                         });
                                                     });
-
                                                 });
                                             </script>
                                         </div>

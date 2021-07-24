@@ -53,6 +53,9 @@
     <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\..\ThanhToan\payment-master\payment-master\c#\MoMo\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -204,6 +207,7 @@
     <Compile Include="Controllers\NXBController.cs" />
     <Compile Include="Controllers\QLDonDHController.cs" />
     <Compile Include="Controllers\QLNhaCCController.cs" />
+    <Compile Include="Controllers\QLTaikhoanKHController.cs" />
     <Compile Include="DAO\SachDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -216,6 +220,8 @@
     <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\PaypalConfiguration.cs" />
     <Compile Include="Models\PaypalLogger.cs" />
+    <Compile Include="MoMo\MoMoSecurity.cs" />
+    <Compile Include="MoMo\PaymentRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -388,11 +394,13 @@
     <Content Include="Admin\Layouts\tinymce\js\tinymce\themes\modern\theme.min.js" />
     <Content Include="Admin\Layouts\tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="Admin\Layouts\tinymce\LICENSE.TXT" />
+    <Content Include="Content\all.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ie6.css" />
+    <Content Include="Content\LayoutAdmin.css" />
     <Content Include="Content\NganLuong.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Slide.css" />
@@ -555,6 +563,7 @@
     <Content Include="Content\tinymce\js\tinymce\skins\ui\oxide-dark\fonts\tinymce-mobile.woff" />
     <Content Include="Content\tinymce\js\tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
     <Content Include="Content\tinymce\js\tinymce\tsconfig.json" />
+    <Content Include="log4net.config" />
     <None Include="Models\DataBook.dbml.layout">
       <DependentUpon>DataBook.dbml</DependentUpon>
     </None>
@@ -572,6 +581,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
     <Content Include="tinycme\tinymce\changelog.txt" />
     <Content Include="tinycme\tinymce\js\tinymce\license.txt" />
     <Content Include="tinycme\tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
@@ -684,7 +697,6 @@
     <Content Include="Views\GioHang\Giohang.cshtml" />
     <Content Include="Views\GioHang\GiohangPartial.cshtml" />
     <Content Include="Views\DatHang\DatHang.cshtml" />
-    <Content Include="Views\DatHang\TheoDoiTinhTrangDH.cshtml" />
     <Content Include="Views\Admin\DangNhapAdmin.cshtml" />
     <Content Include="Views\DashBoard\Index.cshtml" />
     <Content Include="Views\CaiDat\Index.cshtml" />
@@ -709,6 +721,18 @@
     <Content Include="Views\QLNhaCC\Create.cshtml" />
     <Content Include="Views\QLNhaCC\Delete.cshtml" />
     <Content Include="Views\QLNhaCC\Edit.cshtml" />
+    <Content Include="Views\QLTaikhoanKH\Index.cshtml" />
+    <Content Include="Views\QLTaikhoanKH\Create.cshtml" />
+    <Content Include="Views\QLTaikhoanKH\Delete.cshtml" />
+    <Content Include="Views\QLTaikhoanKH\Edit.cshtml" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Views\QLTaikhoanKH\Details.cshtml" />
+    <Content Include="Views\DatHang\AllDonHang.cshtml" />
+    <Content Include="Views\DatHang\ChiTietDonHang.cshtml" />
+    <Content Include="Views\DatHang\ThongTinDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
