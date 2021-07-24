@@ -17,6 +17,11 @@
     <link href="~/Admin/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Admin/css/sb-admin.css" rel="stylesheet" />
     <link href="~/Admin/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link href="~/Content/LayoutAdmin.css" rel="stylesheet" />
+    <link href="~/Content/all.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
     @Styles.Render("~/Admin/css")
 
     <style>
@@ -177,7 +182,7 @@
                         <a href="@Url.Action("Index", "QLNhaCC")"><i class="fa fa-fw fa-truck"></i> Nhà cung cấp</a>
                     </li>
                     <li class="@(ViewBag.Title == "Customer" ? "active" : "")">
-                        <a href="@Url.Action("Index", "#")"><i class="fa fa-fw fa-male"></i> Quản lý khách hàng</a>
+                        <a href="@Url.Action("Index", "QLTaikhoanKH")"><i class="fa fa-fw fa-male"></i> Quản lý khách hàng</a>
                     </li>
                     <li class="@(ViewBag.Title == "Employee" ? "active" : "")">
                         <a href="@Url.Action("Index", "#")"><i class="fa fa-fw fa-user"></i>Quản lý Nhân viên</a>
@@ -204,8 +209,8 @@
             </div>
             <!-- /.navbar-collapse -->
         </nav>
-        <div id="page-wrapper">
-            <div class="container-fluid">
+        <div id="page-wrapper" >
+            <div class="container-fluid" style="width:auto;height:auto">
 
                 <!-- Page Heading -->
                 <div class="row">

@@ -204,6 +204,7 @@
     <Compile Include="Controllers\NXBController.cs" />
     <Compile Include="Controllers\QLDonDHController.cs" />
     <Compile Include="Controllers\QLNhaCCController.cs" />
+    <Compile Include="Controllers\QLTaikhoanKHController.cs" />
     <Compile Include="DAO\SachDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -388,11 +389,13 @@
     <Content Include="Admin\Layouts\tinymce\js\tinymce\themes\modern\theme.min.js" />
     <Content Include="Admin\Layouts\tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="Admin\Layouts\tinymce\LICENSE.TXT" />
+    <Content Include="Content\all.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ie6.css" />
+    <Content Include="Content\LayoutAdmin.css" />
     <Content Include="Content\NganLuong.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Slide.css" />
@@ -572,6 +575,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
     <Content Include="tinycme\tinymce\changelog.txt" />
     <Content Include="tinycme\tinymce\js\tinymce\license.txt" />
     <Content Include="tinycme\tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
@@ -709,6 +716,15 @@
     <Content Include="Views\QLNhaCC\Create.cshtml" />
     <Content Include="Views\QLNhaCC\Delete.cshtml" />
     <Content Include="Views\QLNhaCC\Edit.cshtml" />
+    <Content Include="Views\QLTaikhoanKH\Index.cshtml" />
+    <Content Include="Views\QLTaikhoanKH\Create.cshtml" />
+    <Content Include="Views\QLTaikhoanKH\Delete.cshtml" />
+    <Content Include="Views\QLTaikhoanKH\Edit.cshtml" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Views\QLTaikhoanKH\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
