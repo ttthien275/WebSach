@@ -43,42 +43,6 @@ namespace WebBanSach.Controllers
             
             return View();
         }
-        //[HttpPost]
-        //public ActionResult DatHang(FormCollection collection)
-        //{
-        //    DataBookDataContext data = new DataBookDataContext();
-        //    //Them don hang
-        //    DONDATHANG ddh = new DONDATHANG();
-        //    TAIKHOAN tk = (TAIKHOAN)Session["USERNAME"];
-        //    List<Giohang> gh = Session["Giohang"] as List<Giohang>;
-
-        //    ddh.ID_TAIKHOAN = tk.ID;
-        //    ddh.CREATEDATE = DateTime.Now;
-        //    ddh.NgayDat = DateTime.Now;
-        //    var ngaygiao = String.Format("{0:dd/MM/yyyy}", collection["ngaygiao"]);
-        //    ddh.NgayGiao = DateTime.Parse(ngaygiao);
-        //    ViewBag.ngaygiao = DateTime.Parse(ngaygiao);
-        //    ddh.DaThanhToan = true;
-        //    ddh.TRANGTHAI = "Đang giao";
-        //    ddh.TinhTrangGiaoHang = false;
-        //    decimal ghTongTien = gh.Sum(n => n.ghThanhTien);
-        //    ddh.THANHTIEN_HOADON = (double?)ghTongTien;
-        //    data.DONDATHANGs.InsertOnSubmit(ddh);
-        //    data.SubmitChanges();
-        //    //Them chi tiết đơn đặt sách
-        //    foreach (var item in gh)
-        //    {
-        //        CHITIETDATHANG ctdh = new CHITIETDATHANG();
-        //        ctdh.SoDH = ddh.SoDH;
-        //        ctdh.MaSach = item.ghMaSach;
-        //        ctdh.SoLuong = item.ghSoLuong;
-        //        ctdh.DonGia = (decimal)item.ghGiaBan;
-        //        data.CHITIETDATHANGs.InsertOnSubmit(ctdh);
-        //    }
-        //    data.SubmitChanges();
-        //    Session["Giohang"] = null;
-        //    return RedirectToAction("ThongTinDonHang", "DatHang",ddh);
-        //}
 
         [HttpPost]
         public ActionResult DatHang(object sender, EventArgs e)
@@ -103,9 +67,9 @@ namespace WebBanSach.Controllers
                 DateTime now = DateTime.Now;
                 DateTime ngaygiao = now.AddDays(2);
                 ddh.NgayGiao = ngaygiao;
-                ddh.DaThanhToan = true;
+                ddh.DaThanhToan = false;
                 ddh.TRANGTHAI = "Đang giao";
-                ddh.HinhThucThanhToan = true;
+                ddh.HinhThucThanhToan = false;
                 ddh.TinhTrangGiaoHang = false;
                 decimal ghTongTien = gh.Sum(n => n.ghThanhTien);
                 ddh.THANHTIEN_HOADON = (double?)ghTongTien;
@@ -317,6 +281,7 @@ namespace WebBanSach.Controllers
             ViewBag.TongTien = a.Sum(l => l.DonGia);
             DONDATHANG b = data.DONDATHANGs.Single(l => l.SoDH == id);
             ViewBag.NgayDat = b.NgayDat;
+            ViewBag.NgayGiao = String.Format("{0:dd/MM/yyyy}", b.NgayGiao);
             ViewBag.HoTen = b.TAIKHOAN.HOTEN;
             ViewBag.HinhThucTT = b.HinhThucThanhToan;
             ViewBag.TrangThaiGH = b.TinhTrangGiaoHang;
