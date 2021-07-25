@@ -3,7 +3,7 @@
 @using PagedList.Mvc
 @model PagedList.PagedList<SACH>
 @{
-    ViewBag.Title = "SachNXB";
+    ViewBag.Title ="NXB: "+ViewBag.TenNXB;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -18,7 +18,7 @@
                                 <div aria-label="Breadcrumbs" role="navigation">
                                     <ul itemscope="" itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
                                         <li>
-                                            You are here: &nbsp;
+                                            Bạn đang ở đây: &nbsp;
                                         </li>
                                         <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
                                             <a itemprop="item" href="@Url.Action("Index","Home")" class="pathway"><span itemprop="name">Home</span></a>
@@ -36,7 +36,7 @@
                                         </li>
                                         <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
                                             <span itemprop="name">
-                                                Nhà xuất bản
+                                               NXB: @ViewBag.TenNXB
                                             </span>
                                             <meta itemprop="position" content="3">
                                         </li>
@@ -67,23 +67,19 @@
                             <div class="row-fluid">
 
                                 <div class="span9">
-
                                     <form class="form-horizontal" id="productFilters" name="productfilters" action="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product" data-link="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product" method="post">
                                         <input type="hidden" name="filter_catid" id="sort_filter_catid" value="">
-                                        <input type="text" name="search" value="" class="j2store-product-search-input">			<input type="button" value="Go" class="btn btn-success" onclick="jQuery(this.form).submit();">
-                                        <input type="button" value="Reset" class="btn btn-inverse" onclick="resetJ2storeFilter();">
+                                        <input type="text" name="search" value="" class="j2store-product-search-input">			<input type="button" value="Tìm kiếm" class="btn btn-success" onclick="jQuery(this.form).submit();">
 
                                         <!-- Sorting -->
                                         <select id="j2store_sortby" name="sortby" class="input" onchange="jQuery(this.form).submit()">
-                                            <option value="" selected="selected">Sort Product by</option>
-                                            <option value="pname">Name (A - Z)</option>
-                                            <option value="rpname">Name (Z - A)</option>
-                                            <option value="min_price">Price (Low &gt; High)</option>
-                                            <option value="rmin_price">Price (High &gt; Low)</option>
-                                            <option value="sku">SKU (A - Z)</option>
-                                            <option value="rsku">SKU (Z - A)</option>
-                                            <option value="brand">Brand (A-Z)</option>
-                                            <option value="rbrand">Brand (Z-A)</option>
+                                            <option value="" selected="selected">Sắp xếp theo</option>
+                                            <option value="pname">Tên sách (A - Z)</option>
+                                            <option value="rpname">Tên sách (Z - A)</option>
+                                            <option value="min_price">Giá (Thấp &gt; Cao)</option>
+                                            <option value="rmin_price">Giá (Cao &gt; Thấp)</option>
+                                            <option value="brand">Nhà xuất bản (A-Z)</option>
+                                            <option value="rbrand">Nhà xuất bản (Z-A)</option>
                                         </select>
 
                                         <input type="hidden" name="option" value="com_j2store">	<input type="hidden" name="view" value="products">	<input type="hidden" name="task" value="browse">	<input type="hidden" name="Itemid" value="922">	<input type="hidden" name="650520bba53a98058bb2cf8beba59fdd" value="1">
@@ -128,7 +124,7 @@
 
                                                             <h2 itemprop="name" class="product-title">
 
-                                                                <a itemprop="url" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product/configurable-product" title="@item.TenSach">
+                                                                <a itemprop="url" href="@Url.Action("Details", "Home", new { id = item.MaSach })" title="@item.TenSach">
 
                                                                     @item.TenSach
                                                                 </a>
@@ -221,33 +217,33 @@
 
 
 
-                                                                    <div class="cart-action-complete" style="display:none;">
-                                                                        <p class="text-success">
-                                                                            Item added to cart.					<a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart" class="j2store-checkout-link">
-                                                                                Checkout
-                                                                            </a>
-                                                                        </p>
-                                                                    </div>
+                                    <div class="cart-action-complete" style="display:none;">
+                                        <p class="text-success">
+                                            Item added to cart.					<a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/cart" class="j2store-checkout-link">
+                                                Checkout
+                                            </a>
+                                        </p>
+                                    </div>
 
-                                                                    <div id="add-to-cart-19" class="j2store-add-to-cart">
+                                    <div id="add-to-cart-19" class="j2store-add-to-cart">
 
-                                                                        <div class="product-qty"><input type="number" name="product_qty" value="1" class="input-mini form-control " min="0" step="1"></div>
-                                                                        <input type="hidden" name="product_id" value="19">
+                                        <div class="product-qty"><input type="number" name="product_qty" value="1" class="input-mini form-control " min="0" step="1"></div>
+                                        <input type="hidden" name="product_id" value="19">
 
-                                                                        <input data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">
+                                        <input data-cart-action-always="Adding..." data-cart-action-done="Add to cart" data-cart-action-timeout="1000" value="Add to cart" type="submit" class="j2store-cart-button btn btn-primary">
 
-                                                                    </div>
-
-
-                                                                    <input type="hidden" name="option" value="com_j2store">
-                                                                    <input type="hidden" name="view" value="carts">
-                                                                    <input type="hidden" name="task" value="addItem">
-                                                                    <input type="hidden" name="ajax" value="0">
-                                                                    <input type="hidden" name="650520bba53a98058bb2cf8beba59fdd" value="1">	<input type="hidden" name="return" value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi9zdG9yZS9wcm9kdWN0">
-                                                                    <div class="j2store-notifications"></div>
+                                    </div>
 
 
-                                                                </form>*@
+                                    <input type="hidden" name="option" value="com_j2store">
+                                    <input type="hidden" name="view" value="carts">
+                                    <input type="hidden" name="task" value="addItem">
+                                    <input type="hidden" name="ajax" value="0">
+                                    <input type="hidden" name="650520bba53a98058bb2cf8beba59fdd" value="1">	<input type="hidden" name="return" value="aHR0cHM6Ly9kZW1vLmpvb21sYXNoaW5lLmNvbS9qb29tbGEtdGVtcGxhdGVzL2pzbl9ib29rc3RvcmUvcHJvL2Jvb2tzdG9yZS9lbi9zdG9yZS9wcm9kdWN0">
+                                    <div class="j2store-notifications"></div>
+
+
+                                </form>*@
 
 
 
@@ -269,8 +265,8 @@
                                     <form id="j2store-pagination" name="j2storepagination" action="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product?filter_catid=" method="post">
                                         <input type="hidden" name="option" value="com_j2store">						<input type="hidden" name="view" value="products">						<input type="hidden" name="task" id="task" value="browse">						<input type="hidden" name="boxchecked" value="0">						<input type="hidden" name="filter_order" value="">						<input type="hidden" name="filter_order_Dir" value="">						<input type="hidden" name="filter_catid" value="">						<input type="hidden" name="650520bba53a98058bb2cf8beba59fdd" value="1">
                                         @*<div class="pagination">
-                                            <ul class="pagination"><li class="disabled"><a>Start</a></li><li class="disabled"><a>Prev</a></li><li class="active hidden-xs hidden-sm"><a>1</a></li><li class="hidden-xs hidden-sm"><a title="2" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product?start=9" class="pagenav">2</a></li><li><a title="Next" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product?start=9" class="pagenav">Next</a></li><li><a title="End" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product?start=9" class="pagenav">End</a></li></ul>
-                                        </div>*@
+                <ul class="pagination"><li class="disabled"><a>Start</a></li><li class="disabled"><a>Prev</a></li><li class="active hidden-xs hidden-sm"><a>1</a></li><li class="hidden-xs hidden-sm"><a title="2" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product?start=9" class="pagenav">2</a></li><li><a title="Next" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product?start=9" class="pagenav">Next</a></li><li><a title="End" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product?start=9" class="pagenav">End</a></li></ul>
+            </div>*@
                                         Trang @(Model.PageCount<Model.PageNumber? 0:Model.PageNumber)/@Model.PageCount
                                         <div class="menu">
                                             <ul class="pagination">

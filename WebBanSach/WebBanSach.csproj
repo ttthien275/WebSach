@@ -224,6 +224,7 @@
     <Compile Include="Models\PaypalLogger.cs" />
     <Compile Include="MoMo\MoMoSecurity.cs" />
     <Compile Include="MoMo\PaymentRequest.cs" />
+    <Compile Include="NganLuong\APICheckoutV3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -749,6 +750,7 @@
     <Content Include="Views\QLTaiKhoanNV\Details.cshtml" />
     <Content Include="Views\QLTaiKhoanNV\Delete.cshtml" />
     <Content Include="Views\QLTaiKhoanNV\Create.cshtml" />
+    <Content Include="Views\DatHang\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

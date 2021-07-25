@@ -22,6 +22,8 @@ namespace WebBanSach.Controllers
             int pageNum = (page ?? 1);
             DataBookDataContext data = new DataBookDataContext();
             var sach = data.SACHes.Where(m => m.MaNXB == id).ToList();
+            NHAXUATBAN a = data.NHAXUATBANs.Single(l => l.MaNXB == id);
+            ViewBag.TenNXB = a.TenNXB;
             return View(sach.ToPagedList(pageNum,pageSize));
         }
     }

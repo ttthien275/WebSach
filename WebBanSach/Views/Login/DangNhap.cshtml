@@ -1,6 +1,6 @@
 ﻿@model WebBanSach.Models.TAIKHOAN
 @{
-    ViewBag.Title = "DangNhap";
+    ViewBag.Title = "Đăng nhập";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @if (TempData["dangnhap"] != null)
@@ -19,7 +19,7 @@
                                 <div aria-label="Breadcrumbs" role="navigation">
                                     <ul itemscope="" itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
                                         <li>
-                                            You are here: &nbsp;
+                                            Bạn đang ở đây: &nbsp;
                                         </li>
                                         <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
                                             <a itemprop="item" href="@Url.Action("Index","Home")" class="pathway"><span itemprop="name">Home</span></a>
@@ -29,7 +29,7 @@
                                         </li>
                                         <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
                                             <span itemprop="name">
-                                                Đăng nhập
+                                                @ViewBag.Title
                                             </span>
                                             <meta itemprop="position" content="3">
                                         </li>

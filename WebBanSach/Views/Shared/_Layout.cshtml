@@ -10,7 +10,7 @@
 
     <meta name="author" content="Super User" />
     <meta name="generator" content="Joomla! - Open Source Content Management" />
-    <title>Home English</title>
+    <title>@ViewBag.Title</title>
     <link href="~/Content/Slide.css" rel="stylesheet" />
     <link href="~/Content/StyleIndex.css" rel="stylesheet" />
 
@@ -486,7 +486,7 @@
                                                                                 <span data-pf-type="Text"
                                                                                       class="sc-qPwwY aevsi pf-9c042a4e-cedd1d32">
                                                                                     Hotlines:
-                                                                                    0999 888 777 / 0999 888 777
+                                                                                    0999 888 777 / 0999 888 888
                                                                                 </span>
                                                                             </p>
                                                                         </div>
@@ -544,15 +544,15 @@
                                                   method="post" enctype="multipart/form-data">
                                                 <div id="j2store_currency">
 
-                                                    <a class="active" title="USD"><b>$</b></a>
+                                                    <a class="active" title="USD"><b>VND</b></a>
 
 
                                                     <a title="EUR"
-                                                       onclick="j2store.jQuery('input[name=\'currency_code\']').attr('value', 'EUR'); j2store.jQuery(this).parent().parent().submit();">€</a>
+                                                       onclick="j2store.jQuery('input[name=\'currency_code\']').attr('value', 'EUR'); j2store.jQuery(this).parent().parent().submit();">USD</a>
 
 
                                                     <a title="JPY"
-                                                       onclick="j2store.jQuery('input[name=\'currency_code\']').attr('value', 'JPY'); j2store.jQuery(this).parent().parent().submit();">¥</a>
+                                                       onclick="j2store.jQuery('input[name=\'currency_code\']').attr('value', 'JPY'); j2store.jQuery(this).parent().parent().submit();">EUR</a>
 
                                                     <input type="hidden" name="currency_code" value="" />
                                                     <input type="hidden" name="option" value="com_j2store" />
@@ -573,13 +573,19 @@
                                                 <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">
                                                     <span class="caret"></span>
                                                     &nbsp;<img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/mod_languages/images/en_gb.gif"
-                                                               alt="" /> English(GB)
+                                                               alt="" /> Tiếng Việt(VN)
                                                 </a>
                                                 <ul class="lang-block dropdown-menu" dir="ltr">
+                                                    <li class="lang-active">
+                                                        <a href="">
+                                                            <img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/mod_languages/images/en_gb.gif"
+                                                                 alt="" /> Tiếng Việt(VN)
+                                                        </a>
+                                                    </li>
                                                     <li>
                                                         <a href="">
                                                             <img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/mod_languages/images/de_de.gif"
-                                                                 alt="" /> Deutsch(DE)
+                                                                 alt="" /> English(GB)
                                                         </a>
                                                     </li>
                                                     <li>
@@ -588,12 +594,7 @@
                                                                  alt="" /> Français(FR)
                                                         </a>
                                                     </li>
-                                                    <li class="lang-active">
-                                                        <a href="">
-                                                            <img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/mod_languages/images/en_gb.gif"
-                                                                 alt="" /> English(GB)
-                                                        </a>
-                                                    </li>
+
                                                 </ul>
                                             </div>
 
@@ -634,9 +635,9 @@
                                                 <label for="mod-search-searchword" class="element-invisible"> </label>
                                                 <input name="searchword" id="mod-search-searchword" maxlength="200"
                                                        class="inputbox search-query form-control" type="search"
-                                                       placeholder="Search ..." /> <button class="button btn btn-primary"
+                                                       placeholder="Bạn muốn tìm kiếm sách gì..." /> <button class="button btn btn-primary"
                                                                                            onclick="this.form.searchword.focus();">
-                                                    Search
+                                                    Tìm kiếm
                                                 </button> <input type="hidden" name="task" value="search" />
                                                 <input type="hidden" name="option" value="com_search" />
                                                 <input type="hidden" name="Itemid" value="937" />
@@ -699,7 +700,7 @@
                                                             <label for="modlgn-remember" class="control-label">
                                                                 <input id="modlgn-remember" type="checkbox" name="remember"
                                                                        class="inputbox" value="yes" />
-                                                                Remember Me
+                                                                Nhớ tôi cho lần đăng nhập tiếp theo
                                                             </label>
                                                         </div>
                                                     </div>
@@ -795,7 +796,7 @@
                                             </li>
                                             @Html.Action("MenuChuDe", "Module")
                                             @*Thêm thông tin tổng quan một số chức năng trong web*@
-                                            <li class="item-478 parent dropdown-submenu">
+                                            @*<li class="item-478 parent dropdown-submenu">
                                                 <span class="nav-header ">
                                                     <span class="heading-data-title">THÔNG TIN</span><span class="caret"></span>
                                                 </span>
@@ -967,7 +968,7 @@
                                                         </div>
                                                     </div>
                                                 </ul>
-                                            </li>
+                                            </li>*@
                                             @Html.Action("MenuNXB", "Module")
                                             @*Thêm danh mục sách vào menu hiển thị toàn bộ sách*@
                                             <li class="item-435">
@@ -980,7 +981,7 @@
                                             <li class="item-435">
                                                 <a class="clearfix"
                                                    href="#">
-                                                    <span data-title="About"><span class="menutitle">About</span></span>
+                                                    <span data-title="About"><span class="menutitle">Về chúng tôi</span></span>
                                                 </a>
                                             </li>
                                             @*Thêm trang liên lac vào menu hướng đến cuối trang*@
@@ -1364,18 +1365,14 @@
                                                                                 class="sc-qapxP jZxJgp pf-bc3a0887-d602526c">
                                                                                 <span data-pf-type="Text"
                                                                                       class="sc-oUAoT kVASKi pf-bc3a0887-1cd60252">
-                                                                                    JOIN
-                                                                                    US
+                                                                                    THAM GIA VỚI CHÚNG TÔI
                                                                                 </span>
                                                                             </h3>
                                                                             <p data-pf-type="Paragraph2"
                                                                                class="sc-oUbqx ebisfl pf-bc3a0887-6c0b0d8a">
                                                                                 <span data-pf-type="Text"
                                                                                       class="sc-oUAoT kVASKi pf-bc3a0887-526c0b0d">
-                                                                                    Join
-                                                                                    our Book Club and get newsletter to
-                                                                                    discover new books every
-                                                                                    month.
+                                                                                    Tham gia cùng với chúng tôi để nhận được những thông tin hay nhất về sách.
                                                                                 </span>
                                                                             </p>
                                                                             <form class="sc-pZQux FLGYx pf-bc3a0887-0b0d8aa2"
@@ -1383,9 +1380,9 @@
                                                                                   method="POST" data-pf-type="MailChimp">
                                                                                 <div>
                                                                                     <input type="text"
-                                                                                           placeholder="Enter Your Mail"
+                                                                                           placeholder="Email của bạn"
                                                                                            name="EMAIL"
-                                                                                           required=""><button><span>Subscribe</span></button>
+                                                                                           required=""><button><span>Tham gia</span></button>
                                                                                 </div>
                                                                             </form>
                                                                         </div>
@@ -1575,11 +1572,7 @@
                                                                                class="sc-psedN kzftmY pf-506fe5d9-58fc970f">
                                                                                 <span data-pf-type="Text"
                                                                                       class="sc-qPwwY aevsi pf-506fe5d9-8ccf58fc">
-                                                                                    It
-                                                                                    happens millions of times each week
-                                                                                    - a customer receives a book from a
-                                                                                    JSN Bookstore assistant - but each
-                                                                                    interaction is unique.
+                                                                                    Cung cấp kho sách khổng lồ với giá cực kì hạt dẻ, rẻ như mì ăn liền :D
                                                                                 </span>
                                                                             </p>
                                                                         </div>
@@ -1604,15 +1597,15 @@
                             <div class="sunfw-pos-bottom-2  block-2 visible-lg visible-md visible-sm visible-xs">
                                 <div class="module-style ">
                                     <div class="module-title">
-                                        <h3 class="box-title "><span>Service</span></h3>
+                                        <h3 class="box-title "><span>Dịch vụ</span></h3>
                                     </div>
                                     <div class="module-body">
                                         <ul class="nav menu items-border">
                                             <li class="item-570">
-                                                <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/about">About</a>
+                                                <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/about">Về chúng tôi</a>
                                             </li>
                                             <li class="item-566">
-                                                <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/contact">Contact</a>
+                                                <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/contact">Liên hệ</a>
                                             </li>
                                             <li class="item-492">
                                                 <a class="jsn-404-page"
@@ -1620,8 +1613,7 @@
                                             </li>
                                             <li class="item-572">
                                                 <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/coming-soon">
-                                                    Coming
-                                                    Soon
+                                                    Sắp ra mắt
                                                 </a>
                                             </li>
                                         </ul>
@@ -1636,7 +1628,7 @@
                             <div class="sunfw-pos-bottom-3   visible-lg visible-md visible-sm visible-xs">
                                 <div class="module-style ">
                                     <div class="module-title">
-                                        <h3 class="box-title "><span>Contact</span></h3>
+                                        <h3 class="box-title "><span>LIÊN HỆ</span></h3>
                                     </div>
                                     <div class="module-body">
 
@@ -1877,7 +1869,7 @@
                             <div class="sunfw-pos-bottom-4   visible-lg visible-md visible-sm visible-xs">
                                 <div class="module-style ">
                                     <div class="module-title">
-                                        <h3 class="box-title "><span>Working time</span></h3>
+                                        <h3 class="box-title "><span>Thời gian làm việc</span></h3>
                                     </div>
                                     <div class="module-body">
 
@@ -2115,16 +2107,16 @@
                                                                                     class="sc-oTzgz nnuJi pf-8da1a29d-4ac39e1a">
                                                                                     <span data-pf-type="Text"
                                                                                           class="sc-qPwwY aevsi pf-8da1a29d-2da17f09">
-                                                                                        Mon
-                                                                                        - Fri: 9:00 am - 9:00 pm
+                                                                                        Thứ 2
+                                                                                        - Thứ 6: 9:00 am - 9:00 pm
                                                                                     </span>
                                                                                 </li>
                                                                                 <li data-pf-type="List.Item"
                                                                                     class="sc-oTzgz nnuJi pf-8da1a29d-9e1a6326">
                                                                                     <span data-pf-type="Text"
                                                                                           class="sc-qPwwY aevsi pf-8da1a29d-84fd760c">
-                                                                                        Sat
-                                                                                        - Sun: 9:00 am - 6:00 pm
+                                                                                        Thứ 7
+                                                                                        - Chủ nhật: 9:00 am - 6:00 pm
                                                                                     </span>
                                                                                 </li>
                                                                             </ul>
@@ -2132,14 +2124,17 @@
                                                                                 class="sc-pjTqr kqDkLo pf-8da1a29d-6326fef3 sunfw-tx-mc">
                                                                                 <span data-pf-type="Text"
                                                                                       class="sc-qPwwY aevsi pf-8da1a29d-84b9c83f">
-                                                                                    FOLLOW
-                                                                                    US:
+                                                                                    LIÊN KẾT:
                                                                                 </span>
-                                                                            </h3><i class="sc-qQlgh dnZKXh pf-8da1a29d-c83f5af2 fa fa-facebook sunfw-bg-mc sunfw-tx-sc"
-                                                                                    data-pf-type="Icon"></i><i class="sc-qQlgh dnZKXh pf-8da1a29d-5af2ccb4 fa fa-twitter sunfw-bg-mc sunfw-tx-sc"
-                                                                                                               data-pf-type="Icon"></i><i class="sc-qQlgh dnZKXh pf-8da1a29d-ccb4235c fa fa-instagram sunfw-bg-mc sunfw-tx-sc"
-                                                                                                                                          data-pf-type="Icon"></i><i class="sc-qQlgh dnZKXh pf-8da1a29d-235c4ac3 fa fa-google sunfw-bg-mc sunfw-tx-sc"
-                                                                                                                                                                     data-pf-type="Icon"></i>
+                                                                            </h3><a href="https://www.facebook.com/S%C3%A1ch-Ngon-B%E1%BB%95-R%E1%BA%BB-101638042195361"><i class="sc-qQlgh dnZKXh pf-8da1a29d-c83f5af2 fa fa-facebook sunfw-bg-mc sunfw-tx-sc"
+   data-pf-type="Icon"></i></a>
+                                                                                 <a href="https://www.facebook.com/S%C3%A1ch-Ngon-B%E1%BB%95-R%E1%BA%BB-101638042195361"><i class="sc-qQlgh dnZKXh pf-8da1a29d-5af2ccb4 fa fa-twitter sunfw-bg-mc sunfw-tx-sc"
+   data-pf-type="Icon"></i></a> 
+                                                                                 <a href="https://www.facebook.com/S%C3%A1ch-Ngon-B%E1%BB%95-R%E1%BA%BB-101638042195361">
+                                                                                     <i class="sc-qQlgh dnZKXh pf-8da1a29d-ccb4235c fa fa-instagram sunfw-bg-mc sunfw-tx-sc"
+                                                                                        data-pf-type="Icon"></i>
+                                                                                 </a> 
+                                                                                      <a href="https://www.facebook.com/S%C3%A1ch-Ngon-B%E1%BB%95-R%E1%BA%BB-101638042195361"><i class="sc-qQlgh dnZKXh pf-8da1a29d-235c4ac3 fa fa-google sunfw-bg-mc sunfw-tx-sc" data-pf-type="Icon"></i></a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -2315,7 +2310,7 @@
                                                                                class="sc-psedN kzftmY pf-d15f133a-6854b4fc">
                                                                                 <span data-pf-type="Text"
                                                                                       class="sc-qPwwY aevsi pf-d15f133a-867e6854">
-                                                                                    sachngonbore is designed by <span class="sunfw-tx-mc">sachngonbore.somee.com</span><br>Powered
+                                                                                    ® sachngonbore is designed by <span class="sunfw-tx-mc">sachngonbore.somee.com</span><br>Powered
                                                                                     by <span class="sunfw-tx-mc">
                                                                                         sachngonbore
                                                                                     </span>

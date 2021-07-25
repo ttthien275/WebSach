@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<WebBanSach.Models.NHAXUATBAN>
-<div class="j2store-product-filters manufacturer-filters">
+@*<div class="j2store-product-filters manufacturer-filters">
 
     <div class="j2store-product-filter-title j2store-product-brand-title">
         <h4 class="product-filter-heading">Lọc theo Nhà Xuất Bản</h4>
@@ -10,9 +10,28 @@
         @foreach (var item in Model)
         {
             <label class="j2store-product-brand-label">
-                <input type="checkbox" class="j2store-brand-checkboxes" name="manufacturer_ids[]" id="brand-input-2" value="2">
+               
                 <a href="@Url.Action("SChuDe","ChuDe",new { id=item.MaNXB})">@item.TenNXB</a>
             </label>
         }
     </div>
+</div>*@
+<div class="j2store-product-filters category-filters">
+    <h4 class="product-filter-heading">Lọc theo NXB</h4>
+    <a href="javascript:void(0);" id="cat-filter-icon-minus" onclick="getCategoryFilterToggle(this);"><i class="icon-minus"></i></a>
+    <a href="javascript:void(0);" id="cat-filter-icon-plus" onclick="getCategoryFilterToggle(this);" style="display:none;"><i class="icon-plus"></i></a>
+    <div id="j2store_category" style="display:block;">
+        <ul id="j2store_categories_mod" class="nav nav-list nav-stacked j2store-category-list">
+            @foreach (var item in Model)
+            {
+                <li class=" j2product-categories  level1">
+                    <a href="javascript:void(0);" class="j2store-item-category" data-key="filter_catid" data-value="98">
+                        <a href="@Url.Action("SachNXB","NXB",new { id=item.MaNXB})">@item.TenNXB</a>
+                    </a>
+                </li>
+            }
+        </ul>
+
+    </div>
+
 </div>

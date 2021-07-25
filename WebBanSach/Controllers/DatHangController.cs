@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebBanSach.Models;
 using WebBanSach.MoMo;
+using WebBanSach.NganLuong;
 
 namespace WebBanSach.Controllers
 {
@@ -42,41 +43,257 @@ namespace WebBanSach.Controllers
             
             return View();
         }
-        [HttpPost]
-        public ActionResult DatHang(FormCollection collection)
-        {
-            DataBookDataContext data = new DataBookDataContext();
-            //Them don hang
-            DONDATHANG ddh = new DONDATHANG();
-            TAIKHOAN tk = (TAIKHOAN)Session["USERNAME"];
-            List<Giohang> gh = Session["Giohang"] as List<Giohang>;
+        //[HttpPost]
+        //public ActionResult DatHang(FormCollection collection)
+        //{
+        //    DataBookDataContext data = new DataBookDataContext();
+        //    //Them don hang
+        //    DONDATHANG ddh = new DONDATHANG();
+        //    TAIKHOAN tk = (TAIKHOAN)Session["USERNAME"];
+        //    List<Giohang> gh = Session["Giohang"] as List<Giohang>;
 
-            ddh.ID_TAIKHOAN = tk.ID;
-            ddh.CREATEDATE = DateTime.Now;
-            ddh.NgayDat = DateTime.Now;
-            var ngaygiao = String.Format("{0:dd/MM/yyyy}", collection["ngaygiao"]);
-            ddh.NgayGiao = DateTime.Parse(ngaygiao);
-            ViewBag.ngaygiao = DateTime.Parse(ngaygiao);
-            ddh.DaThanhToan = true;
-            ddh.TRANGTHAI = "Đang giao";
-            ddh.TinhTrangGiaoHang = false;
-            decimal ghTongTien = gh.Sum(n => n.ghThanhTien);
-            ddh.THANHTIEN_HOADON = (double?)ghTongTien;
-            data.DONDATHANGs.InsertOnSubmit(ddh);
-            data.SubmitChanges();
-            //Them chi tiết đơn đặt sách
-            foreach (var item in gh)
+        //    ddh.ID_TAIKHOAN = tk.ID;
+        //    ddh.CREATEDATE = DateTime.Now;
+        //    ddh.NgayDat = DateTime.Now;
+        //    var ngaygiao = String.Format("{0:dd/MM/yyyy}", collection["ngaygiao"]);
+        //    ddh.NgayGiao = DateTime.Parse(ngaygiao);
+        //    ViewBag.ngaygiao = DateTime.Parse(ngaygiao);
+        //    ddh.DaThanhToan = true;
+        //    ddh.TRANGTHAI = "Đang giao";
+        //    ddh.TinhTrangGiaoHang = false;
+        //    decimal ghTongTien = gh.Sum(n => n.ghThanhTien);
+        //    ddh.THANHTIEN_HOADON = (double?)ghTongTien;
+        //    data.DONDATHANGs.InsertOnSubmit(ddh);
+        //    data.SubmitChanges();
+        //    //Them chi tiết đơn đặt sách
+        //    foreach (var item in gh)
+        //    {
+        //        CHITIETDATHANG ctdh = new CHITIETDATHANG();
+        //        ctdh.SoDH = ddh.SoDH;
+        //        ctdh.MaSach = item.ghMaSach;
+        //        ctdh.SoLuong = item.ghSoLuong;
+        //        ctdh.DonGia = (decimal)item.ghGiaBan;
+        //        data.CHITIETDATHANGs.InsertOnSubmit(ctdh);
+        //    }
+        //    data.SubmitChanges();
+        //    Session["Giohang"] = null;
+        //    return RedirectToAction("ThongTinDonHang", "DatHang",ddh);
+        //}
+
+        [HttpPost]
+        public ActionResult DatHang(object sender, EventArgs e)
+        {
+            string payment_method = Request.Form["paymentMethod"];
+            string str_bankcode = Request.Form["bankcode"];
+            string merchantId = ConfigurationManager.AppSettings["MerchantId"].ToString();
+            string merchantPassword = ConfigurationManager.AppSettings["MerchantPassword"].ToString();
+            string merchantEmail = ConfigurationManager.AppSettings["MerchantEmail"].ToString();
+            string currentLink = ConfigurationManager.AppSettings["CurrentLink"].ToString();
+            if (payment_method == "CASH")
             {
-                CHITIETDATHANG ctdh = new CHITIETDATHANG();
-                ctdh.SoDH = ddh.SoDH;
-                ctdh.MaSach = item.ghMaSach;
-                ctdh.SoLuong = item.ghSoLuong;
-                ctdh.DonGia = (decimal)item.ghGiaBan;
-                data.CHITIETDATHANGs.InsertOnSubmit(ctdh);
+                DataBookDataContext data = new DataBookDataContext();
+                //Them don hang
+                DONDATHANG ddh = new DONDATHANG();
+                TAIKHOAN tk = (TAIKHOAN)Session["USERNAME"];
+                List<Giohang> gh = Session["Giohang"] as List<Giohang>;
+
+                ddh.ID_TAIKHOAN = tk.ID;
+                ddh.CREATEDATE = DateTime.Now;
+                ddh.NgayDat = DateTime.Now;
+                DateTime now = DateTime.Now;
+                DateTime ngaygiao = now.AddDays(2);
+                ddh.NgayGiao = ngaygiao;
+                ddh.DaThanhToan = true;
+                ddh.TRANGTHAI = "Đang giao";
+                ddh.TinhTrangGiaoHang = false;
+                decimal ghTongTien = gh.Sum(n => n.ghThanhTien);
+                ddh.THANHTIEN_HOADON = (double?)ghTongTien;
+                data.DONDATHANGs.InsertOnSubmit(ddh);
+                data.SubmitChanges();
+                //Them chi tiết đơn đặt sách
+                foreach (var item in gh)
+                {
+                    CHITIETDATHANG ctdh = new CHITIETDATHANG();
+                    ctdh.SoDH = ddh.SoDH;
+                    ctdh.MaSach = item.ghMaSach;
+                    ctdh.SoLuong = item.ghSoLuong;
+                    ctdh.DonGia = (decimal)item.ghGiaBan;
+                    data.CHITIETDATHANGs.InsertOnSubmit(ctdh);
+                }
+                data.SubmitChanges();
+                Session["Giohang"] = null;
+                return RedirectToAction("ThongTinDonHang", "DatHang", ddh);
             }
-            data.SubmitChanges();
-            Session["Giohang"] = null;
-            return RedirectToAction("ThongTinDonHang", "DatHang",ddh);
+            else if (payment_method == "NL")
+            {
+                List<Giohang> gh = Session["Giohang"] as List<Giohang>;
+                DataBookDataContext data = new DataBookDataContext();
+                //Them don hang
+                DONDATHANG ddh = new DONDATHANG();
+                TAIKHOAN tk = (TAIKHOAN)Session["USERNAME"];
+
+                //thong tin nguoi dat
+                ddh.TAIKHOAN = tk;
+
+                ddh.CREATEDATE = DateTime.Now;
+                ddh.NgayDat = DateTime.Now;
+                ddh.NgayGiao = DateTime.Now;
+                ddh.DaThanhToan = true;
+                ddh.TRANGTHAI = "";
+                ddh.HinhThucThanhToan = true;
+                ddh.TinhTrangGiaoHang = false;
+                decimal ghTongTien = gh.Sum(n => n.ghThanhTien);
+                ddh.THANHTIEN_HOADON = (double?)ghTongTien;
+
+
+                RequestInfo info = new RequestInfo();
+                info.Merchant_id = merchantId;
+                info.Merchant_password = merchantPassword;
+                info.Receiver_email = merchantEmail;
+
+                info.cur_code = "vnd";
+                info.bank_code = str_bankcode;
+
+                info.Order_code = "NGANLUONG-BookStore"; ;
+                info.Total_amount = ddh.THANHTIEN_HOADON.ToString();
+                info.fee_shipping = "0";
+                info.Discount_amount = "0";
+                info.order_description = "Thanh toán tại Book Store - Sách Ngon Bổ Rẻ";
+                info.return_url = currentLink + "DatHang/DatHang";
+                info.cancel_url = currentLink + "DatHang/DatHang";
+
+                info.Buyer_fullname = ddh.TAIKHOAN.HOTEN;
+                info.Buyer_email = ddh.TAIKHOAN.EMAIL_TK;
+                info.Buyer_mobile = ddh.TAIKHOAN.SDT;
+
+                APICheckoutV3 objNLChecout = new APICheckoutV3();
+                ResponseInfo result = objNLChecout.GetUrlCheckout(info, payment_method);
+
+                if (result.Error_code == "00")
+                {
+                    Response.Redirect(result.Checkout_url);
+                }
+                else
+                {
+                    ViewBag.loi = result.Description;
+                    return RedirectToAction("Error", "DatHang");
+                }
+            }
+            else if (payment_method == "ATM_ONLINE")
+            {
+                List<Giohang> gh = Session["Giohang"] as List<Giohang>;
+                DataBookDataContext data = new DataBookDataContext();
+                //Them don hang
+                DONDATHANG ddh = new DONDATHANG();
+                TAIKHOAN tk = (TAIKHOAN)Session["USERNAME"];
+
+                //thong tin nguoi dat
+                ddh.TAIKHOAN = tk;
+
+                ddh.CREATEDATE = DateTime.Now;
+                ddh.NgayDat = DateTime.Now;
+                ddh.NgayGiao = DateTime.Now;
+                ddh.DaThanhToan = true;
+                ddh.TRANGTHAI = "";
+                ddh.HinhThucThanhToan = true;
+                ddh.TinhTrangGiaoHang = false;
+                decimal ghTongTien = gh.Sum(n => n.ghThanhTien);
+                ddh.THANHTIEN_HOADON = (double?)ghTongTien;
+
+
+                RequestInfo info = new RequestInfo();
+                info.Merchant_id = merchantId;
+                info.Merchant_password = merchantPassword;
+                info.Receiver_email = merchantEmail;
+
+                info.cur_code = "vnd";
+                info.bank_code = str_bankcode;
+
+                info.Order_code = "ATM-BookStore";
+                info.Total_amount = ddh.THANHTIEN_HOADON.ToString();
+                info.fee_shipping = "0";
+                info.Discount_amount = "0";
+                info.order_description = "Thanh toán tại Book Store - Sách Ngon Bổ Rẻ";
+                info.return_url = currentLink + "DatHang/DatHang";
+                info.cancel_url = currentLink + "DatHang/DatHang";
+
+                info.Buyer_fullname = ddh.TAIKHOAN.HOTEN;
+                info.Buyer_email = ddh.TAIKHOAN.EMAIL_TK;
+                info.Buyer_mobile = ddh.TAIKHOAN.SDT;
+
+                APICheckoutV3 objNLChecout = new APICheckoutV3();
+                ResponseInfo result = objNLChecout.GetUrlCheckout(info, payment_method);
+
+                if (result.Error_code == "00")
+                {
+                    Response.Redirect(result.Checkout_url);
+                }
+                else
+                {
+                    ViewBag.loi = result.Description;
+                    return RedirectToAction("Error", "DatHang");
+                }
+
+            }
+            else if (payment_method == "MOMO")
+            {
+                List<Giohang> gh = Session["Giohang"] as List<Giohang>;
+                string endpoint = ConfigurationManager.AppSettings["endpoint"].ToString();
+                string partnerCode = ConfigurationManager.AppSettings["partnerCode"].ToString();
+                string accessKey = ConfigurationManager.AppSettings["accessKey"].ToString();
+                string secretKey = ConfigurationManager.AppSettings["secretKey"].ToString();
+                string orderInfo = "Sách: ";
+                for (int i = 0; i < gh.Count; i++)
+                {
+
+                    if (i == 0)
+                    {
+                        orderInfo += gh[i].ghTenSach + "(" + gh[i].ghSoLuong + ")";
+                    }
+                    else
+                    {
+                        orderInfo += " + " + gh[i].ghTenSach + "(" + gh[i].ghSoLuong + ")";
+                    }
+                }
+                string returnUrl = ConfigurationManager.AppSettings["returnUrl"].ToString();
+                string notifyUrl = ConfigurationManager.AppSettings["notifyUrl"].ToString();
+
+                string amount = gh.Sum(n => n.ghThanhTien).ToString();
+                string orderid = Guid.NewGuid().ToString();
+                string requestId = Guid.NewGuid().ToString();
+                string extraData = "";
+
+                string rawHash = "partnerCode=" +
+                    partnerCode + "&accessKey=" +
+                    accessKey + "&requestId=" +
+                    requestId + "&amount=" +
+                    amount + "&orderId=" +
+                    orderid + "&orderInfo=" +
+                    orderInfo + "&returnUrl=" +
+                    returnUrl + "&notifyUrl=" +
+                    notifyUrl + "&extraData=" +
+                    extraData;
+
+                MoMoSecurity crypto = new MoMoSecurity();
+                string signature = crypto.signSHA256(rawHash, secretKey);
+                JObject message = new JObject
+            {
+                { "partnerCode", partnerCode },
+                { "accessKey", accessKey },
+                { "requestId", requestId },
+                { "amount", amount },
+                { "orderId", orderid },
+                { "orderInfo", orderInfo },
+                { "returnUrl", returnUrl },
+                { "notifyUrl", notifyUrl },
+                { "requestType", "captureMoMoWallet" },
+                { "signature", signature }
+            };
+                string reponseFromMoMo = PaymentRequest.sendPaymentRequest(endpoint, message.ToString());
+                JObject jmessage = JObject.Parse(reponseFromMoMo);
+                return Redirect(jmessage.GetValue("payUrl").ToString());
+            }
+            return RedirectToAction("ThongTinDonHang2", "DatHang");
         }
 
         public ActionResult AllDonHang()
@@ -105,6 +322,12 @@ namespace WebBanSach.Controllers
             ViewBag.TrangThaiTT = b.DaThanhToan;
             return View(a);
         }
+        
+        public ActionResult Error()
+        {
+            return View(); 
+        }
+
 
 
         //-------------------------------------------------------------------------------------------------------------------//
@@ -202,11 +425,11 @@ namespace WebBanSach.Controllers
             ddh.ID_TAIKHOAN = tk.ID;
             ddh.CREATEDATE = DateTime.Now;
             ddh.NgayDat = DateTime.Now;
-            //var ngaygiao = ddh.NgayDat.ToString();
-            //ddh.NgayGiao = DateTime.Parse(ngaygiao);
-            //ViewBag.ngaygiao = DateTime.Parse(ngaygiao);
+            DateTime now = DateTime.Now;
+            DateTime ngaygiao = now.AddDays(2);
+            ddh.NgayGiao = ngaygiao; ;
             ddh.DaThanhToan = true;
-            ddh.TRANGTHAI = "";
+            ddh.TRANGTHAI = "Đang giao";
             ddh.HinhThucThanhToan = true;
             ddh.TinhTrangGiaoHang = false;
             decimal ghTongTien = gh.Sum(n => n.ghThanhTien);

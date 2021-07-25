@@ -37,7 +37,7 @@ namespace WebBanSach.Controllers
         {
             var sach = from s in data.SACHes
                        where s.MaSach == id
-                       select s;
+                       select s; 
             return View(sach.Single()); 
         }
 

@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "ChiTietDonHang";
+    ViewBag.Title = "Thông báo Đặt hàng thành công";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -16,7 +16,7 @@
                                 <div aria-label="Breadcrumbs" role="navigation">
                                     <ul itemscope="" itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
                                         <li>
-                                            You are here: &nbsp;
+                                            Bạn đang ở đây: &nbsp;
                                         </li>
 
                                         <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
@@ -43,7 +43,7 @@
                                         </li>
                                         <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
                                             <span itemprop="name">
-                                                Chi tiết
+                                                @ViewBag.Title
                                             </span>
                                             <meta itemprop="position" content="3">
                                         </li>
@@ -83,7 +83,7 @@
                                                     <tr>
                                                         <th style="text-align:left">Mã Đơn hàng</th>
                                                         <th style="text-align:left">Ngày đặt</th>
-                                                        <th style="text-align:left">Ngày giao</th>
+                                                        <th style="text-align:left">Ngày giao dự kiến</th>
                                                         <th style="text-align:left">Tổng Tiền</th>
                                                         @*<th style="text-align:left">Tình trạng đơn hàng</th>
                                                         <th style="text-align:left">Hình thức thanh toán</th>

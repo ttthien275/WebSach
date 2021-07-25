@@ -31,6 +31,8 @@ namespace WebBanSach.Controllers
             int pageNum = (page ?? 1);
             DataBookDataContext data = new DataBookDataContext();
             var sach = data.SACHes.Where(m => m.MaCD == id).ToList();
+            CHUDE a = data.CHUDEs.Single(m => m.MaCD == id);
+            ViewBag.TenChuDe = a.TenChuDe;
             Session["Chude"] = id;
             return View(sach.ToPagedList(pageNum, pageSize));
         }

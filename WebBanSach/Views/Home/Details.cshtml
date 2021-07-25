@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title ="Sách: "+Model.TenSach;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -15,7 +15,7 @@
                                 <div aria-label="Breadcrumbs" role="navigation">
                                     <ul itemscope="" itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
                                         <li>
-                                            You are here: &nbsp;
+                                            Bạn đang ở đây: &nbsp;
                                         </li>
 
                                         <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
@@ -34,7 +34,7 @@
                                         </li>
                                         <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
                                             <span itemprop="name">
-                                                Chi tiết
+                                               @Model.TenSach
                                             </span>
                                             <meta itemprop="position" content="3">
                                         </li>
@@ -242,11 +242,11 @@
                                     <div class="span12">
                                         <ul class="nav nav-tabs" id="j2store-product-detail-tab">
                                             <li class="active">
-                                                <a href="#description" data-toggle="tab">Description</a>
+                                                <a href="#description" data-toggle="tab">Mô tả</a>
 
                                             </li>
                                             <li class="">
-                                                <a href="#specs" data-toggle="tab">Specifications</a>
+                                                <a href="#specs" data-toggle="tab">Thông tin sách</a>
                                             </li>
                                         </ul>
 
@@ -269,7 +269,7 @@
                                                 <table class="table table-striped">
                                                     <tbody>
                                                         <tr>
-                                                            <td>Dimension (L x W x H)</td>
+                                                            <td>Kích thước (Dài x Rộng x Cao)</td>
                                                             <td>
                                                                 <span class="product-dimensions">
                                                                     180                    x 90                    x 80
@@ -278,7 +278,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                Weight
+                                                                Khối lượng
                                                             </td>
                                                             <td>
                                                                 <span class="product-weight">
