@@ -7,7 +7,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <div id="sunfw_section_section_content_top" class="sunfw-section sunfw_section_section_content_top visible-lg visible-md visible-sm visible-xs">
     <div class="container">
         <div id="row_row-5" class="row ">
@@ -23,36 +22,24 @@
                                         </li>
 
                                         <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-                                            <a itemprop="item" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/" class="pathway"><span itemprop="name">Home</span></a>
-
+                                            <a itemprop="item" href="@Url.Action("Index","Home")" class="pathway"><span itemprop="name">Home</span></a>
                                             <span class="divider">
-                                                <img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/system/images/arrow.png" alt="">
+                                                @*<img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/system/images/arrow.png" alt="">*@
                                             </span>
                                             <meta itemprop="position" content="1">
                                         </li>
                                         <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-                                            <span itemprop="name">
-                                                Store
-                                            </span>
-
+                                            <a itemprop="item" href="@Url.Action("All_Sach","Module")" class="pathway"><span itemprop="name">Sách</span></a>
                                             <span class="divider">
                                                 <img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/system/images/arrow.png" alt="">
                                             </span>
                                             <meta itemprop="position" content="2">
                                         </li>
-                                        <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-                                            <a itemprop="item" href="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product" class="pathway"><span itemprop="name">Product</span></a>
-
-                                            <span class="divider">
-                                                <img src="/joomla-templates/jsn_bookstore/pro/bookstore/media/system/images/arrow.png" alt="">
-                                            </span>
-                                            <meta itemprop="position" content="3">
-                                        </li>
                                         <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
                                             <span itemprop="name">
-                                                j2store
+                                                Chủ đề
                                             </span>
-                                            <meta itemprop="position" content="4">
+                                            <meta itemprop="position" content="3">
                                         </li>
                                     </ul>
                                 </div>
@@ -64,6 +51,7 @@
         </div>
     </div>
 </div>
+
 <div id="sunfw_section_section_main_body" class="sunfw-section sunfw_section_section_main_body visible-lg visible-md visible-sm visible-xs">
     <div class="container">
         <div id="row_row-1" class="row sunfw-flex-component">
