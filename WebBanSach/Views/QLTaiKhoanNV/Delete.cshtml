@@ -1,0 +1,138 @@
+﻿@model WebBanSach.Models.TAIKHOAN
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TAIKHOAN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_LOAITK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_LOAITK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOTEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOTEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USERNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USERNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATKHAU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATKHAU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL_TK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL_TK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIACHI_TK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHI_TK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GHICHU_TK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GHICHU_TK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IS_DELETE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IS_DELETE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CREATEBY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CREATEBY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CREATEDATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CREATEDATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MODIFILEDBY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MODIFILEDBY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MODIFILEDDATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MODIFILEDDATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STATUS)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary" />
+            <a href="@Url.Action("Index","QLTaiKhoanNV")" class="btn btn-success">Quay lại</a>
+        </div>
+    }
+</div>

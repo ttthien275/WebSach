@@ -29,7 +29,7 @@
         </dd>
 
         <dt>
-          Tình trạng giao hàng
+            Tình trạng giao hàng
         </dt>
 
         <dd>
@@ -37,7 +37,7 @@
         </dd>
 
         <dt>
-           Ngày đặt hàng
+            Ngày đặt hàng
         </dt>
 
         <dd>
@@ -85,7 +85,7 @@
         </dd>
 
         <dt>
-           Ngày tạo 
+            Ngày tạo
         </dt>
 
         <dd>
@@ -118,12 +118,13 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "QLDonDH")
+            <input type="submit" value="Xóa" class="btn btn-primary" />
+            <a href="@Url.Action("QlDonDH","QlDonDH")" class="btn btn-success">Quay lại</a>
         </div>
     }
 </div>

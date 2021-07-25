@@ -5,11 +5,21 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Chi tiết đơn đặt sách</h2>
+@*<h2>Chi tiết đơn đặt sách</h2>*@
 
 @*<p>
         @Html.ActionLink("Create New", "Create")
     </p>*@
+<div class="card-header">
+    <div class="row">
+        <div class="col-md-6">
+            <strong class="text-danger text-uppercase">TẤT CẢ ĐƠN HÀNG</strong>
+        </div>
+        <div class="col-md-6 text-right">
+            <a href="@Url.Action("QLDonDH","QLDonDH")" class="btn btn-success">Quay lại</a>
+        </div>
+    </div>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -45,6 +55,15 @@
     }
 
 </table>
-<p>
-    @Html.ActionLink("Back to list", "QLDonDH")
-</p>
+@section header{
+
+    <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section footer{
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('#myTable').DataTable();
+        });
+    </script>
+}

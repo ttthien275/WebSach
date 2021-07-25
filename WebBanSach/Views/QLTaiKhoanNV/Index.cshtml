@@ -1,44 +1,21 @@
-﻿@model IEnumerable<WebBanSach.Models.DONDATHANG>
+﻿@model IEnumerable<WebBanSach.Models.TAIKHOAN>
 
 @{
-    ViewBag.Title = "Quản lý đơn đặt hàng";
+    ViewBag.Title = "Quản lý tài khoản nhân viên";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<!--<h2>Quản lý Đơn đặt hàng</h2>
-<hr />-->
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>*@
-@*<table class="table">
-        <tr>
-
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.MaSach }) |
-                @Html.ActionLink("Details", "Details", new { id=item.MaSach }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.MaSach })
-            </td>
-        </tr>
-    }
-
-    </table>*@
-//
 <div class="card">
     <div class="card-header">
         <div class="row">
             <div class="col-md-6">
-                <strong class="text-danger text-uppercase">TẤT CẢ ĐƠN HÀNG</strong>
+                <strong class="text-danger text-uppercase">TẤT CẢ TÀI KHOẢN NHÂN VIÊN</strong>
             </div>
             <div class="col-md-6 text-right">
-                <a href="@Url.Action("Create","")" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>Thêm</a>
+                <a href="@Url.Action("Create","QLTaiKhoanNV")" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>Thêm</a>
                 <a href="Detrash" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>Thùng rác</a>
             </div>
+            <div><br /></div>
         </div>
     </div>
     <div class="card-body">
@@ -47,40 +24,28 @@
                 <tr>
                     <th style="width:20px;" class="text-center">#</th>
                     <th>
-                        Tên sách
+                        @Html.DisplayNameFor(model => model.ID_LOAITK)
                     </th>
                     <th>
-                        Giá
+                        @Html.DisplayNameFor(model => model.HOTEN)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.GiaBia)
+                        @Html.DisplayNameFor(model => model.USERNAME)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.MoTa)
+                        @Html.DisplayNameFor(model => model.MATKHAU)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.AnhBia)
+                        @Html.DisplayNameFor(model => model.EMAIL_TK)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.NgayCapNhat)
+                        @Html.DisplayNameFor(model => model.DIACHI_TK)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.SoLuongTon)
+                        @Html.DisplayNameFor(model => model.SDT)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.MaCD)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.MaNXB)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Status)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Size)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Weight)
+                        @Html.DisplayNameFor(model => model.STATUS)
                     </th>
                     <th style="width:200px;" class="text-center">Chức năng</th>
                 </tr>
@@ -93,40 +58,28 @@
                             <input name="STT" type="checkbox" class="text-center" />
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.TenSach)
+                            @Html.DisplayFor(modelItem => item.ID_LOAITK)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.GiaBan)
+                            @Html.DisplayFor(modelItem => item.HOTEN)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.GiaBia)
+                            @Html.DisplayFor(modelItem => item.USERNAME)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.MoTa)
+                            @Html.DisplayFor(modelItem => item.MATKHAU)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.AnhBia)
+                            @Html.DisplayFor(modelItem => item.EMAIL_TK)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.NgayCapNhat)
+                            @Html.DisplayFor(modelItem => item.DIACHI_TK)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SoLuongTon)
+                            @Html.DisplayFor(modelItem => item.SDT)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.MaCD)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MaNXB)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Status)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Size)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Weight)
+                            @Html.DisplayFor(modelItem => item.STATUS)
                         </td>
                         <td class="text-center">
                             @* buttun trang thai(de day t dung copy neu can)
@@ -152,9 +105,9 @@
                                 db.SaveChanges();
                                 return RedirectToAction("Index");
                                 }*@
-                            <a class="btn btn-info btn-sm" href="@Url.Action("Edit","Edit",new { id= item.SoDH  })"><i class="fas fa-edit"></i></a>
-                            <a class="btn btn-warning btn-sm" href="@Url.Action("Details","Details",new { id = item.SoDH })"><i class="fas fa-eye"></i></a>
-                            <a class="btn btn-danger btn-sm" href="@Url.Action("DelTrash","DelTrash",new { id = item.SoDH })"><i class="fas fa-trash"></i></a>
+                            <a class="btn btn-info btn-sm" href="@Url.Action("Edit","QLTaiKhoanNV",new { id =item.ID  })"><i class="fas fa-edit"></i></a>
+                            <a class="btn btn-warning btn-sm" href="@Url.Action("Details","QLTaiKhoanNV",new { id = item.ID })"><i class="fas fa-eye"></i></a>
+                            <a class="btn btn-danger btn-sm" href="@Url.Action("Delete","QLTaiKhoanNV",new { id = item.ID })"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 }

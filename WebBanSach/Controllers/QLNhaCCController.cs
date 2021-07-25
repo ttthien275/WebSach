@@ -12,7 +12,7 @@ namespace WebBanSach.Controllers
         // GET: QLNhaCC
         public ActionResult Index()
         {
-            var dsnxb = data.NHAXUATBANs.ToList();
+            var dsnxb = data.NHAXUATBANs.ToList().OrderByDescending(n=>n.MaNXB);
             return View(dsnxb);
         }
         //them

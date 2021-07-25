@@ -7,11 +7,9 @@ using WebBanSach.Models;
 
 namespace WebBanSach.Controllers
 {
-    public class QLTaikhoanKHController : Controller
+    public class QLTaiKhoanNVController : Controller
     {
-        //t quen nhung n ko anh huong///đe/ t ucoi cai coi
         DataBookDataContext data = new DataBookDataContext();
-        // GET: QLTaikhoanKH
         public ActionResult Index()
         {
             if (Session["username_Admin"] == null)
@@ -19,8 +17,8 @@ namespace WebBanSach.Controllers
                 ViewBag.ThongBao = "Bạn cần đăng nhập trước khi sử dụng chức năng chỉnh sửa!";
                 return RedirectToAction("DangNhapAdmin", "Admin");
             }
-            var listKh = data.TAIKHOANs.Where(p => p.ID_LOAITK == 3).ToList().OrderByDescending(n=>n.ID);
-            return View(listKh);
+            var listNV = data.TAIKHOANs.Where(p => p.ID_LOAITK == 2).ToList().OrderByDescending(n => n.ID);
+            return View(listNV);
         }
 
         public ActionResult Create()
@@ -38,7 +36,7 @@ namespace WebBanSach.Controllers
         {
             data.TAIKHOANs.InsertOnSubmit(tk);
             data.SubmitChanges();
-            return RedirectToAction("Index", "QLTaikhoanKH");
+            return RedirectToAction("Index", "QLTaiKhoanNV");
         }
 
         public ActionResult Delete(int id)
@@ -57,7 +55,7 @@ namespace WebBanSach.Controllers
             }
 
         }
-        //post
+
         [HttpPost, ActionName("Delete")]
         public ActionResult comfirmDelete(int id)
         {
@@ -79,14 +77,14 @@ namespace WebBanSach.Controllers
                     data.SubmitChanges();
                 }
                 data.TAIKHOANs.DeleteOnSubmit(tk);
-                
+
                 //var listĐH=data.DONDATHANGs.Where(p => p.ID_TAIKHOAN == id).ToList();
                 //foreach(var item in listĐH) {
                 //    DONDATHANG dh=data.DONDATHANGs.SingleOrDefault(p=>p.ID_TAIKHOAN==id)
                 //    data.DONDATHANGs.DeleteAllOnSubmit(dh);
                 //}
                 data.SubmitChanges();
-                return RedirectToAction("Index", "QLTaikhoanKH");
+                return RedirectToAction("Index", "QLTaiKhoanNV");
             }
             return HttpNotFound();
 
@@ -103,7 +101,7 @@ namespace WebBanSach.Controllers
             else
             {
                 TAIKHOAN tk = data.TAIKHOANs.SingleOrDefault(p => p.ID == id);
-                
+
                 return View(tk);
             }
         }
@@ -116,7 +114,7 @@ namespace WebBanSach.Controllers
             {
                 UpdateModel(tk);
                 data.SubmitChanges();
-                return RedirectToAction("Index", "QLTaikhoanKH");
+                return RedirectToAction("Index", "QLTaiKhoanNV");
             }
             return HttpNotFound();
         }
@@ -137,5 +135,6 @@ namespace WebBanSach.Controllers
             }
 
         }
+
     }
 }

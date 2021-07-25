@@ -24,7 +24,7 @@ namespace WebBanSach.Controllers
                 ViewBag.ThongBao = "Bạn cần đăng nhập trước khi sử dụng chức năng chỉnh sửa!";
                 return RedirectToAction("DangNhapAdmin", "Admin");
             }
-            return View(data.DONDATHANGs.ToList());
+            return View(data.DONDATHANGs.ToList().OrderByDescending(n=>n.SoDH));
         }
 
         public ActionResult Edit(int id)
@@ -105,6 +105,8 @@ namespace WebBanSach.Controllers
                 return View(dsdh);
             }
         }
+
+
         //xóa
         //get
         public ActionResult Delete(int id)

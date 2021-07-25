@@ -8,105 +8,222 @@
 <h2>Quản lý Đơn đặt hàng</h2>
 
 @*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
-<table class="table">
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+@*<table class="table">
+        <tr>
+            <th>
+                Số đơn hàng
+            </th>
+            <th>
+                Khách hàng
+            </th>
+            <th>
+                Tình trạng thanh toán
+            </th>
+            <th>
+                Tình trạng giao hàng
+            </th>
+            <th>
+                Ngày đặt
+            </th>
+            <th>
+                Ngày giao hàng
+            </th>
+            <th>
+                Hình thức thanh toán
+            </th>
+            <th>
+                Thành tiền
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th>
+                Nhân viên tạo ĐH
+            </th>
+            <th>
+                Ngày tạo ĐH
+            </th>
+            <th>
+                Nhân viên xử lý
+            </th>
+            <th>
+                Ngày xử lý ĐH
+            </th>
+            <th>
+                Ghi chú
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
     <tr>
-        <th>
-            Số đơn hàng
-        </th>
-        <th>
-            Khách hàng
-        </th>
-        <th>
-            Tình trạng thanh toán
-        </th>
-        <th>
-            Tình trạng giao hàng
-        </th>
-        <th>
-            Ngày đặt
-        </th>
-        <th>
-            Ngày giao hàng
-        </th>
-        <th>
-            Hình thức thanh toán
-        </th>
-        <th>
-            Thành tiền
-        </th>
-        <th>
-            Trạng thái
-        </th>
-        <th>
-            Nhân viên tạo ĐH
-        </th>
-        <th>
-            Ngày tạo ĐH
-        </th>
-        <th>
-            Nhân viên xử lý
-        </th>
-        <th>
-            Ngày xử lý ĐH
-        </th>
-        <th>
-            Ghi chú
-        </th>
-        <th></th>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.SoDH }) |
+            @Html.ActionLink("Details", "Details", new { id = item.SoDH }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.SoDH })
+        </td>
     </tr>
+    }
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.SoDH)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ID_TAIKHOAN)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DaThanhToan)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TinhTrangGiaoHang)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.NgayDat)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.NgayGiao)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.HinhThucThanhToan)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.THANHTIEN_HOADON)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TRANGTHAI)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CREATEBY)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CREATEDATE)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MODIFILEDBY)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MODIFILEDDATE)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.GHICHU_HOADON)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.SoDH }) |
-        @Html.ActionLink("Details", "Details", new { id = item.SoDH }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.SoDH })
-    </td>
-</tr>
+    </table>*@
+
+<div class="card">
+    @*<div class="card-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <strong class="text-danger text-uppercase">TẤT CẢ ĐƠN HÀNG</strong>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="@Url.Action("Create","")" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>Thêm</a>
+                    <a href="Detrash" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>Thùng rác</a>
+                </div>
+            </div>
+        </div>*@
+    <div class="card-body">
+        <table id="myTable" class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th style="width:20px;" class="text-center">#</th>
+                    <th>
+                        Số đơn hàng
+                    </th>
+                    <th>
+                        Khách hàng
+                    </th>
+                    <th>
+                        Tình trạng thanh toán
+                    </th>
+                    <th>
+                        Tình trạng giao hàng
+                    </th>
+                    <th>
+                        Ngày đặt
+                    </th>
+                    <th>
+                        Ngày giao hàng
+                    </th>
+                    <th>
+                        Hình thức thanh toán
+                    </th>
+                    <th>
+                        Thành tiền
+                    </th>
+                    <th>
+                        Trạng thái
+                    </th>
+                    @*<th>
+                        Nhân viên tạo ĐH
+                    </th>
+                    <th>
+                        Ngày tạo ĐH
+                    </th>
+                    <th>
+                        Nhân viên xử lý
+                    </th>
+                    <th>
+                        Ngày xử lý ĐH
+                    </th>*@
+                    <th>
+                        Ghi chú
+                    </th>
+                    <th style="width:200px;" class="text-center">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <input name="STT" type="checkbox" class="text-center" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SoDH)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID_TAIKHOAN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DaThanhToan)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TinhTrangGiaoHang)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NgayDat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NgayGiao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HinhThucThanhToan)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.THANHTIEN_HOADON)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TRANGTHAI)
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.CREATEBY)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CREATEDATE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MODIFILEDBY)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MODIFILEDDATE)
+                        </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GHICHU_HOADON)
+                        </td>
+                        <td class="text-center">
+                            @* buttun trang thai(de day t dung copy neu can)
+                                    @if (item.status == 1)
+                                {
+                                    <a class="btn btn-success btn-sm" href="@Url.Action("Status","User_NV",new { id = item.id_NV })"><i class="fas fa-toggle-on"></i></a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-danger btn-sm" href="@Url.Action("Status","User_NV",new { id = item.id_NV })"><i class="fas fa-toggle-off"></i></a>
+                                }
+
+                                public ActionResult Status(int? id)
+                                {
+                                if (id == null)
+                                {
+                                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                                }
+                                Product product=db.Product.Find(id)
+                                product.Status=(product.Status==1)?2:1;
+                                if(product.Status==1)
+                                db.Entry(product).State = EntityState.Modified;
+                                db.SaveChanges();
+                                return RedirectToAction("Index");
+                                }*@
+                            <a class="btn btn-info btn-sm" href="@Url.Action("Edit","QLDonDH",new { id= item.SoDH  })"><i class="fas fa-edit"></i></a>
+                            <a class="btn btn-warning btn-sm" href="@Url.Action("Details","QLDonDH",new { id = item.SoDH })"><i class="fas fa-eye"></i></a>
+                            <a class="btn btn-danger btn-sm" href="@Url.Action("Delete","QLDonDH",new { id = item.SoDH })"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section header{
+
+    <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
 }
-
-</table>
+@section footer{
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('#myTable').DataTable();
+        });
+    </script>
+}

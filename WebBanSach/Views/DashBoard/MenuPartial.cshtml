@@ -1,13 +1,13 @@
 ﻿@using WebBanSach.Models
 <ul class="nav navbar-nav side-nav">
     <li class="@(ViewBag.Title=="Dashboard" ? "active" : "")">
-        <a href="@Url.Action("Index", "Dashboard")"><i class="fas fa-chart-line"></i> Trang chủ admin</a>
+        <a href="@Url.Action("Index", "Dashboard")"><i class="fas fa-chart-line"></i> Trang chính</a>
     </li>
     <li class="@(ViewBag.Title == "Order" ? "active" : "")">
         <a href="@Url.Action("QLDonDH", "QLDonDH")"><i class="fa fa-fw fa-shopping-cart"></i> Đơn đặt hàng</a>
     </li>
     <li class="@(ViewBag.Title == "Product" ? "active" : "")">
-        <a href="@Url.Action("Index", "#")"><i class="fa fa-fw fa-table"></i> Quản lý sản phẩm</a>
+        <a href="@Url.Action("Sach", "QLSach")"><i class="fa fa-fw fa-table"></i> Quản lý sản phẩm</a>
     </li>
     <li class="@(ViewBag.Title == "Supplier" ? "active" : "")">
         <a href="@Url.Action("Index", "QLNhaCC")"><i class="fa fa-fw fa-truck"></i> Nhà cung cấp</a>
@@ -18,7 +18,7 @@
     @if (Model.ID_LOAITK == 1)
     {
         <li class="@(ViewBag.Title == "Employee" ? "active" : "")">
-            <a href="@Url.Action("Index", "QLTaikhoanNV")"><i class="fa fa-fw fa-user"></i> Quản lý Nhân viên</a>
+            <a href="@Url.Action("Index", "QLTaiKhoanNV")"><i class="fa fa-fw fa-user"></i> Quản lý Nhân viên</a>
         </li>
     }
 

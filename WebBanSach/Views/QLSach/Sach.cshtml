@@ -1,42 +1,69 @@
-﻿@model IEnumerable<WebBanSach.Models.DONDATHANG>
+﻿@using WebBanSach.Models
+@*@using PagedList.Mvc;*@
 
+@model IEnumerable<WebBanSach.Models.SACH>
 @{
-    ViewBag.Title = "Quản lý đơn đặt hàng";
+    ViewBag.Title = "Quản lý sách";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<!--<h2>Quản lý Đơn đặt hàng</h2>
-<hr />-->
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>*@
-@*<table class="table">
+@*<h2>Quản lý Danh Mục Sách</h2>
+
+    <p>
+        @Html.ActionLink("Thêm Mới", "Create")
+    </p>
+    <table class="table">
         <tr>
 
-            <th></th>
         </tr>
 
-    @foreach (var item in Model) {
-        <tr>
 
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.MaSach }) |
-                @Html.ActionLink("Details", "Details", new { id=item.MaSach }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.MaSach })
-            </td>
-        </tr>
-    }
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaSach }) |
+                    @Html.ActionLink("Detail", "Detail", new { id = item.MaSach }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaSach })
+                </td>
+            </tr>
+        }
 
     </table>*@
-//
+@*<div style="clear:both">
+        Trang  @(Model.PageCount<@Model.PageNumber?0: @Model.PageNumber) / @Model.PageCount
+    </div>
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Sach", new { page = page }))
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>*@
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length) <text>...</text>
+    }
+
+}
+
 <div class="card">
     <div class="card-header">
         <div class="row">
             <div class="col-md-6">
-                <strong class="text-danger text-uppercase">TẤT CẢ ĐƠN HÀNG</strong>
+                <strong class="text-danger text-uppercase">TẤT CẢ SÁCH</strong>
             </div>
             <div class="col-md-6 text-right">
-                <a href="@Url.Action("Create","")" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>Thêm</a>
+                <a href="@Url.Action("Create","QLSach")" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>Thêm</a>
                 <a href="Detrash" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>Thùng rác</a>
             </div>
         </div>
@@ -46,44 +73,18 @@
             <thead>
                 <tr>
                     <th style="width:20px;" class="text-center">#</th>
-                    <th>
-                        Tên sách
-                    </th>
-                    <th>
-                        Giá
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.GiaBia)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.MoTa)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.AnhBia)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.NgayCapNhat)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.SoLuongTon)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.MaCD)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.MaNXB)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Status)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Size)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Weight)
-                    </th>
+                    <th style="width:200px">Tên Sách</th>
+                    <th style="width:100px">Giá Bán</th>
+                    <th style="width:300px">Mô tả </th>
+                    <th style="width:120px">Ảnh Bìa </th>
+                    <th style="width:150px">Ngày cập nhật</th>
+                    <th style="width:120px"> SL Tồn</th>
+                    <th style="width:120px">Tên Chủ Đề </th>
+                    <th style="width:100px"> Tên NXB </th>
+                    @*<th style="width:200px"> </th>*@
                     <th style="width:200px;" class="text-center">Chức năng</th>
                 </tr>
+
             </thead>
             <tbody>
                 @foreach (var item in Model)
@@ -96,16 +97,14 @@
                             @Html.DisplayFor(modelItem => item.TenSach)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.GiaBan)
+                            @String.Format("{0:0,0}", item.GiaBan)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.GiaBia)
+                            @Truncate(item.MoTa, 100)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.MoTa)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.AnhBia)
+                            @*@Html.DisplayFor(modelItem => item.AnhBia)*@
+                            <img src="@Url.Content("~/images/" + item.AnhBia)" width="100" />
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.NgayCapNhat)
@@ -114,19 +113,10 @@
                             @Html.DisplayFor(modelItem => item.SoLuongTon)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.MaCD)
+                            @Html.DisplayFor(modelItem => item.CHUDE.TenChuDe)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.MaNXB)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Status)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Size)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Weight)
+                            @Html.DisplayFor(modelItem => item.NHAXUATBAN.TenNXB)
                         </td>
                         <td class="text-center">
                             @* buttun trang thai(de day t dung copy neu can)
@@ -152,9 +142,9 @@
                                 db.SaveChanges();
                                 return RedirectToAction("Index");
                                 }*@
-                            <a class="btn btn-info btn-sm" href="@Url.Action("Edit","Edit",new { id= item.SoDH  })"><i class="fas fa-edit"></i></a>
-                            <a class="btn btn-warning btn-sm" href="@Url.Action("Details","Details",new { id = item.SoDH })"><i class="fas fa-eye"></i></a>
-                            <a class="btn btn-danger btn-sm" href="@Url.Action("DelTrash","DelTrash",new { id = item.SoDH })"><i class="fas fa-trash"></i></a>
+                            <a class="btn btn-info btn-sm" href="@Url.Action("Edit","QLSach",new { id = item.MaSach })"><i class="fas fa-edit"></i></a>
+                            <a class="btn btn-warning btn-sm" href="@Url.Action("Detail","QLSach",new { id = item.MaSach })"><i class="fas fa-eye"></i></a>
+                            <a class="btn btn-danger btn-sm" href="@Url.Action("Delete","QLSach",new { id =  item.MaSach})"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 }
@@ -174,3 +164,5 @@
         });
     </script>
 }
+
+
