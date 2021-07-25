@@ -105,6 +105,7 @@ namespace WebBanSach.Controllers
                 ddh.NgayGiao = ngaygiao;
                 ddh.DaThanhToan = true;
                 ddh.TRANGTHAI = "Đang giao";
+                ddh.HinhThucThanhToan = true;
                 ddh.TinhTrangGiaoHang = false;
                 decimal ghTongTien = gh.Sum(n => n.ghThanhTien);
                 ddh.THANHTIEN_HOADON = (double?)ghTongTien;
