@@ -37,11 +37,58 @@ namespace WebBanSach.Controllers
 
             DataBookDataContext data = new DataBookDataContext();
             SachDAO a = new SachDAO();
-            // var all_Sach = a.listSachmoi(3);
             var all_Sach = data.SACHes.ToList();
-           // var first = all_Sach.Skip(3).Take(3).ToList();
             return View(all_Sach.ToPagedList(pageNum, pageSize));
         }
+       
+
+
+        public ActionResult SapXep(int? page, int keysx)
+        {
+            int pageSize = 8;
+            int pageNum = (page ?? 1);
+            DataBookDataContext data = new DataBookDataContext();
+            List<SACH> lst = new List<SACH>();
+            int key = keysx;
+            if (key == 1)
+            {
+                ViewBag.SX = "Sắp xếp theo tên sách (A-Z)";
+                lst = data.SACHes.OrderBy(l => l.TenSach).ToList();
+                return View(lst.ToPagedList(pageNum, pageSize));
+            }
+            else if (key == 2)
+            {
+                ViewBag.SX = "Sắp xếp theo tên sách (Z-A)";
+                lst = data.SACHes.OrderByDescending(l => l.TenSach).ToList();
+                return View(lst.ToPagedList(pageNum, pageSize));
+            }
+            else if (key == 3)
+            {
+                ViewBag.SX = "Sắp xếp theo giá (Thấp - Cao)";
+                lst = data.SACHes.OrderBy(l => l.GiaBan).ToList();
+                return View(lst.ToPagedList(pageNum, pageSize));
+            }
+            else if (key == 4)
+            {
+                ViewBag.SX = "Sắp xếp theo giá (Cao - Thấp)";
+                lst = data.SACHes.OrderByDescending(l => l.GiaBan).ToList();
+                return View(lst.ToPagedList(pageNum, pageSize));
+            }
+            else if (key == 5)
+            {
+                ViewBag.SX = "Sắp xếp theo tên Nhà XB (A - Z)";
+                lst = data.SACHes.OrderBy(l => l.NHAXUATBAN.TenNXB).ToList();
+                return View(lst.ToPagedList(pageNum, pageSize));
+            }
+            else if (key == 6)
+            {
+                ViewBag.SX = "Sắp xếp theo tên Nhà XB (Z - A)";
+                lst = data.SACHes.OrderByDescending(l => l.NHAXUATBAN.TenNXB).ToList();
+                return View(lst.ToPagedList(pageNum, pageSize));
+            }
+            return View(lst.ToPagedList(pageNum, pageSize));
+        }
+
 
         public ActionResult FilterChuDe(int ? page)
         {

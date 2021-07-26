@@ -63,27 +63,34 @@
                         <div itemscope="" itemtype="https://schema.org/ItemList" class="j2store-product-list bs2" data-link="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product">
 
 
-
+                    
                             <div class="row-fluid">
 
                                 <div class="span9">
-                                    <form class="form-horizontal" id="productFilters" name="productfilters" action="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product" data-link="/joomla-templates/jsn_bookstore/pro/bookstore/en/store/product" method="post">
-                                        <input type="hidden" name="filter_catid" id="sort_filter_catid" value="">
-                                        <input type="text" name="search" value="" class="j2store-product-search-input">			<input type="button" value="Tìm kiếm" class="btn btn-success" onclick="jQuery(this.form).submit();">
-
-                                        <!-- Sorting -->
-                                        <select id="j2store_sortby" name="sortby" class="input" onchange="jQuery(this.form).submit()">
-                                            <option value="" selected="selected">Sắp xếp theo</option>
-                                            <option value="pname">Tên sách (A - Z)</option>
-                                            <option value="rpname">Tên sách (Z - A)</option>
-                                            <option value="min_price">Giá (Thấp &gt; Cao)</option>
-                                            <option value="rmin_price">Giá (Cao &gt; Thấp)</option>
-                                            <option value="brand">Nhà xuất bản (A-Z)</option>
-                                            <option value="rbrand">Nhà xuất bản (Z-A)</option>
-                                        </select>
-
-                                        <input type="hidden" name="option" value="com_j2store">	<input type="hidden" name="view" value="products">	<input type="hidden" name="task" value="browse">	<input type="hidden" name="Itemid" value="922">	<input type="hidden" name="650520bba53a98058bb2cf8beba59fdd" value="1">
-                                    </form>
+                                    @using (Html.BeginForm("Search", "Search", new { }))
+                                    {
+                                        <div class="form-horizontal" id="productFilters" name="productfilters" data-link="" method="post">
+                                            <input type="hidden" name="filter_catid" id="sort_filter_catid" value="">
+                                            <input type="text" name="search" value="" class="j2store-product-search-input">
+                                            <input type="button" value="Tìm kiếm" class="btn btn-success" onclick="jQuery(this.form).submit();">
+                                            <select id="j2store_sortby" name="sortby" class="input" onchange="location = this.value;">
+                                                <option value="" selected="selected">Sắp xếp theo</option>
+                                                <option value="@Url.Action("SapXep", "Module", new { keysx = 1 })">Tên sách (A - Z)</option>
+                                                <option value="@Url.Action("SapXep", "Module", new { keysx = 2 })">Tên sách (Z - A)</option>
+                                                <option value="@Url.Action("SapXep", "Module", new { keysx = 3 })">Giá (Thấp &gt; Cao)</option>
+                                                <option value="@Url.Action("SapXep", "Module", new { keysx = 4 })">Giá (Cao &gt; Thấp)</option>
+                                                <option value="@Url.Action("SapXep", "Module", new { keysx = 5 })">Nhà xuất bản (A-Z)</option>
+                                                <option value="@Url.Action("SapXep", "Module", new { keysx = 6 })">Nhà xuất bản (Z-A)</option>
+                                            </select>
+                                            <script type="text/javascript">
+                                                function resetJ2storeFilter() {
+                                                    jQuery(".j2store-product-search-input").val("");
+                                                    jQuery("#productFilters").submit();
+                                                }
+                                            </script>
+                                            <input type="hidden" name="option" value="com_j2store"> <input type="hidden" name="view" value="products"> <input type="hidden" name="task" value="browse"> <input type="hidden" name="Itemid" value="922"> <input type="hidden" name="650520bba53a98058bb2cf8beba59fdd" value="1">
+                                        </div>
+                                    }
 
                                     <script type="text/javascript">
                                         function resetJ2storeFilter() {

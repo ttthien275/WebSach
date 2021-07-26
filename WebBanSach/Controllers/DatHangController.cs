@@ -298,64 +298,64 @@ namespace WebBanSach.Controllers
 
         //-------------------------------------------------------------------------------------------------------------------//
         // MOMO
-        public ActionResult ThanhToanMoMo()
-        {
-            List<Giohang> gh = Session["Giohang"] as List<Giohang>;
-            string endpoint = ConfigurationManager.AppSettings["endpoint"].ToString();
-            string partnerCode = ConfigurationManager.AppSettings["partnerCode"].ToString();
-            string accessKey = ConfigurationManager.AppSettings["accessKey"].ToString();
-            string secretKey = ConfigurationManager.AppSettings["secretKey"].ToString();
-            string orderInfo = "Sách: ";
-            for (int i = 0; i < gh.Count; i++)
-            {
+        //public ActionResult ThanhToanMoMo()
+        //{
+        //    List<Giohang> gh = Session["Giohang"] as List<Giohang>;
+        //    string endpoint = ConfigurationManager.AppSettings["endpoint"].ToString();
+        //    string partnerCode = ConfigurationManager.AppSettings["partnerCode"].ToString();
+        //    string accessKey = ConfigurationManager.AppSettings["accessKey"].ToString();
+        //    string secretKey = ConfigurationManager.AppSettings["secretKey"].ToString();
+        //    string orderInfo = "Sách: ";
+        //    for (int i = 0; i < gh.Count; i++)
+        //    {
 
-                if (i == 0)
-                {
-                    orderInfo += gh[i].ghTenSach + "(" + gh[i].ghSoLuong + ")";
-                }
-                else
-                {
-                    orderInfo += " + " + gh[i].ghTenSach + "(" + gh[i].ghSoLuong + ")";
-                }
-            }
-            string returnUrl = ConfigurationManager.AppSettings["returnUrl"].ToString();
-            string notifyUrl = ConfigurationManager.AppSettings["notifyUrl"].ToString();
+        //        if (i == 0)
+        //        {
+        //            orderInfo += gh[i].ghTenSach + "(" + gh[i].ghSoLuong + ")";
+        //        }
+        //        else
+        //        {
+        //            orderInfo += " + " + gh[i].ghTenSach + "(" + gh[i].ghSoLuong + ")";
+        //        }
+        //    }
+        //    string returnUrl = ConfigurationManager.AppSettings["returnUrl"].ToString();
+        //    string notifyUrl = ConfigurationManager.AppSettings["notifyUrl"].ToString();
 
-            string amount = gh.Sum(n => n.ghThanhTien).ToString();
-            string orderid = Guid.NewGuid().ToString();
-            string requestId = Guid.NewGuid().ToString();
-            string extraData = "";
+        //    string amount = gh.Sum(n => n.ghThanhTien).ToString();
+        //    string orderid = Guid.NewGuid().ToString();
+        //    string requestId = Guid.NewGuid().ToString();
+        //    string extraData = "";
 
-            string rawHash = "partnerCode=" +
-                partnerCode + "&accessKey=" +
-                accessKey + "&requestId=" +
-                requestId + "&amount=" +
-                amount + "&orderId=" +
-                orderid + "&orderInfo=" +
-                orderInfo + "&returnUrl=" +
-                returnUrl + "&notifyUrl=" +
-                notifyUrl + "&extraData=" +
-                extraData;
+        //    string rawHash = "partnerCode=" +
+        //        partnerCode + "&accessKey=" +
+        //        accessKey + "&requestId=" +
+        //        requestId + "&amount=" +
+        //        amount + "&orderId=" +
+        //        orderid + "&orderInfo=" +
+        //        orderInfo + "&returnUrl=" +
+        //        returnUrl + "&notifyUrl=" +
+        //        notifyUrl + "&extraData=" +
+        //        extraData;
 
-            MoMoSecurity crypto = new MoMoSecurity();
-            string signature = crypto.signSHA256(rawHash, secretKey);
-            JObject message = new JObject
-            {
-                { "partnerCode", partnerCode },
-                { "accessKey", accessKey },
-                { "requestId", requestId },
-                { "amount", amount },
-                { "orderId", orderid },
-                { "orderInfo", orderInfo },
-                { "returnUrl", returnUrl },
-                { "notifyUrl", notifyUrl },
-                { "requestType", "captureMoMoWallet" },
-                { "signature", signature }
-            };
-            string reponseFromMoMo = PaymentRequest.sendPaymentRequest(endpoint, message.ToString());
-            JObject jmessage = JObject.Parse(reponseFromMoMo);
-            return Redirect(jmessage.GetValue("payUrl").ToString());
-        }
+        //    MoMoSecurity crypto = new MoMoSecurity();
+        //    string signature = crypto.signSHA256(rawHash, secretKey);
+        //    JObject message = new JObject
+        //    {
+        //        { "partnerCode", partnerCode },
+        //        { "accessKey", accessKey },
+        //        { "requestId", requestId },
+        //        { "amount", amount },
+        //        { "orderId", orderid },
+        //        { "orderInfo", orderInfo },
+        //        { "returnUrl", returnUrl },
+        //        { "notifyUrl", notifyUrl },
+        //        { "requestType", "captureMoMoWallet" },
+        //        { "signature", signature }
+        //    };
+        //    string reponseFromMoMo = PaymentRequest.sendPaymentRequest(endpoint, message.ToString());
+        //    JObject jmessage = JObject.Parse(reponseFromMoMo);
+        //    return Redirect(jmessage.GetValue("payUrl").ToString());
+        //}
 
         public ActionResult ReturnUrl()
         {

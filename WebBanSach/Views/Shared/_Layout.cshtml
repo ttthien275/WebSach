@@ -548,11 +548,11 @@
 
 
                                                     <a title="EUR"
-                                                       onclick="j2store.jQuery('input[name=\'currency_code\']').attr('value', 'EUR'); j2store.jQuery(this).parent().parent().submit();">USD</a>
+                                                       >USD</a>
 
 
                                                     <a title="JPY"
-                                                       onclick="j2store.jQuery('input[name=\'currency_code\']').attr('value', 'JPY'); j2store.jQuery(this).parent().parent().submit();">EUR</a>
+                                                       >EUR</a>
 
                                                     <input type="hidden" name="currency_code" value="" />
                                                     <input type="hidden" name="option" value="com_j2store" />
@@ -630,18 +630,34 @@
                                 <div class="module-style  span3">
                                     <div class="module-body">
                                         <div class="search">
-                                            <form action="/joomla-templates/jsn_bookstore/pro/bookstore/en/"
-                                                  method="post" class="form-inline">
+                                            @using (Html.BeginForm("Search", "Search", new { }))
+                                            {
                                                 <label for="mod-search-searchword" class="element-invisible"> </label>
-                                                <input name="searchword" id="mod-search-searchword" maxlength="200"
-                                                       class="inputbox search-query form-control" type="search"
-                                                       placeholder="Bạn muốn tìm kiếm sách gì..." /> <button class="button btn btn-primary"
-                                                                                           onclick="this.form.searchword.focus();">
+                                                <input name="search" id="mod-search-searchword" maxlength="200"
+                                                       class="inputbox search-query form-control" type="text"
+                                                       placeholder="Bạn muốn tìm kiếm sách gì..." />
+                                                <button type="button" class="button btn btn-primary" onclick="jQuery(this.form).submit();">
                                                     Tìm kiếm
                                                 </button> <input type="hidden" name="task" value="search" />
                                                 <input type="hidden" name="option" value="com_search" />
                                                 <input type="hidden" name="Itemid" value="937" />
-                                            </form>
+                                                @*//de t sua lai//ok chỉnh cho nó đẹp ha//uh
+                                                 <input type="hidden" name="filter_catid" id="sort_filter_catid" value="">
+                                                 <input type="text" name="search" value="" class="j2store-product-search-input">
+                                                 <input type="button" value="Tìm kiếm" class="btn btn-success" onclick="jQuery(this.form).submit();" style="color:gold">*@
+                                            }
+                                            @*<form action=""
+                                                  method="post" class="form-inline">
+                                                <label for="mod-search-searchword" class="element-invisible"> </label>
+                                                <input name="searchword" id="mod-search-searchword" maxlength="200"
+                                                       class="inputbox search-query form-control" type="search"
+                                                       placeholder="Bạn muốn tìm kiếm sách gì..." />
+                                                <button type="submit" class="button btn btn-primary" onclick="window.location.href='@Url.Action("Search","Search")'">
+                                                    Tìm kiếm
+                                                </button> <input type="hidden" name="task" value="search" />
+                                                <input type="hidden" name="option" value="com_search" />
+                                                <input type="hidden" name="Itemid" value="937" />
+                                            </form>*@
                                         </div>
                                     </div>
                                 </div>
@@ -1411,7 +1427,7 @@
                     <div id="column_column-19" class="col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
                         <div class="layout-item sunfw-item-logo">
                             <div class="sunfw-logo visible-lg visible-md visible-sm visible-xs">
-                                <a href="/joomla-templates/jsn_bookstore/pro/bookstore/index.php" title="Sun Bookstore">
+                                <a href="" title="Sun Bookstore">
                                     <img class="logo visible-md visible-lg img-responsive" alt="Sun Bookstore"
                                          src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/images/logo-1.png" />
                                     <img class="logo hidden-md hidden-lg img-responsive" alt="Sun Bookstore"
@@ -1602,17 +1618,17 @@
                                     <div class="module-body">
                                         <ul class="nav menu items-border">
                                             <li class="item-570">
-                                                <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/about">Về chúng tôi</a>
+                                                <a href="">Về chúng tôi</a>
                                             </li>
                                             <li class="item-566">
-                                                <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/contact">Liên hệ</a>
+                                                <a href="">Liên hệ</a>
                                             </li>
                                             <li class="item-492">
                                                 <a class="jsn-404-page"
-                                                   href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/404">404</a>
+                                                   href="">404</a>
                                             </li>
                                             <li class="item-572">
-                                                <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/pages/coming-soon">
+                                                <a href="">
                                                     Sắp ra mắt
                                                 </a>
                                             </li>

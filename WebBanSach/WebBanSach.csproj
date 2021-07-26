@@ -210,6 +210,7 @@
     <Compile Include="Controllers\QLSachController.cs" />
     <Compile Include="Controllers\QLTaikhoanKHController.cs" />
     <Compile Include="Controllers\QLTaiKhoanNVController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="DAO\SachDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -751,6 +752,8 @@
     <Content Include="Views\QLTaiKhoanNV\Delete.cshtml" />
     <Content Include="Views\QLTaiKhoanNV\Create.cshtml" />
     <Content Include="Views\DatHang\Error.cshtml" />
+    <Content Include="Views\Module\SapXep.cshtml" />
+    <Content Include="Views\Search\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
