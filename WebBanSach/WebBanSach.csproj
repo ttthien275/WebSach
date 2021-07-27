@@ -500,6 +500,10 @@
     <Content Include="images\khamphacothe.jpg" />
     <Content Include="images\khong-bao-gio-la-that-bai-tat-ca chi-la-thu-thach.jpg" />
     <Content Include="images\lanhdaobangtrituecamxuc.jpg" />
+    <Content Include="images\member\dien.jpg" />
+    <Content Include="images\member\ha.jpg" />
+    <Content Include="images\member\nhan.jpg" />
+    <Content Include="images\member\thien.jpg" />
     <Content Include="images\muonkiepnhansinh.jpg" />
     <Content Include="images\muonkiepnhansinh2.jpg" />
     <Content Include="images\nguoigiauconhatbabylon.jpg" />

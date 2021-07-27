@@ -614,10 +614,10 @@
                     <div id="column_column-5" class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
                         <div class="layout-item sunfw-item-logo">
                             <div class="sunfw-logo visible-lg visible-md visible-sm visible-xs">
-                                <a href="@Url.Action("Index","Home")" title="Sun Bookstore">
-                                    <img class="logo visible-md visible-lg img-responsive" alt="Sun Bookstore"
+                                <a href="@Url.Action("Index","Home")" title="Book Store - Sách Ngon Bổ Rẻ">
+                                    <img class="logo visible-md visible-lg img-responsive" alt="Book Store - Sách Ngon Bổ Rẻ"
                                          src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/images/logo.png" />
-                                    <img class="logo hidden-md hidden-lg img-responsive" alt="Sun Bookstore"
+                                    <img class="logo hidden-md hidden-lg img-responsive" alt="Book Store - Sách Ngon Bổ Rẻ"
                                          src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/images/logo.png" />
                                 </a>
                             </div>
@@ -641,23 +641,7 @@
                                                 </button> <input type="hidden" name="task" value="search" />
                                                 <input type="hidden" name="option" value="com_search" />
                                                 <input type="hidden" name="Itemid" value="937" />
-                                                @*//de t sua lai//ok chỉnh cho nó đẹp ha//uh
-                                                 <input type="hidden" name="filter_catid" id="sort_filter_catid" value="">
-                                                 <input type="text" name="search" value="" class="j2store-product-search-input">
-                                                 <input type="button" value="Tìm kiếm" class="btn btn-success" onclick="jQuery(this.form).submit();" style="color:gold">*@
                                             }
-                                            @*<form action=""
-                                                  method="post" class="form-inline">
-                                                <label for="mod-search-searchword" class="element-invisible"> </label>
-                                                <input name="searchword" id="mod-search-searchword" maxlength="200"
-                                                       class="inputbox search-query form-control" type="search"
-                                                       placeholder="Bạn muốn tìm kiếm sách gì..." />
-                                                <button type="submit" class="button btn btn-primary" onclick="window.location.href='@Url.Action("Search","Search")'">
-                                                    Tìm kiếm
-                                                </button> <input type="hidden" name="task" value="search" />
-                                                <input type="hidden" name="option" value="com_search" />
-                                                <input type="hidden" name="Itemid" value="937" />
-                                            </form>*@
                                         </div>
                                     </div>
                                 </div>
@@ -730,17 +714,17 @@
                                                     </div>
                                                     <ul class="unstyled">
                                                         <li>
-                                                            <a href="/Login/DangKi">
+                                                            <a href="@Url.Action("DangKi","Login")">
                                                                 Tạo tài khoản mới <span class="icon-arrow-right"></span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/account-reminder">
+                                                            <a href="#">
                                                                 Quên tên đăng nhập?
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="/joomla-templates/jsn_bookstore/pro/bookstore/en/using-joomla/extensions/components/users-component/user-profile?view=reset">
+                                                            <a href="#">
                                                                 Quên mật khẩu?
                                                             </a>
                                                         </li>
@@ -989,21 +973,21 @@
                                             @*Thêm danh mục sách vào menu hiển thị toàn bộ sách*@
                                             <li class="item-435">
                                                 <a class="clearfix"
-                                                   href="/Module/All_Sach">
+                                                   href="@Url.Action("All_Sach","Module")">
                                                     <span data-title="Danh mục Sách"><span class="menutitle">Danh mục Sách</span></span>
                                                 </a>
                                             </li>
                                             @*Thêm thông tin nhà phát triển vào menu tuy nhiên trang này chưa phát triẻn*@
                                             <li class="item-435">
                                                 <a class="clearfix"
-                                                   href="#">
+                                                   href="@Url.Action("About","Home")">
                                                     <span data-title="About"><span class="menutitle">Về chúng tôi</span></span>
                                                 </a>
                                             </li>
                                             @*Thêm trang liên lac vào menu hướng đến cuối trang*@
                                             <li class="item-435">
                                                 <a class="clearfix"
-                                                   href="#sunfw_section_section_footer">
+                                                   href="@Url.Action("Contact","Home")">
                                                     <span data-title="Liên hệ"><span class="menutitle">Liên hệ</span></span>
                                                 </a>
                                             </li>
@@ -1427,10 +1411,10 @@
                     <div id="column_column-19" class="col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
                         <div class="layout-item sunfw-item-logo">
                             <div class="sunfw-logo visible-lg visible-md visible-sm visible-xs">
-                                <a href="" title="Sun Bookstore">
-                                    <img class="logo visible-md visible-lg img-responsive" alt="Sun Bookstore"
+                                <a href="@Url.Action("Index","Home")" title="Book Store - Sách Ngon Bổ Rẻ">
+                                    <img class="logo visible-md visible-lg img-responsive" alt="Book Store - Sách Ngon Bổ Rẻ"
                                          src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/images/logo-1.png" />
-                                    <img class="logo hidden-md hidden-lg img-responsive" alt="Sun Bookstore"
+                                    <img class="logo hidden-md hidden-lg img-responsive" alt="Book Store - Sách Ngon Bổ Rẻ"
                                          src="https://demo.joomlashine.com/joomla-templates/jsn_bookstore/pro/bookstore/templates/jsn_bookstore/images/logo-1.png" />
                                 </a>
                             </div>
@@ -1618,10 +1602,10 @@
                                     <div class="module-body">
                                         <ul class="nav menu items-border">
                                             <li class="item-570">
-                                                <a href="">Về chúng tôi</a>
+                                                <a href="@Url.Action("About","Home")">Về chúng tôi</a>
                                             </li>
                                             <li class="item-566">
-                                                <a href="">Liên hệ</a>
+                                                <a href="@Url.Action("Contact","Home")">Liên hệ</a>
                                             </li>
                                             <li class="item-492">
                                                 <a class="jsn-404-page"

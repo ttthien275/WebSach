@@ -129,7 +129,7 @@ namespace WebBanSach.Controllers
         {
             Session["USERNAME"] = null;
             Session["Giohang"] = null;
-            return Redirect("/Home/Index");
+            return RedirectToAction("Index","Home");
         }
 
         public ActionResult Index()

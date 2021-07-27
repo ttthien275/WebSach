@@ -44,14 +44,10 @@
         </div>
     </div>
 </div>
-
+<h3>Đăng kí thành viên</h3>
 <div class="layout-item sunfw-item-page-content">
-    <div id="system-message-container">
-    </div>
-
     <div class="registration">
         <form id="member-registration" action="/Login/DangKi" method="post" class="form-validate form-horizontal well" enctype="multipart/form-data">
-            <legend>Đăng kí tài khoản</legend>
             <div class="control-group">
                 <div class="control-label">
                     <span class="spacer"><span class="before"></span><span class="text"><label id="jform_spacer-lbl" class=""><strong class="red">*</strong> Thông tin bắt buộc</label></span><span class="after"></span></span>
@@ -66,7 +62,7 @@
                     </label>
                 </div>
                 <div class="controls">
-                    <input type="text" name="HOTEN" id="HOTEN" value="" class="" size="30" aria-required="true" aria-invalid="false">
+                    <input type="text" name="HOTEN" id="HOTEN" value="" class="" size="30" required="required" aria-required="true" aria-invalid="false">
                     @ViewData["error-1"]
                 </div>
             </div>
@@ -123,9 +119,9 @@
                 </div>
                 <div class="controls">
                     <input type="text" name="DIACHI_TK" id="DIACHI_TK" value="" autocomplete="off" class="validate-adress required" size="30" maxlength="99" required="required" aria-required="true">
-
+                    @ViewData["error-6"]
                 </div>
-                @ViewData["error-6"]
+
             </div>
             <div class="control-group">
                 <div class="control-label">
@@ -135,17 +131,17 @@
                 </div>
                 <div class="controls">
                     <input type="text" name="SDT" id="SDT" value="" autocomplete="off" class="validate-phone required" size="30" maxlength="99" required="required" aria-required="true">
-
+                    @ViewData["error-7"]
                 </div>
-                @ViewData["error-7"]
+
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <button type="submit" class="btn btn-primary validate" onclick="suceedLogin()">
-                        Register
+                    <button type="submit" class="btn btn-primary validate">
+                        Đăng kí
                     </button>
-                    <a class="btn btn-default" href="/BookStore/Index" title="Cancel">
-                        Cancel
+                    <a class="btn btn-default" href="@Url.Action("Index","Home")" title="Cancel">
+                        Hủy bỏ
                     </a>
                     <input type="hidden" name="option" value="com_users">
                     <input type="hidden" name="task" value="registration.register">
@@ -156,13 +152,7 @@
     </div>
 
 </div>
-<script>
-    function suceedLogin() {
-        alert("Chúc mừng bạn đã đăng kí thành công. Mời bạn đăng nhập để trải nghiệm dễ dàng.")
-    }
-</script>
-@*@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}*@
+
+
 
 
